@@ -1,0 +1,191 @@
+---
+title: 'Setup Micro Front End Monorepo with Next.js'
+publishedAt: '2021-02-28'
+summary: 'Visualize my journey through the scenic lands of Norway with rich, stunning pictures and daily travel logs.'
+image: '/static/images/setup-microfrontend-monorepo-with-nextjs/banner.png'
+---
+
+<Image
+  alt={`Dashboard`}
+  src={`/static/images/setup-microfrontend-monorepo-with-nextjs/banner.png`}
+  width={1501}
+  height={712}
+  priority
+/>
+
+## Setup Micro Front-End Monorepo with Next.js
+
+As applications scale, you’ll inevitably reach a point where you want to write [shared reusable components](/blog/ui-component-library-with-styled-components) which can be used everywhere. Historically, we’ve had separate repositories for each package. However, this becomes a problem for a few reasons:
+
+- It does not scale well. Before you know it, you have dozens of different package repositories repeating the same build, test, and release process.
+- It promotes bundling unnecessary components. Do we need to create a new repo for this button? Let’s put it together with this other package. Now we’ve increased the bundle size for something 95% of consumers won’t use.
+- It makes upgrading difficult. If you update a base component, you now have to update its consumers, its consumer’s consumers, etc. This problem gets worse as you scale.
+
+To make our applications as performant as possible, we need to have small bundle sizes. This means we should only include the code we’re using in our bundle.
+
+Along with this, when developing shared component libraries, we want to have semver over individual pieces instead of the entire package. This prevents scenarios where:
+
+Vercel now supports monorepos for improved flexibility at scale. From the same Git repository, you can set up multiple projects to be built and deployed in parallel.
+Monorepos let your team use multiple programming languages and frameworks, collaborate better, and leverage micro frontend architectures.
+
+## Monorepo
+
+> Juggling a multimodule project over multiple repos is like trying to teach a newborn baby how to ride a bike. (From Babel)
+
+A monorepo approach is when all officially maintained modules are in the same repo.
+
+This is quite taboo but let's look at the pros and cons:
+
+**Pros:**
+
+- Single lint, build, test and release process.
+- Easy to coordinate changes across modules.
+- Single place to report issues.
+- Easier to setup a development environment.
+- Tests across modules are run together which finds bugs that touch multiple modules more easily.
+
+**Cons:**
+
+- Codebase looks more intimidating.
+- Repo is bigger in size.
+- [Can't `npm install` modules directly from GitHub](https://github.com/npm/npm/issues/2974) _(Solved using Yarn Workspaces)_
+- ???
+
+**This is dumb! Nobody in open source does this!** [Babel](https://github.com/babel/babel), [React](https://github.com/facebook/react/tree/master/packages), [Jest](https://github.com/facebook/jest/tree/master/packages), [Vue](https://github.com/vuejs/vue/tree/dev/packages), [Angular](https://github.com/angular/angular/tree/master/packages), among others, do this.
+
+### Lerna
+
+> The tool for managing the monorepo in Babel has been extracted out as [Lerna](https://github.com/lerna/lerna)
+
+[Lerna](https://github.com/lerna/lerna) and [Yarn Workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) give us the ability to build libraries and apps in a single repo (a.k.a. [Monorepo](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)) without forcing us to publish to NPM until we are ready. This makes it faster to iterate locally when building components that depend on each other.
+
+Lerna also provides high-level commands to optimize the management of multiple packages. For example, with one Lerna command, you can iterate through all the packages, running a series of operations (such as linting, testing, and building) on each package.
+
+## Micro Front-End
+
+This is quite taboo but let's look at the pros and cons:
+
+**Pros:**
+
+- Single lint, build, test and release process.
+- Easy to coordinate changes across modules.
+- Single place to report issues.
+- Easier to setup a development environment.
+- Tests across modules are run together which finds bugs that touch multiple modules more easily.
+
+**Cons:**
+
+- Codebase looks more intimidating.
+- Repo is bigger in size.
+- [Can't `npm install` modules directly from GitHub](https://github.com/npm/npm/issues/2974)
+- ???
+
+## Project
+
+In this guide, we will be utilizing:
+
+- 🐉 [Lerna](https://lerna.js.org/) — The Monorepo manager
+- 📦 [Yarn Workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) — Sane multi-package management
+- 🚀 [React](https://reactjs.org/) — JavaScript library for user interfaces
+- 💅 [styled-components](https://www.styled-components.com/) — CSS in JS elegance
+- 🛠 [Babel](https://babeljs.io/) — Compiles next-gen JavaScript
+- 📖 [Storybook](https://storybook.js.org/) — UI Component Environment
+- 🃏 [Jest](https://jestjs.io/) — Unit/Snapshot Testing
+
+You can either follow along or view the finished repo here.
+
+Okay, let’s begin! First, let’s create a new project and set up Lerna.
+
+```bash
+$ mkdir monorepo
+$ cd monorepo
+$ npx lerna init
+```
+
+This creates a `package.json` file for your project.
+
+```json:package.json
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
+```
+
+You’ll notice a `lerna.json` file has also been created, as well as a `/packages` folder which will contain our libraries. Let’s now modify our `lerna.json` file to use Yarn Workspaces.
+We’ll use independent versioning so we can properly enforce [semver](https://semver.org/) for each package.
+
+```json:lerna.json
+{
+  "packages": ["packages/*"],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent"
+}
+```
+
+We’ll also need to modify our `package.json` to define where the Yarn workspaces are located.
+
+```json:package.json
+{
+  "name": "root",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
+```
+
+Now, let’s create our frontend application with create-next-app. This allows us to quickly start a new NextJS application.
+
+```bash
+npx create-next-app packages/website
+```
+
+Let’s run our NextJS application to make sure it works. Run the following from the root directory. Our app should compile and run on localhost:3000. Using --cwd tells yarn to use packages/website as it’s current working directory.
+yarn --cwd packages/website dev
+Open your browser to make sure it’s working. It should look like this screenshot.
+
+### Adding another package
+
+Now that we have created our website package, it’s time to add another. Let’s create our components package.
+
+## Module Federation
+
+Module Federation is a feature builtin in Webpack 5, it's a new way to share components or any javascrfipt code between any webpack application.
+NextJS 10 is webpack. Micro site architecture, multiple Next.js applications all of eachs contributing to one website. Example: 1 consitent header,
+Instead creating an NPM package for the Header and pushing releases and then versioning all the applications
+Expose a Header from one of those applications with all it's dependencies and consume that live in any ohter application just if as it was another component.
+
+## Who is building with Next.js
+
+- [Binance](https://www.binance.com/en)
+
+### Conclusion
+
+I feel that Microfrontends is a viable solution for scaling frontend within large teams (> 30 developers) working on a single codebase. Even though teams built this way are a product of the organisation’s communication structure, at this scale, it might be a necessary cost in exchange for faster deliveries. Scaling Microfrontends from 30 developers to 100 is a log operation and could incentivise large organisations to structure the teams after the business domain.
+
+On the other side, Microfrontends would be an unnecessary complication for smaller teams where a Monolith could be improved and scaled by simply investing in better engineering standards.
+
+---
+
+## Awesome Reading
+
+- [Micro Frontends](https://martinfowler.com/articles/micro-frontends.html)
+- [Micro Frontends #Downsides](https://martinfowler.com/articles/micro-frontends.html#Downsides)
+- [Microfrontends: an expensive recipe for frontend applications](https://blog.sergiomartino.com/2020/11/microfrontends-an-expensive-recipe-for-frontend-applications/)
+- [Next.js Multi Zones](https://nextjs.org/docs/advanced-features/multi-zones) - Microservices for front-end
+- [Next.js Multi Zones Example](https://github.com/vercel/next.js/tree/canary/examples/with-zones) - Github repository
+- [Creating a Monorepo with Lerna & Yarn Workspaces](https://colormono.com/blog/monorepo-lerna-yarn-workspaces)
+- [Why is Babel a monorepo](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
+- [Development at the Speed and Scale of Google](https://www.infoq.com/presentations/Development-at-Google/)
+- [Lerna](https://lerna.js.org/) - A tool for managing JavaScript projects with multiple packages.
+- [Monorepos in Vercel](https://vercel.com/blog/monorepos)
+- [Module Federation for Next.js Explanation](https://www.youtube.com/watch?v=vX6EXi5I9LE)
+- [Module Federation for Next.js Repository](https://github.com/module-federation/nextjs-mf) - Author: Zack Jackson, Webpack 5 Module Federation Feature contributor
+- [Module Federation for Next.js Tutorial](https://www.youtube.com/watch?v=vX6EXi5I9LE)
+- [Single-SPA](https://single-spa.js.org/) alternative router **(we are using Next.js default router)**
+- [Single-SPA Tutorial](https://www.youtube.com/watch?v=wU06eTMQ6yI)
