@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
@@ -28,7 +28,7 @@ export default function SnippetLayout({ children, frontMatter }) {
             </p>
           </div>
           <div className="mt-2 sm:mt-0">
-            <Image
+            <img
               alt={frontMatter.title}
               height={48}
               width={48}

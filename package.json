@@ -13,8 +13,8 @@
     "url": "git+https://github.com/colormono/colormono.com.git"
   },
   "scripts": {
-    "build": "next build",
     "dev": "next",
+    "build": "next build",
     "start": "next start",
     "export": "next export"
   },

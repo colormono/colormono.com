@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import useSWR from 'swr';
 
 import fetcher from '@/lib/fetcher';
@@ -8,7 +8,7 @@ export default function NowPlaying() {
 
   return (
     <div className="flex items-start border border-gray-300 dark:border-gray-800 rounded-lg w-72 p-2 mb-8">
-      <Image
+      <img
         alt="Spotify"
         className="rounded-lg w-60 h-60"
         height={60}

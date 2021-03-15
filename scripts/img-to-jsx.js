@@ -16,7 +16,8 @@ module.exports = (options) => (tree) => {
 
       // Convert original node to next/image
       imageNode.type = 'html';
-      imageNode.value = `<Image
+      // imageNode.value = `<Image
+      imageNode.value = `<img
   alt={\`${imageNode.alt}\`} 
   src={\`${imageNode.url}\`}
   width={${dimensions.width}}

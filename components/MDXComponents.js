@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Tweet from 'react-tweet-embed';
 
 import ProsCard from '@/components/ProsCard';
@@ -22,7 +22,7 @@ const CustomLink = (props) => {
 };
 
 const MDXComponents = {
-  Image,
+  // Image,
   a: CustomLink,
   ConsCard,
   ProsCard,
