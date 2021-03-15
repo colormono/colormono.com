@@ -5,7 +5,7 @@ import ProjectCard from '@/components/ProjectCard';
 export default function Home() {
   return (
     <Container>
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col justify-center items-start max-w-xl">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-4 text-black dark:text-white">
           Hello, World!
         </h1>
@@ -14,8 +14,9 @@ export default function Home() {
           TrueNorth as a Front-end Tech Lead. By having a generalist technical
           skillset, I'm able to participate in a variety of projects in
           different stages of the creative process, from conception to
-          execution. You’ve found my personal slice of the internet.
+          execution.
         </h2>
+        {/*
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
           Selected Projects
         </h3>
@@ -31,7 +32,6 @@ export default function Home() {
           href="https://masteringnextjs.com/"
           icon="nextjs"
         />
-        {/*
         <ProjectCard
           title="Fast Feedback"
           description="The easiest way to add comments or reviews to your static site. Built as part of React 2025."

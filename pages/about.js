@@ -52,26 +52,8 @@ export default function About() {
           About Me
         </h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
-          <p>
-            Hey, I’m Lee. I'm a developer, writer, and the creator of&nbsp;
-            <a
-              href="https://masteringnextjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Mastering Next.js
-            </a>
-            &nbsp;and&nbsp;
-            <a
-              href="https://react2025.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              React 2025.
-            </a>
-            &nbsp;I work at ▲Vercel as a Solutions Architect.
-          </p>
-          <p>
+          <p>Hey, I’m Mariano.</p>
+          {/* <p>
             I’ve spoken across the country at conferences and meet-ups about
             front-end development, design, and recruiting. I write about
             development, tech careers, and my personal life on&nbsp;
@@ -84,9 +66,9 @@ export default function About() {
             graduating with a degree in Computer Engineering. I spend my free
             time playing music, creating videos, and enjoying time with friends
             and family in Des Moines, IA.
-          </p>
+          </p> */}
         </div>
-        <h2 className="font-bold text-3xl tracking-tight mb-4 text-black dark:text-white">
+        {/* <h2 className="font-bold text-3xl tracking-tight mb-4 text-black dark:text-white">
           Conference Talks
         </h2>
         <Talk
@@ -129,7 +111,7 @@ export default function About() {
           candidate and with hiring - on what candidates really want out of a
           position.
         </Talk>
-        <Timeline />
+        <Timeline /> */}
       </div>
     </Container>
   );
