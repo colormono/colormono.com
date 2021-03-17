@@ -47,14 +47,14 @@ export default function About() {
             {/* with a grant from Myself, haha.*/}
           </p>
           <p>
-            By having a generalist technical skillset, I'm able to participate
+            By having a generalist technical skill set, I'm able to participate
             in a variety of projects in different stages of the creative
             process, from conception to execution.
           </p>
 
           {/* <p>Download Full CV</p> */}
 
-          <div className="font-bold mt-8 mb-4 block">Skillset</div>
+          <div className="font-bold mt-8 mb-4 block">Skill set</div>
           <div className="flex flex-wrap gap-2">
             <Tag>JavaScript</Tag>
             <Tag>React</Tag>
