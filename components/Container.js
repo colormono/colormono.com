@@ -13,7 +13,7 @@ export default function Container({ children }) {
 
   return (
     <div className="bg-white dark:bg-black min-h-screen">
-      <nav className="sticky-nav flex justify-between items-center w-full p-8 lg:p-16 my-0 md:my-8 mx-auto bg-white dark:bg-black bg-opacity-60">
+      <nav className="sticky-nav flex justify-between items-center w-full p-8 lg:px-16 my-0 md:my-8 mx-auto bg-white dark:bg-black bg-opacity-60">
         <div className="">
           <NextLink href="/">
             <a className="text-gray-900 dark:text-gray-100">
@@ -33,18 +33,18 @@ export default function Container({ children }) {
           {/* <NextLink href="/work">
             <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Work</a>
           </NextLink> */}
-          {/* <NextLink href="/dashboard">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Lab</a>
+          {/* <NextLink href="/play">
+            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Play</a>
           </NextLink> */}
+          <NextLink href="/about">
+            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">About</a>
+          </NextLink>
           {/* <NextLink href="/blog">
             <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Blog</a>
           </NextLink> */}
-          {/* <NextLink href="/about">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">About</a>
-          </NextLink> */}
-          {/* <NextLink href="/">
+          <NextLink href="/">
             <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Home</a>
-          </NextLink> */}
+          </NextLink>
 
           <button
             aria-label="Toggle Dark Mode"
@@ -92,6 +92,7 @@ export default function Container({ children }) {
           </button>
         </div>
       </nav>
+
       <main className="flex flex-col bg-white dark:bg-black px-8 lg:px-16">
         {children}
         <Footer />

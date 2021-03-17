@@ -10,7 +10,7 @@ export default function Home() {
           Hello, World!
         </h1>
         <h2 className="text-gray-600 dark:text-gray-400 mb-16">
-          I’m Mariano Rivas, multimedia artist and creative developer. I work at
+          I’m Mariano Rivas, new media artist and creative developer. I work at
           TrueNorth as a Front-end Tech Lead. By having a generalist technical
           skillset, I'm able to participate in a variety of projects in
           different stages of the creative process, from conception to

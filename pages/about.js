@@ -2,38 +2,11 @@ import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
-import Timeline from '@/components/Timeline';
 
-const Talk = ({ title, link, children }) => (
-  <>
-    <h3 className="font-medium mb-2 text-lg">
-      <a
-        className="flex items-center text-gray-900 dark:text-gray-100"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={link}
-      >
-        {title}
-        <div>
-          <svg
-            className="h-4 w-4 ml-1"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            />
-          </svg>
-        </div>
-      </a>
-    </h3>
-    <p className="text-gray-600 dark:text-gray-400 mb-8">{children}</p>
-  </>
+const Tag = ({ children }) => (
+  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-500 dark:bg-gray-900 dark:text-gray-600 rounded-full">
+    {children}
+  </span>
 );
 
 export default function About() {
@@ -47,71 +20,165 @@ export default function About() {
           title: 'About Me – Mariano Rivas'
         }}
       />
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-          About Me
+      <div className="flex flex-col justify-center items-start max-w-2xl mb-16">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-8 text-black dark:text-white">
+          Mariano Rivas
         </h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
-          <p>Hey, I’m Mariano.</p>
+          <p>New media artist and creative coder, Buenos Aires, 1983.</p>
           {/* <p>
-            I’ve spoken across the country at conferences and meet-ups about
-            front-end development, design, and recruiting. I write about
-            development, tech careers, and my personal life on&nbsp;
-            <Link href="/newsletter">
-              <a>my newsletter.</a>
-            </Link>
+            Mi práctica abarca desde esculturas mecánicas a instalaciones
+            interactivas de cuerpo completo. Utiliza el código como una
+            herramienta de expresión artística y disfruta de trabajar en la
+            intersección del arte y la tecnología. Ha trabajado con artistas
+            emergentes, estudios boutiques, grandes marcas y publicidad, creando
+            experiencias de todos los tamaños. Participó de exposiciones en el
+            Centro Cultural Konex (FAUNA) y Malba (ArtFutura).
+          </p> */}
+
+          <p>
+            I focus my practice in code, electronics and non-digital objects for
+            creating interactive projects often framed as generative art. From
+            educational to sociological approaches, my interest lies in the
+            human-machine collaboration. With my works, I have participated in
+            different festivals such ArtFutura, FAUNA, and Jóvenes en primer
+            plano, among others. Currently I am working on a research project
+            about emergence in generative art.
+            {/* with a grant from Myself, haha.*/}
           </p>
           <p>
-            I grew up in small-town Iowa and went to school at Iowa State,
-            graduating with a degree in Computer Engineering. I spend my free
-            time playing music, creating videos, and enjoying time with friends
-            and family in Des Moines, IA.
-          </p> */}
+            By having a generalist technical skillset, I'm able to participate
+            in a variety of projects in different stages of the creative
+            process, from conception to execution.
+          </p>
+
+          {/* <p>Download Full CV</p> */}
+
+          <div className="font-bold mt-8 mb-4 block">Skillset</div>
+          <div className="flex flex-wrap gap-2">
+            <Tag>JavaScript</Tag>
+            <Tag>React</Tag>
+            <Tag>NextJS</Tag>
+            <Tag>ThreeJS</Tag>
+            <Tag>NodeJS</Tag>
+            <Tag>GraphQL</Tag>
+            <Tag>Design Systems</Tag>
+            <Tag>Dataviz</Tag>
+            <Tag>openFrameworks</Tag>
+            <Tag>Processing</Tag>
+            <Tag>Arduino</Tag>
+          </div>
+
+          {/* <h3>Skills</h3>
+          <ul>
+            <li>Creative thinking, Inductive reasoning.</li>
+            <li>Agile team player, collaborationist and good listener.</li>
+            <li>
+              Software engineering best practices, up-to-date with JavaScript.
+            </li>
+            <li>Functional, objet-oriented, maintainable and reusable code.</li>
+            <li>Project design, planning and execution. </li>
+          </ul> */}
+
+          {/* <h3>Education</h3>
+          <ul>
+            <li>
+              <span>2024</span>{' '}
+              <strong>
+                <small>(M.A.)</small> Maestría en Tecnología y Estética de las
+                Artes Electrónicas, UNTREF, Argentina
+              </strong>
+            </li>
+            <li>
+              <span>2020</span>{' '}
+              <strong>
+                (B.F.A.) Licenciatura en Artes Multimediales, Universidad
+                Nacional de las Artes, Argentina.
+              </strong>
+            </li>
+            <li>
+              <span>2016</span> Sistemas Generativos: el arte de perder el
+              control, Leonardo Solaas, Espacio Plá
+            </li>
+            <li>
+              <span /> Introducción al proceso de producción con impresión 3D,
+              Mariano Giraud, Espacio Plá
+            </li>
+            <li>
+              <span /> Construcción de Brazo Robótico, Leandro Barbeito, Neti
+              Makersapce
+            </li>
+            <li>
+              <span /> Proyectos &amp; Desarrollo Profesional, Lucía
+              Warck-Meister, Fundación Cazadores de Arte
+            </li>
+            <li>
+              <span /> Me colgás el proye?, Lucas DM, Centro Cultural Matienzo
+            </li>
+            <li>
+              <span>2014</span>{' '}
+              <strong>
+                (B.A.) Técnico en Artes Multimediales, Universidad Nacional de
+                las Artes, Argentina
+              </strong>
+            </li>
+            <li>
+              <span>2013</span> Captura de Movimiento para las Artes Escénicas,
+              Diego Alberti, CCEBA
+            </li>
+            <li>
+              <span>2009</span> Diseño de Imagen y Sonido, Universidad de
+              Palermo, Argentina <em>(Incompleta)</em>
+            </li>
+            <li>
+              <span>2007</span> Diseño Gráfico, Universidad de Buenos Aires,
+              Argentina <em>(Incompleta)</em>
+            </li>
+            <li>
+              <span>2004</span> Ingeniería Informática, Universidad de Buenos
+              Aires, Argentina <em>(Incompleta)</em>
+            </li>
+          </ul> */}
+
+          {/* <h3>Premios &amp; Becas</h3>
+          <ul>
+            <li>
+              <span>2015</span> ArtFutura, Mención del Jurado. Categoría:
+              Videoarte. Obra: Música.
+            </li>
+          </ul> */}
+
+          {/* <h3>Exhibiciones Individuales</h3>
+          <ul>
+            <li>
+              <span>2017</span> Cazadores de Arte, Buenos Aires, Argentina
+            </li>
+          </ul> */}
+
+          {/* <h3>Exhibiciones Grupales</h3>
+          <ul>
+            <li>
+              <span>2015</span> FAUNA, Centro Cultural Konex, Capital Federal,
+              Argentina
+            </li>
+            <li>
+              <span>2015</span> ArtFutura, MALBA, Capital Federal, Argentina
+            </li>
+            <li>
+              <span>2014</span> Festival Jóvenes en primer plano, Capital
+              Federal, Argentina
+            </li>
+          </ul> */}
+
+          {/* 
+          <h3>Colecciones</h3>
+          <ul>
+            <li>
+              <span>Año</span> Lugar, Ciudad, País
+            </li>
+          </ul>
+          */}
         </div>
-        {/* <h2 className="font-bold text-3xl tracking-tight mb-4 text-black dark:text-white">
-          Conference Talks
-        </h2>
-        <Talk
-          title="Data Fetching with Next.js"
-          link="https://www.youtube.com/watch?v=Sz7SImkdIpo&feature=youtu.be&t=6063"
-        >
-          Next.js is a hybrid React framework allowing you to choose your data
-          fetching strategy on a per-page basis. In this talk, you’ll learn more
-          about CSR (Client-Side Rendering), SSR (Server-Side Rendering), SSG
-          (Static-Site Generation), ISR (Incremental Static Regeneration), and
-          when to use each one. I’ll also give a quick introduction to Next.js
-          and share some of the main features of the framework.
-        </Talk>
-        <Talk
-          title="Building Static Sites with Prisma and Next.js"
-          link="https://youtu.be/z3rmZbOEBCM?t=273"
-        >
-          During this workshop, you'll learn how to integrate Prisma with
-          Next.js and build a statically-generated site that displays a list of
-          your favorite songs. We'll use Chakra UI for styling and deploy our
-          site with Vercel.
-        </Talk>
-        <Talk
-          title="Building Component Libraries with a Monorepo"
-          link="/building-component-libraries-with-a-monorepo.pdf"
-        >
-          Learn why your organization needs a component library and discover the
-          best practices for building, scaling, and adopting it across all
-          platforms. We'll be using industry-standard technology (React,
-          JavaScript, Storybook) alongside cutting-edge solutions (CSS-in-JS,
-          Monorepo).
-        </Talk>
-        <Talk
-          title="Recruiting Engineers (From An Engineer's Perspective)"
-          link="/recruiting-engineers-talent42-lee-robinson.pdf"
-        >
-          Hiring talent is becoming increasingly difficult with low unemployment
-          rates and the tech industry booming. What you can do to stick out?
-          Learn from an engineer who's been involved on both sides - both as a
-          candidate and with hiring - on what candidates really want out of a
-          position.
-        </Talk>
-        <Timeline /> */}
       </div>
     </Container>
   );
