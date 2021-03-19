@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/projects"
+  to = "/works"
+  status = 200
+
+[[redirects]]
+  from = "/30min"
+  to = "https://calendly.com/colormono/30min"
+  force = true
