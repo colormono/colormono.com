@@ -25,7 +25,7 @@ export default function About() {
           Mariano Rivas
         </h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
-          <p>New media artist and creative coder, Buenos Aires, 1983.</p>
+          <p>New media artist and software developer, Buenos Aires, 1983.</p>
           {/* <p>
             Mi práctica abarca desde esculturas mecánicas a instalaciones
             interactivas de cuerpo completo. Utiliza el código como una

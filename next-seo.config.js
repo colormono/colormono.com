@@ -1,6 +1,6 @@
 const title = 'COLORMONO – Creative Developer';
 const description =
-  'Buenos Aires based multimedia artist and creative developer.';
+  'Buenos Aires based multimedia artist and software developer.';
 
 const SEO = {
   title,
