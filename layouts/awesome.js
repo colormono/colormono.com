@@ -21,6 +21,7 @@ export default function UsesLayout({ children }) {
         </h1>
         <p className="text-gray-700 dark:text-gray-300 mt-2 mb-8">
           Manually curated collection of Art resources, tools and shiny things.
+          Some links I use/used/‘ll use again to create software or print it.
         </p>
         <div className="prose dark:prose-dark w-full">{children}</div>
       </article>
