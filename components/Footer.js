@@ -13,7 +13,7 @@ const ExternalLink = ({ href, children }) => (
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col mb-8">
+    <footer className="flex flex-col mb-8 mt-12">
       <div className="flex space-x-4 mb-4">
         <ExternalLink href="https://instagram.com/colormono">
           <span className="sr-only">Instagram</span>

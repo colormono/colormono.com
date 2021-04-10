@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
-
 import Container from '@/components/Container';
 
 const Tag = ({ children }) => (
