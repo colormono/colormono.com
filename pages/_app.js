@@ -1,3 +1,5 @@
+import React, { Fragment } from 'react';
+import Router from 'next/router';
 import '@/styles/global.css';
 
 import { MDXProvider } from '@mdx-js/react';
@@ -8,6 +10,11 @@ import Head from 'next/head';
 import SEO from '../next-seo.config';
 import MDXComponents from '@/components/MDXComponents';
 import { useAnalytics } from '@/lib/analytics';
+
+import * as gtag from '@/lib/gtag';
+
+// Notice how we track pageview when route is changed
+Router.events.on('routeChangeComplete', (url) => gtag.pageview(url));
 
 export default function App({ Component, pageProps }) {
   useAnalytics();
