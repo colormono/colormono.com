@@ -6,7 +6,6 @@ My portfolio has transformed over the years - from a static HTML site, to WordPr
 
 - `pages/api/*` - [API routes](https://nextjs.org/docs/api-routes/introduction) powering [`/dashboard`](https://colormono.com/dashboard), newsletter subscription, and post views.
 - `pages/blog/*` - Static pre-rendered blog pages using [MDX](https://github.com/mdx-js/mdx).
-- `pages/blog/*` - Static pre-rendered project pages using [MDX](https://github.com/mdx-js/mdx).
 - `pages/*` - All other static pages.
 
 ## Running Locally
@@ -29,4 +28,10 @@ Create a `.env.local` file similar to [`.env.example`](https://github.com/colorm
 
 ---
 
-This scaffolding was forked from [Lee Robinson website](https://github.com/leerob/leerob.io), thanks [Leerob](https://leerob.io)!
+### Aknowledgments
+
+The initial commit was forked from [leerob.io](https://github.com/leerob/leerob.io).
+Thanks [Lee Robinson](https://leerob.io), you rocks!
+
+The photo-stream was forked from [Photo-stream](https://github.com/maxvoltar/photo-stream).
+Thanks [Tim Van Damme](https://twitter.com/maxvoltar)!
