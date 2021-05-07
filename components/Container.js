@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
-
+import { InstagramIcon } from '@/components/icons';
+import ExternalLink from '@/components/ExternalLink';
 import Footer from '@/components/Footer';
 
 export default function Container({ children }) {
@@ -12,8 +13,8 @@ export default function Container({ children }) {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="bg-white dark:bg-black min-h-screen">
-      <nav className="sticky-nav flex justify-between items-center w-full p-8 lg:px-16 my-0 md:my-8 mx-auto bg-white dark:bg-black bg-opacity-60">
+    <div className="bg-gray-100 dark:bg-black min-h-screen">
+      <nav className="sticky-nav flex justify-between items-center w-full p-8 lg:px-16 my-0 md:my-8 mx-auto bg-opacity-60">
         <div className="">
           <NextLink href="/">
             <a className="text-gray-900 dark:text-gray-100">
@@ -43,8 +44,14 @@ export default function Container({ children }) {
             <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Blog</a>
           </NextLink> */}
           <NextLink href="/">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Home</a>
+            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100 mr-4">
+              Home
+            </a>
           </NextLink>
+
+          <ExternalLink href="https://instagram.com/colormono">
+            <InstagramIcon />
+          </ExternalLink>
 
           <button
             aria-label="Toggle Dark Mode"
@@ -93,10 +100,9 @@ export default function Container({ children }) {
         </div>
       </nav>
 
-      <main className="flex flex-col bg-white dark:bg-black px-8 lg:px-16">
-        {children}
-        <Footer />
-      </main>
+      <main className="flex flex-col px-8 lg:px-16 pb-16">{children}</main>
+
+      <Footer />
     </div>
   );
 }
