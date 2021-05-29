@@ -22,20 +22,8 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
-            rel="preload"
-            href="/fonts/inter-var-latin.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
-          <link
-            rel="preconnect"
-            href="https://cdn.usefathom.com"
-            crossOrigin=""
-          />
           <link
             href="/static/favicons/apple-touch-icon.png"
             rel="apple-touch-icon"
@@ -58,6 +46,28 @@ class MyDocument extends Document {
             href="/static/favicons/safari-pinned-tab.svg"
             rel="mask-icon"
           />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
+            media="print"
+            onLoad="this.media='all'"
+          />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
+            />
+          </noscript>
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
