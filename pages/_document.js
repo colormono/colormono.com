@@ -75,16 +75,10 @@ class MyDocument extends Document {
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
           />
-          {/*<meta content="14d2e73487fa6c71" name="yandex-verification" />
-           <meta
-            content="eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw"
-            name="google-site-verification"
-          /> */}
 
           {/* We only want to add the scripts if in production */}
           {isProduction && (
             <Fragment>
-              {/* Global Site Tag (gtag.js) - Google Analytics */}
               <script
                 async
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -105,7 +99,7 @@ class MyDocument extends Document {
             </Fragment>
           )}
         </Head>
-        <body className="bg-white dark:bg-black text-white dark:text-black transition duration-300 ease-in-out">
+        <body className="font-sans bg-gray-100 text-black dark:bg-black dark:text-white transition-colors duration-300 ease-in-out">
           <Main />
           <NextScript />
         </body>
