@@ -13,7 +13,7 @@ export default function Container({ children }) {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="bg-gray-100 dark:bg-black min-h-screen">
+    <div className="min-h-screen">
       <nav className="sticky-nav flex justify-between items-center w-full p-8 lg:px-16 my-0 md:my-8 mx-auto bg-opacity-60">
         <div className="">
           <NextLink href="/">
@@ -100,7 +100,9 @@ export default function Container({ children }) {
         </div>
       </nav>
 
-      <main className="flex flex-col px-8 lg:px-16 pb-16">{children}</main>
+      <main className="flex flex-col px-8 lg:px-16 pb-16 w-full">
+        {children}
+      </main>
 
       <Footer />
     </div>

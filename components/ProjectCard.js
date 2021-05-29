@@ -1,22 +1,11 @@
 import Link from 'next/link';
-// import * as Fathom from 'fathom-client';
-
-// const trackGoal = (title) => {
-//   const goalCodes = {
-//     'React 2025': '5WGDOKV0',
-//     'Mastering Next.js': 'HV9HDL0O'
-//   };
-
-//   Fathom.trackGoal(goalCodes[title], 0);
-// };
 
 export default function ProjectCard({ title, description, href, thumb }) {
   return (
     <Link href={href}>
       <a
         aria-label={title}
-        className="block mb-4 hover:shadow border border-gray-200 dark:border-gray-800 rounded overflow-hidden"
-        // onClick={() => trackGoal(title)}
+        className="block mb-4 hover:shadow border bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-900 rounded overflow-hidden"
       >
         {thumb && (
           <div className="w-full">
