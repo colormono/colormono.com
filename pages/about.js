@@ -1,12 +1,7 @@
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import Container from '@/components/Container';
-
-const Tag = ({ children }) => (
-  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-500 dark:bg-gray-900 dark:text-gray-600 rounded-full">
-    {children}
-  </span>
-);
+import { Tag } from '@/components/ui';
 
 export default function About() {
   return (

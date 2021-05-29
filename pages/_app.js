@@ -4,8 +4,8 @@ import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 import MDXComponents from '@/components/MDXComponents';
-import SEO from '../next-seo.config';
 import { useAnalytics } from '@/lib/analytics';
+import SEO from '../next-seo.config';
 import '@/styles/global.css';
 
 export default function App({ Component, pageProps }) {
