@@ -5,7 +5,7 @@ import ProjectSlide from '@/components/ProjectSlide';
 export default function Home() {
   return (
     <Container>
-      <section className="flex flex-col justify-center items-start max-w-xl mt-8 mb-16">
+      <section className="flex flex-col justify-center items-start max-w-xl my-8 md:mb-16">
         <h1 className="font-bold text-3xl md:text-7xl tracking-tight mb-4 text-black dark:text-white">
           Hello, World!
         </h1>
@@ -26,8 +26,8 @@ export default function Home() {
         </h2>
       </section>
 
-      <section className="flex flex-col w-full mt-8 mb-16">
-        <h3 className="font-light text-4xl tracking-tight mb-8 text-black dark:text-white">
+      <section className="flex flex-col w-full my-8 md:mb-16">
+        <h3 className="font-light text-2xl md:text-4xl tracking-tight mb-8 text-black dark:text-white">
           Selected Works
         </h3>
 
