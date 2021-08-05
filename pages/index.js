@@ -5,13 +5,17 @@ import ProjectSlide from '@/components/ProjectSlide';
 export default function Home() {
   return (
     <Container>
-      <section className="flex flex-col justify-center items-start max-w-xl my-8 md:mb-16">
+      <section className="w-full max-w-2xl my-8 md:mb-16">
         <h1 className="font-bold text-3xl md:text-7xl tracking-tight mb-4 text-black dark:text-white">
           Hello, World!
         </h1>
         <h2 className="text-gray-600 dark:text-gray-400 text-lg">
-          This the house of Mariano Rivas, a new media artist, and software
-          developer. I work at{' '}
+          <span className="hidden md:block">
+            This the house of Mariano Rivas,{' '}
+            <span className="inline-block">new-media artist</span> and{' '}
+            <span className="inline-block">software developer</span>.{' '}
+          </span>
+          I work at{' '}
           <a
             href="https://truenorth.co"
             target="_blank"
@@ -21,8 +25,8 @@ export default function Home() {
             TrueNorth
           </a>{' '}
           as Head of Front-end. By having a generalist technical skill set, I'm
-          able to participate in a variety of projects in different stages of
-          the creative process, from conception to execution.
+          able to play in different stages of the creative process, from
+          conception to execution.
         </h2>
       </section>
 

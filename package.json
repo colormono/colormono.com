@@ -24,7 +24,7 @@
     "@mdx-js/react": "1.6.22",
     "@next/mdx": "10.0.5",
     "@tailwindcss/typography": "^0.3.1",
-    "autoprefixer": "^10.2.1",
+    "autoprefixer": "^10.3.1",
     "big.js": "6.0.3",
     "comma-number": "2.0.1",
     "date-fns": "2.16.1",
@@ -35,7 +35,7 @@
     "next-mdx-remote": "^2.1.1",
     "next-seo": "4.17.0",
     "next-themes": "^0.0.10",
-    "postcss": "^8.2.4",
+    "postcss": "^8.3.6",
     "preact": "^10.5.9",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -45,7 +45,7 @@
     "remark-code-titles": "0.1.1",
     "remark-slug": "6.0.0",
     "swr": "0.4.0",
-    "tailwindcss": "^2.0.2",
+    "tailwindcss": "^2.2.7",
     "unsplash-js": "6.3.0"
   },
   "devDependencies": {

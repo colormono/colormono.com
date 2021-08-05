@@ -31,7 +31,7 @@ export default function About() {
               <img
                 src="/static/images/hasta-las-estrellas/pantallita.jpg"
                 alt="Display Detail"
-                className="w-56 shadow-2xl"
+                className="w-56 shadow-2xl border-2 boder-black"
               />
               <div className="italic text-sm px-8">
                 "Cielo, el mundo está ahí, <br />
