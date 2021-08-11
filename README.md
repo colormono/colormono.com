@@ -5,7 +5,7 @@ My portfolio has transformed over the years - from a static HTML site, to WordPr
 ## Overview
 
 - `pages/api/*` - [API routes](https://nextjs.org/docs/api-routes/introduction) powering [`/dashboard`](https://colormono.com/dashboard), newsletter subscription, and post views.
-- `pages/blog/*` - Static pre-rendered blog pages using [MDX](https://github.com/mdx-js/mdx).
+- `pages/notes/*` - Static pre-rendered notes using [MDX](https://github.com/mdx-js/mdx).
 - `pages/*` - All other static pages.
 
 ## Running Locally
@@ -24,7 +24,7 @@ Create a `.env.local` file similar to [`.env.example`](https://github.com/colorm
 - [Next.js](https://nextjs.org/)
 - [Netlify](https://netlify.com)
 - [MDX](https://github.com/mdx-js/mdx)
-- [Tailwind CSS](https://tailwindcss.com/)
+- [TailwindCSS](https://tailwindcss.com/)
 
 ---
 

@@ -47,13 +47,13 @@ async function getImageSizes(dir) {
 
     const formatted = prettier.format(contents, {
       ...prettierConfig,
-      parser: 'markdown'
+      parser: 'markdown',
     });
 
     fs.writeFileSync(`${outputDir}/${slug}`, formatted);
   });
 }
 
-getImageSizes('data/blog')
+getImageSizes('data/notes')
   .then(() => console.log('Done!'))
   .catch((e) => console.error(e));

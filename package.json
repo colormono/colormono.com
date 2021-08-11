@@ -1,7 +1,7 @@
 {
   "name": "colormono.com",
   "description": "My personal website.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": {
     "name": "Mariano Rivas",
     "email": "hello@colormono.com",
@@ -58,11 +58,5 @@
     "remark-stringify": "9.0.1",
     "unified": "9.2.0",
     "unist-util-visit": "2.0.3"
-  },
-  "prettier": {
-    "arrowParens": "always",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "none"
   }
 }
