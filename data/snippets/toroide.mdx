@@ -1,0 +1,15 @@
+---
+title: 'Toroide'
+description: 'Create a Pacman like behavior with Processing.'
+logo: 'toroide.png'
+---
+
+If the player exits on the right side, should back on the left side, and vice versa.
+If the player exits on the bottom side, should back on the top side, and vice versa.
+
+```java
+if(x > width) x = 0;
+if(x < 0) x = width;
+if(y > height) y = 0;
+if(y < 0) x = height;
+```
