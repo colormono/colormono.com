@@ -9,7 +9,7 @@ export default function Home() {
         <h1 className="font-bold text-3xl md:text-7xl tracking-tight mb-4 text-black dark:text-white">Hello, World!</h1>
         <h2 className="text-gray-600 dark:text-gray-400 text-lg">
           <span className="hidden md:block">
-            This the house of Mariano Rivas, <span className="inline-block">new-media artist</span> and{' '}
+            This is Mariano Rivas house, a <span className="inline-block">new-media artist</span> and{' '}
             <span className="inline-block">software developer</span>.{' '}
           </span>
           I work at{' '}
@@ -21,8 +21,8 @@ export default function Home() {
           >
             TrueNorth
           </a>{' '}
-          as Head of Front-end. By having a generalist technical skill set, I'm able to play in different stages of the
-          creative process, from conception to execution.
+          as Head of Front-end. Thanks to having a general technical skill set, I'm able to be part of different stages
+          of the creative process, form conception to execution.
         </h2>
       </section>
 
