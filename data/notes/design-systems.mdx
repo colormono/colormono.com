@@ -5,6 +5,155 @@ summary: 'Visualize my journey through the scenic lands of Norway with rich, stu
 image: '/static/assets/data-driven/thumb.jpg'
 ---
 
-Start documenting process.
+**Notice:** This is a live breathing document. I’m talking from a Front-end’s perspective.
 
-I’m talking from a Front-end’s perspective.
+# Design System Notes
+
+“WITHOUT A UNIFIED LANGUAGE, all products drift toward inconsistency.”
+
+“A design system is the broadest of these tools, and explains how a team should create products. It encompasses the pattern library and style guide, but also includes underlying design principles, rules, and guidelines to help teams create cohesive experiences.”
+
+Excerpts From: Yesenia Perez-Cruz. “Expressive Design Systems.” Apple Books.
+
+## Modular building
+
+### A pattern Library (Tooling)
+
+Reusable UI building blocks that are shared across teams and assembled to build products.
+
+- Figma Example: https://www.figma.com/file/LEJEmebR2qAXvPQ77UANYB/Tetrisly-CORE-(1.5)-DEMO?node-id=0%3A11224
+
+- Figma: https://www.figma.com/file/N8tBNJ79f80EfhI4rnTHWA/Mate-UI-Reloaded?node-id=370%3A866
+- React: https://mate-ui.truenorth.co
+
+### Naming stuff
+
+Ejemplo de Naming en Figma:
+https://www.figma.com/file/LEJEmebR2qAXvPQ77UANYB/Tetrisly-CORE-(1.5)-DEMO?node-id=0%3A11224
+
+Group: Announcements / Alert
+Composition: Text, Additiontal Text, Action, Icon, Close Icon
+
+Component: Banner
+Variant: Plain, Left Icon, Left Icon + Action
+Status: Neutral, Information, Success, Warning, Alert
+
+Component: Toast
+Variant: Light, Color, Dark
+Type: Neutral, Information, Success, Warning, Alert
+
+Component: Toast
+Variant: Light, Color, Dark
+Type: Neutral, Information, Success, Warning, Alert
+
+Button
+
+Button - Status - Variant - Size
+
+Button / Status*3 / Variant*9 / Size\*3
+Button + Left icon
+Button + Right icon
+Text Button
+Left icon + Text
+Right icon + Text
+Icon Button
+Toggle Button
+
+Status:
+Normal
+Hover
+Disabled
+Active
+
+Variants:
+Primary, Secondary, Tertiary,
+Destructive Primary, Destructive Secondary,
+Success Primary, Success Secondary,
+Constrast Primary, Contrast Secondary
+
+Size: xs-sm-base-md-lg-xl-2xl
+Large
+Medium
+Small
+
+Input
+
+Plan, Action, Right Icon, Left Icon, Left Icon + Action
+
+**TIP:** There are several good plugins that will help you to rename elements in batches: [Rename It](https://www.figma.com/community/plugin/731271836271143349/Rename-It), [Ultra Renamer 2](https://www.figma.com/community/plugin/833716037588204076/Ultra-Renamer-2), [Regulator](https://www.figma.com/community/plugin/772054917007268360/Regulator) or even the [out-of-the-box functionality](https://help.figma.com/hc/en-us/articles/360039958934-Rename-Layers) in Figma.
+
+Install the library in a project using Yarn workspaces.
+https://classic.yarnpkg.com/en/docs/workspaces/
+
+#### Create a GitHub Packages
+
+- https://docs.github.com/en/packages/quickstart
+- https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package
+
+---
+
+### A style guide
+
+Documentation about how this components should be used.
+
+**Anatomy of a component**: Like how a component is broken into named parts: https://www.carbondesignsystem.com/components/notification/usage#formatting
+
+---
+
+## Principles
+
+- Deliverate about how we approach creating, building, and maintaining the UX of our products.
+- Collaborative documenting, how our team build products together.
+- Spend more time on creating a shared language and less time on tools.
+
+Design Principles are a tool for creating a better, more consistent experience for your users. They are high level principles that guide the detailed design decisions you make as you're working on a project.
+
+There are essentially two kinds of them. **Universal** and **Specific**.
+
+### Universal Design Principles
+
+The universal kind, also called [Heuristic](http://en.wikipedia.org/wiki/Heuristic) applies to basic human behaviors and can be used for all kinds of designs. Examples of Universal Principles are: Jakob Nielsens famous [10 Usability Heuristics for User Interface Design](https://www.designprinciplesftw.com/collections/10-usability-heuristics-for-user-interface-design) and Whitney Hess's [20 Guiding Principles for Experience Design](https://www.designprinciplesftw.com/collections/20-guiding-principles-for-experience-design).
+
+### Specific Design Principles
+
+The other kind of Design Principles are the Specific ones You create these for a specific project to ensure a consistent design. Examples of Specific Design Principles are [Tivo's Design Principles](https://www.designprinciplesftw.com/collections/tivos-revised-design-principles) and the [Android Design Principles](https://www.designprinciplesftw.com/collections/android-design-principles). The Specific Design Principles are especially great when you're working on a big project with a lot of people involved. By establishing a set of Design Principles it's easier to keep the product aligned with the UX Vision.
+
+### What Should I do With Them?
+
+If you're not doing it already, you should start using Design Principles to improve the User Experience in your own projects. To get started check out [the Design Principles of others](https://www.designprinciplesftw.com/) to get inspiration for your own.
+
+## Purpose
+
+Your find your purpose statement describes what your team is trying to achieve with the design system. It answers **four questions**:
+
+- _What_ is the goal for our design system?
+- _Why_ is that goal important?
+- _How_ will the design system help us?
+- _Who_ is the design system for?
+
+### _What_ is the goal for our design system?
+
+Example resp: Our design system will make the quality of our products better for our audiences.
+
+Faster to market
+
+### _Why_ is that goal important?
+
+Example resp:
+
+### _How_ will the design system help us?
+
+Example resp:
+
+### _Who_ is the design system for?
+
+Example resp:
+
+---
+
+# Read
+
+- [What are Design Principles anyway?](https://www.designprinciplesftw.com/what-are-design-principles)
+- [How to build a design system if you’re the only designer in a startup](https://uxdesign.cc/how-to-build-a-design-system-if-youre-the-only-designer-in-a-startup-f4695d2f4b7f)
+- [Design Thinking Explained](https://mitsloan.mit.edu/ideas-made-to-matter/design-thinking-explained)
+- [Should you deploy Storybook to Netlify?](https://www.chromatic.com/compare/netlify)
