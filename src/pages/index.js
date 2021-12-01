@@ -9,7 +9,7 @@ export default function Home() {
         <h1 className="font-bold text-3xl md:text-7xl tracking-tight mb-4 text-black dark:text-white">Hello, World!</h1>
         <div className="text-gray-600 dark:text-gray-400 text-xl">
           <span className="hidden md:block">
-            I'm Mariano Rivas house, a <span className="inline-block">new-media artist</span> and{' '}
+            I'm Mariano Rivas, a <span className="inline-block">new-media artist</span> and{' '}
             <span className="inline-block">software developer</span>.{' '}
           </span>
           I work at{' '}
