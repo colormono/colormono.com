@@ -1,10 +1,10 @@
-import { Container } from '@/components/ui';
+import Layout from '@/layouts/Page';
 import BlogPost from '@/components/BlogPost';
 import ProjectSlide from '@/components/ProjectSlide';
 
-export default function Home() {
+export default function Page() {
   return (
-    <Container>
+    <>
       <section className="w-full max-w-2xl my-8 md:mb-16">
         <h1 className="font-bold text-3xl md:text-7xl tracking-tight mb-4 text-black dark:text-white">Hello, World!</h1>
         <div className="text-gray-600 dark:text-gray-400 text-xl">
@@ -78,6 +78,10 @@ export default function Home() {
           thumb="/static/images/locomocion/thumb.jpg"
         />
       </section>
-    </Container>
+    </>
   );
 }
+
+Page.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

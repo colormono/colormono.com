@@ -11,6 +11,9 @@ import '@/styles/global.css';
 export default function App({ Component, pageProps }) {
   useAnalytics();
 
+  // Use the layout defined at the page level, if available
+  const getLayout = Component.getLayout || ((page) => page);
+
   return (
     <ThemeProvider attribute="class">
       <MDXProvider components={MDXComponents}>
@@ -18,7 +21,7 @@ export default function App({ Component, pageProps }) {
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
         <DefaultSeo {...SEO} />
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
       </MDXProvider>
     </ThemeProvider>
   );

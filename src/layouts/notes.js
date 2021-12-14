@@ -2,11 +2,10 @@
 import { parseISO, format } from 'date-fns';
 
 import { Container } from '@/components/ui';
-import Subscribe from '@/components/Subscribe';
 import ViewCounter from '@/components/ViewCounter';
 import BlogSeo from '@/components/BlogSeo';
 
-const editUrl = (slug) => `https://github.com/leerob/colormono.com/edit/master/data/notes/${slug}.mdx`;
+const editUrl = (slug) => `https://github.com/colormono/colormono.com/edit/master/data/notes/${slug}.mdx`;
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`https://colormono.com/notes/${slug}`)}`;
 

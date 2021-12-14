@@ -1,17 +1,18 @@
----
-title: 'CRUD API Route'
-description: 'For use with Next.js.'
-logo: 'react.png'
----
+import * as uuid from 'uuid';
 
-```js
 export default async function handler(req, res) {
   if (req.method === 'PUT') {
     res.status(201).json({});
   }
 
   if (req.method === 'GET') {
-    res.status(200).json({});
+    const item = {
+      id: uuid.v4(),
+      content: 'Hello world',
+      createdAt: Date.now(),
+    };
+
+    res.status(200).json(item);
   }
 
   if (req.method === 'POST') {
@@ -22,4 +23,3 @@ export default async function handler(req, res) {
     res.status(204).json({});
   }
 }
-```
