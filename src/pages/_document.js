@@ -67,7 +67,7 @@ class MyDocument extends Document {
             </Fragment>
           )}
         </Head>
-        <body className="bg-gray-100 text-black dark:bg-black dark:text-white transition-colors duration-300 ease-in-out antialiased">
+        <body className="text-black dark:bg-black dark:text-white transition-colors duration-300 ease-in-out antialiased">
           <Main />
           <NextScript />
         </body>
