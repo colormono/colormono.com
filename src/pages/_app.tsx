@@ -1,3 +1,4 @@
+import type { AppProps } from 'next/app';
 import React from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
@@ -8,7 +9,12 @@ import MDXComponents from '@/components/MDXComponents';
 import SEO from '@/config/seo';
 import '@/styles/global.css';
 
-export default function App({ Component, pageProps }) {
+type AppLayoutProps = AppProps & {
+  Component: any;
+  pageProps: any;
+};
+
+export default function App({ Component, pageProps }: AppLayoutProps) {
   useAnalytics();
 
   // Use the layout defined at the page level, if available

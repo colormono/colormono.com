@@ -1,32 +1,28 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui';
 
-export default function ProjectSlide({
-  title,
-  subtitle,
-  description,
-  href,
-  thumb,
-  date
-}) {
+type ProjectSlideProps = {
+  title: string;
+  subtitle: string;
+  description: string;
+  href?: string;
+  thumb: string;
+  date: string;
+};
+
+const ProjectSlide = ({ title, subtitle, description, href, thumb, date }: ProjectSlideProps) => {
   return (
     <article className="md:flex w-full flex-grow mb-8 border bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-900">
       <div className="w-full md:w-2/3 md:order-last">
         {thumb && href && (
           <Link href={href}>
             <a aria-label={title}>
-              <img
-                src={thumb}
-                alt={title}
-                className="object-cover w-full h-full"
-              />
+              <img src={thumb} alt={title} className="object-cover w-full h-full" />
             </a>
           </Link>
         )}
 
-        {thumb && !href && (
-          <img src={thumb} alt={title} className="object-cover w-full h-full" />
-        )}
+        {thumb && !href && <img src={thumb} alt={title} className="object-cover w-full h-full" />}
       </div>
       <div className="w-full md:w-1/3">
         <div className="p-6 md:p-10 text-gray-700 dark:text-gray-300">
@@ -47,4 +43,6 @@ export default function ProjectSlide({
       </div>
     </article>
   );
-}
+};
+
+export default ProjectSlide;
