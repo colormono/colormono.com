@@ -19,15 +19,12 @@ const getAccessToken = async () => {
       refresh_token,
     }),
   });
-  console.log('🚀 ~ file: spotify.ts ~ line 21 ~ getAccessToken ~ refresh_token', refresh_token);
-  // console.log('🚀 ~ file: spotify.ts ~ line 22 ~ getAccessToken ~ response', response);
 
   return response.json();
 };
 
 export const getNowPlaying = async () => {
   const { access_token } = await getAccessToken();
-  console.log('🚀 ~ file: spotify.ts ~ line 28 ~ getNowPlaying ~ access_token', access_token);
 
   return fetch(NOW_PLAYING_ENDPOINT, {
     headers: {
