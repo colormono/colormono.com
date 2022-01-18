@@ -6,4 +6,5 @@ node_modules
 public/sitemap.xml
 .vercel
 out/
+.env
 _private/
