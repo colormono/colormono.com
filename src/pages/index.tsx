@@ -1,5 +1,4 @@
 import Layout from '@/layouts/Page';
-import BlogPost from '@/components/BlogPost';
 import ProjectSlide from '@/components/ProjectSlide';
 
 export default function Page() {
@@ -9,20 +8,15 @@ export default function Page() {
         <h1 className="font-bold text-3xl md:text-7xl tracking-tight mb-4 text-black dark:text-white">Hello, World!</h1>
         <div className="text-gray-600 dark:text-gray-400 text-xl">
           <span className="hidden md:block">
-            I'm Mariano Rivas, a <span className="inline-block">new-media artist</span> and{' '}
+            I&apos;m Mariano Rivas, a <span className="inline-block">new-media artist</span> and{' '}
             <span className="inline-block">software developer</span>.{' '}
           </span>
           I work at{' '}
-          <a
-            href="https://truenorth.co"
-            target="_blank"
-            role="norel noreferral"
-            className="border-b dark:border-gray-800"
-          >
+          <a href="https://truenorth.co" target="_blank" rel="noreferrer" className="border-b dark:border-gray-800">
             TrueNorth
           </a>{' '}
-          as Head of Front-end. Thanks to having a <abbr title="general technical">geeky</abbr> skill set, I can be part
-          of the different stages of the creative process, from conception to execution.
+          as Head of Front-end. Thanks to having creative coding skills, I can be part of the different stages of the
+          creative process, from conception to execution.
         </div>
       </section>
 

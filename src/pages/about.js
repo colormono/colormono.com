@@ -37,8 +37,8 @@ export default function About() {
             {/* with a grant from Myself, haha.*/}
           </p>
           <p>
-            By having a generalist technical skill set, I'm able to participate in a variety of projects in different
-            stages of the creative process, from conception to execution.
+            By having a generalist technical skill set, I&apos;m able to participate in a variety of projects in
+            different stages of the creative process, from conception to execution.
           </p>
 
           {/* <p>Download Full CV</p> */}
