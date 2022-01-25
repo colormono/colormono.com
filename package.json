@@ -23,7 +23,6 @@
     "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "@next/mdx": "10.0.5",
-    "@tailwindcss/typography": "^0.3.1",
     "autoprefixer": "^10.3.1",
     "big.js": "6.0.3",
     "comma-number": "2.0.1",
@@ -36,6 +35,7 @@
     "next-mdx-remote": "^2.1.1",
     "next-seo": "^4.28.1",
     "next-themes": "^0.0.15",
+    "p5": "^1.4.0",
     "postcss": "^8.3.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -45,10 +45,13 @@
     "remark-code-titles": "0.1.1",
     "remark-slug": "6.0.0",
     "swr": "^1.1.2",
-    "tailwindcss": "^2.2.7",
     "unsplash-js": "6.3.0"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.1",
+    "@tailwindcss/typography": "^0.5.0",
     "@types/node": "^16.7.3",
     "@types/react": "^17.0.19",
     "eslint": "^8.7.0",
@@ -60,6 +63,7 @@
     "remark-frontmatter": "3.0.0",
     "remark-parse": "9.0.0",
     "remark-stringify": "9.0.1",
+    "tailwindcss": "^3.0.16",
     "typescript": "^4.4.2",
     "unified": "9.2.0",
     "unist-util-visit": "2.0.3"
