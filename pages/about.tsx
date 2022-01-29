@@ -1,11 +1,10 @@
-import Link from 'next/link';
+import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import { Container } from '@/components/ui';
 import { Tag } from '@/components/ui';
 
-export default function About() {
+const Page: NextPage = () => {
   return (
-    <Container>
+    <>
       <NextSeo
         title="About Me – Mariano Rivas"
         canonical="https://colormono/about"
@@ -14,6 +13,7 @@ export default function About() {
           title: 'About Me – Mariano Rivas',
         }}
       />
+
       <div className="flex flex-col justify-center items-start max-w-2xl mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-8 text-black dark:text-white">Mariano Rivas</h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
@@ -169,6 +169,8 @@ export default function About() {
           */}
         </div>
       </div>
-    </Container>
+    </>
   );
-}
+};
+
+export default Page;

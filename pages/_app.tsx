@@ -1,24 +1,23 @@
 import type { AppProps } from 'next/app';
-import React from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import { MDXProvider } from '@mdx-js/react';
 import { DefaultSeo } from 'next-seo';
 import { useAnalytics } from '@/utils/analytics';
 import MDXComponents from '@/components/MDXComponents';
+import { PageLayoutType } from '@/types/PageLayout';
+import DefaultPageLayout from '@/layouts/Page';
 import SEO from '@/config/seo';
 import '@/styles/global.css';
 
 type AppLayoutProps = AppProps & {
-  Component: any;
+  Component: PageLayoutType;
   pageProps: any;
 };
 
-export default function App({ Component, pageProps }: AppLayoutProps) {
+function MyApp({ Component, pageProps }: AppLayoutProps) {
+  const PageLayout = Component.layout || DefaultPageLayout;
   useAnalytics();
-
-  // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout || ((page) => page);
 
   return (
     <ThemeProvider attribute="class">
@@ -27,8 +26,12 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
         <DefaultSeo {...SEO} />
-        {getLayout(<Component {...pageProps} />)}
+        <PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
       </MDXProvider>
     </ThemeProvider>
   );
 }
+
+export default MyApp;

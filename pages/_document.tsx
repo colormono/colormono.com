@@ -1,21 +1,13 @@
-import { Fragment } from 'react';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 import { GA_TRACKING_ID } from '@/utils/gtag';
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const originalRenderPage = ctx.renderPage;
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
-    const isProduction = process.env.NODE_ENV === 'production';
-    return {
-      ...initialProps,
-      isProduction,
-    };
+    return initialProps;
   }
 
   render() {
-    const { isProduction } = this.props;
-
     return (
       <Html lang="en">
         <Head>
@@ -35,7 +27,6 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
             media="print"
-            onLoad="this.media='all'"
           />
           <noscript>
             <link
@@ -47,25 +38,19 @@ class MyDocument extends Document {
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
           <meta content="/static/favicons/browserconfig.xml" name="msapplication-config" />
-
-          {/* We only want to add the scripts if in production */}
-          {isProduction && (
-            <Fragment>
-              <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${GA_TRACKING_ID}', {
-                      page_path: window.location.pathname,
-                    });
-                  `,
-                }}
-              />
-            </Fragment>
-          )}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+            }}
+          />
         </Head>
         <body className="text-black dark:bg-black dark:text-white transition-colors duration-300 ease-in-out antialiased">
           <Main />

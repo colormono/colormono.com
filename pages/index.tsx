@@ -1,7 +1,8 @@
+import type { PageLayoutType } from '@/types/PageLayout';
 import Layout from '@/layouts/Page';
 import ProjectSlide from '@/components/ProjectSlide';
 
-export default function Page() {
+const Page: PageLayoutType = () => {
   return (
     <>
       <section className="w-full max-w-2xl my-8 md:mb-16">
@@ -21,9 +22,7 @@ export default function Page() {
       </section>
 
       <section className="flex flex-col w-full my-8 md:mb-16">
-        <h3 className="font-light text-2xl md:text-4xl tracking-tight mb-8 text-black dark:text-white">
-          Selected Works
-        </h3>
+        <h3 className="uppercase tracking-relaxed mb-8">Selected Works</h3>
 
         <ProjectSlide
           title="Hasta Las Estrellas"
@@ -74,8 +73,8 @@ export default function Page() {
       </section>
     </>
   );
-}
-
-Page.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
 };
+
+Page.layout = Layout;
+
+export default Page;

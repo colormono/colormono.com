@@ -12,7 +12,7 @@ type ProjectSlideProps = {
 
 const ProjectSlide = ({ title, subtitle, description, href, thumb, date }: ProjectSlideProps) => {
   return (
-    <article className="md:flex w-full flex-grow mb-8 border bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-900">
+    <article className="md:flex w-full flex-grow mb-8 border bg-white border-gray-200 dark:bg-black dark:border-gray-800">
       <div className="w-full md:w-2/3 md:order-last">
         {thumb && href && (
           <Link href={href}>

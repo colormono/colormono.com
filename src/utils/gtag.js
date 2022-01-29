@@ -1,11 +1,11 @@
-export const GA_TRACKING_ID = 'UA-3033935-2'; // This is your GA Tracking ID
+export const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url) => {
   if (typeof window !== 'undefined') {
     if (typeof window.gtag !== 'undefined') {
       window.gtag('config', GA_TRACKING_ID, {
-        page_path: url
+        page_path: url,
       });
     }
   }
@@ -16,6 +16,6 @@ export const event = ({ action, category, label, value }) => {
   window.gtag('event', action, {
     event_category: category,
     event_label: label,
-    value: value
+    value: value,
   });
 };
