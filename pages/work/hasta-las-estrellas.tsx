@@ -1,10 +1,11 @@
-import Link from 'next/link';
+import type { PageLayoutType } from '@/types/PageLayout';
 import { NextSeo } from 'next-seo';
-import { Container } from '@/components/ui';
+import Layout from '@/layouts/Post';
+import Article from '@/components/Article';
 
-export default function About() {
+const Page: PageLayoutType = () => {
   return (
-    <Container>
+    <>
       <NextSeo
         title="Hasta las Estrellas – Mariano Rivas"
         canonical="https://colormono/work/hasta-las-estrellas"
@@ -14,11 +15,11 @@ export default function About() {
         }}
       />
 
-      <figure>
+      <figure className="mb-16">
         <img src="/static/images/hasta-las-estrellas/concept.jpg" alt="Concept" className="w-full" />
       </figure>
 
-      <article className="prose dark:prose-invert max-w-3xl mx-auto mt-16">
+      <Article>
         <h1>Hasta las Estrellas</h1>
         <p>
           Ilustración aumentada. Dibujo con marcador de pintura blanca al agua sobre papel negro. Corte mecánico, pegado
@@ -37,6 +38,7 @@ export default function About() {
           </figcaption>
         </figure>
 
+        {/* Here will be the generative section */}
         <figure>
           <img src="/static/images/hasta-las-estrellas/pantallita.jpg" alt="Display Detail" />
           <div className="grid grid-cols-5">
@@ -66,11 +68,6 @@ export default function About() {
         </figure>
 
         <hr />
-
-        {/* Here will be the generative section
-				 <aside className="p-16 bg-gray-900">
-          <div id="container" className="mx-auto"></div>
-        </aside> */}
 
         <h2>El día que naciste</h2>
         <figure>
@@ -138,7 +135,7 @@ export default function About() {
         <h2>Parte de tu Huella</h2>
         <p>
           Tintado en papel. Tinta china en la palma de la mano de <strong>Joaquín</strong>, mi segundo hijo, sello sobre
-          papel. Máscara realizada con plotter de corte.
+          papel. Máscara realizada con plotter de corte.
         </p>
 
         <figure>
@@ -170,7 +167,11 @@ export default function About() {
             </p>
           </figcaption>
         </figure>
-      </article>
-    </Container>
+      </Article>
+    </>
   );
-}
+};
+
+Page.layout = Layout;
+
+export default Page;
