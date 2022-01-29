@@ -39,6 +39,23 @@ export default function About() {
 
         <figure>
           <img src="/static/images/hasta-las-estrellas/pantallita.jpg" alt="Display Detail" />
+          <div className="grid grid-cols-5">
+            <img src="/static/images/hasta-las-estrellas/gen/01.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/02.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/04.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/05.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/06.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/07.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/08.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/09.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/10.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/11.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/12.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/13.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/14.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/15.jpg" alt="Generative screen" />
+            <img src="/static/images/hasta-las-estrellas/gen/03.jpg" alt="Generative screen" />
+          </div>
           <figcaption className="text-center">
             <cite>
               &quot;Cielo, el mundo está ahí, <br />
