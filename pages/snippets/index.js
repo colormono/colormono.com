@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 
-import { Container } from '@/components/ui';
+// import { Container } from '@/components/ui';
 import FunctionCard from '@/components/FunctionCard';
 import { getAllFilesFrontMatter } from '@/utils/mdx';
 
@@ -9,7 +9,7 @@ const title = 'Code Snippets – COLORMONO';
 
 export default function Snippets({ snippets }) {
   return (
-    <Container>
+    <>
       <NextSeo
         title={title}
         canonical={url}
@@ -36,7 +36,7 @@ export default function Snippets({ snippets }) {
           ))}
         </div>
       </div>
-    </Container>
+    </>
   );
 }
 

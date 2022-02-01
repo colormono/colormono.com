@@ -1,14 +1,14 @@
 // import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 
-import { Container } from '@/components/ui';
+// import { Container } from '@/components/ui';
 
 export default function SnippetLayout({ children, frontMatter }) {
   const title = `${frontMatter.title} - Code Snippet`;
   const url = `https://colormono.com/snippets/${frontMatter.slug}`;
 
   return (
-    <Container>
+    <>
       <NextSeo
         title={title}
         canonical={url}
@@ -37,6 +37,6 @@ export default function SnippetLayout({ children, frontMatter }) {
         </div>
         <div className="prose dark:prose-dark w-full">{children}</div>
       </article>
-    </Container>
+    </>
   );
 }

@@ -1,7 +1,7 @@
 // import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 
-import { Container } from '@/components/ui';
+// import { Container } from '@/components/ui';
 import ViewCounter from '@/components/ViewCounter';
 import BlogSeo from '@/components/BlogSeo';
 
@@ -11,7 +11,7 @@ const discussUrl = (slug) =>
 
 export default function BlogLayout({ children, frontMatter }) {
   return (
-    <Container>
+    <>
       <BlogSeo url={`https://colormono.com/notes/${frontMatter.slug}`} {...frontMatter} />
       <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
@@ -39,6 +39,6 @@ export default function BlogLayout({ children, frontMatter }) {
           </a>
         </div>
       </article>
-    </Container>
+    </>
   );
 }

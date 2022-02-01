@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NextSeo } from 'next-seo';
-import { Container } from '@/components/ui';
+// import { Container } from '@/components/ui';
 import BlogPost from '@/components/BlogPost';
 import { getAllFilesFrontMatter } from '@/utils/mdx';
 
@@ -15,7 +15,7 @@ export default function Blog({ posts }) {
     .filter((frontMatter) => frontMatter.title.toLowerCase().includes(searchValue.toLowerCase()));
 
   return (
-    <Container>
+    <>
       <NextSeo
         title={title}
         description={description}
@@ -62,7 +62,7 @@ export default function Blog({ posts }) {
           <BlogPost key={frontMatter.title} {...frontMatter} />
         ))}
       </div>
-    </Container>
+    </>
   );
 }
 
