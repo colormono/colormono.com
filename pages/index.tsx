@@ -5,9 +5,11 @@ import ProjectSlide from '@/components/ProjectSlide';
 const Page: PageLayoutType = () => {
   return (
     <>
-      <section className="w-full max-w-2xl my-8 md:mb-16">
-        <h1 className="font-bold text-3xl md:text-7xl tracking-tight mb-4 text-black dark:text-white">Hello, World!</h1>
-        <div className="text-gray-600 dark:text-gray-400 text-xl">
+      <section className="w-full max-w-3xl my-8 md:mb-16">
+        <h1 className="font-serif text-3xl md:text-8xl tracking-tight mb-10 text-black dark:text-white">
+          Hello, World.
+        </h1>
+        <div className="text-2xl text-gray-600 dark:text-gray-400">
           <span className="hidden md:block">
             I&apos;m Mariano Rivas, a <span className="inline-block">new-media artist</span> and{' '}
             <span className="inline-block">software developer</span>.{' '}
@@ -22,7 +24,7 @@ const Page: PageLayoutType = () => {
       </section>
 
       <section className="flex flex-col w-full my-8 md:mb-16">
-        <h3 className="uppercase tracking-relaxed mb-8">Selected Works</h3>
+        <h3 className="uppercase text-xl tracking-relaxed mb-8">Selected Works</h3>
 
         <ProjectSlide
           title="Hasta Las Estrellas"

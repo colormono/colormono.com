@@ -1,4 +1,4 @@
-const GithubIcon = ({ href, children }) => (
+const GithubIcon = () => (
   <>
     <span className="sr-only">Github</span>
     <svg

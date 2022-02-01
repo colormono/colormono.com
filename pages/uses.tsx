@@ -13,7 +13,7 @@ const Page = ({ mdxSource, frontMatter }) => {
 };
 
 export async function getStaticProps() {
-  const data = await getFileBySlug('awesome');
+  const data = await getFileBySlug('uses');
 
   return { props: data };
 }

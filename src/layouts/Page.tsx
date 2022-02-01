@@ -11,7 +11,7 @@ export default function Layout({ children, title = '' }: Props) {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="flex flex-col px-8 lg:px-16 pb-16 w-full max-w-[1280px] mx-auto">{children}</main>
+      <main className="flex flex-col px-8 lg:px-16 w-full max-w-[1440px] mx-auto">{children}</main>
       <Footer />
     </div>
   );

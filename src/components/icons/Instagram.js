@@ -1,4 +1,4 @@
-const InstagramIcon = ({ href, children }) => (
+const InstagramIcon = () => (
   <>
     <span className="sr-only">Instagram</span>
     <svg

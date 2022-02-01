@@ -1,4 +1,4 @@
-const TwitterIcon = ({ href, children }) => (
+const TwitterIcon = () => (
   <>
     <span className="sr-only">Twitter</span>
     <svg

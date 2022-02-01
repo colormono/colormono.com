@@ -15,8 +15,8 @@ const Page: NextPage = () => {
       />
 
       <div className="flex flex-col justify-center items-start max-w-2xl mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-8 text-black dark:text-white">Mariano Rivas</h1>
-        <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
+        <h1 className="text-6xl mb-4">Mariano Rivas</h1>
+        <div className="prose prose-lg dark:prose-invert">
           <p>New media artist and software developer, Buenos Aires, 1983.</p>
           {/* <p>
             Mi práctica abarca desde esculturas mecánicas a instalaciones
@@ -43,7 +43,7 @@ const Page: NextPage = () => {
 
           {/* <p>Download Full CV</p> */}
 
-          <div className="font-bold mt-8 mb-4 block">Skill set</div>
+          <div className="mt-8 mb-4 block">Skill set</div>
           <div className="flex flex-wrap gap-2">
             <Tag>JavaScript</Tag>
             <Tag>React</Tag>

@@ -14,8 +14,16 @@ html {
 }
 
 ::selection {
-  background-color: #555555;
-  color: #fefefe;
+  @apply bg-indigo-500 text-white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif font-normal;
 }
 
 .sticky-nav {

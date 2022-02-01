@@ -14,9 +14,7 @@ export default function BlogLayout({ children, frontMatter }) {
     <>
       <BlogSeo url={`https://colormono.com/notes/${frontMatter.slug}`} {...frontMatter} />
       <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-          {frontMatter.title}
-        </h1>
+        <h1 className="text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">{frontMatter.title}</h1>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
           <div className="flex items-center">
             <img alt="COLORMONO" height={24} width={24} src="/avatar.jpg" className="rounded-full" />

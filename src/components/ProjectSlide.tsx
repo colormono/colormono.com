@@ -12,8 +12,8 @@ type ProjectSlideProps = {
 
 const ProjectSlide = ({ title, subtitle, description, href, thumb, date }: ProjectSlideProps) => {
   return (
-    <article className="md:flex w-full flex-grow mb-8 border bg-white border-gray-200 dark:bg-black dark:border-gray-800">
-      <div className="w-full md:w-2/3 md:order-last">
+    <article className="md:flex w-full flex-grow mb-10">
+      <div className="w-full md:w-3/5">
         {thumb && href && (
           <Link href={href}>
             <a aria-label={title}>
@@ -24,20 +24,13 @@ const ProjectSlide = ({ title, subtitle, description, href, thumb, date }: Proje
 
         {thumb && !href && <img src={thumb} alt={title} className="object-cover w-full h-full" />}
       </div>
-      <div className="w-full md:w-1/3">
-        <div className="p-6 md:p-10 text-gray-700 dark:text-gray-300">
-          <h4 className="text-xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 my-2">
-            {title}
-          </h4>
-
-          <p className="my-2">
-            {subtitle}
-            <br />
-            {date}
-          </p>
-
-          <p className="my-8 text-sm">{description}</p>
-
+      <div className="w-full md:w-2/5 self-start">
+        <div className="p-10">
+          <h4 className="text-xl md:text-4xl tracking-tight mb-4">{title}</h4>
+          <span className="text-gray-500 dark:text-gray-400">
+            {subtitle}, {date}.
+          </span>
+          <p className="my-4">{description}</p>
           {href && <Button href={href}>View more</Button>}
         </div>
       </div>

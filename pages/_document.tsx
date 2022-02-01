@@ -17,23 +17,13 @@ class MyDocument extends Document {
           <link href="/static/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
           <link href="/static/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
           <link color="#4a9885" href="/static/favicons/safari-pinned-tab.svg" rel="mask-icon" />
+
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link
-            rel="preload"
-            as="style"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
-          />
-          <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
-            media="print"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@300;400;600&family=Playfair+Display&display=swap"
           />
-          <noscript>
-            <link
-              rel="stylesheet"
-              href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
-            />
-          </noscript>
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
@@ -52,7 +42,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body className="text-black dark:bg-black dark:text-white transition-colors duration-300 ease-in-out antialiased">
+        <body className="text-lg text-black dark:bg-black dark:text-white transition-colors duration-300 ease-in-out antialiased">
           <Main />
           <NextScript />
         </body>

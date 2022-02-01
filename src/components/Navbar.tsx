@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
 import { InstagramIcon } from '@/components/icons';
-import ExternalLink from '@/components/ExternalLink';
-import Footer from '@/components/Footer';
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
@@ -13,35 +11,44 @@ export default function Navbar() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center font-bold">
       {/* <NextLink href="/work">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Work</a>
+            <a className="p-1 sm:p-4 text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition">Work</a>
           </NextLink> */}
       {/* <NextLink href="/play">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Play</a>
+            <a className="p-1 sm:p-4 text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition">Play</a>
           </NextLink> */}
       <NextLink href="/about">
-        <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">About</a>
+        <a className="p-1 sm:p-4 text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition">
+          About
+        </a>
       </NextLink>
       {/* <NextLink href="/notes">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Notes</a>
+            <a className="p-1 sm:p-4 text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition">Notes</a>
           </NextLink> */}
       <div className="hidden md:inline-block">
         <NextLink href="/">
-          <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Home</a>
+          <a className="p-1 sm:p-4 text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition">
+            Home
+          </a>
         </NextLink>
       </div>
 
       <div className="ml-4">
-        <ExternalLink href="https://instagram.com/colormono">
+        <a
+          className="text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://instagram.com/colormono"
+        >
           <InstagramIcon />
-        </ExternalLink>
+        </a>
       </div>
 
       <button
         aria-label="Toggle Dark Mode"
         type="button"
-        className="text-gray-500 h-6 w-6 ml-4 relative overflow-hidden focus:outline-none"
+        className="text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 h-6 w-6 ml-4 relative overflow-hidden focus:outline-none"
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       >
         {mounted && (
@@ -49,7 +56,7 @@ export default function Navbar() {
             <svg
               className={`absolute inset-0 w-6 h-6 transform transition duration-200 ease-in-out ${
                 theme === 'dark' ? 'translate-y-0' : 'translate-y-full'
-              } hover:text-white`}
+              } `}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -66,7 +73,7 @@ export default function Navbar() {
             <svg
               className={`absolute inset-0 w-6 h-6 transform transition duration-200 ease-in-out ${
                 theme === 'dark' ? '-translate-y-full' : 'translate-y-0'
-              } hover:text-gray-900`}
+              } `}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

@@ -1,4 +1,4 @@
-const LinkedinIcon = ({ href, children }) => (
+const LinkedinIcon = () => (
   <>
     <span className="sr-only">Linkedin</span>
     <svg
