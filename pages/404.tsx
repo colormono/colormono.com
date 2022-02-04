@@ -15,7 +15,7 @@ const Page: NextPage = () => {
       />
 
       <div className="relative">
-        <img src="/static/images/404.jpg" alt="404" />
+        <img src="/static/images/404.jpg" alt="404" className="w-full" />
         <div className="flex flex-col items-center justify-center text-white absolute inset-0">
           <h1 className="text-3xl md:text-5xl tracking-tight mb-10">404 – PAGE NOT FOUND</h1>
           <Link href="/">

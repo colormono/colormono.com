@@ -5,25 +5,20 @@ import ProjectSlide from '@/components/ProjectSlide';
 const Page: PageLayoutType = () => {
   return (
     <>
-      <section className="w-full max-w-3xl my-8 md:mb-16">
-        <h1 className="font-serif text-3xl md:text-8xl tracking-tight mb-10 text-black dark:text-white">
-          Hello, World.
-        </h1>
-        <div className="text-2xl text-gray-600 dark:text-gray-400">
-          <span className="hidden md:block">
-            I&apos;m Mariano Rivas, a <span className="inline-block">new-media artist</span> and{' '}
-            <span className="inline-block">software developer</span>.{' '}
-          </span>
-          I work at{' '}
+      <section className="w-full max-w-3xl mt-16 mb-32">
+        <h1 className="text-4xl md:text-8xl tracking-tight mb-6">Hello, World.</h1>
+        <p className="text-2xl leading-relaxed">
+          I&apos;m Mariano Rivas, a <span className="inline-block">new-media artist</span> and{' '}
+          <span className="inline-block">software developer</span>. <br className="hidden md:block" />I work at{' '}
           <a href="https://truenorth.co" target="_blank" rel="noreferrer" className="border-b dark:border-gray-800">
             TrueNorth
           </a>{' '}
           as Head of Front-end. Thanks to having creative coding skills, I can be part of the different stages of the
           creative process, from conception to execution.
-        </div>
+        </p>
       </section>
 
-      <section className="flex flex-col w-full my-8 md:mb-16">
+      <section className="flex flex-col w-full">
         <h3 className="uppercase text-xl tracking-relaxed mb-8">Selected Works</h3>
 
         <ProjectSlide

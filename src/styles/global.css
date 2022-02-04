@@ -17,13 +17,17 @@ html {
   @apply bg-indigo-500 text-white;
 }
 
+body {
+  @apply font-serif;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  @apply font-serif font-normal;
+  @apply font-sans font-normal;
 }
 
 .sticky-nav {

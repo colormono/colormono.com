@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['"IBM Plex Sans Thai Looped"', ...fontFamily.sans],
-        serif: ['"Playfair Display"', ...fontFamily.serif],
+        serif: [...fontFamily.serif],
       },
       colors: {
         gray: colors.slate,

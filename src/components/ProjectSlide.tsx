@@ -26,11 +26,11 @@ const ProjectSlide = ({ title, subtitle, description, href, thumb, date }: Proje
       </div>
       <div className="w-full md:w-2/5 self-start">
         <div className="p-10">
-          <h4 className="text-xl md:text-4xl tracking-tight mb-4">{title}</h4>
-          <span className="text-gray-500 dark:text-gray-400">
+          <h4 className="text-xl md:text-4xl tracking-tight">{title}</h4>
+          <span className="text-gray-600 dark:text-gray-400">
             {subtitle}, {date}.
           </span>
-          <p className="my-4">{description}</p>
+          <p className="my-6">{description}</p>
           {href && <Button href={href}>View more</Button>}
         </div>
       </div>

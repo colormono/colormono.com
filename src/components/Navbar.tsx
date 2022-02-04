@@ -11,7 +11,7 @@ export default function Navbar() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="flex items-center font-bold">
+    <div className="flex items-center font-sans uppercase leading-none font-bold">
       {/* <NextLink href="/work">
             <a className="p-1 sm:p-4 text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition">Work</a>
           </NextLink> */}
