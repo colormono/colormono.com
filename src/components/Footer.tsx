@@ -6,7 +6,7 @@ import NowPlaying from './NowPlaying';
 export default function Footer() {
   return (
     <footer className="text-base font-sans">
-      <div className="w-full p-8 lg:p-16 max-w-[1680px] mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-10">
+      <div className="w-full p-8 lg:p-16 mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-10">
         <div className="flex space-x-4">
           <ExternalLink href="https://instagram.com/colormono">
             <InstagramIcon />

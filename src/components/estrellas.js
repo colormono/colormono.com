@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import p5 from 'p5';
+// import p5 from 'p5';
 
 const sketch = (p) => {
   let x = 100;
@@ -17,11 +17,12 @@ const sketch = (p) => {
 };
 
 export default function P5Sketch() {
-  const sketchRef = useRef();
+  return <div>Div</div>;
+  // const sketchRef = useRef();
 
-  useEffect(() => {
-    const myP5 = new p5(sketch, sketchRef.current);
-  }, []);
+  // useEffect(() => {
+  //   const myP5 = new p5(sketch, sketchRef.current);
+  // }, []);
 
-  return <div ref={sketchRef} />;
+  // return <div ref={sketchRef} />;
 }
