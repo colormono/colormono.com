@@ -13,7 +13,7 @@ const Page: NextPage = () => {
       <div className="-mx-8 lg:-mx-16 sticky top-0">
         <Sketch />
       </div>
-      <div className="flex flex-col justify-center items-start max-w-2xl mb-16 -mt-48 p-16 bg-white/80 backdrop-blur-md rounded-lg shadow-lg">
+      <div className="flex flex-col justify-center items-start max-w-4xl mb-16 mt-16 mx-auto p-16 bg-white/80 backdrop-blur-md rounded-xl">
         <h1 className="text-6xl mb-4">Randomization</h1>
         <h2 className="text-xl mb-12 text-gray-500">Like Throwing dice or Flipping a coin.</h2>
         <div className="prose prose-lg dark:prose-invert">

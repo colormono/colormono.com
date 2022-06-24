@@ -22,7 +22,7 @@ class Sketch extends Component {
       p.cellPadding = 4;
 
       p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight * 0.83).parent(this.renderRef.current);
+        p.createCanvas(p.windowWidth, p.windowHeight * 0.6).parent(this.renderRef.current);
         p.background('gray');
         p.strokeWeight(0);
         p.ellipseMode(p.CORNER);
@@ -30,7 +30,7 @@ class Sketch extends Component {
       };
 
       p.windowResized = () => {
-        p.resizeCanvas(p.windowWidth, p.windowHeight * 0.83);
+        p.resizeCanvas(p.windowWidth, p.windowHeight * 0.6);
       };
 
       p.draw = () => {
