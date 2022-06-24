@@ -30,6 +30,9 @@ export default function Footer() {
           <Link href="/awesome">
             <a className="text-gray-500 hover:text-gray-600">/awesome</a>
           </Link>
+          <Link href="/exp/randomization">
+            <a className="text-gray-500 hover:text-gray-600">/randomization</a>
+          </Link>
           {/* <Link href="/uses">
             <a className="text-gray-500 hover:text-gray-600">/uses</a>
           </Link> */}
