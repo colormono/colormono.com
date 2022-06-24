@@ -19,14 +19,15 @@
     "export": "next export"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.2",
+    "@heroicons/react": "^1.0.5",
     "@mapbox/rehype-prism": "0.5.0",
     "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "@next/mdx": "10.0.5",
-    "@headlessui/react": "^1.4.2",
-    "@heroicons/react": "^1.0.5",
     "autoprefixer": "10.4.5",
     "big.js": "6.0.3",
+    "classnames": "^2.3.1",
     "comma-number": "2.0.1",
     "date-fns": "2.16.1",
     "framer-motion": "^6.2.9",
@@ -51,7 +52,6 @@
     "unsplash-js": "6.3.0"
   },
   "devDependencies": {
-    "next-transpile-modules": "9.0.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/line-clamp": "^0.3.1",
@@ -62,6 +62,7 @@
     "eslint-config-next": "11.1.2",
     "globby": "11.0.2",
     "image-size": "0.9.3",
+    "next-transpile-modules": "9.0.0",
     "prettier": "^2.5.1",
     "rehype": "11.0.0",
     "remark-frontmatter": "3.0.0",
