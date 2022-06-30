@@ -1,10 +1,25 @@
 import type { PageLayoutType } from '@/types/PageLayout';
 import Layout from '@/layouts/Page';
 import ProjectSlide from '@/components/ProjectSlide';
+import { NextSeo, SocialProfileJsonLd } from 'next-seo';
 
 const Page: PageLayoutType = () => {
   return (
     <>
+      <NextSeo
+        description="I'm Mariano Rivas, a new-media artist and software developer. I work at TrueNorth as Head of Front-end. Thanks to having creative coding skills, I can be part of the different stages of the creative process, from conception to execution."
+        canonical="https://colormono.com"
+      />
+      <SocialProfileJsonLd
+        type="Person"
+        name="Mariano Rivas"
+        url="http://colormono.com"
+        sameAs={[
+          'http://instagram.com/colormono',
+          'http://www.linkedin.com/in/colormono',
+          'https://twitter.com/colormono',
+        ]}
+      />
       <section className="w-full max-w-3xl mt-16 mb-32">
         <h1 className="text-4xl md:text-8xl tracking-tight mb-6">Hello, World.</h1>
         <p className="text-2xl leading-relaxed">
