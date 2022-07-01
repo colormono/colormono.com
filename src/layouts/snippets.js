@@ -1,7 +1,7 @@
 // import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 
-// import { Container } from '@/components/ui';
+// import { Container } from '@components/ui';
 
 export default function SnippetLayout({ children, frontMatter }) {
   const title = `${frontMatter.title} - Code Snippet`;

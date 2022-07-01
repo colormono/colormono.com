@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import useSWR from 'swr';
 import format from 'comma-number';
 
-import fetcher from '@/utils/fetcher';
+import fetcher from '@utils/fetcher';
 
 export default function ViewCounter({ slug }) {
   const { data } = useSWR(`/api/views/${slug}`, fetcher);
@@ -11,7 +11,7 @@ export default function ViewCounter({ slug }) {
   useEffect(() => {
     const registerView = () =>
       fetch(`/api/views/${slug}`, {
-        method: 'POST'
+        method: 'POST',
       });
 
     registerView();

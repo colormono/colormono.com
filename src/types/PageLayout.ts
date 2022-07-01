@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
 import type { ReactElement } from 'react';
-import MainLayout from '@/layouts/Page';
-// import PostLayout from '@/layouts/Post';
-// import EmptyLayout from "@/layouts/empty";
+import MainLayout from '@layouts/Page';
+// import PostLayout from '@layouts/Post';
+// import EmptyLayout from "@layouts/empty";
 
 export type PageMainLayoutType = NextPage & { layout: typeof MainLayout };
 // export type PagePostLayoutType = NextPage & { layout: typeof PostLayout };

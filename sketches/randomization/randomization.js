@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import p5 from 'p5';
 
 // To-do:
-// - [] Round canvas height to a module of the cell size
+// - [√] Initial sketch
+// - [√] Avoid drawing outside the canvas. Fit grid, align centered
+// - [] GUI (Play, Pause, Generate, Export)
 
 class Sketch extends Component {
   constructor() {
@@ -20,9 +22,13 @@ class Sketch extends Component {
     this.sketch = new p5((p) => {
       p.cellSize = 56;
       p.cellPadding = 4;
+      p.containerWidth, p.containerHeight;
+      p.align = { x: 0, y: 0 };
 
       p.setup = () => {
         p.createCanvas(p.windowWidth, p.windowHeight * 0.6).parent(this.renderRef.current);
+        p.setContainerSize(p.windowWidth, p.windowHeight * 0.6);
+        p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
         p.background('gray');
         p.strokeWeight(0);
         p.ellipseMode(p.CORNER);
@@ -31,15 +37,30 @@ class Sketch extends Component {
 
       p.windowResized = () => {
         p.resizeCanvas(p.windowWidth, p.windowHeight * 0.6);
+        p.setContainerSize(p.windowWidth, p.windowHeight * 0.6);
+        p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
+      };
+
+      p.setContainerSize = (w, h) => {
+        p.containerWidth = p.floor(w / p.cellSize) * p.cellSize;
+        p.containerHeight = p.floor(h / p.cellSize) * p.cellSize;
+      };
+
+      p.setGridSize = (w, h, cols = 4, rows = 4) => {
+        p.containerWidth = p.cellSize * rows;
+        p.containerHeight = p.cellSize * cols;
       };
 
       p.draw = () => {
         p.fill('white');
         p.rect(0, 0, p.width, p.height);
 
-        // use a grid
-        for (var x = 0; x < p.width; x += p.cellSize) {
-          for (var y = 0; y < p.height; y += p.cellSize) {
+        p.push(); // Start a new drawing state
+        p.translate(p.align.x, p.align.y);
+
+        // Start a grid
+        for (var x = 0; x < p.containerWidth; x += p.cellSize) {
+          for (var y = 0; y < p.containerHeight; y += p.cellSize) {
             // flipping a coin
             if (p.random(0, 10) > 5) {
               p.fill('black');
@@ -67,6 +88,13 @@ class Sketch extends Component {
             }
           }
         }
+
+        p.pop(); // Restore original state
+      };
+
+      p.alignCenter = (innerWidth, innerHeight, outerWidth, outherHeight) => {
+        p.align.x = (outerWidth - innerWidth) / 2;
+        p.align.y = (outherHeight - innerHeight) / 2;
       };
 
       p.letterM = (x, y) => {

@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import ExternalLink from '@/components/ExternalLink';
-import { GithubIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from '@/components/icons';
+import ExternalLink from '@components/ExternalLink';
+import { GithubIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from '@components/icons';
 import NowPlaying from './NowPlaying';
 
 export default function Footer() {

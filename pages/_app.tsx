@@ -3,12 +3,12 @@ import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import { MDXProvider } from '@mdx-js/react';
 import { DefaultSeo } from 'next-seo';
-import { useAnalytics } from '@/utils/analytics';
-import MDXComponents from '@/components/MDXComponents';
-import { PageLayoutType } from '@/types/PageLayout';
-import DefaultPageLayout from '@/layouts/Page';
-import SEO from '@/config/seo';
-import '@/styles/global.css';
+import { useAnalytics } from '@utils/analytics';
+import MDXComponents from '@components/MDXComponents';
+import { PageLayoutType } from '@types/PageLayout';
+import DefaultPageLayout from '@layouts/Page';
+import { SEO } from '@constants';
+import '@styles/global.css';
 
 type AppLayoutProps = AppProps & {
   Component: PageLayoutType;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
-import { InstagramIcon } from '@/components/icons';
+import { InstagramIcon } from '@components/icons';
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);

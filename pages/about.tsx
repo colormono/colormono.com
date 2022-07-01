@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import { Tag } from '@/components/ui';
+import { Tag } from '@components/ui';
 
 const Page: NextPage = () => {
   return (

@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import { Tag } from '@/components/ui';
-import PageLayout from '@/layouts/Page';
+import { Tag } from '@components/ui';
+import PageLayout from '@layouts/Page';
 import dynamic from 'next/dynamic';
 
-const Sketch = dynamic(() => import('@/sketches/randomization'), {
+const Sketch = dynamic(() => import('@sketches/randomization'), {
   ssr: false,
 });
 
@@ -15,7 +15,7 @@ const Page: NextPage = () => {
       </div>
       <div className="flex flex-col justify-center items-start max-w-4xl mb-16 mt-16 mx-auto p-16 bg-white/80 backdrop-blur-md rounded-xl">
         <h1 className="text-6xl mb-4">Randomization</h1>
-        <h2 className="text-xl mb-12 text-gray-500">Like Throwing dice or Flipping a coin.</h2>
+        <h2 className="text-xl mb-12 text-gray-500">Like Throwing dice or Flipping a coin</h2>
         <div className="prose prose-lg dark:prose-invert">
           <p>
             Quidem officiis ut totam laborum libero pariatur quia voluptatem ducimus. Voluptatibus sapiente tempore qui

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui';
+import { Button } from '@components/ui';
 
 type ProjectSlideProps = {
   title: string;

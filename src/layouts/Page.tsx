@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
 import classNames from 'classnames';
 
 type Props = {
@@ -10,10 +10,10 @@ type Props = {
 };
 
 export default function Layout({ children, title = '', variant = 'contained' }: Props) {
-  const cn = classNames('flex flex-col w-full mx-auto', variant === 'contained' && 'px-8 lg:px-16');
+  const cn = classNames('flex flex-col w-full mx-auto flex-grow', variant === 'contained' && 'px-8 lg:px-16');
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <main className={cn}>{children}</main>
       <Footer />

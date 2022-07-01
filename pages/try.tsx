@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import { Tag } from '@/components/ui';
+import { Tag } from '@components/ui';
 import dynamic from 'next/dynamic';
 
-const DynamicSketch = dynamic(() => import('@/components/SketchWelcome'), {
+const DynamicSketch = dynamic(() => import('@components/SketchWelcome'), {
   ssr: false,
 });
 

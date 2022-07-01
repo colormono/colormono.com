@@ -1,8 +1,8 @@
 import { NextSeo } from 'next-seo';
 
-// import { Container } from '@/components/ui';
-import FunctionCard from '@/components/FunctionCard';
-import { getAllFilesFrontMatter } from '@/utils/mdx';
+// import { Container } from '@components/ui';
+import FunctionCard from '@components/FunctionCard';
+import { getAllFilesFrontMatter } from '@helpers/mdx.helpers';
 
 const url = 'https://colormono.com/snippets';
 const title = 'Code Snippets – COLORMONO';

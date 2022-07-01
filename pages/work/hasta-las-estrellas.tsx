@@ -1,7 +1,7 @@
-import type { PageLayoutType } from '@/types/PageLayout';
+import type { PageLayoutType } from '@types/PageLayout';
 import { NextSeo } from 'next-seo';
-import Layout from '@/layouts/Page';
-import Article from '@/components/Article';
+import Layout from '@layouts/Page';
+import Article from '@components/Article';
 
 const Page: PageLayoutType = () => {
   return (

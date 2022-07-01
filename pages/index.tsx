@@ -1,6 +1,6 @@
-import type { PageLayoutType } from '@/types/PageLayout';
-import Layout from '@/layouts/Page';
-import ProjectSlide from '@/components/ProjectSlide';
+import type { PageLayoutType } from '@types/PageLayout';
+import Layout from '@layouts/Page';
+import ProjectSlide from '@components/ProjectSlide';
 import { NextSeo, SocialProfileJsonLd } from 'next-seo';
 
 const Page: PageLayoutType = () => {
