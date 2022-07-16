@@ -33,6 +33,7 @@ class Sketch extends Component {
         p.strokeWeight(0);
         p.ellipseMode(p.CORNER);
         p.frameRate(0.5); // pacefully
+        // p.noLoop(); // stop looping
       };
 
       p.windowResized = () => {
@@ -61,14 +62,14 @@ class Sketch extends Component {
         // Start a grid
         for (var x = 0; x < p.containerWidth; x += p.cellSize) {
           for (var y = 0; y < p.containerHeight; y += p.cellSize) {
-            // flipping a coin
+            // flipping a coin (pick a color)
             if (p.random(0, 10) > 5) {
               p.fill('black');
             } else {
               p.fill('blue');
             }
 
-            // throwing dice
+            // throwing dice (pick a shape)
             const dice = p.int(p.floor(p.random(1, 6)));
             switch (dice) {
               case 1:

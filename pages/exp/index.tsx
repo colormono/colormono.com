@@ -31,10 +31,7 @@ export default function LabHomepage({ posts }) {
       />
       <header>
         <h1 className="text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">Exp</h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-16">
-          I&apos;ve been taking notes, mostly about web development and new media arts. In total, I&apos;ve written
-          notes on this site. Use the search below to filter by title.
-        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-16">Experiments, experiences, examples... lab</p>
       </header>
 
       <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 md:gap-24">
@@ -52,9 +49,9 @@ export default function LabHomepage({ posts }) {
         <PostCard
           title="Tiling"
           subtitle="Like Throwing dice or Flipping a coin"
-          slug="randomization"
+          slug="tiling"
           category="exp"
-          featuredImage="/static/sketches/randomization-thumb.png"
+          featuredImage="/static/sketches/tiling-thumb.png"
         />
         <div className="bg-gray-100"></div>
         <div className="bg-gray-100"></div>
