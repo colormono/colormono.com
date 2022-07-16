@@ -134,21 +134,24 @@ class Sketch extends Component {
       };
 
       p.downloadSvg = () => {
-        let svgElement = document.getElementById('mySketch').getElementsByTagName('svg')[0];
-        let svg = svgElement.outerHTML;
-        let file = new Blob([svg], { type: 'plain/text' });
-        let a = document.createElement('a'),
-          url = URL.createObjectURL(file);
+        let svgCanvas = document.getElementById('mySketch');
+        if (svgCanvas) {
+          let svgElement = svgCanvas.getElementsByTagName('svg')[0];
+          let svg = svgElement.outerHTML;
+          let file = new Blob([svg], { type: 'plain/text' });
+          let a = document.createElement('a'),
+            url = URL.createObjectURL(file);
 
-        a.href = url;
-        a.download = 'render.svg';
-        document.body.appendChild(a);
-        a.click();
+          a.href = url;
+          a.download = 'render.svg';
+          document.body.appendChild(a);
+          a.click();
 
-        setTimeout(function () {
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-        }, 0);
+          setTimeout(function () {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+          }, 0);
+        }
       };
 
       p.generateGrid = function () {
