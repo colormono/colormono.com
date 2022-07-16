@@ -13,7 +13,11 @@ const PostCard = ({ title, subtitle, slug, category = 'notes', featuredImage }) 
     <Link href={`/${category}/${slug}`}>
       <a className="w-full group">
         <div className="w-full">
-          <Image src={featuredImage} alt="Picture of the author" width={640} height={201} />
+          {featuredImage ? (
+            <Image src={featuredImage} alt="Render" width={640} height={201} />
+          ) : (
+            <div className="flex w-[640px] h-[201px]">Render in progres...</div>
+          )}
           <div className="flex flex-col mt-4">
             <h4 className="text-lg md:text-3xl font-medium w-full text-gray-900 dark:text-gray-100 group-hover:underline underline-offset-2 mb-1">
               {title}

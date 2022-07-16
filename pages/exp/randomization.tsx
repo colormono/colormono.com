@@ -13,7 +13,8 @@ const Page: NextPage = () => {
       <div className="-mx-8 lg:-mx-16 sticky top-0">
         <Sketch />
       </div>
-      <div className="flex flex-col justify-center items-start max-w-4xl mb-16 mt-16 mx-auto p-16 bg-white/80 backdrop-blur-md rounded-xl">
+      <div className="flex flex-col justify-center items-start max-w-4xl mb-16 mt-16 mx-auto p-16 bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-xl">
+        {/* This text should be taken from @sketches/randomization/Readme.md */}
         <h1 className="text-6xl mb-4">Randomization</h1>
         <h2 className="text-xl mb-12 text-gray-500">Like Throwing dice or Flipping a coin</h2>
         <div className="prose prose-lg dark:prose-invert">
@@ -40,17 +41,6 @@ const Page: NextPage = () => {
             <Tag>Chaos</Tag>
             <Tag>Seed</Tag>
           </div>
-
-          {/* <h3>Skills</h3>
-          <ul>
-            <li>Creative thinking, Inductive reasoning.</li>
-            <li>Agile team player, collaborationist and good listener.</li>
-            <li>
-              Software engineering best practices, up-to-date with JavaScript.
-            </li>
-            <li>Functional, objet-oriented, maintainable and reusable code.</li>
-            <li>Project design, planning and execution. </li>
-          </ul> */}
         </div>
       </div>
     </>
