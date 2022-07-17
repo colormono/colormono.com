@@ -27,7 +27,7 @@ class Sketch extends Component {
 
       p.setup = () => {
         p.createCanvas(p.windowWidth, p.windowHeight * 0.6).parent(this.renderRef.current);
-        p.setContainerSize(p.windowWidth, p.windowHeight * 0.6);
+        p.setContainerSize(p.windowWidth * 0.8, p.windowHeight * 0.4);
         p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
         p.background('gray');
         p.strokeWeight(0);

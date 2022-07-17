@@ -1,7 +1,9 @@
 import type { NextPage } from 'next';
-import { Tag } from '@components/ui';
-import PageLayout from '@layouts/Page';
 import dynamic from 'next/dynamic';
+import { Tag } from '@components/ui';
+import { Layout } from '@components';
+import SketchContainer from '@components/Sketch/SketchContainer';
+import Article from '@components/Article';
 
 const Sketch = dynamic(() => import('@sketches/randomization'), {
   ssr: false,
@@ -9,15 +11,16 @@ const Sketch = dynamic(() => import('@sketches/randomization'), {
 
 const Page: NextPage = () => {
   return (
-    <>
-      <div className="-mx-8 lg:-mx-16 sticky top-0">
+    <Layout>
+      <SketchContainer>
         <Sketch />
-      </div>
-      <div className="flex flex-col justify-center items-start max-w-4xl mb-16 mt-16 mx-auto p-16 bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-xl">
+      </SketchContainer>
+
+      <div className="flex flex-col justify-center items-start mb-16 mt-16 w-full mx-auto p-16 bg-white/80 dark:bg-black/80 backdrop-blur-md">
         {/* This text should be taken from @sketches/randomization/Readme.md */}
-        <h1 className="text-6xl mb-4">Randomization</h1>
-        <h2 className="text-xl mb-12 text-gray-500">Like Throwing dice or Flipping a coin</h2>
-        <div className="prose prose-lg dark:prose-invert">
+        <Article>
+          <h1>Randomization</h1>
+          <h2>Like Throwing dice or Flipping a coin</h2>
           <p>
             Quidem officiis ut totam laborum libero pariatur quia voluptatem ducimus. Voluptatibus sapiente tempore qui
             et velit. Nesciunt et eaque. Eaque quidem sit assumenda ipsam debitis odit. A aut distinctio tempore vel id
@@ -41,9 +44,9 @@ const Page: NextPage = () => {
             <Tag>Chaos</Tag>
             <Tag>Seed</Tag>
           </div>
-        </div>
+        </Article>
       </div>
-    </>
+    </Layout>
   );
 };
 
