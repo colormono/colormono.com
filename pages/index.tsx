@@ -40,7 +40,7 @@ const Page: NextPage = () => {
             <a href="https://truenorth.co" target="_blank" rel="noreferrer" className="underline underline-offset-2">
               TrueNorth
             </a>{' '}
-            as Head of Front-end. Thanks to having creative coding skills, I can be part of the different stages of the
+            as Front-end Engineer. Thanks to having creative coding skills, I can be part of the different stages of the
             creative process, from conception to execution.
           </Cover.Body>
         </Cover>
