@@ -17,10 +17,6 @@ html {
   @apply bg-indigo-500 text-white;
 }
 
-body {
-  @apply font-serif;
-}
-
 h1,
 h2,
 h3,

@@ -13,7 +13,7 @@ export const Cover: FC<CoverProps> = ({ children }) => {
   const body = getChildrenOnDisplayName(children, 'Body');
   return (
     <section className="w-full">
-      <Container className="pt-24 pb-32">
+      <Container className="py-12 lg:pt-24 lg:pb-32 2xl:pt-40 2xl:pb-56">
         {title}
         {body}
       </Container>

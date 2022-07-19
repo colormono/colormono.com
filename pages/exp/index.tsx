@@ -35,10 +35,8 @@ export const Page: NextPage = ({ posts }) => {
       <Layout>
         <Container>
           <header className="pt-10 pb-20">
-            <h1 className="text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">EXP</h1>
-            <p className="text-gray-600 dark:text-gray-400">
-              Explorations, experiments, experiences, examples, exp... Lab, Play.
-            </p>
+            <h1 className="text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">LAB</h1>
+            <p className="text-gray-600 dark:text-gray-400">Lab: experiments, explorations, experiences, examples...</p>
           </header>
 
           <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 md:gap-20">

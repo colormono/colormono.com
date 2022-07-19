@@ -1,6 +1,6 @@
 import hydrate from 'next-mdx-remote/hydrate';
 import { getFileBySlug } from '@helpers/mdx.helpers';
-import Layout from '@layouts/Page';
+import Layout from '@components/Layout';
 import MDXComponents from '@components/MDXComponents';
 import Article from '@components/Article';
 
@@ -9,7 +9,11 @@ const Page = ({ mdxSource, frontMatter }) => {
     components: MDXComponents,
   });
 
-  return <Article frontMatter={frontMatter}>{content}</Article>;
+  return (
+    <Layout>
+      <Article frontMatter={frontMatter}>{content}</Article>
+    </Layout>
+  );
 };
 
 export async function getStaticProps() {
@@ -17,7 +21,5 @@ export async function getStaticProps() {
 
   return { props: data };
 }
-
-Page.layout = Layout;
 
 export default Page;
