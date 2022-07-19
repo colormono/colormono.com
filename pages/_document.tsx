@@ -42,7 +42,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body className="text-lg text-black dark:bg-black dark:text-white transition-colors duration-300 ease-in-out antialiased">
+        <body className="text-lg text-black bg-white dark:bg-black dark:text-white transition-colors duration-300 ease-in-out antialiased">
           <Main />
           <NextScript />
         </body>

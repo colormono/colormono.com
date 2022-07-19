@@ -16,7 +16,7 @@ function Header() {
 
   return (
     <header className="sticky top-0 inset-x-0 z-10 w-full my-0 md:my-10 bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors duration-300 ease-in-out">
-      <Container className="flex w-full justify-between items-center md:py-3">
+      <Container className="flex w-full justify-between items-center md:py-3 lg:py-8">
         <nav className="flex-1 flex items-center gap-4">
           {menuItems.map((item) => (
             <div key={item.slug}>

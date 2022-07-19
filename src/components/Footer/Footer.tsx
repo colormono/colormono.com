@@ -7,7 +7,7 @@ import { LINKS } from '@constants';
 
 export default function Footer() {
   return (
-    <footer className="text-base font-sans pt-12 pb-24">
+    <footer className="text-base font-sans pt-12 pb-24 md:pt-24">
       <Container className="flex flex-col md:flex-row gap-12 max-w-7xl">
         <div className="flex space-x-4">
           <ExternalLink href={LINKS.INSTAGRAM}>

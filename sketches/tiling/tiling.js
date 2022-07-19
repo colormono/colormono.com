@@ -15,9 +15,9 @@ import p5Svg from 'p5.js-svg';
 
 const sketch = (p) => {
   let points = [];
-  const bg = '#fff';
-  const tileWidth = 150;
-  const tileHeight = 150;
+  const bg = '#F8FAFC';
+  const tileWidth = 100;
+  const tileHeight = 100;
   const tilePadding = 2;
   const align = { x: 0, y: 0 };
   let containerWidth, containerHeight;
@@ -29,9 +29,11 @@ const sketch = (p) => {
     let density = p.displayDensity();
     p.pixelDensity(density);
     // p.createCanvas(p.windowWidth, p.windowHeight * 0.6, p.SVG);
-    p.createCanvas(p.windowWidth, p.windowHeight * 0.6);
+    p.createCanvas(p.windowWidth, 640);
+    // p.createCanvas(960,640);
 
-    p.setContainerSize(p.windowWidth * 0.5, p.windowHeight * 0.5 * 0.6);
+    p.setContainerSize(p.windowWidth/2,640/2);
+    // p.setContainerSize(p.windowWidth * 0.5, p.windowHeight * 0.5 * 0.6);
     // p.alignCenter(containerWidth, containerHeight, p.windowWidth, p.windowHeight * 0.6);
     // p.background('gray');
     p.strokeWeight(0);
@@ -45,8 +47,8 @@ const sketch = (p) => {
   };
 
   p.windowResized = () => {
-    p.resizeCanvas(p.windowWidth, p.windowHeight * 0.6);
-    p.setContainerSize(p.windowWidth * 0.5, p.windowHeight * 0.5 * 0.6);
+    // p.resizeCanvas(p.windowWidth, p.windowHeight * 0.6);
+    // p.setContainerSize(p.windowWidth * 0.5, p.windowHeight * 0.5 * 0.6);
     // p.alignCenter(containerWidth, containerHeight, p.windowWidth, p.windowHeight * 0.6);
   };
 
@@ -126,7 +128,7 @@ const sketch = (p) => {
     p.randomlySubdivideGridPoints();
     p.randomlySubdivideGridPoints();
     p.randomlySubdivideGridPoints();
-    p.randomlySubdivideGridPoints();
+    // p.randomlySubdivideGridPoints();
 
     // Composition
     points.forEach((item, index) => {

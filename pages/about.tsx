@@ -17,7 +17,7 @@ const Page: NextPage = () => {
       />
 
       <Layout>
-        <Container>
+        <Container className="pt-12 md:pt-24 xl:pt-36">
           <Article>
             <h1>Mariano Rivas</h1>
             <h3>New media artist and software developer</h3>

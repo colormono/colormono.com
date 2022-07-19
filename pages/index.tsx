@@ -59,7 +59,7 @@ const Page: NextPage = () => {
             algorithmically generated animations."
               date="2020"
               href="/work/hasta-las-estrellas"
-              thumb="/static/images/hasta-las-estrellas/thumb.jpg"
+              thumb="/static/work/hasta-las-estrellas/thumb.jpg"
             />
 
             <ProjectSlide
@@ -68,7 +68,7 @@ const Page: NextPage = () => {
               description="School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de policía en un extremo que golpea cuando el usuario se hace escuchar."
               date="2016"
               // href="/work/cultura-del-silencio"
-              thumb="/static/images/cultura-del-silencio/thumb.jpg"
+              thumb="/static/work/cultura-del-silencio/thumb.jpg"
             />
 
             <ProjectSlide
@@ -77,7 +77,7 @@ const Page: NextPage = () => {
               description="School project. La obra es una instalación sonora dirigida por un drone que vuela sobre unos bloques de concreto con parlantes. Al iluminar los bloques estos se activan y reproducen mensajes en código morse que se corresponden con una base de datos de ataques con drones ejecutados por Estados Unidos en medio oriente."
               date="2016"
               // href="/work/sonata-para-un-drone"
-              thumb="/static/images/sonata-para-un-drone/thumb.jpg"
+              thumb="/static/work/sonata-para-un-drone/thumb.jpg"
             />
 
             <ProjectSlide
@@ -86,7 +86,7 @@ const Page: NextPage = () => {
               description="'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, this works are the first steps on cinema history."
               date="2015"
               // href="/work/musica"
-              thumb="/static/images/musica/thumb.jpg"
+              thumb="/static/work/musica/thumb.jpg"
             />
 
             <ProjectSlide
@@ -95,7 +95,7 @@ const Page: NextPage = () => {
               description="School project. 'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, those images are the first steps on cinema history."
               date="2014"
               // href="/work/locomocion"
-              thumb="/static/images/locomocion/thumb.jpg"
+              thumb="/static/work/locomocion/thumb.jpg"
             />
           </div>
         </section>

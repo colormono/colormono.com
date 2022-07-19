@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import { PostCard } from '@components/Post';
+import { WorkCard } from '@components/Post';
 import { Layout } from '@components';
 import { Container } from '@components/ui';
 // To-do use MDX to write the content with embedded Skecthes
@@ -34,43 +34,39 @@ export const Page: NextPage = ({ posts }) => {
 
       <Layout>
         <Container>
-          <header className="pt-10 pb-20 text-center">
-            <p className="text-2xl md:text-3xl tracking-tight text-neutral-300 dark:text-neutral-700">
-              ..., lab, experiments, explorations, experiences, examples, ...
-            </p>
-          </header>
-
-          <section className="pb-20 grid grid-cols-1 items-center gap-x-16 gap-y-24 md:grid-cols-2 xl:grid-cols-3">
+          <section className="grid grid-cols-1 items-center gap-x-10 gap-y-12 md:grid-cols-2">
             {/* {!filteredPosts.length && 'No posts found.'}
           {filteredPosts.map((frontMatter) => (
             <Post key={frontMatter.title} {...frontMatter} />
           ))} */}
-            <PostCard
-              title="Randomization"
+
+            <WorkCard
+              title="Hasta las Estrellas"
               subtitle="Like Throwing dice or Flipping a coin"
               slug="randomization"
               category="exp"
-              featuredImage="/static/lab/randomization-thumb.png"
-              featuredImageW={2560}
-              featuredImageH={804}
+              featuredImage="/static/work/hasta-las-estrellas/thumb.jpg"
             />
-            <PostCard
-              title="Tiling"
-              subtitle="Recursive irregular grid"
+            <WorkCard
+              title="Cultura del Silencio"
+              subtitle="Like Throwing dice or Flipping a coin"
+              slug="randomization"
+              category="exp"
+              featuredImage="/static/work/cultura-del-silencio/thumb.jpg"
+            />
+            <WorkCard
+              title="Locomocion"
+              subtitle="Like Throwing dice or Flipping a coin"
               slug="tiling"
               category="exp"
-              featuredImage="/static/lab/tiling/thumb.png"
-              featuredImageW={640}
-              featuredImageH={1280}
+              featuredImage="/static/work/locomocion/thumb.jpg"
             />
-            <PostCard
-              title="Invisible touch"
-              subtitle="Video mapping app using a LeapMotion sensor"
-              slug="#" // "https://vimeo.com/134560602"
-              category="openFrameworks, sensor, leapmotion, hardware"
-              featuredImage="/static/lab/leaptouch.png"
-              featuredImageW={424}
-              featuredImageH={501}
+            <WorkCard
+              title="Locomocion"
+              subtitle="Like Throwing dice or Flipping a coin"
+              slug="tiling"
+              category="exp"
+              featuredImage="/static/work/musica/thumb.jpg"
             />
           </section>
         </Container>
