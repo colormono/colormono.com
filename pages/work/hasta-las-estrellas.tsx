@@ -18,7 +18,7 @@ const Page: NextPage = () => {
 
       <Layout>
         <figure className="mb-16">
-          <img src="/static/images/hasta-las-estrellas/concept.jpg" alt="Concept" className="w-full" />
+          <img src="/static/work/hasta-las-estrellas/concept.jpg" alt="Concept" className="w-full" />
         </figure>
 
         <Container>
@@ -31,7 +31,7 @@ const Page: NextPage = () => {
             </p>
 
             <figure>
-              <img src="/static/images/hasta-las-estrellas/medium.jpg" alt="Hasta las Estrellas" />
+              <img src="/static/work/hasta-las-estrellas/medium.jpg" alt="Hasta las Estrellas" />
               <figcaption>
                 <h4>Obra Multimedia, 2019</h4>
                 <p>
@@ -44,23 +44,23 @@ const Page: NextPage = () => {
 
             {/* Here will be the generative section */}
             <figure>
-              <img src="/static/images/hasta-las-estrellas/pantallita.jpg" alt="Display Detail" />
+              <img src="/static/work/hasta-las-estrellas/pantallita.jpg" alt="Display Detail" />
               <div className="grid grid-cols-5">
-                <img src="/static/images/hasta-las-estrellas/gen/01.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/02.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/04.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/05.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/06.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/07.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/08.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/09.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/10.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/11.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/12.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/13.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/14.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/15.jpg" alt="Generative screen" />
-                <img src="/static/images/hasta-las-estrellas/gen/03.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/01.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/02.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/04.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/05.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/06.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/07.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/08.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/09.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/10.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/11.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/12.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/13.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/14.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/15.jpg" alt="Generative screen" />
+                <img src="/static/work/hasta-las-estrellas/gen/03.jpg" alt="Generative screen" />
               </div>
               <figcaption className="text-center">
                 <cite>
@@ -76,7 +76,7 @@ const Page: NextPage = () => {
             <h2>El día que naciste</h2>
             <figure>
               <img
-                src="/static/images/hasta-las-estrellas/foto-tini.jpg"
+                src="/static/work/hasta-las-estrellas/foto-tini.jpg"
                 alt="Agustina Rivas Varela"
                 className="rounded-lg shadow-md"
               />
@@ -91,7 +91,7 @@ const Page: NextPage = () => {
 
             <figure>
               <img
-                src="/static/images/hasta-las-estrellas/el-dia-que-naciste.jpg"
+                src="/static/work/hasta-las-estrellas/el-dia-que-naciste.jpg"
                 alt="El día que naciste"
                 className="w-full shadow-2xl"
               />
@@ -114,7 +114,7 @@ const Page: NextPage = () => {
             </p>
 
             <figure>
-              <img src="/static/images/hasta-las-estrellas/la-noche-que-naciste.jpg" alt="La noche que naciste" />
+              <img src="/static/work/hasta-las-estrellas/la-noche-que-naciste.jpg" alt="La noche que naciste" />
               <figcaption>
                 <h4>Obra Multimedia, 2019</h4>
                 <p>
@@ -144,7 +144,7 @@ const Page: NextPage = () => {
             </p>
 
             <figure>
-              <img src="/static/images/hasta-las-estrellas/parte-de-tu-huella.jpg" alt="Parte de tu huella" />
+              <img src="/static/work/hasta-las-estrellas/parte-de-tu-huella.jpg" alt="Parte de tu huella" />
               <figcaption>
                 <h4>Tintado en papel, 2019</h4>
                 <p>
@@ -162,7 +162,7 @@ const Page: NextPage = () => {
             </p>
 
             <figure>
-              <img src="/static/images/hasta-las-estrellas/crece.jpg" alt="Crece" />
+              <img src="/static/work/hasta-las-estrellas/crece.jpg" alt="Crece" />
               <figcaption>
                 <h4>Obra Tridimensional, 2020</h4>
                 <p>

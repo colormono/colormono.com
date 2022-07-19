@@ -18,7 +18,7 @@ const Page: NextPage = () => {
 
       <Layout>
         <figure className="mb-16">
-          <img src="/static/images/hasta-las-estrellas/concept.jpg" alt="Concept" className="w-full" />
+          <img src="/static/work/hasta-las-estrellas/concept.jpg" alt="Concept" className="w-full" />
         </figure>
 
         <Container>
