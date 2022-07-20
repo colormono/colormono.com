@@ -1,24 +1,14 @@
 import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import { WorkCard } from '@components/Post';
 import { Layout } from '@components';
 import { Container } from '@components/ui';
-// To-do use MDX to write the content with embedded Skecthes
-// import { getAllFilesFrontMatter } from '@helpers/mdx.helpers';
+import { WorkCard } from '@components/Post';
 
-// To-do:
-// - [√] Initial grid
-// - [] Make grid using /sketches/*.mdx
-
-const title = 'LAB – COLORMONO';
+const title = 'WORK – COLORMONO';
 const description = 'Explorations, experiments, experiences, examples, exp... lab';
-const url = 'https://colormono.com/notes';
+const url = 'https://colormono.com/work';
 
-export const Page: NextPage = ({ posts }) => {
-  // const filteredPosts = posts
-  //   .sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
-  //   .filter((frontMatter) => frontMatter.title.toLowerCase().includes(searchValue.toLowerCase()));
-
+export const Page: NextPage = () => {
   return (
     <>
       <NextSeo
@@ -33,40 +23,68 @@ export const Page: NextPage = ({ posts }) => {
       />
 
       <Layout>
-        <Container>
+        <Container className="py-16">
           <section className="grid grid-cols-1 items-center gap-x-10 gap-y-12 md:grid-cols-2">
-            {/* {!filteredPosts.length && 'No posts found.'}
-          {filteredPosts.map((frontMatter) => (
-            <Post key={frontMatter.title} {...frontMatter} />
-          ))} */}
+            {/* <WorkCard
+              title="Colorful tile system"
+              subtitle="2022, Pen plotter drawing serie"
+              href="/work/hasta-las-estrellas"
+              featuredImage="/static/work/hasta-las-estrellas/thumb.jpg"
+              description="White ink pen drawing on black paper. Mechanical cutting, handmade
+              paste; machine precision, human error. LCD screen with
+              algorithmically generated animations."
+            /> */}
+
+            <WorkCard
+              title="Recreo"
+              subtitle="2021, Augmented Illustration"
+              href="/work/hasta-las-estrellas"
+              featuredImage="/static/work/hasta-las-estrellas/thumb.jpg"
+              description="White ink pen drawing on black paper. Mechanical cutting, handmade
+              paste; machine precision, human error. LCD screen with
+              algorithmically generated animations."
+            />
 
             <WorkCard
               title="Hasta las Estrellas"
-              subtitle="Like Throwing dice or Flipping a coin"
-              slug="randomization"
-              category="exp"
+              subtitle="2020, Augmented Illustration"
+              href="/work/hasta-las-estrellas"
               featuredImage="/static/work/hasta-las-estrellas/thumb.jpg"
+              description="White ink pen drawing on black paper. Mechanical cutting, handmade
+              paste; machine precision, human error. LCD screen with
+              algorithmically generated animations."
             />
+
             <WorkCard
-              title="Cultura del Silencio"
-              subtitle="Like Throwing dice or Flipping a coin"
-              slug="randomization"
-              category="exp"
+              title="Cultura del silencio"
+              subtitle="2016, Interactive Sculpture"
+              description="School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de policía en un extremo que golpea cuando el usuario se hace escuchar."
+              href="/work/cultura-del-silencio"
               featuredImage="/static/work/cultura-del-silencio/thumb.jpg"
             />
+
             <WorkCard
-              title="Locomocion"
-              subtitle="Like Throwing dice or Flipping a coin"
-              slug="tiling"
-              category="exp"
-              featuredImage="/static/work/locomocion/thumb.jpg"
+              title="Sonata para un drone"
+              subtitle="2016, Sound Instalation"
+              description="School project. La obra es una instalación sonora dirigida por un drone que vuela sobre unos bloques de concreto con parlantes. Al iluminar los bloques estos se activan y reproducen mensajes en código morse que se corresponden con una base de datos de ataques con drones ejecutados por Estados Unidos en medio oriente."
+              href="/work/sonata-para-un-drone"
+              featuredImage="/static/work/sonata-para-un-drone/thumb.jpg"
             />
+
             <WorkCard
-              title="Locomocion"
-              subtitle="Like Throwing dice or Flipping a coin"
-              slug="tiling"
-              category="exp"
+              title="Música"
+              subtitle="2015, Interactive Instalation"
+              description="'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, this works are the first steps on cinema history."
+              href="/work/musica"
               featuredImage="/static/work/musica/thumb.jpg"
+            />
+
+            <WorkCard
+              title="Locomoción"
+              subtitle="2014, Interactive Instalation"
+              description="School project. 'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, those images are the first steps on cinema history."
+              href="/work/locomocion"
+              featuredImage="/static/work/locomocion/thumb.jpg"
             />
           </section>
         </Container>
@@ -74,11 +92,5 @@ export const Page: NextPage = ({ posts }) => {
     </>
   );
 };
-
-// export async function getStaticProps() {
-//   const posts = await getAllFilesFrontMatter('notes');
-
-//   return { props: { posts } };
-// }
 
 export default Page;

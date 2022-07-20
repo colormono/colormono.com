@@ -47,14 +47,13 @@ const Page: NextPage = () => {
 
             <h4>Skill set</h4>
             <p className="flex flex-wrap gap-3">
+              <Tag>Design System</Tag>
               <Tag>JavaScript</Tag>
               <Tag>React</Tag>
-              <Tag>NextJS</Tag>
-              <Tag>ThreeJS</Tag>
-              <Tag>NodeJS</Tag>
-              <Tag>GraphQL</Tag>
-              <Tag>Design Systems</Tag>
-              <Tag>Dataviz</Tag>
+              <Tag>Next.js</Tag>
+              <Tag>Three.js</Tag>
+              <Tag>Node.js</Tag>
+              <Tag>Data viz</Tag>
               <Tag>openFrameworks</Tag>
               <Tag>Processing</Tag>
               <Tag>Arduino</Tag>

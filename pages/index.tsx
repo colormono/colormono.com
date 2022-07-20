@@ -47,7 +47,7 @@ const Page: NextPage = () => {
 
         <section className="py-8">
           <Container>
-            <h3 className="uppercase text-xl tracking-relaxed mb-8">Selected Works</h3>
+            <h3 className="uppercase text-xl tracking-relaxed mb-8">Selected Projects</h3>
           </Container>
 
           <div className="xl:px-10 mx-auto max-w-[1920px] ">
