@@ -14,7 +14,8 @@ const title = 'LAB – COLORMONO';
 const description = 'Explorations, experiments, experiences, examples, exp... lab';
 const url = 'https://colormono.com/notes';
 
-export const Page: NextPage = ({ posts }) => {
+// export const Page: NextPage = ({ posts }) => {
+export const Page: NextPage = () => {
   // const filteredPosts = posts
   //   .sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
   //   .filter((frontMatter) => frontMatter.title.toLowerCase().includes(searchValue.toLowerCase()));

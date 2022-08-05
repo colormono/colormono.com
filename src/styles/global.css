@@ -26,17 +26,25 @@ h6 {
   @apply font-sans font-normal;
 }
 
+.prose figure {
+  margin: 80px -120px;
+}
+
+.prose figcaption {
+  @apply text-sm;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply mx-auto my-0;
+}
+
 .prose pre {
   @apply bg-gray-50 border border-gray-200 dark:border-gray-700 dark:bg-gray-900;
 }
 
 .prose code {
   @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
-}
-
-.prose img {
-  /* Don't apply styles to next/image */
-  @apply m-0;
 }
 
 .token.comment,

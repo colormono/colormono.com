@@ -52,18 +52,7 @@ const Page: NextPage = () => {
 
           <div className="xl:px-10 mx-auto max-w-[1920px] ">
             <ProjectSlide
-              title="Hasta Las Estrellas"
-              subtitle="Augmented Illustration"
-              description="White ink pen drawing on black paper. Mechanical cutting, handmade
-            paste; machine precision, human error. LCD screen with
-            algorithmically generated animations."
-              date="2020"
-              href="/work/hasta-las-estrellas"
-              thumb="/static/work/hasta-las-estrellas/thumb.jpg"
-            />
-
-            <ProjectSlide
-              title="Cultura del silencio"
+              title="Recreo"
               subtitle="Interactive Sculpture"
               description="School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de policía en un extremo que golpea cuando el usuario se hace escuchar."
               date="2016"
@@ -72,21 +61,14 @@ const Page: NextPage = () => {
             />
 
             <ProjectSlide
-              title="Sonata para un drone"
-              subtitle="Sound Instalation"
-              description="School project. La obra es una instalación sonora dirigida por un drone que vuela sobre unos bloques de concreto con parlantes. Al iluminar los bloques estos se activan y reproducen mensajes en código morse que se corresponden con una base de datos de ataques con drones ejecutados por Estados Unidos en medio oriente."
-              date="2016"
-              // href="/work/sonata-para-un-drone"
-              thumb="/static/work/sonata-para-un-drone/thumb.jpg"
-            />
-
-            <ProjectSlide
-              title="Música"
-              subtitle="Interactive Instalation"
-              description="'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, this works are the first steps on cinema history."
-              date="2015"
-              // href="/work/musica"
-              thumb="/static/work/musica/thumb.jpg"
+              title="Hasta Las Estrellas"
+              subtitle="Augmented Illustration"
+              description="White ink pen drawing on black paper. Mechanical cutting, handmade
+            paste; machine precision, human error. LCD screen with
+            algorithmically generated animations."
+              date="2020"
+              href="/work/hasta-las-estrellas"
+              thumb="/static/work/hasta-las-estrellas/thumb.jpg"
             />
 
             <ProjectSlide

@@ -1,14 +1,24 @@
-import React, { FC, ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { Container } from '@components/ui';
 
-type CoverProps = {
+type TitleType = {
   children?: ReactNode;
-  className?: string;
-  Title?: ReactNode;
-  Body?: ReactNode;
+  displayName: string;
 };
 
-export const Cover: FC<CoverProps> = ({ children }) => {
+type BodyType = {
+  children?: ReactNode;
+  displayName: string;
+};
+
+type CoverType = {
+  children?: ReactNode;
+  className?: string;
+  Title?: TitleType;
+  Body?: BodyType;
+};
+
+export const Cover: React.FC<CoverType> & { Title } & { Body } = ({ children }) => {
   const title = getChildrenOnDisplayName(children, 'Title');
   const body = getChildrenOnDisplayName(children, 'Body');
   return (
@@ -21,19 +31,21 @@ export const Cover: FC<CoverProps> = ({ children }) => {
   );
 };
 
-const Title = ({ children, ...other }) => (
+const Title: TitleType = ({ children, ...other }) => (
   <h1 className="text-4xl md:text-8xl tracking-tight mb-6" {...other}>
     {children}
   </h1>
 );
+
 Title.displayName = 'Title';
 Cover.Title = Title;
 
-const Body = ({ children, ...other }) => (
+const Body: BodyType = ({ children, ...other }) => (
   <div className="max-w-3xl text-2xl leading-relaxed" {...other}>
     {children}
   </div>
 );
+
 Body.displayName = 'Body';
 Cover.Body = Body;
 

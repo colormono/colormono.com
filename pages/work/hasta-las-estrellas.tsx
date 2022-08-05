@@ -33,12 +33,11 @@ const Page: NextPage = () => {
             <figure>
               <img src="/static/work/hasta-las-estrellas/medium.jpg" alt="Hasta las Estrellas" />
               <figcaption>
-                <h4>Obra Multimedia, 2019</h4>
-                <p>
-                  Plotter de dibujo y corte con pantalla LCD
-                  <br />
-                  72x102 cm
-                </p>
+                <strong>Hasta las Estrellas</strong>
+                <br />
+                72x102cm, 2019
+                <br />
+                Multimedia Art. Drawing and cutting plotter, Arduino controlled LCD screen
               </figcaption>
             </figure>
 
@@ -143,7 +142,7 @@ const Page: NextPage = () => {
               sobre papel. Máscara realizada con plotter de corte.
             </p>
 
-            <figure>
+            <figure className="text-center">
               <img src="/static/work/hasta-las-estrellas/parte-de-tu-huella.jpg" alt="Parte de tu huella" />
               <figcaption>
                 <h4>Tintado en papel, 2019</h4>

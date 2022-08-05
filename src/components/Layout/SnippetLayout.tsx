@@ -6,6 +6,7 @@ import Article from '@components/Article';
 
 type Props = {
   children?: ReactNode;
+  frontMatter: any;
 };
 
 export function SnippetLayout({ children, frontMatter }: Props) {
