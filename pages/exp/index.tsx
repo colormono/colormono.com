@@ -51,9 +51,9 @@ export const Page: NextPage = () => {
               subtitle="Like Throwing dice or Flipping a coin"
               slug="randomization"
               category="exp"
-              featuredImage="/static/lab/randomization-thumb.png"
-              featuredImageW={2560}
-              featuredImageH={804}
+              featuredImage="/static/lab/randomization/thumb.png"
+              featuredImageW={1280}
+              featuredImageH={784}
             />
             <PostCard
               title="Tiling"

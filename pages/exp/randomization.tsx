@@ -20,22 +20,8 @@ const Page: NextPage = () => {
         {/* This text should be taken from @sketches/randomization/Readme.md */}
         <Article>
           <h1>Randomization</h1>
-          <h2>Like Throwing dice or Flipping a coin</h2>
-          <p>
-            Quidem officiis ut totam laborum libero pariatur quia voluptatem ducimus. Voluptatibus sapiente tempore qui
-            et velit. Nesciunt et eaque. Eaque quidem sit assumenda ipsam debitis odit. A aut distinctio tempore vel id
-            ex doloremque minus.
-          </p>
-          <p>
-            Qui quidem est omnis alias maiores et ipsum occaecati. Et consequatur sunt perspiciatis corporis nobis
-            dolore beatae accusamus. Sit placeat inventore possimus odio. Minus non veritatis.
-          </p>
-          <p>
-            Impedit nesciunt ab laboriosam inventore. Dolores placeat blanditiis libero inventore maxime sed. Dolores
-            quasi quis sequi corrupti ipsum. Qui harum est minus ipsa natus eaque assumenda et.
-          </p>
+          <h3>Like Throwing dice or Flipping a coin</h3>
 
-          <div className="mt-8 mb-4 block">Keywords</div>
           <div className="flex flex-wrap gap-2">
             <Tag>Random</Tag>
             <Tag>Disorder</Tag>

@@ -32,15 +32,19 @@ export default function Footer() {
           <Link href="/awesome">
             <a className="text-gray-500 hover:text-gray-600">/awesome</a>
           </Link>
-          <Link href="/design-system">
-            <a className="text-gray-500 hover:text-gray-600">/design-system</a>
-          </Link>
-          <Link href="/notes">
-            <a className="text-gray-500 hover:text-gray-600">/notes</a>
-          </Link>
-          <Link href="/exp">
+          {process.env.NODE_ENV === 'development' ? (
+            <>
+              <Link href="/design-system">
+                <a className="text-gray-500 hover:text-gray-600">/design-system</a>
+              </Link>
+              <Link href="/notes">
+                <a className="text-gray-500 hover:text-gray-600">/notes</a>
+              </Link>
+            </>
+          ) : null}
+          {/* <Link href="/exp">
             <a className="text-gray-500 hover:text-gray-600">/exp</a>
-          </Link>
+          </Link> */}
           {/* <Link href="/uses">
             <a className="text-gray-500 hover:text-gray-600">/uses</a>
           </Link> */}

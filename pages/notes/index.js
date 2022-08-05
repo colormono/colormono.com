@@ -12,7 +12,7 @@ export default function Blog({ posts }) {
   const [searchValue, setSearchValue] = useState('');
   const filteredPosts = posts
     .sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
-    .filter((frontMatter) => frontMatter.title.toLowerCase().includes(searchValue.toLowerCase()));
+    .filter((frontMatter) => frontMatter.title?.toLowerCase().includes(searchValue.toLowerCase()));
 
   return (
     <>

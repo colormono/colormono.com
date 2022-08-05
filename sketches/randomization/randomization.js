@@ -20,16 +20,17 @@ class Sketch extends Component {
     const p5 = require('p5');
 
     this.sketch = new p5((p) => {
-      p.cellSize = 56;
-      p.cellPadding = 4;
+      p.cellSize = 140;
+      p.cellPadding = 10;
       p.containerWidth, p.containerHeight;
       p.align = { x: 0, y: 0 };
+      p.bg = '#F8FAFC';
 
       p.setup = () => {
         p.createCanvas(p.windowWidth, p.windowHeight * 0.6).parent(this.renderRef.current);
         p.setContainerSize(p.windowWidth * 0.8, p.windowHeight * 0.4);
         p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
-        p.background('gray');
+        p.background(p.bg);
         p.strokeWeight(0);
         p.ellipseMode(p.CORNER);
         p.frameRate(0.5); // pacefully
@@ -53,8 +54,7 @@ class Sketch extends Component {
       };
 
       p.draw = () => {
-        p.fill('white');
-        p.rect(0, 0, p.width, p.height);
+        p.background(p.bg);
 
         p.push(); // Start a new drawing state
         p.translate(p.align.x, p.align.y);
@@ -64,13 +64,13 @@ class Sketch extends Component {
           for (var y = 0; y < p.containerHeight; y += p.cellSize) {
             // flipping a coin (pick a color)
             if (p.random(0, 10) > 5) {
-              p.fill('black');
+              p.fill('darkblue');
             } else {
               p.fill('blue');
             }
 
             // throwing dice (pick a shape)
-            const dice = p.int(p.floor(p.random(1, 6)));
+            const dice = p.int(p.floor(p.random(1, 7)));
             switch (dice) {
               case 1:
                 p.letterM(x, y);
