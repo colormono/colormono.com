@@ -13,17 +13,9 @@ export type CardType = {
   featuredImageH?: number;
 };
 
-const WorkCard = ({
-  title,
-  subtitle,
-  href,
-  category = 'notes',
-  featuredImage,
-  featuredImageW = 1280,
-  featuredImageH = 720,
-}: CardType) => {
+const WorkCard = ({ title, subtitle, href, featuredImage, featuredImageW = 1280, featuredImageH = 720 }: CardType) => {
   return (
-    <Link href={`/${category}/${href}`}>
+    <Link href={`/${href}`}>
       <a className="w-full group relative">
         <div className="w-full bg-black">
           {featuredImage ? (

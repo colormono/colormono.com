@@ -28,7 +28,17 @@ export const Page: NextPage = () => {
             {/* <WorkCard
               title="Colorful tile system"
               subtitle="2022, Pen plotter drawing serie"
-              href="work/hasta-las-estrellas"
+              href="/work/hasta-las-estrellas"
+              featuredImage="/static/work/hasta-las-estrellas/thumb.jpg"
+              description="White ink pen drawing on black paper. Mechanical cutting, handmade
+              paste; machine precision, human error. LCD screen with
+              algorithmically generated animations."
+            /> */}
+
+            {/* <WorkCard
+              title="Recreo"
+              subtitle="2021, Augmented Illustration"
+              href="/work/hasta-las-estrellas"
               featuredImage="/static/work/hasta-las-estrellas/thumb.jpg"
               description="White ink pen drawing on black paper. Mechanical cutting, handmade
               paste; machine precision, human error. LCD screen with
@@ -36,19 +46,9 @@ export const Page: NextPage = () => {
             /> */}
 
             <WorkCard
-              title="Recreo"
-              subtitle="2021, Augmented Illustration"
-              href="work/hasta-las-estrellas"
-              featuredImage="/static/work/hasta-las-estrellas/thumb.jpg"
-              description="White ink pen drawing on black paper. Mechanical cutting, handmade
-              paste; machine precision, human error. LCD screen with
-              algorithmically generated animations."
-            />
-
-            <WorkCard
               title="Hasta las Estrellas"
               subtitle="2020, Augmented Illustration"
-              href="work/hasta-las-estrellas"
+              href="/work/hasta-las-estrellas"
               featuredImage="/static/work/hasta-las-estrellas/thumb.jpg"
               description="White ink pen drawing on black paper. Mechanical cutting, handmade
               paste; machine precision, human error. LCD screen with
@@ -59,7 +59,8 @@ export const Page: NextPage = () => {
               title="Cultura del silencio"
               subtitle="2016, Interactive Sculpture"
               description="School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de policía en un extremo que golpea cuando el usuario se hace escuchar."
-              href="work/cultura-del-silencio"
+              // href="/work/cultura-del-silencio"
+              href="#"
               featuredImage="/static/work/cultura-del-silencio/thumb.jpg"
             />
 
@@ -67,7 +68,8 @@ export const Page: NextPage = () => {
               title="Sonata para un drone"
               subtitle="2016, Sound Instalation"
               description="School project. La obra es una instalación sonora dirigida por un drone que vuela sobre unos bloques de concreto con parlantes. Al iluminar los bloques estos se activan y reproducen mensajes en código morse que se corresponden con una base de datos de ataques con drones ejecutados por Estados Unidos en medio oriente."
-              href="work/sonata-para-un-drone"
+              // href="/work/sonata-para-un-drone"
+              href="#"
               featuredImage="/static/work/sonata-para-un-drone/thumb.jpg"
             />
 
@@ -75,7 +77,8 @@ export const Page: NextPage = () => {
               title="Música"
               subtitle="2015, Interactive Instalation"
               description="'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, this works are the first steps on cinema history."
-              href="work/musica"
+              // href="/work/musica"
+              href="#"
               featuredImage="/static/work/musica/thumb.jpg"
             />
 
@@ -83,7 +86,8 @@ export const Page: NextPage = () => {
               title="Locomoción"
               subtitle="2014, Interactive Instalation"
               description="School project. 'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, those images are the first steps on cinema history."
-              href="work/locomocion"
+              // href="/work/locomocion"
+              href="#"
               featuredImage="/static/work/locomocion/thumb.jpg"
             />
           </section>
