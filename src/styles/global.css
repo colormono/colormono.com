@@ -17,10 +17,6 @@ html {
   @apply bg-indigo-500 text-white;
 }
 
-body {
-  @apply font-serif;
-}
-
 h1,
 h2,
 h3,
@@ -30,12 +26,17 @@ h6 {
   @apply font-sans font-normal;
 }
 
-.sticky-nav {
-  position: sticky;
-  z-index: 10;
-  top: 0;
-  backdrop-filter: saturate(180%) blur(20px);
-  transition: background-color 0.1 ease-in-out;
+.prose figure {
+  margin: 80px -120px;
+}
+
+.prose figcaption {
+  @apply text-sm;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply mx-auto my-0;
 }
 
 .prose pre {
@@ -44,11 +45,6 @@ h6 {
 
 .prose code {
   @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
-}
-
-.prose img {
-  /* Don't apply styles to next/image */
-  @apply m-0;
 }
 
 .token.comment,

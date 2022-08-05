@@ -2,9 +2,9 @@ import Link from 'next/link';
 // import Image from 'next/image';
 import Tweet from 'react-tweet-embed';
 
-import ProsCard from '@/components/ProsCard';
-import ConsCard from '@/components/ConsCard';
-import Step from '@/components/Step';
+import ProsCard from '@components/ProsCard';
+import ConsCard from '@components/ConsCard';
+import Step from '@components/Step';
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -27,7 +27,7 @@ const MDXComponents = {
   ConsCard,
   ProsCard,
   Step,
-  Tweet
+  Tweet,
 };
 
 export default MDXComponents;

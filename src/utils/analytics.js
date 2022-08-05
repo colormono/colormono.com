@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import * as gtag from '@/utils/gtag';
+import * as gtag from '@utils/gtag';
 
 export const useAnalytics = () => {
   const router = useRouter();
