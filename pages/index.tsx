@@ -52,15 +52,6 @@ const Page: NextPage = () => {
 
           <div className="xl:px-10 mx-auto max-w-[1920px] ">
             <ProjectSlide
-              title="Recreo"
-              subtitle="Interactive Sculpture"
-              description="School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de policía en un extremo que golpea cuando el usuario se hace escuchar."
-              date="2016"
-              // href="/work/cultura-del-silencio"
-              thumb="/static/work/cultura-del-silencio/thumb.jpg"
-            />
-
-            <ProjectSlide
               title="Hasta Las Estrellas"
               subtitle="Augmented Illustration"
               description="White ink pen drawing on black paper. Mechanical cutting, handmade
@@ -69,6 +60,15 @@ const Page: NextPage = () => {
               date="2020"
               href="/work/hasta-las-estrellas"
               thumb="/static/work/hasta-las-estrellas/thumb.jpg"
+            />
+
+            <ProjectSlide
+              title="Recreo"
+              subtitle="Interactive Sculpture"
+              description="School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de policía en un extremo que golpea cuando el usuario se hace escuchar."
+              date="2016"
+              // href="/work/cultura-del-silencio"
+              thumb="/static/work/cultura-del-silencio/thumb.jpg"
             />
 
             <ProjectSlide
