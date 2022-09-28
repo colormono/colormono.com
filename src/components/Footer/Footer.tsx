@@ -7,7 +7,7 @@ import { LINKS } from '@constants';
 
 export default function Footer() {
   return (
-    <footer className="text-base font-sans pt-12 pb-24 md:pt-24">
+    <footer className="relative z-50 text-base font-sans pt-12 pb-24 md:pt-24 bg-white dark:bg-black">
       <Container className="flex flex-col md:flex-row gap-12 max-w-7xl">
         <div className="flex space-x-4">
           <ExternalLink href={LINKS.INSTAGRAM}>
@@ -42,8 +42,8 @@ export default function Footer() {
               </Link>
             </>
           ) : null}
-          {/* <Link href="/exp">
-            <a className="text-gray-500 hover:text-gray-600">/exp</a>
+          {/* <Link href="/lab">
+            <a className="text-gray-500 hover:text-gray-600">/lab</a>
           </Link> */}
           {/* <Link href="/uses">
             <a className="text-gray-500 hover:text-gray-600">/uses</a>

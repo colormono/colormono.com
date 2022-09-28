@@ -17,11 +17,18 @@ const Page: NextPage = () => {
       />
 
       <Layout>
-        <figure className="mb-16">
-          <img src="/static/work/hasta-las-estrellas/concept.jpg" alt="Concept" className="w-full" />
+        <figure className="fixed z-10 top-10 left-0 right-0">
+          <div className="relative">
+            <div className="w-full h-full absolute top-0 lef-0 right-0 bg-gradient-to-b from-transparent to-black">
+              asd
+            </div>
+            <div className="opacity-100">
+              <img src="/static/work/hasta-las-estrellas/concept.jpg" alt="Concept" className="w-full" />
+            </div>
+          </div>
         </figure>
 
-        <Container>
+        <Container className="z-40 pt-80">
           <Article>
             <h1>Hasta las Estrellas</h1>
             <p>
@@ -44,7 +51,7 @@ const Page: NextPage = () => {
             {/* Here will be the generative section */}
             <figure>
               <img src="/static/work/hasta-las-estrellas/pantallita.jpg" alt="Display Detail" />
-              <div className="grid grid-cols-5">
+              <div className="grid grid-cols-5 my-8">
                 <img src="/static/work/hasta-las-estrellas/gen/01.jpg" alt="Generative screen" />
                 <img src="/static/work/hasta-las-estrellas/gen/02.jpg" alt="Generative screen" />
                 <img src="/static/work/hasta-las-estrellas/gen/04.jpg" alt="Generative screen" />

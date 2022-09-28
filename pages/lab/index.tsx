@@ -3,6 +3,11 @@ import { NextSeo } from 'next-seo';
 import { PostCard } from '@components/Post';
 import { Layout } from '@components';
 import { Container } from '@components/ui';
+
+import imgRandomization from 'public/static/lab/randomization/thumb.png';
+import imgTiling from 'public/static/lab/tiling/thumb.png';
+import imgLeaptouch from 'public/static/lab/leaptouch.png';
+
 // To-do use MDX to write the content with embedded Skecthes
 // import { getAllFilesFrontMatter } from '@helpers/mdx.helpers';
 
@@ -37,7 +42,7 @@ export const Page: NextPage = () => {
         <Container>
           <header className="pt-10 pb-20 text-center">
             <p className="text-2xl md:text-3xl tracking-tight text-neutral-300 dark:text-neutral-700">
-              ..., lab, experiments, explorations, experiences, examples, ...
+              LAB: experiments, explorations, experiences, examples...
             </p>
           </header>
 
@@ -50,8 +55,8 @@ export const Page: NextPage = () => {
               title="Randomization"
               subtitle="Like Throwing dice or Flipping a coin"
               slug="randomization"
-              category="exp"
-              featuredImage="/static/lab/randomization/thumb.png"
+              category="lab"
+              featuredImage={imgRandomization}
               featuredImageW={1280}
               featuredImageH={784}
             />
@@ -59,8 +64,8 @@ export const Page: NextPage = () => {
               title="Tiling"
               subtitle="Recursive irregular grid"
               slug="tiling"
-              category="exp"
-              featuredImage="/static/lab/tiling/thumb.png"
+              category="lab"
+              featuredImage={imgTiling}
               featuredImageW={640}
               featuredImageH={1280}
             />
@@ -69,7 +74,7 @@ export const Page: NextPage = () => {
               subtitle="Video mapping app using a LeapMotion sensor"
               slug="#" // "https://vimeo.com/134560602"
               category="openFrameworks, sensor, leapmotion, hardware"
-              featuredImage="/static/lab/leaptouch.png"
+              featuredImage={imgLeaptouch}
               featuredImageW={424}
               featuredImageH={501}
             />

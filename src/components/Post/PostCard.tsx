@@ -22,6 +22,7 @@ const PostCard = ({
               width={featuredImageW}
               height={featuredImageH}
               layout="responsive"
+              placeholder="blur"
               className="transform transition duration-300 ease-in-out scale-95 grayscale group-hover:grayscale-0 group-hover:scale-100"
             />
           ) : (

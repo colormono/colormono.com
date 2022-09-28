@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 const menuItems = [
   { slug: '/work', label: 'WORK' },
-  { slug: '/exp', label: 'LAB' },
+  { slug: '/lab', label: 'LAB' },
   { slug: '/about', label: 'ABOUT' },
 ];
 
@@ -15,7 +15,7 @@ function Header() {
   const cnLink = 'text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition';
 
   return (
-    <header className="sticky top-0 inset-x-0 z-10 w-full my-0 md:my-10 bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors duration-300 ease-in-out">
+    <header className="sticky top-0 z-50 inset-x-0 z-10 w-full my-0 md:my-10 bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors duration-300 ease-in-out">
       <Container className="flex w-full justify-between items-center md:py-3 lg:py-8">
         <nav className="flex-1 flex items-center gap-4">
           {menuItems.map((item) => (

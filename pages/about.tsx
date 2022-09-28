@@ -17,7 +17,7 @@ const Page: NextPage = () => {
       />
 
       <Layout>
-        <Container className="pt-12 md:pt-24 xl:pt-36">
+        <Container className="py-12 md:py-24 xl:py-36">
           <Article>
             <h1>Mariano Rivas</h1>
             <h3>New media artist and software developer</h3>
@@ -35,28 +35,30 @@ const Page: NextPage = () => {
               I focus my practice in code, electronics and non-digital objects for creating interactive projects often
               framed as generative art. From educational to sociological approaches, my interest lies in the
               human-machine collaboration. With my works, I have participated in different festivals such ArtFutura,
-              FAUNA, and Jóvenes en primer plano, among others. Currently I am working on a research project about
-              emergence in generative art.
+              FAUNA, and Jóvenes en primer plano, among others. Currently I am researching about emergence in generative
+              art.
             </p>
-            <p>
+            {/* <p>
               By having a generalist technical skill set, I&apos;m able to participate in a variety of projects in
               different stages of the creative process, from conception to execution.
-            </p>
+            </p> */}
 
             {/* <p>Download Full CV</p> */}
 
-            <h4>Skill set</h4>
-            <p className="flex flex-wrap gap-3">
-              <Tag>Design System</Tag>
-              <Tag>JavaScript</Tag>
-              <Tag>React</Tag>
-              <Tag>Next.js</Tag>
-              <Tag>Three.js</Tag>
-              <Tag>Node.js</Tag>
-              <Tag>Data viz</Tag>
-              <Tag>openFrameworks</Tag>
-              <Tag>Processing</Tag>
-              <Tag>Arduino</Tag>
+            <h4 className="text-gray-500">Interests</h4>
+            <p className="flex flex-wrap gap-3 mt-4">
+              {/* <Tag href="https://es.wikipedia.org/wiki/Tekn%C3%A9">Tekné</Tag> */}
+              <Tag href="https://en.wikipedia.org/wiki/Techne">Techne</Tag>
+              <Tag href="https://www.artnome.com/news/2018/8/8/why-love-generative-art">Generative Art</Tag>
+              <Tag href="https://www.nngroup.com/articles/design-systems-101/">Design Systems</Tag>
+              <Tag href="https://d3js.org/">Data viz</Tag>
+              <Tag href="https://www.youtube.com/watch?v=a7movncpOQc&t=12s">JavaScript</Tag>
+              <Tag href="https://nextjs.org/">Next.js</Tag>
+              <Tag href="https://threejs.org/">Three.js</Tag>
+              {/* <Tag href="https://reactnative.dev">React Native</Tag> */}
+              <Tag href="https://processing.org/">Processing</Tag>
+              <Tag href="https://www.arduino.cc/">Arduino</Tag>
+              <Tag href="https://openframeworks.cc/">openFrameworks</Tag>
             </p>
 
             {/* <h3>Skills</h3>

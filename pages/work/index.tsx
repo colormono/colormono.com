@@ -75,7 +75,7 @@ export const Page: NextPage = () => {
 
             <WorkCard
               title="Música"
-              subtitle="2015, Interactive Instalation"
+              subtitle="2015, RGB+D Filmmaking"
               description="'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, this works are the first steps on cinema history."
               // href="/work/musica"
               href="#"
