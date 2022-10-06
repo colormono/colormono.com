@@ -4,6 +4,12 @@ import { Layout } from '@components';
 import { Container } from '@components/ui';
 import { WorkCard } from '@components/Post';
 
+import imgEstrellas from 'public/static/work/hasta-las-estrellas/thumb.jpg';
+import imgCultura from 'public/static/work/cultura-del-silencio/thumb.jpg';
+import imgSonata from 'public/static/work/sonata-para-un-drone/thumb.jpg';
+import imgMusica from 'public/static/work/musica/thumb.jpg';
+import imgLocomocion from 'public/static/work/locomocion/thumb.jpg';
+
 const title = 'WORK – COLORMONO';
 const description = 'Explorations, experiments, experiences, examples, exp... lab';
 const url = 'https://colormono.com/work';
@@ -49,7 +55,7 @@ export const Page: NextPage = () => {
               title="Hasta las Estrellas"
               subtitle="2020, Augmented Illustration"
               href="/work/hasta-las-estrellas"
-              featuredImage="/static/work/hasta-las-estrellas/thumb.jpg"
+              featuredImage={imgEstrellas}
               description="White ink pen drawing on black paper. Mechanical cutting, handmade
               paste; machine precision, human error. LCD screen with
               algorithmically generated animations."
@@ -61,7 +67,7 @@ export const Page: NextPage = () => {
               description="School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de policía en un extremo que golpea cuando el usuario se hace escuchar."
               // href="/work/cultura-del-silencio"
               href="#"
-              featuredImage="/static/work/cultura-del-silencio/thumb.jpg"
+              featuredImage={imgCultura}
             />
 
             <WorkCard
@@ -70,7 +76,7 @@ export const Page: NextPage = () => {
               description="School project. La obra es una instalación sonora dirigida por un drone que vuela sobre unos bloques de concreto con parlantes. Al iluminar los bloques estos se activan y reproducen mensajes en código morse que se corresponden con una base de datos de ataques con drones ejecutados por Estados Unidos en medio oriente."
               // href="/work/sonata-para-un-drone"
               href="#"
-              featuredImage="/static/work/sonata-para-un-drone/thumb.jpg"
+              featuredImage={imgSonata}
             />
 
             <WorkCard
@@ -79,7 +85,7 @@ export const Page: NextPage = () => {
               description="'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, this works are the first steps on cinema history."
               // href="/work/musica"
               href="#"
-              featuredImage="/static/work/musica/thumb.jpg"
+              featuredImage={imgMusica}
             />
 
             <WorkCard
@@ -88,7 +94,7 @@ export const Page: NextPage = () => {
               description="School project. 'Locomotion' it's an experiment who let the user explore the image movement sensation. In this interactive installation the user break a clip into frames, and browse them using the body as a player control. The clips are photography studies from Eadweard Muybrige, those images are the first steps on cinema history."
               // href="/work/locomocion"
               href="#"
-              featuredImage="/static/work/locomocion/thumb.jpg"
+              featuredImage={imgLocomocion}
             />
           </section>
         </Container>

@@ -13,7 +13,7 @@ export type CardType = {
   featuredImageH?: number;
 };
 
-const WorkCard = ({ title, subtitle, href, featuredImage, featuredImageW = 1280, featuredImageH = 720 }: CardType) => {
+const WorkCard = ({ title, subtitle, href, featuredImage, featuredImageW = 640, featuredImageH = 360 }: CardType) => {
   return (
     <Link href={`/${href}`}>
       <a className="w-full group relative">
@@ -25,6 +25,7 @@ const WorkCard = ({ title, subtitle, href, featuredImage, featuredImageW = 1280,
               width={featuredImageW}
               height={featuredImageH}
               layout="responsive"
+              placeholder="blur"
               // className="transform transition duration-700 ease-in-out scale-100 group-hover:scale-110"
               className="transform transition duration-300 ease-in-out scale-100 grayscale group-hover:grayscale-0 group-hover:scale-100 mix-blend-screen group-hover:mix-blend-normal"
             />
