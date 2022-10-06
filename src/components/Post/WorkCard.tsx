@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { ArrowNarrowRightIcon } from '@heroicons/react/outline';
 
 export type CardType = {
@@ -8,7 +8,7 @@ export type CardType = {
   description?: string;
   href: string;
   category?: string;
-  featuredImage: string;
+  featuredImage: StaticImageData;
   featuredImageW?: number;
   featuredImageH?: number;
 };
