@@ -30,20 +30,25 @@ const Page: NextPage = () => {
       />
 
       <Layout>
-        {/* <WelcomSketch /> */}
-
         <Cover>
           <Cover.Title>Hello, World.</Cover.Title>
           <Cover.Body>
-            I&apos;m <strong>Mariano Rivas</strong>, a <span className="inline-block">new-media artist</span> and{' '}
-            <span className="inline-block">software developer</span>. <br className="hidden md:block" />I work at{' '}
-            <a href="https://truenorth.co" target="_blank" rel="noreferrer" className="underline underline-offset-2">
-              TrueNorth
-            </a>{' '}
-            as Front-end Engineer. Thanks to having creative coding skills, I can be part of the different stages of the
-            creative process, from conception to execution.
+            <p>
+              I&apos;m <strong>Mariano Rivas</strong>, a <span className="inline-block">new-media</span> artist and{' '}
+              software developer.
+            </p>
+            <p>
+              I work at{' '}
+              <a href="https://truenorth.co" target="_blank" rel="noreferrer" className="underline underline-offset-2">
+                TrueNorth
+              </a>{' '}
+              as Front-end Engineer. Thanks to having creative coding skills, I can be part of the different stages of
+              the creative process, from conception to execution.
+            </p>
           </Cover.Body>
         </Cover>
+
+        {/* <WelcomSketch /> */}
 
         <section className="py-8">
           <Container>

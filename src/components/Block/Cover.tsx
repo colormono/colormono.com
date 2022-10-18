@@ -31,7 +31,7 @@ Title.displayName = 'Title';
 Cover.Title = Title;
 
 const Body = ({ children, ...other }) => (
-  <div className="max-w-3xl text-2xl leading-relaxed" {...other}>
+  <div className="text-xl max-w-3xl sm:text-2xl sm:leading-relaxed" {...other}>
     {children}
   </div>
 );

@@ -8,7 +8,7 @@ import { LINKS } from '@constants';
 export default function Footer() {
   return (
     <footer className="relative z-50 text-base font-sans pt-12 pb-24 md:pt-24 bg-white dark:bg-black">
-      <Container className="flex flex-col md:flex-row gap-12 max-w-7xl">
+      <Container className="flex flex-col xl:flex-row gap-12 max-w-7xl">
         <div className="flex space-x-4">
           <ExternalLink href={LINKS.INSTAGRAM}>
             <InstagramIcon />
@@ -27,30 +27,35 @@ export default function Footer() {
           </ExternalLink> */}
         </div>
 
-        <div className="space-x-4 flex-grow">
-          <ExternalLink href="https://photos.colormono.com">/photos</ExternalLink>
-          <Link href="/awesome">
-            <a className="text-gray-500 hover:text-gray-600">/awesome</a>
+        <div className="flex flex-col gap-4 flex-grow sm:flex-row">
+          <Link href="/work">
+            <a className="text-gray-500 hover:text-gray-600">/work</a>
           </Link>
+          <Link href="/lab">
+            <a className="text-gray-500 hover:text-gray-600">/lab</a>
+          </Link>
+          <Link href="/about">
+            <a className="text-gray-500 hover:text-gray-600">/about</a>
+          </Link>
+          <ExternalLink href="https://photos.colormono.com">/photos</ExternalLink>
+
           {process.env.NODE_ENV === 'development' ? (
             <>
-              <Link href="/design-system">
-                <a className="text-gray-500 hover:text-gray-600">/design-system</a>
-              </Link>
               <Link href="/notes">
                 <a className="text-gray-500 hover:text-gray-600">/notes</a>
               </Link>
+              <Link href="/design-system">
+                <a className="text-gray-500 hover:text-gray-600">/design-system</a>
+              </Link>
+              <Link href="/snippets">
+                <a className="text-gray-500 hover:text-gray-600">/snippets</a>
+              </Link>
             </>
           ) : null}
-          {/* <Link href="/lab">
-            <a className="text-gray-500 hover:text-gray-600">/lab</a>
-          </Link> */}
-          {/* <Link href="/uses">
-            <a className="text-gray-500 hover:text-gray-600">/uses</a>
-          </Link> */}
-          {/* <Link href="/snippets">
-          <a className="text-gray-500 hover:text-gray-600">/snippets</a>
-        </Link> */}
+
+          <Link href="/awesome">
+            <a className="text-gray-500 hover:text-gray-600">/awesome</a>
+          </Link>
         </div>
 
         <NowPlaying />

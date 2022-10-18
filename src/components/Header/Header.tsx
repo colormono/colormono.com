@@ -38,6 +38,13 @@ function Header() {
               <Logo />
             </div>
 
+            <nav className="hidden flex-1 sm:flex items-center justify-end gap-2">
+              <a className={classNames(cnLink, '')} target="_blank" rel="noopener noreferrer" href={LINKS.INSTAGRAM}>
+                <InstagramIcon />
+              </a>
+              <ToggleModeButton className={classNames(cnLink, '')} />
+            </nav>
+
             <div className="-mr-2 flex items-center sm:hidden">
               {/* Mobile menu button */}
               <Disclosure.Button className="inline-flex items-center justify-center rounded text-black hover:bg-neutral-100 hover:text-neutral-500 focus:outline-none">
@@ -53,15 +60,29 @@ function Header() {
 
           <Disclosure.Panel className="sm:hidden">
             {({ close }) => (
-              <nav className="flex flex-col gap-4 p-8">
-                {menuItems.map((item) => (
-                  <div key={item.slug}>
-                    <NextLink href={item.slug}>
-                      <a className={classNames(cnLink, 'p-1 font-sans font-bold')}>{item.label}</a>
-                    </NextLink>
-                  </div>
-                ))}
-              </nav>
+              <>
+                <nav className="flex flex-col gap-4 p-9">
+                  {menuItems.map((item) => (
+                    <div key={item.slug}>
+                      <NextLink href={item.slug}>
+                        <a className={classNames(cnLink, 'p-2 block font-sans font-bold')}>{item.label}</a>
+                      </NextLink>
+                    </div>
+                  ))}
+                  <nav className="flex-1 flex items-center mx-2 mt-4">
+                    <a
+                      className={classNames(cnLink, '')}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={LINKS.INSTAGRAM}
+                    >
+                      <InstagramIcon />
+                    </a>
+
+                    <ToggleModeButton className={classNames(cnLink, '')} />
+                  </nav>
+                </nav>
+              </>
             )}
           </Disclosure.Panel>
         </>
