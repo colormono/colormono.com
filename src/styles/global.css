@@ -27,11 +27,11 @@ h6 {
 }
 
 .prose figure {
-  margin: 80px -120px;
+  @apply my-16 -mx-8 md:my-20 md:mx-[-120px];
 }
 
 .prose figcaption {
-  @apply text-sm;
+  @apply mx-8 md:mx-0 text-sm;
 }
 
 .prose img {

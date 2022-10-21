@@ -1,4 +1,17 @@
-module.exports = {
+const withMDX = require('@next/mdx')({
+  extension: /\.(md|mdx)$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
+module.exports = withMDX({
+  pageExtensions: ['js', 'ts', 'tsx', 'mdx'],
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+  },
   images: {
     domains: [
       'i.scdn.co', // Spotify Album Art
@@ -12,4 +25,4 @@ module.exports = {
 
     return config;
   },
-};
+});

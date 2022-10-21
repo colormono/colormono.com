@@ -5,7 +5,7 @@ import classNames from 'classnames';
 export function ToggleModeButton({ className }) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const cn = classNames(className, 'h-6 w-6 ml-4 relative overflow-hidden focus:outline-none');
+  const cn = classNames(className, 'h-6 w-6 relative overflow-hidden focus:outline-none');
 
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);

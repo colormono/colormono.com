@@ -5,7 +5,9 @@ import { Container, ToggleModeButton } from '@components/ui';
 import { LINKS } from '@constants';
 import classNames from 'classnames';
 import { Disclosure } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { MenuIcon, TerminalIcon, XIcon } from '@heroicons/react/outline';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const menuItems = [
   { slug: '/work', label: 'WORK' },
@@ -14,6 +16,7 @@ const menuItems = [
 ];
 
 function Header() {
+  const { locale, locales, defaultLocale, asPath } = useRouter();
   const cnLink = 'text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition';
 
   return (
@@ -24,11 +27,16 @@ function Header() {
       {({ open }) => (
         <>
           <Container className="flex w-full justify-between items-center py-4 lg:py-8">
-            <nav className="hidden sm:flex-1 sm:flex items-center gap-4">
+            <nav className="hidden sm:flex-1 sm:flex items-center gap-5">
+              <NextLink href="/">
+                <div className="cursor-pointer opacity-25">
+                  <TerminalIcon className="w-6 h-6" />
+                </div>
+              </NextLink>
               {menuItems.map((item) => (
                 <div key={item.slug}>
                   <NextLink href={item.slug}>
-                    <a className={classNames(cnLink, 'p-1 font-sans font-bold')}>{item.label}</a>
+                    <a className={classNames(cnLink, 'font-sans font-bold')}>{item.label}</a>
                   </NextLink>
                 </div>
               ))}
@@ -38,16 +46,29 @@ function Header() {
               <Logo />
             </div>
 
-            <nav className="hidden flex-1 sm:flex items-center justify-end gap-2">
+            <nav className="flex-1 flex items-center justify-end gap-5">
+              <div className="hidden sm:block">
+                {locale === 'en' ? (
+                  <Link href={asPath} locale="es">
+                    <a className={classNames(cnLink, 'font-sans font-bold')}>ES</a>
+                  </Link>
+                ) : (
+                  <Link href={asPath} locale="en">
+                    <a className={classNames(cnLink, 'font-sans font-bold')}>EN</a>
+                  </Link>
+                )}
+              </div>
+
               <a className={classNames(cnLink, '')} target="_blank" rel="noopener noreferrer" href={LINKS.INSTAGRAM}>
                 <InstagramIcon />
               </a>
+
               <ToggleModeButton className={classNames(cnLink, '')} />
             </nav>
 
-            <div className="-mr-2 flex items-center sm:hidden">
+            <div className="ml-4 flex items-center sm:hidden">
               {/* Mobile menu button */}
-              <Disclosure.Button className="inline-flex items-center justify-center rounded text-black hover:bg-neutral-100 hover:text-neutral-500 focus:outline-none">
+              <Disclosure.Button className={classNames(cnLink, '')}>
                 <span className="sr-only">Open main menu</span>
                 {open ? (
                   <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -69,18 +90,22 @@ function Header() {
                       </NextLink>
                     </div>
                   ))}
-                  <nav className="flex-1 flex items-center mx-2 mt-4">
-                    <a
-                      className={classNames(cnLink, '')}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={LINKS.INSTAGRAM}
-                    >
-                      <InstagramIcon />
-                    </a>
 
-                    <ToggleModeButton className={classNames(cnLink, '')} />
-                  </nav>
+                  <NextLink href="/">
+                    <a className={classNames(cnLink, 'p-2 block font-sans font-bold')}>HOME</a>
+                  </NextLink>
+
+                  <div className="font-sans font-bold text-xs mt-4">
+                    {locale === 'en' ? (
+                      <Link href={asPath} locale="es">
+                        <a className={classNames(cnLink, 'p-2 block')}>ESPAÑOL</a>
+                      </Link>
+                    ) : (
+                      <Link href={asPath} locale="en">
+                        <a className={classNames(cnLink, 'p-2 block')}>ENGLISH</a>
+                      </Link>
+                    )}
+                  </div>
                 </nav>
               </>
             )}

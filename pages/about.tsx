@@ -3,6 +3,11 @@ import { NextSeo } from 'next-seo';
 import { Layout } from '@components';
 import { Tag, Container } from '@components/ui';
 import Article from '@components/Article';
+import dynamic from 'next/dynamic';
+
+const WelcomSketch = dynamic(() => import('@sketches/tiling'), {
+  ssr: false,
+});
 
 const Page: NextPage = () => {
   return (
@@ -19,6 +24,8 @@ const Page: NextPage = () => {
       <Layout>
         <Container className="py-12 md:py-24 xl:py-36">
           <Article>
+            {/* <WelcomSketch /> */}
+
             <h1>Mariano Rivas</h1>
             <h3>New media artist and software developer</h3>
             {/* <p>

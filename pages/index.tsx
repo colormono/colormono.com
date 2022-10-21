@@ -1,16 +1,38 @@
 import type { NextPage } from 'next';
-import dynamic from 'next/dynamic';
 import { NextSeo, SocialProfileJsonLd } from 'next-seo';
+
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+
+import MDXComponents from '@components/MDXComponents';
 import Layout from '@components/Layout';
 import { Cover } from '@components/Block';
 import ProjectSlide from '@components/ProjectSlide';
 import { Container } from '@components/ui';
 
-const WelcomSketch = dynamic(() => import('@sketches/tiling'), {
-  ssr: false,
-});
+const heroContent = {
+  en: {
+    title: 'Hello, World.',
+    content: `I&apos;m **Mariano Rivas**, new-media artist and software developer. I work at [TrueNorth](https://truenorth.co) as Front-end Engineer. Thanks to having creative coding skills, I can be part of the different stages of the creative process, from conception to execution.`,
+    // ...
+  },
+  es: {
+    title: 'Hola, Mundo.',
+    content: `Soy **Mariano Rivas**, artista multimedial y desarrollador de software. Trabajo en [TrueNorth](https://truenorth.co) como Front-end Engineer. Gracias a manejar distintas herramientas de programación creativa, puedo participar de las diferentes etapas del proceso, de la idea a la implementación.`,
+    // ...
+  },
+};
 
-const Page: NextPage = () => {
+const components = {
+  ...MDXComponents,
+  a: ({ href, title, children }) => (
+    <a href={href} target="_blank" rel="noreferrer" className="underline underline-offset-2 cursor-pointer">
+      {children}
+    </a>
+  ),
+};
+
+const Page: NextPage = ({ heroTitle, heroBody }: { heroTitle: string; heroBody: any }) => {
   return (
     <>
       <NextSeo
@@ -31,24 +53,11 @@ const Page: NextPage = () => {
 
       <Layout>
         <Cover>
-          <Cover.Title>Hello, World.</Cover.Title>
+          <Cover.Title>{heroTitle}</Cover.Title>
           <Cover.Body>
-            <p>
-              I&apos;m <strong>Mariano Rivas</strong>, a <span className="inline-block">new-media</span> artist and{' '}
-              software developer.
-            </p>
-            <p>
-              I work at{' '}
-              <a href="https://truenorth.co" target="_blank" rel="noreferrer" className="underline underline-offset-2">
-                TrueNorth
-              </a>{' '}
-              as Front-end Engineer. Thanks to having creative coding skills, I can be part of the different stages of
-              the creative process, from conception to execution.
-            </p>
+            <MDXRemote {...heroBody} components={components} />
           </Cover.Body>
         </Cover>
-
-        {/* <WelcomSketch /> */}
 
         <section className="py-8">
           <Container>
@@ -90,5 +99,14 @@ const Page: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps(context) {
+  // MDX text - can be from a local file, database, anywhere
+  // const source = 'Some **mdx** text, with a component';
+  const { title, content } = heroContent[context.locale];
+  const mdxContent = await serialize(content);
+
+  return { props: { heroTitle: title, heroBody: mdxContent } };
+}
 
 export default Page;

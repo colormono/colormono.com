@@ -51,7 +51,7 @@ const Page: NextPage = () => {
             {/* Here will be the generative section */}
             <figure>
               <img src="/static/work/hasta-las-estrellas/pantallita.jpg" alt="Display Detail" />
-              <div className="grid grid-cols-5 my-8">
+              <div className="grid grid-cols-3 md:grid-cols-5 my-8">
                 <img src="/static/work/hasta-las-estrellas/gen/01.jpg" alt="Generative screen" />
                 <img src="/static/work/hasta-las-estrellas/gen/02.jpg" alt="Generative screen" />
                 <img src="/static/work/hasta-las-estrellas/gen/04.jpg" alt="Generative screen" />
