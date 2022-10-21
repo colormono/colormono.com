@@ -5,7 +5,7 @@ import { Layout } from '@components';
 import SketchContainer from '@components/Sketch/SketchContainer';
 import Article from '@components/Article';
 
-const Sketch = dynamic(() => import('@sketches/randomization'), {
+const Sketch: any = dynamic(() => import('@sketches/randomization'), {
   ssr: false,
 });
 

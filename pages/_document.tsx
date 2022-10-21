@@ -25,7 +25,6 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@300;400;600&display=swap"
           />
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-          <meta name="viewport" content="width=device-width, user-scalable=no" />
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
           <meta content="/static/favicons/browserconfig.xml" name="msapplication-config" />

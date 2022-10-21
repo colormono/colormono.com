@@ -1,15 +1,13 @@
-import hydrate from 'next-mdx-remote/hydrate';
-
+import { MDXRemote } from 'next-mdx-remote';
 import { getFiles, getFileBySlug } from '@helpers/mdx.helpers';
 import NotesLayout from '@layouts/notes';
-import MDXComponents from '@components/MDXComponents';
 
 export default function Note({ mdxSource, frontMatter }) {
-  const content = hydrate(mdxSource, {
-    components: MDXComponents,
-  });
-
-  return <NotesLayout frontMatter={frontMatter}>{content}</NotesLayout>;
+  return (
+    <NotesLayout frontMatter={frontMatter}>
+      <MDXRemote {...mdxSource} />
+    </NotesLayout>
+  );
 }
 
 export async function getStaticPaths() {

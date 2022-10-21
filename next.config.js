@@ -22,6 +22,7 @@ module.exports = withMDX({
     if (isServer) {
       require('./scripts/generate-sitemap');
     }
+    config.resolve.fallback = { fs: false };
 
     return config;
   },

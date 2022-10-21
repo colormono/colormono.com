@@ -69,7 +69,8 @@ export default function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('notes');
+  // const posts = await getAllFilesFrontMatter('notes');
+  const posts = [];
 
   return { props: { posts } };
 }

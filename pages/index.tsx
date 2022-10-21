@@ -32,7 +32,7 @@ const components = {
   ),
 };
 
-const Page: NextPage = ({ heroTitle, heroBody }: { heroTitle: string; heroBody: any }) => {
+const Page: NextPage<{ heroTitle: string; heroBody: any }> = ({ heroTitle, heroBody }) => {
   return (
     <>
       <NextSeo

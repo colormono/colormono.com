@@ -1,25 +1,21 @@
-import hydrate from 'next-mdx-remote/hydrate';
+import { MDXRemote } from 'next-mdx-remote';
 import { getFileBySlug } from '@helpers/mdx.helpers';
 import Layout from '@components/Layout';
-import MDXComponents from '@components/MDXComponents';
 import Article from '@components/Article';
 
-const Page = ({ mdxSource, frontMatter }) => {
-  const content = hydrate(mdxSource, {
-    components: MDXComponents,
-  });
-
+const Page = ({ data }) => {
   return (
     <Layout>
-      <Article frontMatter={frontMatter}>{content}</Article>
+      <Article>
+        <MDXRemote {...data} />
+      </Article>
     </Layout>
   );
 };
 
 export async function getStaticProps() {
   const data = await getFileBySlug('uses');
-
-  return { props: data };
+  return { props: { data: data.mdxSource } };
 }
 
 export default Page;

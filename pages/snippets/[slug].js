@@ -1,15 +1,15 @@
-import hydrate from 'next-mdx-remote/hydrate';
-
+import { MDXRemote } from 'next-mdx-remote';
 import { getFiles, getFileBySlug } from '@helpers/mdx.helpers';
 import { SnippetLayout } from '@components/Layout';
-import MDXComponents from '@components/MDXComponents';
 
 export default function Snippet({ mdxSource, frontMatter }) {
-  const content = hydrate(mdxSource, {
-    components: MDXComponents,
-  });
+  if (!mdxSource || !frontMatter) return <div>Soon</div>;
 
-  return <SnippetLayout frontMatter={frontMatter}>{content}</SnippetLayout>;
+  return (
+    <SnippetLayout frontMatter={frontMatter}>
+      <MDXRemote {...mdxSource} />
+    </SnippetLayout>
+  );
 }
 
 export async function getStaticPaths() {
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const snippet = await getFileBySlug('snippets', params.slug);
+  // const snippet = await getFileBySlug('snippets', params.slug);
 
-  return { props: snippet };
+  return { props: {} };
 }
