@@ -27,7 +27,6 @@ const WorkCard = ({ title, subtitle, href, featuredImage, featuredImageW = 640, 
               layout="responsive"
               placeholder="blur"
               // className="transform transition duration-700 ease-in-out scale-100 group-hover:scale-110"
-              className="transform transition duration-300 ease-in-out scale-100 grayscale group-hover:grayscale-0 group-hover:scale-100 mix-blend-screen group-hover:mix-blend-normal"
             />
           ) : (
             <div className="flex w-[640px] h-[201px]">Render in progres...</div>

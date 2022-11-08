@@ -77,6 +77,15 @@ const Page: NextPage<{ heroTitle: string; heroBody: any }> = ({ heroTitle, heroB
             />
 
             <ProjectSlide
+              title="Hola, Mundo."
+              subtitle="Plotter drawing"
+              description="Ink on paper. Image Processing. Data visualization. Pen plotter."
+              date="2020"
+              href="/work/hola-mundo"
+              thumb="/static/work/hola-mundo/thumb.jpg"
+            />
+
+            <ProjectSlide
               title="Recreo"
               subtitle="Interactive Sculpture"
               description="School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de policía en un extremo que golpea cuando el usuario se hace escuchar."

@@ -4,6 +4,7 @@ import { Layout } from '@components';
 import { Container } from '@components/ui';
 import { WorkCard } from '@components/Post';
 
+import imgHome from 'public/static/work/hola-mundo/thumb.jpg';
 import imgEstrellas from 'public/static/work/hasta-las-estrellas/thumb.jpg';
 import imgCultura from 'public/static/work/cultura-del-silencio/thumb.jpg';
 import imgSonata from 'public/static/work/sonata-para-un-drone/thumb.jpg';
@@ -56,6 +57,16 @@ export const Page: NextPage = () => {
               subtitle="2020, Augmented Illustration"
               href="/work/hasta-las-estrellas"
               featuredImage={imgEstrellas}
+              description="White ink pen drawing on black paper. Mechanical cutting, handmade
+              paste; machine precision, human error. LCD screen with
+              algorithmically generated animations."
+            />
+
+            <WorkCard
+              title="Home"
+              subtitle="2020, Plotter drawing"
+              href="/work/hola-mundo"
+              featuredImage={imgHome}
               description="White ink pen drawing on black paper. Mechanical cutting, handmade
               paste; machine precision, human error. LCD screen with
               algorithmically generated animations."

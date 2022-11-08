@@ -55,7 +55,7 @@ const Page: NextPage = () => {
             <h4 className="text-gray-500">Interests</h4>
             <p className="flex flex-wrap gap-3 mt-4">
               {/* <Tag href="https://es.wikipedia.org/wiki/Tekn%C3%A9">Tekné</Tag> */}
-              <Tag href="https://en.wikipedia.org/wiki/Techne">Techne</Tag>
+              <Tag href="https://en.wikipedia.org/wiki/Techne">Technē</Tag>
               <Tag href="https://www.artnome.com/news/2018/8/8/why-love-generative-art">Generative Art</Tag>
               <Tag href="https://www.nngroup.com/articles/design-systems-101/">Design Systems</Tag>
               <Tag href="https://d3js.org/">Data viz</Tag>
