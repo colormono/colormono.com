@@ -76,9 +76,8 @@ const Page: NextPage = () => {
             <h3>Dibujo</h3>
             <p>
               El dibujo está realizado con marcadores Uni Posca de 3mm sobre papel Frabrianni negro texturado libre de
-              ácido. maquínica, el error humano. La luna (de Valencia) es una secuencia de lineas superpuestas en 3
-              colores (blanco, gris y celeste), está insiprada en la obra de Eduardo Sempere, artista geométrico
-              español.
+              ácido. La luna (de Valencia) es una secuencia de lineas superpuestas en 3 colores (blanco, gris y
+              celeste), está insiprada en la obra de Eduardo Sempere, artista geométrico español.
             </p>
 
             <figure>
