@@ -20,16 +20,16 @@ class Sketch extends Component {
     const p5 = require('p5');
 
     this.sketch = new p5((p) => {
-      p.cellSize = 140;
+      p.cellSize = 90;
       p.cellPadding = 10;
       p.containerWidth, p.containerHeight;
       p.align = { x: 0, y: 0 };
-      p.bg = '#F8FAFC';
+      p.bg = '#000000';
 
       p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight * 0.6).parent(this.renderRef.current);
-        p.setContainerSize(p.windowWidth * 0.8, p.windowHeight * 0.4);
-        p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
+        p.createCanvas(600, 600).parent(this.renderRef.current);
+        p.setContainerSize(600, 600);
+        p.alignCenter(p.containerWidth, p.containerHeight, 600, 600);
         p.background(p.bg);
         p.strokeWeight(0);
         p.ellipseMode(p.CORNER);
@@ -38,9 +38,9 @@ class Sketch extends Component {
       };
 
       p.windowResized = () => {
-        p.resizeCanvas(p.windowWidth, p.windowHeight * 0.6);
-        p.setContainerSize(p.windowWidth, p.windowHeight * 0.6);
-        p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
+        p.resizeCanvas(600, 600);
+        p.setContainerSize(600, 600);
+        p.alignCenter(p.containerWidth, p.containerHeight, 600, 600);
       };
 
       p.setContainerSize = (w, h) => {
@@ -63,8 +63,8 @@ class Sketch extends Component {
         for (var x = 0; x < p.containerWidth; x += p.cellSize) {
           for (var y = 0; y < p.containerHeight; y += p.cellSize) {
             // flipping a coin (pick a color)
-            if (p.random(0, 10) > 5) {
-              p.fill('darkblue');
+            if (p.random(1, 10) > 5) {
+              p.fill('white');
             } else {
               p.fill('blue');
             }
@@ -120,7 +120,7 @@ class Sketch extends Component {
       p.letterOo = (x, y) => {
         p.push();
         p.ellipse(x + p.cellPadding, y + p.cellPadding, p.cellSize - p.cellPadding * 2, p.cellSize - p.cellPadding * 2);
-        p.fill('white');
+        p.fill(p.bg);
         p.ellipseMode(p.CENTER);
         p.ellipse(x + p.cellSize / 2, y + p.cellSize / 2, p.cellSize * 0.33, p.cellSize * 0.33);
         p.pop();

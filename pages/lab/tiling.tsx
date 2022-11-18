@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import SketchContainer from '@components/Sketch/SketchContainer';
 import Article from '@components/Article';
 
-const Sketch: any = dynamic(() => import('@sketches/tiling/tiling'), {
+const Sketch: any = dynamic(() => import('@sketches/tiling/tiling03'), {
   ssr: false,
 });
 

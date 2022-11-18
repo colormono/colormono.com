@@ -1,8 +1,8 @@
 export function SketchContainer({ children }) {
   return (
-    <div className="sticky top-0">
-      <div className="flex items-center justify-center w-full overflow-hidden relative">
-        <div className="relative z-30">{children}</div>
+    <div>
+      <div className="flex items-center justify-center w-full relative bg-gray-100 py-16">
+        <div className="relative z-30 shadow-lg">{children}</div>
 
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="inline-flex items-center px-4 py-2 font-sans font-semibold leading-6 text-sm shadow rounded-md text-white bg-neutral-900 transition ease-in-out duration-150 cursor-not-allowed">

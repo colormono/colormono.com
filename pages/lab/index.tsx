@@ -57,8 +57,8 @@ export const Page: NextPage = () => {
               slug="randomization"
               category="lab"
               featuredImage={imgRandomization}
-              featuredImageW={1280}
-              featuredImageH={784}
+              featuredImageW={600}
+              featuredImageH={600}
             />
             <PostCard
               title="Tiling"

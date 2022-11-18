@@ -6,6 +6,11 @@ import { DefaultSeo } from 'next-seo';
 import { useAnalytics } from '@utils/analytics';
 import MDXComponents from '@components/MDXComponents';
 import { SEO } from '@constants';
+import 'prismjs';
+import 'prismjs/components/prism-java.min';
+import 'prismjs/components/prism-c.min';
+import 'prismjs/themes/prism-tomorrow.css';
+
 import '@styles/global.css';
 
 type AppLayoutProps = AppProps & {

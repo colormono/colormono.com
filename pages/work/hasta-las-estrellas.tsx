@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo';
 import { Layout } from '@components';
 import { Container } from '@components/ui';
 import Article from '@components/Article';
+import { CodeBlock } from '@components/CodeBlock';
 
 const Page: NextPage = () => {
   return (
@@ -92,9 +93,8 @@ const Page: NextPage = () => {
               tamaño y la posición de estas figuras también es variable.
             </p>
 
-            <pre>
-              <code>
-                {`// Hasta las estrellas
+            <CodeBlock data-language="c">
+              {`// Hasta las estrellas
 // 2020, Colormono
 // para Display Lcd 128x64 Grafico Spi St7920 Glcd
 
@@ -277,9 +277,7 @@ void loop(void) {
 
   delay(shineDuration);
 }`}
-              </code>
-            </pre>
-
+            </CodeBlock>
             <p>
               <a href="https://github.com/colormono/hasta-las-estrellas" target="_blank" rel="noreferrer">
                 Código fuente en Github

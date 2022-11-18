@@ -29,10 +29,10 @@ const sketch = (p) => {
     let density = p.displayDensity();
     p.pixelDensity(density);
     // p.createCanvas(p.windowWidth, p.windowHeight * 0.6, p.SVG);
-    p.createCanvas(p.windowWidth, 640);
-    // p.createCanvas(960,640);
+    p.createCanvas(900, 600);
+    // p.createCanvas(960,600);
 
-    p.setContainerSize(p.windowWidth/2,640/2);
+    p.setContainerSize(900 / 2, 600 / 2);
     // p.setContainerSize(p.windowWidth * 0.5, p.windowHeight * 0.5 * 0.6);
     // p.alignCenter(containerWidth, containerHeight, p.windowWidth, p.windowHeight * 0.6);
     // p.background('gray');
