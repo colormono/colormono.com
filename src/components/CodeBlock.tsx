@@ -14,7 +14,7 @@ export function CodeBlock({ children, 'data-language': language }) {
       <pre ref={ref} className={`language-${language}`}>
         {children}
       </pre>
-      <style jsx>
+      <style>
         {`
           .code {
             position: relative;
