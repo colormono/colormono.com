@@ -1,29 +1,41 @@
-const withMDX = require('@next/mdx')({
-  extension: /\.(md|mdx)$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-});
+const { withContentlayer } = require("next-contentlayer")
 
-module.exports = withMDX({
-  pageExtensions: ['js', 'ts', 'tsx', 'mdx'],
-  i18n: {
-    locales: ['en', 'es'],
-    defaultLocale: 'en',
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
-    domains: [
-      'i.scdn.co', // Spotify Album Art
-      'pbs.twimg.com', // Twitter Profile Picture
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.scdn.co",
+      },
     ],
   },
-  webpack: (config, { dev, isServer }) => {
-    if (isServer) {
-      require('./scripts/generate-sitemap');
-    }
-    config.resolve.fallback = { fs: false };
-
-    return config;
+  redirects() {
+    return [
+      {
+        source: "/projects",
+        destination: "/works",
+        permanent: true,
+      },
+      {
+        source: "/MarianoRivas.pdf",
+        destination: "/rivas-resume-2020.pdf",
+        permanent: true,
+      },
+      {
+        source: "/30min",
+        destination: "https://calendly.com/colormono/30min",
+        permanent: true,
+      },
+      {
+        source: "/youtube",
+        destination: "https://www.youtube.com/channel/UCjjS8Wtv6oJyEZBHUSxtZDA",
+        permanent: true,
+      },
+    ]
   },
-});
+}
+
+module.exports = withContentlayer(nextConfig)

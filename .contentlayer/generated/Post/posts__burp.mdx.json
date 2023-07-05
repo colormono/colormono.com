@@ -1,0 +1,22 @@
+{
+  "title": "Burp!",
+  "description": "Head tracking for video animation.",
+  "date": "2013-09-16T00:00:00.000Z",
+  "thumbnail": "/static/lab/quale/burp-ninja.jpg",
+  "published": true,
+  "body": {
+    "raw": "\n<iframe\n  className=\"w-full aspect-video\"\n  src=\"http://player.vimeo.com/video/272449099\"\n  frameborder=\"0\"\n  webkitallowfullscreen=\"\"\n  mozallowfullscreen=\"\"\n  allowfullscreen\n></iframe>\n\nWith my fellas [Daniel Rivas](http://daninjafx.com/) and [Mariano Asseff](https://www.themotioncube.art/) we created a studio called **Quale Media Lab**.\nWe decided to create something for our own studio, mixing some techniques like 3d tracking, 3d and 2d animation.\nEnjoy!\n\n### Making of\n\n<iframe\n  className=\"w-full aspect-video\"\n  src=\"https://www.youtube.com/embed/M7rnFQev-rs\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n  allowfullscreen\n></iframe>\n\n### Credits\n\n- Idea: Daniel Rivas\n- Art Direction: QUALE Studio\n- Animation: Daniel Rivas / Mariano Asseff\n- Music: Patrick Lee, [\"Quittin' Time\"](http//goo.gl/Ebyhx)\n",
+    "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var g=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),w=(a,e)=>{for(var i in e)r(a,i,{get:e[i],enumerable:!0})},o=(a,e,i,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of u(e))!p.call(a,t)&&t!==i&&r(a,t,{get:()=>e[t],enumerable:!(l=m(e,t))||l.enumerable});return a};var b=(a,e,i)=>(i=a!=null?h(f(a)):{},o(e||!a||!a.__esModule?r(i,\"default\",{value:a,enumerable:!0}):i,a)),k=a=>o(r({},\"__esModule\",{value:!0}),a);var s=g((D,c)=>{c.exports=_jsx_runtime});var y={};w(y,{default:()=>v,frontmatter:()=>x});var n=b(s()),x={title:\"Burp!\",description:\"Head tracking for video animation.\",thumbnail:\"/static/lab/quale/burp-ninja.jpg\",date:new Date(13792896e5)};function d(a){let e=Object.assign({p:\"p\",a:\"a\",strong:\"strong\",h3:\"h3\",span:\"span\",ul:\"ul\",li:\"li\"},a.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(\"iframe\",{className:\"w-full aspect-video\",src:\"http://player.vimeo.com/video/272449099\",frameborder:\"0\",webkitallowfullscreen:\"\",mozallowfullscreen:\"\",allowfullscreen:!0}),`\n`,(0,n.jsxs)(e.p,{children:[\"With my fellas \",(0,n.jsx)(e.a,{href:\"http://daninjafx.com/\",children:\"Daniel Rivas\"}),\" and \",(0,n.jsx)(e.a,{href:\"https://www.themotioncube.art/\",children:\"Mariano Asseff\"}),\" we created a studio called \",(0,n.jsx)(e.strong,{children:\"Quale Media Lab\"}),`.\nWe decided to create something for our own studio, mixing some techniques like 3d tracking, 3d and 2d animation.\nEnjoy!`]}),`\n`,(0,n.jsxs)(e.h3,{id:\"making-of\",children:[(0,n.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#making-of\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Making of\"]}),`\n`,(0,n.jsx)(\"iframe\",{className:\"w-full aspect-video\",src:\"https://www.youtube.com/embed/M7rnFQev-rs\",frameborder:\"0\",allow:\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\",allowfullscreen:!0}),`\n`,(0,n.jsxs)(e.h3,{id:\"credits\",children:[(0,n.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#credits\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Credits\"]}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Idea: Daniel Rivas\"}),`\n`,(0,n.jsx)(e.li,{children:\"Art Direction: QUALE Studio\"}),`\n`,(0,n.jsx)(e.li,{children:\"Animation: Daniel Rivas / Mariano Asseff\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"Music: Patrick Lee, \",(0,n.jsx)(e.a,{href:\"http//goo.gl/Ebyhx\",children:`\"Quittin' Time\"`})]}),`\n`]})]})}function j(a={}){let{wrapper:e}=a.components||{};return e?(0,n.jsx)(e,Object.assign({},a,{children:(0,n.jsx)(d,a)})):d(a)}var v=j;return k(y);})();\n;return Component;"
+  },
+  "_id": "posts/burp.mdx",
+  "_raw": {
+    "sourceFilePath": "posts/burp.mdx",
+    "sourceFileName": "burp.mdx",
+    "sourceFileDir": "posts",
+    "contentType": "mdx",
+    "flattenedPath": "posts/burp"
+  },
+  "type": "Post",
+  "slug": "/posts/burp",
+  "slugAsParams": "burp"
+}

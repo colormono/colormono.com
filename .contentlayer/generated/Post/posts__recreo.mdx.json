@@ -1,0 +1,22 @@
+{
+  "title": "Recreo",
+  "description": "A la manera de E. Zajec, Il Cubo, 1971",
+  "date": "2018-10-22T00:00:00.000Z",
+  "thumbnail": "/static/lab/recreo.png",
+  "published": true,
+  "body": {
+    "raw": "\n![Image](/static/lab/recreo.png)\n\nPen plotter drawing, 2018\n",
+    "code": "var Component=(()=>{var g=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),_=(t,e)=>{for(var r in e)c(t,r,{get:e[r],enumerable:!0})},s=(t,e,r,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of d(e))!x.call(t,a)&&a!==r&&c(t,a,{get:()=>e[a],enumerable:!(o=p(e,a))||o.enumerable});return t};var b=(t,e,r)=>(r=t!=null?g(u(t)):{},s(e||!t||!t.__esModule?c(r,\"default\",{value:t,enumerable:!0}):r,t)),f=t=>s(c({},\"__esModule\",{value:!0}),t);var m=j((F,i)=>{i.exports=_jsx_runtime});var D={};_(D,{default:()=>C,frontmatter:()=>h});var n=b(m()),h={title:\"Recreo\",description:\"A la manera de E. Zajec, Il Cubo, 1971\",thumbnail:\"/static/lab/recreo.png\",date:new Date(15401664e5)};function l(t){let e=Object.assign({p:\"p\",img:\"img\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:(0,n.jsx)(e.img,{src:\"/static/lab/recreo.png\",alt:\"Image\"})}),`\n`,(0,n.jsx)(e.p,{children:\"Pen plotter drawing, 2018\"})]})}function w(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(l,t)})):l(t)}var C=w;return f(D);})();\n;return Component;"
+  },
+  "_id": "posts/recreo.mdx",
+  "_raw": {
+    "sourceFilePath": "posts/recreo.mdx",
+    "sourceFileName": "recreo.mdx",
+    "sourceFileDir": "posts",
+    "contentType": "mdx",
+    "flattenedPath": "posts/recreo"
+  },
+  "type": "Post",
+  "slug": "/posts/recreo",
+  "slugAsParams": "recreo"
+}

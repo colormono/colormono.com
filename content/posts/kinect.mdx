@@ -1,0 +1,53 @@
+---
+title: Kinect Sensor
+description: Notes about body tracking for interactive installations and filmaking.
+thumbnail: /static/lab/quale/kinect-danisho.jpg
+date: 2014-09-16
+---
+
+![Danisho](/static/lab/quale/kinect-danisho.jpg)
+
+{/* ![Kinect sensor v1](https://github.com/colormono/kinect-notes/raw/master/assets/images/kinectp-640x353.jpg) */}
+
+The Kinect sensor is a motion-sensing input device developed by Microsoft for use with Xbox gaming consoles and later adapted for other applications. It utilizes a combination of depth sensing, RGB imaging, and skeletal tracking to capture and interpret human movement and gestures.
+
+![Kinect sensor v1 interior](https://github.com/colormono/kinect-notes/raw/master/assets/images/kinect-interior.png)
+
+The Kinect sensor consists of a camera, an infrared emitter, and an array of sensors that work together to create a detailed 3D map of the surrounding environment. It emits an infrared pattern and measures the time it takes for the pattern to bounce back to the sensor, allowing it to calculate depth information.
+
+![Kinect sensor v1 joints](https://github.com/colormono/kinect-notes/raw/master/assets/images/synapse.jpg)
+
+Using this depth data and the RGB camera, the Kinect sensor can track the position and movement of multiple individuals within its field of view. It can recognize and track skeletal joints, such as the hands, head, and limbs, enabling more accurate and nuanced tracking of human gestures and actions.
+
+Originally designed for gaming, the Kinect sensor gained popularity beyond gaming applications. It has been used in various fields such as robotics, healthcare, virtual reality, and interactive installations. The sensor's ability to capture human motion in real-time has made it a valuable tool for creating immersive experiences, interactive interfaces, and innovative applications across different industries.
+
+![Kinect sensor v1 ok](https://github.com/colormono/kinect-notes/raw/master/assets/images/ofxKinect.jpg)
+
+### V1
+
+- It was released in late 2010.
+- The capture depth ranges from 0.5 to 4.5 meters.
+- 30 FPS with a resolution of 640x480 for RGB, and 320x240 for Depth (D).
+- Compatible models: 1414 y 1473 (buggy).
+- Needs a PC adapter.
+- Windows, OSx and Linux support.
+- USB 2.0 connection.
+
+### V2
+
+- It was released in late 2013.
+- The capture depth remains the same.
+- It sends data at 30 FPS with a resolution of 1920x1080 for RGB and 512x424 for Depth (D).
+- It includes a "Registered" image that aligns the RGB camera with the Depth (D) camera.
+- It requires a very specific adapter (no generic adapters available).
+- It can be used with Windows (>=8, 64 bit) and OSx (>= 10.9; without image analysis).
+- USB 3.0 connection.
+
+## Resources
+
+- [Workshop Notes and Code repository](https://github.com/colormono/kinect-notes). UNA, 2017
+
+### Related works
+
+- [Locomoción](https://colormono.com/works/locomocion): Interactive installation
+- [Música, Tan Bionica](https://colormono.com/works/musica): RGBD Filmmaking

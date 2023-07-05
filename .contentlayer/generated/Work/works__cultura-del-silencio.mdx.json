@@ -1,0 +1,23 @@
+{
+  "title": "Cultura del Silencio",
+  "description": "School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de policía en un extremo que golpea cuando el usuario se hace escuchar.",
+  "thumbnail": "/static/work/cultura-del-silencio/thumb.jpg",
+  "date": "2015-06-01",
+  "featured": false,
+  "published": true,
+  "body": {
+    "raw": "\n# Cultura del Silencio\n\n**Trabajo Universitario.** Cultura del silencio es un objeto\nstandalone interactivo que reacciona al sonido producido por los\nespectadores. Una estructura vertical sostiene un garrote de policía en un\nextremo que golpea cuando el usuario se hace escuchar.\nInteractive Sculpture.\n\n<Image\n  src=\"/static/work/cultura-del-silencio/culturadelsilencio-r1.jpg\"\n  alt=\"Cultura del Silencio\"\n  width={1280}\n  height={720}\n/>\n\n<Image\n  src=\"/static/work/cultura-del-silencio/culturadelsilencio-r2.jpg\"\n  alt=\"Cultura del Silencio\"\n  width={1280}\n  height={720}\n/>\n\n<Image\n  src=\"/static/work/cultura-del-silencio/culturadelsilencio-r3.jpg\"\n  alt=\"Cultura del Silencio\"\n  width={1280}\n  height={720}\n/>\n\n<Image\n  src=\"/static/work/cultura-del-silencio/culturadelsilencio-r4.jpg\"\n  alt=\"Cultura del Silencio\"\n  width={1280}\n  height={720}\n/>\n\nJunio 2015\n",
+    "code": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),w=(t,e)=>{for(var i in e)r(t,i,{get:e[i],enumerable:!0})},c=(t,e,i,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of p(e))!m.call(t,o)&&o!==i&&r(t,o,{get:()=>e[o],enumerable:!(a=h(e,o))||a.enumerable});return t};var x=(t,e,i)=>(i=t!=null?d(g(t)):{},c(e||!t||!t.__esModule?r(i,\"default\",{value:t,enumerable:!0}):i,t)),b=t=>c(r({},\"__esModule\",{value:!0}),t);var s=j((q,l)=>{l.exports=_jsx_runtime});var _={};w(_,{default:()=>k,frontmatter:()=>f});var n=x(s()),f={title:\"Cultura del Silencio\",thumbnail:\"/static/work/cultura-del-silencio/thumb.jpg\",description:\"School project. Cultura del silencio es un objeto standalone interactivo que reacciona al sonido producido por los espectadores. Una estructura vertical sostiene un garrote de polici\\u0301a en un extremo que golpea cuando el usuario se hace escuchar.\",date:new Date(14331168e5)};function u(t){let e=Object.assign({h1:\"h1\",a:\"a\",span:\"span\",p:\"p\",strong:\"strong\"},t.components),{Image:i}=e;return i||S(\"Image\",!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.h1,{id:\"cultura-del-silencio\",children:[(0,n.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#cultura-del-silencio\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Cultura del Silencio\"]}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Trabajo Universitario.\"}),` Cultura del silencio es un objeto\nstandalone interactivo que reacciona al sonido producido por los\nespectadores. Una estructura vertical sostiene un garrote de polici\\u0301a en un\nextremo que golpea cuando el usuario se hace escuchar.\nInteractive Sculpture.`]}),`\n`,(0,n.jsx)(i,{src:\"/static/work/cultura-del-silencio/culturadelsilencio-r1.jpg\",alt:\"Cultura del Silencio\",width:1280,height:720}),`\n`,(0,n.jsx)(i,{src:\"/static/work/cultura-del-silencio/culturadelsilencio-r2.jpg\",alt:\"Cultura del Silencio\",width:1280,height:720}),`\n`,(0,n.jsx)(i,{src:\"/static/work/cultura-del-silencio/culturadelsilencio-r3.jpg\",alt:\"Cultura del Silencio\",width:1280,height:720}),`\n`,(0,n.jsx)(i,{src:\"/static/work/cultura-del-silencio/culturadelsilencio-r4.jpg\",alt:\"Cultura del Silencio\",width:1280,height:720}),`\n`,(0,n.jsx)(e.p,{children:\"Junio 2015\"})]})}function C(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(u,t)})):u(t)}var k=C;function S(t,e){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+t+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return b(_);})();\n;return Component;"
+  },
+  "_id": "works/cultura-del-silencio.mdx",
+  "_raw": {
+    "sourceFilePath": "works/cultura-del-silencio.mdx",
+    "sourceFileName": "cultura-del-silencio.mdx",
+    "sourceFileDir": "works",
+    "contentType": "mdx",
+    "flattenedPath": "works/cultura-del-silencio"
+  },
+  "type": "Work",
+  "slug": "/works/cultura-del-silencio",
+  "slugAsParams": "cultura-del-silencio"
+}

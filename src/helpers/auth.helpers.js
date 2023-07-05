@@ -1,4 +1,0 @@
-/*
-  Generalized helper functions related
-  to authentication and authorization.
-*/

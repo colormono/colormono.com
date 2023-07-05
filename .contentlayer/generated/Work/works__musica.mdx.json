@@ -1,0 +1,23 @@
+{
+  "title": "Música",
+  "description": "Tbd",
+  "thumbnail": "/static/work/musica/thumb.jpg",
+  "date": "2014-09-16",
+  "featured": false,
+  "published": true,
+  "body": {
+    "raw": "\n# Música\n\n![Locomocion](/static/work/musica/rodaje-gopro.jpg)\n![Locomocion](/static/work/musica/thumb_screen_02.jpg)\n![Locomocion](/static/work/musica/thumb_screen_01.jpg)\n![Locomocion](/static/work/musica/tan-bionica-kinect.jpg)\n\n<iframe\n  className=\"w-full aspect-video\"\n  src=\"https://www.youtube.com/embed/F6e7vF_MalQ?start=185\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n  allowfullscreen\n></iframe>\n",
+    "code": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var b=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),w=(e,t)=>{for(var c in t)o(e,c,{get:t[c],enumerable:!0})},s=(e,t,c,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let n of d(t))!h.call(e,n)&&n!==c&&o(e,n,{get:()=>t[n],enumerable:!(i=p(t,n))||i.enumerable});return e};var j=(e,t,c)=>(c=e!=null?u(g(e)):{},s(t||!e||!e.__esModule?o(c,\"default\",{value:e,enumerable:!0}):c,e)),_=e=>s(o({},\"__esModule\",{value:!0}),e);var m=b((y,r)=>{r.exports=_jsx_runtime});var L={};w(L,{default:()=>k,frontmatter:()=>f});var a=j(m()),f={title:\"M\\xFAsica\",description:\"Tbd\",thumbnail:\"/static/work/musica/thumb.jpg\",date:new Date(14108256e5)};function l(e){let t=Object.assign({h1:\"h1\",a:\"a\",span:\"span\",p:\"p\",img:\"img\"},e.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(t.h1,{id:\"m\\xFAsica\",children:[(0,a.jsx)(t.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#m\\xFAsica\",children:(0,a.jsx)(t.span,{className:\"icon icon-link\"})}),\"M\\xFAsica\"]}),`\n`,(0,a.jsxs)(t.p,{children:[(0,a.jsx)(t.img,{src:\"/static/work/musica/rodaje-gopro.jpg\",alt:\"Locomocion\"}),`\n`,(0,a.jsx)(t.img,{src:\"/static/work/musica/thumb_screen_02.jpg\",alt:\"Locomocion\"}),`\n`,(0,a.jsx)(t.img,{src:\"/static/work/musica/thumb_screen_01.jpg\",alt:\"Locomocion\"}),`\n`,(0,a.jsx)(t.img,{src:\"/static/work/musica/tan-bionica-kinect.jpg\",alt:\"Locomocion\"})]}),`\n`,(0,a.jsx)(\"iframe\",{className:\"w-full aspect-video\",src:\"https://www.youtube.com/embed/F6e7vF_MalQ?start=185\",frameborder:\"0\",allow:\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\",allowfullscreen:!0})]})}function x(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,Object.assign({},e,{children:(0,a.jsx)(l,e)})):l(e)}var k=x;return _(L);})();\n;return Component;"
+  },
+  "_id": "works/musica.mdx",
+  "_raw": {
+    "sourceFilePath": "works/musica.mdx",
+    "sourceFileName": "musica.mdx",
+    "sourceFileDir": "works",
+    "contentType": "mdx",
+    "flattenedPath": "works/musica"
+  },
+  "type": "Work",
+  "slug": "/works/musica",
+  "slugAsParams": "musica"
+}

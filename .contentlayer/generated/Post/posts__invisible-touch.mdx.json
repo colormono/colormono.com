@@ -1,0 +1,22 @@
+{
+  "title": "Inivisible Touch",
+  "description": "Video mapping app using a LeapMotion sensor.",
+  "date": "2016-09-16T00:00:00.000Z",
+  "thumbnail": "/static/lab/quale/leaptouch.png",
+  "published": true,
+  "body": {
+    "raw": "\n<iframe\n  className=\"w-full aspect-video\"\n  src=\"http://player.vimeo.com/video/134560602\"\n  frameborder=\"0\"\n  webkitallowfullscreen=\"\"\n  mozallowfullscreen=\"\"\n  allowfullscreen\n></iframe>\n\nWith my fellas [Daniel Rivas](http://daninjafx.com/) and [Mariano Asseff](https://www.themotioncube.art/) we created a studio called **Quale Media Lab**, were we built odd software.\n\nWe made the decision to create an **invisible 3D button** for a commissioned installation. To accomplish this, we utilized a LeapMotion sensor to track the user's hand. Additionally, we developed custom Processing software to accurately map invisible boxes within the space and effectively trigger OSC messages.\n\nIn addition, the OSC messages were seamlessly received by live visual software such as Modul8, MadMapper, or TouchDesigner. This integration enhanced the overall interactive experience, allowing for dynamic visual responses based on the user's interaction with the invisible 3D button.\n\nEnjoy!\n",
+    "code": "var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),g=(t,e)=>{for(var a in e)s(t,a,{get:e[a],enumerable:!0})},r=(t,e,a,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of p(e))!f.call(t,i)&&i!==a&&s(t,i,{get:()=>e[i],enumerable:!(o=u(e,i))||o.enumerable});return t};var b=(t,e,a)=>(a=t!=null?h(m(t)):{},r(e||!t||!t.__esModule?s(a,\"default\",{value:t,enumerable:!0}):a,t)),v=t=>r(s({},\"__esModule\",{value:!0}),t);var c=w((_,l)=>{l.exports=_jsx_runtime});var j={};g(j,{default:()=>M,frontmatter:()=>x});var n=b(c()),x={title:\"Inivisible Touch\",description:\"Video mapping app using a LeapMotion sensor.\",thumbnail:\"/static/lab/quale/leaptouch.png\",date:new Date(1473984e6)};function d(t){let e=Object.assign({p:\"p\",a:\"a\",strong:\"strong\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(\"iframe\",{className:\"w-full aspect-video\",src:\"http://player.vimeo.com/video/134560602\",frameborder:\"0\",webkitallowfullscreen:\"\",mozallowfullscreen:\"\",allowfullscreen:!0}),`\n`,(0,n.jsxs)(e.p,{children:[\"With my fellas \",(0,n.jsx)(e.a,{href:\"http://daninjafx.com/\",children:\"Daniel Rivas\"}),\" and \",(0,n.jsx)(e.a,{href:\"https://www.themotioncube.art/\",children:\"Mariano Asseff\"}),\" we created a studio called \",(0,n.jsx)(e.strong,{children:\"Quale Media Lab\"}),\", were we built odd software.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"We made the decision to create an \",(0,n.jsx)(e.strong,{children:\"invisible 3D button\"}),\" for a commissioned installation. To accomplish this, we utilized a LeapMotion sensor to track the user's hand. Additionally, we developed custom Processing software to accurately map invisible boxes within the space and effectively trigger OSC messages.\"]}),`\n`,(0,n.jsx)(e.p,{children:\"In addition, the OSC messages were seamlessly received by live visual software such as Modul8, MadMapper, or TouchDesigner. This integration enhanced the overall interactive experience, allowing for dynamic visual responses based on the user's interaction with the invisible 3D button.\"}),`\n`,(0,n.jsx)(e.p,{children:\"Enjoy!\"})]})}function y(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var M=y;return v(j);})();\n;return Component;"
+  },
+  "_id": "posts/invisible-touch.mdx",
+  "_raw": {
+    "sourceFilePath": "posts/invisible-touch.mdx",
+    "sourceFileName": "invisible-touch.mdx",
+    "sourceFileDir": "posts",
+    "contentType": "mdx",
+    "flattenedPath": "posts/invisible-touch"
+  },
+  "type": "Post",
+  "slug": "/posts/invisible-touch",
+  "slugAsParams": "invisible-touch"
+}
