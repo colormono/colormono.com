@@ -50,7 +50,7 @@ export default async function PagePage({ params }: PageProps) {
 
   return (
     <section className="container mx-auto">
-      <article className="mx-auto max-w-2xl">
+      <article className="mx-auto max-w-2xl pb-24">
         <Mdx code={page.body.code} />
       </article>
     </section>

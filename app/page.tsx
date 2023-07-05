@@ -32,7 +32,7 @@ export default function Home() {
           >
             Mariano Rivas
           </Link>
-          , new-media artist and software developer.{" "}
+          , a new-media artist and software developer.{" "}
           <br className="hidden sm:inline" />I work at{" "}
           <Link
             href="https://truenorth.co"
@@ -40,12 +40,9 @@ export default function Home() {
           >
             TrueNorth
           </Link>{" "}
-          as Front-end Engineer. Thanks to having creative coding skills, I can
-          be part of the different stages of the creative process, from
-          conception to execution.
-        </p>
-        <p className="max-w-3xl text-xl sm:text-2xl sm:leading-relaxed">
-          This is my website, you&apos;re welcome.
+          as Front-end Engineer. Thanks to having creative coding skills, I have
+          the privilege of contributing to various aspects of the creative
+          process, from inception to realization.
         </p>
       </div>
 
