@@ -74,10 +74,10 @@ export default async function PostPage({ params }: PostProps) {
 
   return (
     <section className="container mx-auto">
-      <article className="max-w-2xl mx-auto py-20">
-        <h1 className="text-2xl mb-2">{post.title}</h1>
+      <article className="mx-auto max-w-2xl pb-20 pt-10">
+        <h1 className="mb-2 text-2xl">{post.title}</h1>
         {post.description && (
-          <p className="text-xl mt-0 text-slate-700 dark:text-slate-200">
+          <p className="mt-0 text-xl text-slate-700 dark:text-slate-200">
             {post.description}
           </p>
         )}

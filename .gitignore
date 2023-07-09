@@ -27,6 +27,10 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# content
+.contentlayer/**
+/.contentlayer/**
+
 # vercel
 .vercel
 
