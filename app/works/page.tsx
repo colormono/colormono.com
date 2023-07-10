@@ -21,10 +21,10 @@ export default function Works() {
                   src={work.thumbnail || "/static/work/thumb-default.jpg"}
                   alt={work.title}
                   fill
-                  className="object-cover opacity-75 transition-opacity duration-300 group-hover:opacity-100"
+                  className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
                 />
               </AspectRatio>
-              <h3 className="mt-4 font-black uppercase">{work.title}</h3>
+              <h3 className="mt-4 font-semibold uppercase">{work.title}</h3>
               <time
                 dateTime={work.date}
                 className="mb-2 block text-xs text-muted-foreground"

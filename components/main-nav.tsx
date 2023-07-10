@@ -25,7 +25,7 @@ export function MainNav({ items }: MainNavProps) {
                   key={index}
                   href={item.href}
                   className={cn(
-                    "flex items-center text-sm font-black uppercase",
+                    "flex items-center text-sm uppercase",
                     pathname?.startsWith(item.href)
                       ? "text-primary"
                       : "text-muted-foreground",

@@ -44,7 +44,7 @@ export default function Home() {
                 className="opacity-90 transition group-hover:opacity-100"
               />
               <div className="mt-4">
-                <h3 className="font-black uppercase">{work.title}</h3>
+                <h3 className="font-semibold uppercase">{work.title}</h3>
                 {work.description && (
                   <p className="max-w-sm text-sm text-muted-foreground">
                     {work.description}

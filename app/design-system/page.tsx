@@ -120,7 +120,7 @@ export default function Page() {
         </section>
       </div>
 
-      <nav className="pt-2 pb-4 sticky top-[91px] z-50 inset-x-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors duration-300 ease-in-out">
+      <nav className="pt-2 pb-4 sticky top-[91px] z-50 inset-x-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors ease-in-out">
         <div className="flex items-baseline gap-10 text-sm uppercase">
           <p color="neutral">SECTIONS</p>
           <Link href="#intro" scroll={false} className="border-b-2">

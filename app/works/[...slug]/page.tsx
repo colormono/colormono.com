@@ -112,7 +112,7 @@ export default async function workPage({ params }: WorkProps) {
                 src={work.thumbnail || "/static/work/thumb-default.jpg"}
                 alt={work.title}
                 fill
-                className="object-cover opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+                className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
               />
             </AspectRatio>
           </div>
