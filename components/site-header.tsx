@@ -8,7 +8,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 inset-x-0 w-full my-0 md:my-10 bg-background/80 backdrop-blur-md transition-colors">
+    <header className="sticky inset-x-0 top-0 z-50 my-0 w-full bg-background/80 backdrop-blur-md transition-colors md:my-10">
       <div className="container flex h-20 items-center space-x-16 sm:justify-between">
         <Link
           href="/"

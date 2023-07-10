@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useMemo } from "react"
+import React, { useMemo, useState } from "react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -13,6 +13,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Label } from "@/components/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { Switch } from "@/components/ui/switch"
 
 type MealName = "breakfast" | "mid-morning" | "lunch" | "snack" | "dinner"
 
@@ -58,7 +65,7 @@ const mealPlan: MealPlannerType[] = [
     weekday: 1,
     day: "Monday",
     activities: ["🏫", "⚽️", "🎾", "📖"],
-    todos: ["Verdulería (refuerzo?)"],
+    todos: ["Verdulería?"],
     plan: [
       {
         name: "breakfast",
@@ -74,7 +81,7 @@ const mealPlan: MealPlannerType[] = [
     weekday: 2,
     day: "Tuesday",
     activities: ["🏫", "🏊‍♀️", "⚽️", "📺"],
-    todos: ["Carnicería"],
+    todos: [],
     plan: [
       {
         name: "breakfast",
@@ -89,7 +96,7 @@ const mealPlan: MealPlannerType[] = [
   {
     weekday: 3,
     day: "Wednesday",
-    activities: ["🏫", "⚽️", "🎾", "🍿"],
+    activities: ["🏫", "⚽️", "📖"],
     todos: [],
     plan: [
       {
@@ -105,8 +112,8 @@ const mealPlan: MealPlannerType[] = [
   {
     weekday: 4,
     day: "Thursday",
-    activities: ["🏫", "🏊‍♀️", "⚽️", "📖"],
-    todos: ["Fiambrería", "Dietética"],
+    activities: ["🏫", "🏊‍♀️", "⚽️", "🍿"],
+    todos: ["Carnicería", "Fiambrería", "Dietética"],
     plan: [
       {
         name: "breakfast",
@@ -122,7 +129,7 @@ const mealPlan: MealPlannerType[] = [
     weekday: 5,
     day: "Friday",
     activities: ["🏫", "🎾", "⚽️", "🎲"],
-    todos: ["Verdulería", "Hipermercado", "Carnicería (refuerzo?)"],
+    todos: ["Verdulería", "Hipermercado"],
     plan: [
       {
         name: "breakfast",
@@ -169,7 +176,8 @@ const mealPlan: MealPlannerType[] = [
 ]
 
 export function MealPlanner({ ...props }) {
-  const [position, setPosition] = React.useState("primero")
+  const [gridMode, setGridMode] = useState(true)
+  const [position, setPosition] = useState("primero")
 
   const today = useMemo(() => new Date(), [])
   const currentMeal = useMemo(() => {
@@ -177,10 +185,11 @@ export function MealPlanner({ ...props }) {
     return getCurrentMeal(hour)
   }, [today])
 
-  const rowStyles = "grid grid-cols-12 gap-1"
+  const rowStyles = "grid gap-1"
   const cellStyles =
-    "col-span-2 bg-muted px-2 py-2 flex flex-wrap gap-1 items-start content-start"
-  const tagStyles = "inline-block rounded bg-background px-1 text-sm"
+    "col-span-2 bg-muted px-2 py-2 flex flex-wrap gap-1 items-baseline content-start"
+  const tagStyles =
+    "inline-block rounded bg-background px-1 text-sm cursor-pointer"
   const coleStyles = "border border-muted-foreground"
 
   return (
@@ -190,13 +199,22 @@ export function MealPlanner({ ...props }) {
           <span className="text-xl font-bold">Meal Planner</span>
         </div>
 
-        <div className="col-span-4">
+        <div className="col-span-6">
           <span className="text-muted-foreground">
             {weekday[today.getDay()]} Enjoy your {currentMeal}.
           </span>
         </div>
 
-        <div className="col-span-6 flex justify-end gap-2">
+        <div className="col-span-4 flex justify-end gap-5">
+          <div className="flex items-center space-x-2">
+            <Switch
+              id="grud-mode"
+              checked={gridMode}
+              onCheckedChange={(prevState) => setGridMode(!gridMode)}
+            />
+            <Label htmlFor="grud-mode">Grid</Label>
+          </div>
+
           {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">🤤 Omnivore</Button>
@@ -237,6 +255,9 @@ export function MealPlanner({ ...props }) {
                 <DropdownMenuRadioItem value="segundo">
                   🇫🇷 French
                 </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="segundo">
+                  🇪🇸 Spanish
+                </DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="2022">
                   ⚽️ Others
                 </DropdownMenuRadioItem>
@@ -272,38 +293,41 @@ export function MealPlanner({ ...props }) {
         </div>
       </header>
 
-      <aside className="grid grid-cols-12 gap-x-1">
-        <div className="col-span-2" />
-        <div className="col-span-2 py-5">
-          <div className="text-xs uppercase text-muted-foreground">
-            Desayuno
+      {gridMode && (
+        <aside className="grid grid-cols-12 gap-x-1">
+          <div className="col-span-2" />
+          <div className="col-span-2 py-5">
+            <div className="text-xs uppercase text-muted-foreground">
+              Desayuno
+            </div>
           </div>
-        </div>
-        <div className="col-span-2 py-5">
-          <div className="text-xs uppercase text-muted-foreground">
-            Media mañana
+          <div className="col-span-2 py-5">
+            <div className="text-xs uppercase text-muted-foreground">
+              Media mañana
+            </div>
           </div>
-        </div>
-        <div className="col-span-2 py-5">
-          <div className="text-xs uppercase text-muted-foreground">
-            Almuerzo
+          <div className="col-span-2 py-5">
+            <div className="text-xs uppercase text-muted-foreground">
+              Almuerzo
+            </div>
           </div>
-        </div>
-        <div className="col-span-2 py-5">
-          <div className="text-xs uppercase text-muted-foreground">
-            Merienda /Snack
+          <div className="col-span-2 py-5">
+            <div className="text-xs uppercase text-muted-foreground">
+              Merienda /Snack
+            </div>
           </div>
-        </div>
-        <div className="col-span-2 py-5">
-          <div className="text-xs uppercase text-muted-foreground">Cena</div>
-        </div>
-      </aside>
+          <div className="col-span-2 py-5">
+            <div className="text-xs uppercase text-muted-foreground">Cena</div>
+          </div>
+        </aside>
+      )}
 
       <main className="grid gap-y-1">
-        {mealPlan.map((item, index) => (
+        {mealPlan.map((item) => (
           <div
             className={cn(
               rowStyles,
+              gridMode && "grid-cols-12",
               today.getDay() === item.weekday &&
                 "border-y border-dashed border-muted-foreground/50"
             )}
@@ -323,7 +347,7 @@ export function MealPlanner({ ...props }) {
               </ul>
             </div>
 
-            {item.plan.map((m) => (
+            {item.plan.map((m, mealIndex) => (
               <div
                 key={`${item.day}-${m.name}`}
                 className={cn(
@@ -333,10 +357,33 @@ export function MealPlanner({ ...props }) {
                     "border-l-4 border-primary"
                 )}
               >
-                {m.meals.map((i: string) => (
-                  <span key={i} className={cn(tagStyles)}>
-                    {i}
+                {!gridMode && (
+                  <span className="mr-2 text-xs uppercase text-muted-foreground">
+                    {m.name}
                   </span>
+                )}
+                {m.meals.map((i, index) => (
+                  <Popover key={i}>
+                    <PopoverTrigger asChild>
+                      <span
+                        className={cn(
+                          tagStyles,
+                          item.weekday > 0 &&
+                            item.weekday <= 5 &&
+                            mealIndex > 0 &&
+                            mealIndex < 3 &&
+                            index === 0 &&
+                            coleStyles
+                        )}
+                      >
+                        {i}
+                      </span>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-80">
+                      <div className="font-semibold">{i}</div>
+                      <div>Description</div>
+                    </PopoverContent>
+                  </Popover>
                 ))}
               </div>
             ))}
@@ -350,7 +397,8 @@ export function MealPlanner({ ...props }) {
         </div>
 
         <div className="col-span-4">
-          <Button variant="secondary">Add meal</Button>
+          <Button variant="secondary">Create meal</Button>
+          {/* Bench meals */}
         </div>
 
         <div className="col-span-6 flex justify-end gap-2">
