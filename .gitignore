@@ -27,9 +27,8 @@ yarn-error.log*
 # local env files
 .env*.local
 
-# content
-.contentlayer/**
-/.contentlayer/**
+# contentlayer
+.contentlayer
 
 # vercel
 .vercel
@@ -40,3 +39,4 @@ next-env.d.ts
 
 # private content
 /content/_private/
+
