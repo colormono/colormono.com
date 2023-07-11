@@ -23,9 +23,14 @@ import { Switch } from "@/components/ui/switch"
 
 type MealName = "breakfast" | "mid-morning" | "lunch" | "snack" | "dinner"
 
+type MealType = {
+  name: string
+  description: string
+}
+
 type DailyPlanType = {
   name: MealName
-  meals: string[]
+  meals: MealType[]
 }
 
 type MealPlannerType = {
@@ -60,6 +65,9 @@ function getCurrentMeal(hour: number): MealName {
   }
 }
 
+const snacksCole =
+  "Botellita de agua o Juguito, Galletitas o Alfajor, Barra de cereal o Fruta."
+
 const mealPlan: MealPlannerType[] = [
   {
     weekday: 1,
@@ -69,12 +77,59 @@ const mealPlan: MealPlannerType[] = [
     plan: [
       {
         name: "breakfast",
-        meals: ["Yogur", "Café con Leche", "Mate cocido", "Mate"],
+        meals: [
+          { name: "Yogur", description: "Frutilla o Vainilla" },
+          { name: "Café con Leche", description: "con azúcar" },
+          { name: "Mate cocido", description: "con azúcar" },
+          { name: "Mate", description: "amargo" },
+        ],
       },
-      { name: "mid-morning", meals: ["Snacks cole", "Frutos secos"] },
-      { name: "lunch", meals: ["Pasta", "Ensalada con atún"] },
-      { name: "snack", meals: ["Infusión", "Fruta"] },
-      { name: "dinner", meals: ["Pescado", "Papitas", "Espinaca"] },
+      {
+        name: "mid-morning",
+        meals: [
+          { name: "Snacks cole", description: snacksCole },
+          { name: "Huevo revuelto", description: "" },
+        ],
+      },
+      {
+        name: "lunch",
+        meals: [
+          {
+            name: "Fideitos",
+            description:
+              "Fideos tirabuzón con aceite, brócoli y queso rallado.",
+          },
+          {
+            name: "Ensalada con atún",
+            description:
+              "Atún en aceite, lechugas, palta, tomates cherry, repollo colorado, mix de semillas, aceite de oliva, pimienta y sal.",
+          },
+        ],
+      },
+      {
+        name: "snack",
+        meals: [
+          { name: "Fruta", description: "" },
+          { name: "Tostada", description: "" },
+          {
+            name: "Frutos secos",
+            description: "Almendras y nueces",
+          },
+        ],
+      },
+      {
+        name: "dinner",
+        meals: [
+          {
+            name: "Merluza con espinaca",
+            description: "Merluza con crema de espinacas al curry.",
+          },
+          {
+            name: "Papitas al horno",
+            description: "Cortadas en cubitos, para la vianda de la semana.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -85,12 +140,55 @@ const mealPlan: MealPlannerType[] = [
     plan: [
       {
         name: "breakfast",
-        meals: ["Yogur", "Café con Leche", "Mate cocido", "Mate"],
+        meals: [
+          { name: "Yogur", description: "Frutilla o Vainilla" },
+          { name: "Café con Leche", description: "con azúcar" },
+          { name: "Mate cocido", description: "con azúcar" },
+          { name: "Mate", description: "amargo" },
+        ],
       },
-      { name: "mid-morning", meals: ["Snacks cole", "Frutos secos"] },
-      { name: "lunch", meals: ["Mila con papas", "Zoodles"] },
-      { name: "snack", meals: ["Infusión", "Huevo", "Fruta"] },
-      { name: "dinner", meals: ["Pollo", "Arroz", "Ensalada"] },
+      {
+        name: "mid-morning",
+        meals: [
+          { name: "Snacks cole", description: snacksCole },
+          { name: "Huevo revuelto", description: "" },
+        ],
+      },
+      {
+        name: "lunch",
+        meals: [
+          {
+            name: "Mila con papitas",
+            description: "Milanesa de peceto con papas al horno en cubos.",
+          },
+          {
+            name: "Berenjenas con ensalada",
+            description:
+              "A la plancha, rellenas, con ensalada verde, repollo colorado, palta, mix de semillas, aceite de oliva, pimienta y sal.",
+          },
+        ],
+      },
+      {
+        name: "snack",
+        meals: [
+          { name: "Fruta", description: "" },
+          { name: "Tostada", description: "" },
+          {
+            name: "Frutos secos",
+            description: "Almendras y nueces",
+          },
+        ],
+      },
+      {
+        name: "dinner",
+        meals: [
+          {
+            name: "Wok de verduras",
+            description:
+              "morron, champignones, berenjenas, coliflor, nueces... chauchas",
+          },
+        ],
+      },
     ],
   },
   {
@@ -101,12 +199,58 @@ const mealPlan: MealPlannerType[] = [
     plan: [
       {
         name: "breakfast",
-        meals: ["Yogur", "Café con Leche", "Mate cocido", "Mate"],
+        meals: [
+          { name: "Yogur", description: "Frutilla o Vainilla" },
+          { name: "Café con Leche", description: "con azúcar" },
+          { name: "Mate cocido", description: "con azúcar" },
+          { name: "Mate", description: "amargo" },
+        ],
       },
-      { name: "mid-morning", meals: ["Snacks cole", "Frutos secos"] },
-      { name: "lunch", meals: ["Pollito con brócoli", "Ensalada césar"] },
-      { name: "snack", meals: ["Infusión", "Fruta"] },
-      { name: "dinner", meals: ["Carne roja", "Papitas", "Verduras"] },
+      {
+        name: "mid-morning",
+        meals: [
+          { name: "Snacks cole", description: snacksCole },
+          { name: "Huevo revuelto", description: "" },
+        ],
+      },
+      {
+        name: "lunch",
+        meals: [
+          {
+            name: "Tartaleta",
+            description: "De espinaca, puerro o jamón y queso.",
+          },
+          {
+            name: "Zoodles",
+            description: "Fideos de zuquini con gambas o caprese.",
+          },
+        ],
+      },
+      {
+        name: "snack",
+        meals: [
+          { name: "Fruta", description: "" },
+          { name: "Tostada", description: "" },
+          {
+            name: "Frutos secos",
+            description: "Almendras y nueces",
+          },
+        ],
+      },
+      {
+        name: "dinner",
+        meals: [
+          {
+            name: "Carne roja",
+            description:
+              "Ojo de bife a la plancha o colita de cuadril al horno.",
+          },
+          {
+            name: "Verduras al horno",
+            description: "Morron, repollo blanco y colorado",
+          },
+        ],
+      },
     ],
   },
   {
@@ -117,12 +261,53 @@ const mealPlan: MealPlannerType[] = [
     plan: [
       {
         name: "breakfast",
-        meals: ["Yogur", "Café con Leche", "Mate cocido", "Mate"],
+        meals: [
+          { name: "Yogur", description: "Frutilla o Vainilla" },
+          { name: "Café con Leche", description: "con azúcar" },
+          { name: "Mate cocido", description: "con azúcar" },
+          { name: "Mate", description: "amargo" },
+        ],
       },
-      { name: "mid-morning", meals: ["Snacks cole", "Frutos secos"] },
-      { name: "lunch", meals: ["Carne con papitas", "Omelette de hiervas"] },
-      { name: "snack", meals: ["Infusión", "Tostado"] },
-      { name: "dinner", meals: ["Milanesas", "Verduras"] },
+      {
+        name: "mid-morning",
+        meals: [
+          { name: "Snacks cole", description: snacksCole },
+          { name: "Huevo revuelto", description: "" },
+        ],
+      },
+      {
+        name: "lunch",
+        meals: [
+          {
+            name: "Carne con papitas",
+            description: "Carne al horno con papitas",
+          },
+          { name: "Omelette", description: "" },
+        ],
+      },
+      {
+        name: "snack",
+        meals: [
+          { name: "Fruta", description: "" },
+          {
+            name: "Frutos secos",
+            description: "Almendras y nueces",
+          },
+          { name: "Tostado", description: "Pan lactal, jamón y queso" },
+        ],
+      },
+      {
+        name: "dinner",
+        meals: [
+          {
+            name: "Pollo",
+            description:
+              "Suprema o patamuslo a la plancha o Planchetta si son muchos (yo hago de a 7).",
+          },
+          { name: "Arroz", description: "" },
+          { name: "Ensalada", description: "" },
+        ],
+      },
     ],
   },
   {
@@ -133,12 +318,63 @@ const mealPlan: MealPlannerType[] = [
     plan: [
       {
         name: "breakfast",
-        meals: ["Yogur", "Café con Leche", "Mate cocido", "Mate"],
+        meals: [
+          { name: "Yogur", description: "Frutilla o Vainilla" },
+          { name: "Café con Leche", description: "con azúcar" },
+          { name: "Mate cocido", description: "con azúcar" },
+          { name: "Mate", description: "amargo" },
+        ],
       },
-      { name: "mid-morning", meals: ["Snacks cole", "Frutos secos"] },
-      { name: "lunch", meals: ["Tarteleta", "Wrap"] },
-      { name: "snack", meals: ["Infusión", "Rollito"] },
-      { name: "dinner", meals: ["Picada", "Mi sandwich tiene..."] },
+      {
+        name: "mid-morning",
+        meals: [
+          { name: "Snacks cole", description: snacksCole },
+          { name: "Huevo revuelto", description: "" },
+        ],
+      },
+      {
+        name: "lunch",
+        meals: [
+          {
+            name: "Croquetas o Nuggets",
+            description: "Croquetas de arroz, queso cremoso y pollo.",
+          },
+          { name: "Ensalada césar", description: "" },
+        ],
+      },
+      {
+        name: "snack",
+        meals: [
+          { name: "Fruta", description: "" },
+          {
+            name: "Frutos secos",
+            description: "Almendras y nueces",
+          },
+          {
+            name: "Rollito",
+            description: "Rollito de lomito y queso de máquina.",
+          },
+        ],
+      },
+      {
+        name: "dinner",
+        meals: [
+          {
+            name: "Burguer",
+            description:
+              "Roast beef picado doble, Pan de papa, queso cheddar, salsa Lucho's. Sale con fritas.",
+          },
+          {
+            name: "Tacos",
+            description:
+              "Rapiditas con Roast beef desmenuzado con cebolla caramelizada. Sale con nachos.",
+          },
+          {
+            name: "Mi sandwich tiene...",
+            description: "Juego de acumulación.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -149,28 +385,101 @@ const mealPlan: MealPlannerType[] = [
     plan: [
       {
         name: "breakfast",
-        meals: ["Yogur", "Café con Leche", "Mate cocido", "Mate"],
+        meals: [
+          { name: "Yogur", description: "Frutilla o Vainilla" },
+          { name: "Café con Leche", description: "con azúcar" },
+          { name: "Mate cocido", description: "con azúcar" },
+          { name: "Mate", description: "amargo" },
+        ],
       },
-      { name: "mid-morning", meals: ["Snacks"] },
-      { name: "lunch", meals: ["Parrilla"] },
-      { name: "snack", meals: ["Mate", "Bizcochuelo"] },
-      { name: "dinner", meals: ["Pizza", "Empanadas"] },
+      {
+        name: "mid-morning",
+        meals: [{ name: "Huevo revuelto", description: "" }],
+      },
+      {
+        name: "lunch",
+        meals: [
+          {
+            name: "Parrilla",
+            description: "Todo bicho que camina... y verdura también.",
+          },
+        ],
+      },
+      {
+        name: "snack",
+        meals: [
+          { name: "Mate", description: "" },
+          {
+            name: "Bizcochuelo",
+            description:
+              "De limón, naranja o chocolate. Que quede para el día siguiente.",
+          },
+        ],
+      },
+      {
+        name: "dinner",
+        meals: [
+          {
+            name: "Pizza",
+            description: "Napoletana. Pizzeta de berenjena también vale.",
+          },
+          { name: "Empanadas", description: "Hacer para congelar" },
+          { name: "Tartaleta", description: "Hacer para congelar" },
+        ],
+      },
     ],
   },
   {
     weekday: 0,
     day: "Sunday",
-    activities: ["🛋", "🍿"],
+    activities: ["🛋", "🍿", "📖"],
     todos: [],
     plan: [
       {
         name: "breakfast",
-        meals: ["Yogur", "Café con Leche", "Mate cocido", "Mate"],
+        meals: [
+          { name: "Yogur", description: "Frutilla o Vainilla" },
+          { name: "Café con Leche", description: "con azúcar" },
+          { name: "Mate cocido", description: "con azúcar" },
+          { name: "Mate", description: "amargo" },
+        ],
       },
-      { name: "mid-morning", meals: ["Bizcochuelo"] },
-      { name: "lunch", meals: ["Pasta"] },
-      { name: "snack", meals: ["Mate", "Pochoclos"] },
-      { name: "dinner", meals: ["Burguer", "Tacos"] },
+      {
+        name: "mid-morning",
+        meals: [{ name: "Bizcochuelo", description: "" }],
+      },
+      {
+        name: "lunch",
+        meals: [
+          {
+            name: "Pasta",
+            description:
+              "Fideos caseros, Sorrentinos, Lasagna de berenjena, Estofado...",
+          },
+        ],
+      },
+      {
+        name: "snack",
+        meals: [
+          { name: "Mate", description: "Siempre." },
+          { name: "Pochoclos", description: "Vamos que arranca la peli." },
+        ],
+      },
+      {
+        name: "dinner",
+        meals: [
+          {
+            name: "Picadita",
+            description:
+              "Salame, queso artesanal, tomates cherry, Falsa Criolla, Babaganush, Hummus, Burrata...",
+          },
+          {
+            name: "Sushi",
+            description: "Tengo que encontrar un lugar bueno.",
+          },
+          { name: "Trapos viejos", description: "No cocino, comemos sobras." },
+        ],
+      },
     ],
   },
 ]
@@ -323,36 +632,36 @@ export function MealPlanner({ ...props }) {
       )}
 
       <main className="grid gap-y-1">
-        {mealPlan.map((item) => (
+        {mealPlan.map((plan) => (
           <div
             className={cn(
               rowStyles,
               gridMode && "grid-cols-12",
-              today.getDay() === item.weekday &&
+              today.getDay() === plan.weekday &&
                 "border-y border-dashed border-muted-foreground/50"
             )}
-            key={item.day}
+            key={plan.day}
           >
             <div className="col-span-2 py-2">
-              <div className="text-sm font-semibold">{item.day}</div>
+              <div className="text-sm font-semibold">{plan.day}</div>
               <div className="flex gap-x-1">
-                {item.activities.map((i) => (
+                {plan.activities.map((i) => (
                   <span key={i}>{i}</span>
                 ))}
               </div>
               <ul className="mt-2 text-xs text-muted-foreground">
-                {item.todos.map((i) => (
+                {plan.todos.map((i) => (
                   <li key={i}>- [ ] {i}</li>
                 ))}
               </ul>
             </div>
 
-            {item.plan.map((m, mealIndex) => (
+            {plan.plan.map((m, mealIndex) => (
               <div
-                key={`${item.day}-${m.name}`}
+                key={`${plan.day}-${m.name}`}
                 className={cn(
                   cellStyles,
-                  today.getDay() === item.weekday &&
+                  today.getDay() === plan.weekday &&
                     currentMeal === m.name &&
                     "border-l-4 border-primary"
                 )}
@@ -362,26 +671,26 @@ export function MealPlanner({ ...props }) {
                     {m.name}
                   </span>
                 )}
-                {m.meals.map((i, index) => (
-                  <Popover key={i}>
+                {m.meals.map((meal, index) => (
+                  <Popover key={`${meal.name}-${index}`}>
                     <PopoverTrigger asChild>
                       <span
                         className={cn(
                           tagStyles,
-                          item.weekday > 0 &&
-                            item.weekday <= 5 &&
+                          plan.weekday > 0 &&
+                            plan.weekday <= 5 &&
                             mealIndex > 0 &&
                             mealIndex < 3 &&
                             index === 0 &&
                             coleStyles
                         )}
                       >
-                        {i}
+                        {meal.name}
                       </span>
                     </PopoverTrigger>
-                    <PopoverContent className="w-80">
-                      <div className="font-semibold">{i}</div>
-                      <div>Description</div>
+                    <PopoverContent className="w-60">
+                      <div className="font-semibold">{meal.name}</div>
+                      <div className="mt-1 text-sm">{meal.description}</div>
                     </PopoverContent>
                   </Popover>
                 ))}
@@ -399,6 +708,17 @@ export function MealPlanner({ ...props }) {
         <div className="col-span-4">
           <Button variant="secondary">Create meal</Button>
           {/* Bench meals */}
+          <div className={cn(cellStyles)}>
+            <Popover>
+              <PopoverTrigger asChild>
+                <span className={cn(tagStyles)}>Pastel de papa</span>
+              </PopoverTrigger>
+              <PopoverContent className="w-60">
+                <div className="font-semibold">Pastel de papa</div>
+                <div className="mt-1 text-sm">Pastel de papas</div>
+              </PopoverContent>
+            </Popover>
+          </div>
         </div>
 
         <div className="col-span-6 flex justify-end gap-2">
