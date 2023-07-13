@@ -15,8 +15,8 @@ const nextConfig = {
   redirects() {
     return [
       {
-        source: "/projects",
-        destination: "/works",
+        source: "/work/:slug",
+        destination: "/works/:slug",
         permanent: true,
       },
       {
@@ -32,6 +32,17 @@ const nextConfig = {
       {
         source: "/youtube",
         destination: "https://www.youtube.com/channel/UCjjS8Wtv6oJyEZBHUSxtZDA",
+        permanent: true,
+      },
+      {
+        source: "/cursos/inpr",
+        destination:
+          "https://colormono.notion.site/INPR-4e1b25ec0e304d219158553b8ca53480",
+        permanent: true,
+      },
+      {
+        source: "/carta",
+        destination: "https://colormono.com/posts/meal-planner",
         permanent: true,
       },
     ]

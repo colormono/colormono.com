@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 
+import { useMediaQuery } from "@/lib/hooks/use-media-query"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -485,6 +486,8 @@ const mealPlan: MealPlannerType[] = [
 ]
 
 export function MealPlanner({ ...props }) {
+  const isMobile = useMediaQuery("(max-width: 1024px)")
+
   const [gridMode, setGridMode] = useState(true)
   const [position, setPosition] = useState("primero")
 
@@ -501,21 +504,30 @@ export function MealPlanner({ ...props }) {
     "inline-block rounded bg-background px-1 text-sm cursor-pointer"
   const coleStyles = "border border-muted-foreground"
 
+  const [hideOnMobile, setHideOnMobile] = useState(false)
+
+  useEffect(() => {
+    setHideOnMobile(isMobile)
+  }, [isMobile])
+
   return (
-    <section className="-mx-60 my-20 grid border-y py-5" {...props}>
-      <header className="mb-5 grid grid-cols-12 items-center">
-        <div className="col-span-2">
+    <section
+      className="my-10 grid border-y py-5 lg:-mx-24 lg:my-20 xl:-mx-60"
+      {...props}
+    >
+      <header className="mb-5 grid grid-cols-12 items-center gap-y-2">
+        <div className="col-span-12 lg:col-span-2">
           <span className="text-xl font-bold">Meal Planner</span>
         </div>
 
-        <div className="col-span-6">
+        <div className="col-span-12 lg:col-span-6">
           <span className="text-muted-foreground">
             {weekday[today.getDay()]} Enjoy your {currentMeal}.
           </span>
         </div>
 
-        <div className="col-span-4 flex justify-end gap-5">
-          <div className="flex items-center space-x-2">
+        <div className="col-span-12 hidden gap-5 lg:col-span-4 lg:flex lg:justify-end">
+          <div className="items-center space-x-2">
             <Switch
               id="grud-mode"
               checked={gridMode}
@@ -602,7 +614,7 @@ export function MealPlanner({ ...props }) {
         </div>
       </header>
 
-      {gridMode && (
+      {gridMode && !hideOnMobile && (
         <aside className="grid grid-cols-12 gap-x-1">
           <div className="col-span-2" />
           <div className="col-span-2 py-5">
@@ -636,7 +648,7 @@ export function MealPlanner({ ...props }) {
           <div
             className={cn(
               rowStyles,
-              gridMode && "grid-cols-12",
+              gridMode && !hideOnMobile && "grid-cols-12",
               today.getDay() === plan.weekday &&
                 "border-y border-dashed border-muted-foreground/50"
             )}
@@ -666,11 +678,14 @@ export function MealPlanner({ ...props }) {
                     "border-l-4 border-primary"
                 )}
               >
-                {!gridMode && (
-                  <span className="mr-2 text-xs uppercase text-muted-foreground">
-                    {m.name}
-                  </span>
-                )}
+                <span
+                  className={cn(
+                    "mr-2 text-xs uppercase text-muted-foreground",
+                    gridMode && !hideOnMobile && "hidden"
+                  )}
+                >
+                  {m.name}
+                </span>
                 {m.meals.map((meal, index) => (
                   <Popover key={`${meal.name}-${index}`}>
                     <PopoverTrigger asChild>
@@ -700,25 +715,31 @@ export function MealPlanner({ ...props }) {
         ))}
       </main>
 
-      <footer className="my-10 grid grid-cols-12 items-center">
+      <aside className="my-10">
+        <div className={cn(cellStyles)}>
+          <span className="mr-2 text-xs uppercase text-muted-foreground">
+            Meal Bench
+          </span>
+          {/* Bench meals */}
+          <Popover>
+            <PopoverTrigger asChild>
+              <span className={cn(tagStyles)}>Pastel de papa</span>
+            </PopoverTrigger>
+            <PopoverContent className="w-60">
+              <div className="font-semibold">Pastel de papa</div>
+              <div className="mt-1 text-sm">Pastel de papas</div>
+            </PopoverContent>
+          </Popover>
+        </div>
+      </aside>
+
+      <footer className="grid grid-cols-12 items-center">
         <div className="col-span-2">
           <span className="text-2xl font-bold">🍽️</span>
         </div>
 
-        <div className="col-span-4">
-          <Button variant="secondary">Create meal</Button>
-          {/* Bench meals */}
-          <div className={cn(cellStyles)}>
-            <Popover>
-              <PopoverTrigger asChild>
-                <span className={cn(tagStyles)}>Pastel de papa</span>
-              </PopoverTrigger>
-              <PopoverContent className="w-60">
-                <div className="font-semibold">Pastel de papa</div>
-                <div className="mt-1 text-sm">Pastel de papas</div>
-              </PopoverContent>
-            </Popover>
-          </div>
+        <div className="col-span-4 flex flex-wrap gap-2">
+          <Button variant="outline">Create meal</Button>
         </div>
 
         <div className="col-span-6 flex justify-end gap-2">
