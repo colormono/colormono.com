@@ -16,6 +16,7 @@ import {
   Laptop,
   Loader2,
   LucideProps,
+  Monitor,
   Moon,
   MoreVertical,
   Pizza,
@@ -67,6 +68,7 @@ export const Icons = {
   twitter: Twitter,
   sun: Sun,
   moon: Moon,
+  monitor: Monitor,
   laptop: Laptop,
   instagram: Instagram,
 

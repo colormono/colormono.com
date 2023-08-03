@@ -2,8 +2,8 @@
 
 import React, { useEffect, useMemo, useState } from "react"
 
-import { useMediaQuery } from "@/lib/hooks/use-media-query"
 import { cn } from "@/lib/utils"
+import { useMediaQuery } from "@/hooks/use-media-query"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,

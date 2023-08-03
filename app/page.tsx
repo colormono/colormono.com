@@ -47,29 +47,33 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="my-10 grid gap-5">
+      <div className="mt-10 grid gap-5">
         <div className="flex items-center justify-between">
           <h2 className="uppercase text-muted-foreground">Selected Works</h2>
           <Link
             href="/works"
             className={buttonVariants({ variant: "secondary" })}
+            aria-label="Works page"
           >
             WORKS
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid gap-10 md:grid-cols-3">
           {works.map((work) => (
             <article key={work._id} className="">
-              <Link href={work.slug} className="group">
-                <Image
-                  src={work.thumbnail || "/static/work/thumb-default.jpg"}
-                  width={640}
-                  height={480}
-                  alt={work.title}
-                  className="opacity-90 transition-opacity group-hover:opacity-100"
-                />
+              <Link href={work.slug} className="group relative">
+                <figure className="relative aspect-video">
+                  <Image
+                    src={work.thumbnail || "/static/work/thumb-default.jpg"}
+                    fill={true}
+                    priority={true}
+                    alt={work.title}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
+                    className="bg-muted object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                  />
+                </figure>
                 <h3 className="mt-4 font-semibold uppercase">{work.title}</h3>
                 <time
                   dateTime={work.date}
@@ -89,20 +93,22 @@ export default function Home() {
       </div>
 
       <Link href="/posts" className="relative -mx-10 p-10">
-        <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-md transition-colors">
+        <div className="absolute inset-0 z-20 flex items-center justify-center bg-background/80 backdrop-blur-md transition-colors">
           <span className={buttonVariants({ variant: "default" })}>
             LAB
             <ArrowRight className="ml-2 h-4 w-4" />
           </span>
         </div>
-        <div className="grid h-60 grid-cols-3 gap-16 overflow-hidden">
+        <div className="z-10 grid h-60 grid-cols-3 gap-10 overflow-hidden">
           {latestPosts.map((item) => (
-            <div key={item._id} className="">
+            <div key={item._id} className="relative overflow-hidden">
               <Image
                 src={item.thumbnail || "/static/work/thumb-default.jpg"}
-                width={640}
-                height={480}
                 alt={item.title}
+                fill={true}
+                priority={true}
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
               />
             </div>
           ))}

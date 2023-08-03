@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { ThemeToggle } from "@/components/theme-toggle-dropdown"
 
 export function SiteHeader() {
   return (
@@ -21,31 +21,27 @@ export function SiteHeader() {
         <MainNav items={siteConfig.mainNav} />
 
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-1">
-            <Button variant="ghost" size="sm" className="w-9 px-0" asChild>
+          <nav className="flex items-center space-x-2">
+            <Button variant="ghost" size="sm" className="px-1.5" asChild>
               <Link
                 href={siteConfig.links.instagram}
                 target="_blank"
                 rel="noreferrer"
               >
-                <Icons.instagram />
+                <Icons.instagram className="h-6 w-6" />
               </Link>
             </Button>
-            {/* <Link
-              href={siteConfig.links.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={buttonVariants({
-                  size: "sm",
-                  variant: "ghost",
-                })}
+
+            <Button variant="ghost" size="sm" className="px-1.5" asChild>
+              <Link
+                href={siteConfig.links.github}
+                target="_blank"
+                rel="noreferrer"
               >
-                <Icons.twitter className="h-5 w-5 fill-current" />
-                <span className="sr-only">Twitter</span>
-              </div>
-            </Link> */}
+                <Icons.gitHub className="h-6 w-6" />
+              </Link>
+            </Button>
+
             <ThemeToggle />
           </nav>
         </div>

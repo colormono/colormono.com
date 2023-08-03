@@ -35,8 +35,9 @@ export const ScrollToTop = () => {
 
   return (
     <Button
-      onClick={scrollToTop}
+      arial-label="Scroll to the top"
       variant="ghost"
+      onClick={scrollToTop}
       className={cn(
         "fixed right-6 cursor-pointer transition-all",
         isVisible ? "bottom-8 opacity-100" : "bottom-0 opacity-0"

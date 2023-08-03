@@ -3,41 +3,49 @@
 import * as React from "react"
 import { useTheme } from "next-themes"
 
+import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { Icons } from "@/components/icons"
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+  const { theme, setTheme } = useTheme()
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="w-9 px-0">
-          <Icons.sun className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Icons.moon className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          <Icons.sun className="mr-2 h-4 w-4" />
-          <span>Light</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          <Icons.moon className="mr-2 h-4 w-4" />
-          <span>Dark</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          <Icons.laptop className="mr-2 h-4 w-4" />
-          <span>System</span>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="flex gap-0.5 rounded-full border border-muted p-0.5 transition-all">
+      <Button
+        variant="ghost"
+        size="sm"
+        className={cn("w-9 rounded-full p-0", theme === "light" && "bg-muted")}
+        onClick={() => setTheme("light")}
+      >
+        <Icons.sun className="h-4 w-4" aria-label="Light" />
+      </Button>
+      <Button
+        variant="ghost"
+        size="sm"
+        className={cn("w-9 rounded-full p-0", theme === "system" && "bg-muted")}
+        onClick={() => setTheme("system")}
+      >
+        <Icons.monitor className="h-4 w-4" aria-label="System" />
+      </Button>
+      <Button
+        variant="ghost"
+        size="sm"
+        className={cn("w-9 rounded-full p-0", theme === "dark" && "bg-muted")}
+        onClick={() => setTheme("dark")}
+      >
+        <Icons.moon className="h-4 w-4" aria-label="Dark" />
+      </Button>
+    </div>
   )
 }
