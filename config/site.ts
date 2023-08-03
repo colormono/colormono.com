@@ -3,9 +3,9 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   url: "https://colormono.com",
   name: "COLORMONO",
-  description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
-  ogImage: "https://colormono.com/og.jpg",
+  title: "COLORMONO – Creative Developer",
+  description: "Buenos Aires based multimedia artist and software developer.",
+  ogImage: "https://www.colormono.com/static/banner.jpg",
   mainNav: [
     {
       title: "Works",

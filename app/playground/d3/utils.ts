@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as d3 from "d3"
 
 export function download(url: string, filename: string) {
