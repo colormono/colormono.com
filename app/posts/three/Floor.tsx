@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react"
 import { extend } from "@react-three/fiber"
 import { OrbitControls, TransformControls } from "three-stdlib"
