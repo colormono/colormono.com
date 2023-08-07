@@ -47,7 +47,7 @@ export const Page = defineDocumentType(() => ({
 
 export const Work = defineDocumentType(() => ({
   name: "Work",
-  filePathPattern: `works/**/*.mdx`,
+  filePathPattern: "works/**/*.mdx",
   contentType: "mdx",
   fields: {
     title: {

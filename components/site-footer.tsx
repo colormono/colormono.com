@@ -1,11 +1,28 @@
+import Link from "next/link"
+
 import { siteConfig } from "@/config/site"
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { Icons } from "@/components/icons"
 
 import { ThemeToggle } from "./theme-toggle"
 
 export function SiteFooter() {
   return (
-    <footer className="py-8">
+    <footer className="py-12">
       <div className="container flex flex-col items-center justify-between gap-10 md:flex-row">
         <Icons.logo className="hidden h-3 text-muted-foreground md:inline-block" />
 
@@ -31,26 +48,32 @@ export function SiteFooter() {
           .
         </p>
 
-        <p className="flex gap-4 text-center text-sm leading-loose text-muted-foreground md:justify-end">
-          <a
-            href="/design-system"
-            className="font-medium underline underline-offset-4"
-          >
-            Design System
-          </a>
-          <a
-            href="/awesome"
-            className="font-medium underline underline-offset-4"
-          >
-            Awesome
-          </a>
-          <a
-            href="https://photos.colormono.com"
-            className="font-medium underline underline-offset-4"
-          >
-            Photos
-          </a>
-        </p>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="rounded-full">
+              Secret pages
+              <Icons.chevronDown className="ml-2 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuItem asChild>
+              <Link href="/design-system">Design System</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/awesome">Awesome</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link
+                href="https://photos.colormono.com"
+                target="_black"
+                rel="noopener noreferrer"
+              >
+                Photos
+              </Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         <ThemeToggle />
       </div>
