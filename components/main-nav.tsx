@@ -27,7 +27,7 @@ export function MainNav({ items }: MainNavProps) {
                   className={cn(
                     "flex items-center text-sm uppercase",
                     pathname?.startsWith(item.href)
-                      ? "text-primary"
+                      ? "text-foreground"
                       : "text-muted-foreground",
                     item.disabled && "cursor-not-allowed opacity-80"
                   )}
