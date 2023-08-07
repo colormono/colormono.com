@@ -5,6 +5,7 @@ import { compareDesc, format, parseISO } from "date-fns"
 import { ArrowRight } from "lucide-react"
 
 import { buttonVariants } from "@/components/ui/button"
+import { Text } from "@/components/ui/text"
 
 export default function Home() {
   const featuredWorks = allWorks.filter((work) => work.featured)
@@ -19,13 +20,14 @@ export default function Home() {
   return (
     <section className="container grid items-center gap-6">
       <div className="my-10 flex flex-col items-start">
-        <h1 className="relative text-5xl uppercase">
+        <Text variant="h1" className="relative">
           Hello, World
-          <div className="absolute -right-8 bottom-1 animate-pulse">
-            <div className="h-1 w-6 bg-primary"></div>
-          </div>
-        </h1>
-        <p className="mt-5 max-w-2xl text-xl leading-relaxed">
+          <span className="absolute -right-8 bottom-0 animate-pulse">
+            <span className="inline-block h-1 w-5 bg-foreground" />
+          </span>
+        </Text>
+
+        <Text variant="lead">
           I&apos;m{" "}
           <Link
             href="/about"
@@ -44,12 +46,13 @@ export default function Home() {
           as Front-end Engineer. Thanks to having creative coding skills, I have
           the privilege of contributing to various aspects of the creative
           process, from inception to realization.
-        </p>
+        </Text>
       </div>
 
       <div className="mt-10 grid gap-5">
         <div className="flex items-center justify-between">
           <h2 className="uppercase text-muted-foreground">Selected Works</h2>
+
           <Link
             href="/works"
             className={buttonVariants({ variant: "secondary" })}

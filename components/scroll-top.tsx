@@ -43,7 +43,7 @@ export const ScrollToTop = () => {
         isVisible ? "bottom-8 opacity-100" : "bottom-0 opacity-0"
       )}
     >
-      <Icons.arrowUp className="h-8 w-8" />
+      <Icons.chevronUp className="h-6 w-6" />
     </Button>
   )
 }
