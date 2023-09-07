@@ -58,10 +58,12 @@
     "tailwind-merge": "^1.13.2",
     "three": "^0.154.0",
     "unist-builder": "^3.0.1",
-    "unist-util-visit": "^4.1.2"
+    "unist-util-visit": "^4.1.2",
+    "zod": "^3.22.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
+    "@types/color-hash": "^1.0.2",
     "@types/d3": "^7.4.0",
     "@types/node": "20.4.2",
     "@types/react": "18.2.14",

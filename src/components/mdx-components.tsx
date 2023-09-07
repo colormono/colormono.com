@@ -4,7 +4,7 @@ import * as React from "react"
 import Image from "next/image"
 import { MealPlanner } from "@/sketches/meal-planner"
 import { useMDXComponent } from "next-contentlayer/hooks"
-import { NpmCommands } from "types/unist"
+import { NpmCommands } from "@/types/unist"
 
 import { fontMono } from "@/lib/fonts"
 import { cn } from "@/lib/utils"

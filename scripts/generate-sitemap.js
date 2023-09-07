@@ -1,12 +1,18 @@
-const fs = require('fs');
-const globby = require('globby');
-const prettier = require('prettier');
+// Generate A Dynamic Sitemap In Next.js Website
+// @see: https://www.coffeeclass.io/articles/generate-dynamic-sitemap
+const fs = require("fs");
+const globby = require("globby");
+const prettier = require("prettier");
 
 async function generateSitemap() {
-  const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
+  const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
 
-  // Ignore Next.js specific files (e.g., _app.js) and API routes.
-  const pages = await globby(['pages/**/*{.js,.tsx,.mdx}', 'data/**/*.mdx', '!pages/_*{.js,.tsx}', '!pages/api']);
+  const pages = await globby([
+    "src/pages/**/*{.js,.tsx,.mdx}",
+    "src/content/**/*.mdx",
+    "!src/pages/_*{.js,.tsx}",
+    "!src/pages/api",
+  ]);
 
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
@@ -14,12 +20,12 @@ async function generateSitemap() {
             ${pages
               .map((page) => {
                 const path = page
-                  .replace('pages', '')
-                  .replace('data', '')
-                  .replace('.js', '')
-                  .replace('.tsx', '')
-                  .replace('.mdx', '');
-                const route = path === '/index' ? '' : path;
+                  .replace("pages", "")
+                  .replace("data", "")
+                  .replace(".js", "")
+                  .replace(".tsx", "")
+                  .replace(".mdx", "");
+                const route = path === "/index" ? "" : path;
 
                 return `
                         <url>
@@ -27,17 +33,17 @@ async function generateSitemap() {
                         </url>
                     `;
               })
-              .join('')}
+              .join("")}
         </urlset>
     `;
 
   const formattedSitemap = prettier.format(sitemap, {
     ...prettierConfig,
-    parser: 'html',
+    parser: "html",
   });
 
   // eslint-disable-next-line no-sync
-  fs.writeFileSync('public/sitemap.xml', formattedSitemap);
+  fs.writeFileSync("public/sitemap.xml", formattedSitemap);
 }
 
 generateSitemap();

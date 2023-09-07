@@ -16,11 +16,7 @@ export default function WidgetYouglish() {
       >
         Visit YouGlish.com
       </a>
-      <script
-        async
-        src="https://youglish.com/public/emb/widget.js"
-        charset="utf-8"
-      ></script>
+      <script async src="https://youglish.com/public/emb/widget.js"></script>
     </>
-  )
+  );
 }
