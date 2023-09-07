@@ -1,14 +1,14 @@
-import Image from "next/image"
-import Link from "next/link"
-import { allWorks } from "@/.contentlayer/generated"
-import { compareDesc, format, parseISO } from "date-fns"
+import Image from "next/image";
+import Link from "next/link";
+import { allWorks } from "contentlayer/generated";
+import { compareDesc, format, parseISO } from "date-fns";
 
-import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export default function Works() {
   const works = allWorks.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  )
+    compareDesc(new Date(a.date), new Date(b.date)),
+  );
 
   return (
     <section className="container mb-16 grid">
@@ -41,5 +41,5 @@ export default function Works() {
         ))}
       </div>
     </section>
-  )
+  );
 }

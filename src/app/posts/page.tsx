@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import { allPosts } from "@/.contentlayer/generated"
-import { compareDesc, format, parseISO } from "date-fns"
-import Masonry from "react-masonry-css"
+import Image from "next/image";
+import Link from "next/link";
+import { allPosts } from "contentlayer/generated";
+import { compareDesc, format, parseISO } from "date-fns";
+import Masonry from "react-masonry-css";
 
-import NowPlaying from "@/components/now-playing"
+import NowPlaying from "@/components/now-playing";
 
 export default function Home() {
-  const publishedPosts = allPosts.filter((post) => post.published)
+  const publishedPosts = allPosts.filter((post) => post.published);
   const posts = publishedPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  )
+    compareDesc(new Date(a.date), new Date(b.date)),
+  );
 
   const breakpointCols = {
     default: 4,
     1200: 3,
     700: 2,
     500: 1,
-  }
+  };
 
   return (
     <section className="container mb-12">
@@ -62,5 +62,5 @@ export default function Home() {
         ))}
       </Masonry>
     </section>
-  )
+  );
 }
