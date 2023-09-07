@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 const textVariants = cva("transition-colors last:mb-0 first:mt-0", {
   variants: {
     variant: {
-      h1: "max-w-4xl text-7xl mb-10 tracking-tight",
+      h1: "max-w-4xl text-7xl mb-10 tracking-tight 2xl:text-8xl",
       h2: "max-w-4xl text-5xl mb-10 tracking-tight",
       h3: "max-w-4xl text-3xl mb-10 tracking-tight",
       lead: "max-w-3xl text-2xl mb-8 leading-normal",

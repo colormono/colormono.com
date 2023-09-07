@@ -1,5 +1,8 @@
 {
+  // How to get Tailwind Intellisense anywhere
+  // @see: https://dev.to/tiu/how-to-get-tailwind-intellisense-anywhere-53ej
   "tailwindCSS.experimental.classRegex": [
+    ["clsx\\(([^)]*)\\)", "\"([^\"]*)\""],
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ]

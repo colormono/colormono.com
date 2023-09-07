@@ -1,42 +1,42 @@
-import { notFound } from "next/navigation"
-import { allPosts } from "contentlayer/generated"
+import { notFound } from "next/navigation";
+import { allPosts } from "contentlayer/generated";
 
-import "@/styles/mdx.css"
+import "@/styles/mdx.css";
 
-import type { Metadata } from "next"
-import Link from "next/link"
+import type { Metadata } from "next";
+import Link from "next/link";
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/config/site";
 // import { getTableOfContents } from "@/lib/toc"
-import { absoluteUrl, cn } from "@/lib/utils"
-import { Mdx } from "@/components/mdx-components"
+import { absoluteUrl, cn } from "@/lib/utils";
+import { Mdx } from "@/components/mdx-components";
 
 // import Balancer from "react-wrap-balancer"
 
 interface PostProps {
   params: {
-    slug: string[]
-  }
+    slug: string[];
+  };
 }
 
 async function getPostFromParams({ params }: PostProps) {
-  const slug = params.slug?.join("/")
-  const post = allPosts.find((post) => post.slugAsParams === slug)
+  const slug = params.slug?.join("/");
+  const post = allPosts.find((post) => post.slugAsParams === slug);
 
   if (!post) {
-    null
+    null;
   }
 
-  return post
+  return post;
 }
 
 export async function generateMetadata({
   params,
 }: PostProps): Promise<Metadata> {
-  const post = await getPostFromParams({ params })
+  const post = await getPostFromParams({ params });
 
   if (!post) {
-    return {}
+    return {};
   }
 
   return {
@@ -56,20 +56,20 @@ export async function generateMetadata({
         },
       ],
     },
-  }
+  };
 }
 
 export async function generateStaticParams(): Promise<PostProps["params"][]> {
   return allPosts.map((post) => ({
     slug: post.slugAsParams.split("/"),
-  }))
+  }));
 }
 
 export default async function PostPage({ params }: PostProps) {
-  const post = await getPostFromParams({ params })
+  const post = await getPostFromParams({ params });
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -85,5 +85,5 @@ export default async function PostPage({ params }: PostProps) {
         <Mdx code={post.body.code} />
       </article>
     </section>
-  )
+  );
 }

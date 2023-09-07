@@ -1,45 +1,45 @@
-import { notFound } from "next/navigation"
-import { allWorks } from "contentlayer/generated"
+import { notFound } from "next/navigation";
 
-import "@/styles/mdx.css"
+import "@/styles/mdx.css";
 
-import type { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/config/site";
 // import { getTableOfContents } from "@/lib/toc"
-import { absoluteUrl, cn } from "@/lib/utils"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Button, buttonVariants } from "@/components/ui/button"
-import { Mdx } from "@/components/mdx-components"
+import { absoluteUrl, cn } from "@/lib/utils";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Mdx } from "@/components/mdx-components";
+import { allWorks } from "contentlayer/generated";
 
 // import Balancer from "react-wrap-balancer"
 
 interface WorkProps {
   params: {
-    slug: string[]
-  }
+    slug: string[];
+  };
 }
 
 async function getWorksFromParams({ params }: WorkProps) {
-  const slug = params.slug?.join("/")
-  const work = allWorks.find((work) => work.slugAsParams === slug)
+  const slug = params.slug?.join("/");
+  const work = allWorks.find((work) => work.slugAsParams === slug);
 
   if (!work) {
-    null
+    null;
   }
 
-  return work
+  return work;
 }
 
 export async function generateMetadata({
   params,
 }: WorkProps): Promise<Metadata> {
-  const work = await getWorksFromParams({ params })
+  const work = await getWorksFromParams({ params });
 
   if (!work) {
-    return {}
+    return {};
   }
 
   return {
@@ -59,20 +59,20 @@ export async function generateMetadata({
         },
       ],
     },
-  }
+  };
 }
 
 export async function generateStaticParams(): Promise<WorkProps["params"][]> {
   return allWorks.map((work) => ({
     slug: work.slugAsParams.split("/"),
-  }))
+  }));
 }
 
 export default async function workPage({ params }: WorkProps) {
-  const work = await getWorksFromParams({ params })
+  const work = await getWorksFromParams({ params });
 
   if (!work) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -98,13 +98,13 @@ export default async function workPage({ params }: WorkProps) {
         <time>{work.date}</time>
       </div> */}
 
-      <article className="max-w-2xl mx-auto py-20">
+      <article className="mx-auto max-w-2xl py-20">
         <Mdx code={work.body.code} />
       </article>
 
       <hr />
 
-      <section className="max-w-2xl mx-auto py-20 grid">
+      <section className="mx-auto grid max-w-2xl py-20">
         <div className="mb-8 grid grid-cols-12 gap-8 rounded-lg border p-8">
           <div className="col-span-4">
             <AspectRatio ratio={16 / 9}>
@@ -135,5 +135,5 @@ export default async function workPage({ params }: WorkProps) {
         </Link>
       </section>
     </section>
-  )
+  );
 }
