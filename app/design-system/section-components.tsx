@@ -1,3 +1,4 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -37,6 +38,14 @@ export default function SectionComponents() {
         <div className="grid w-full max-w-sm items-center gap-1.5">
           <Label htmlFor="email">Email</Label>
           <Input type="email" id="email" placeholder="hello@world.io" />
+        </div>
+
+        <div className="grid w-full max-w-sm items-center gap-1.5">
+          <Avatar>
+            {/* <AvatarImage src="https://github.com/colormono.png" /> */}
+            {/* <AvatarImage src="https://avatar.vercel.sh/colormono.png" /> */}
+            <AvatarFallback>MR</AvatarFallback>
+          </Avatar>
         </div>
       </main>
 

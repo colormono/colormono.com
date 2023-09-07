@@ -43,8 +43,8 @@ export default function Home() {
           >
             TrueNorth
           </Link>{" "}
-          as Front-end Engineer. Thanks to having creative coding skills, I have
-          the privilege of contributing to various aspects of the creative
+          as Lead Front-end Engineer. Thanks to having creative coding skills, I
+          have the privilege of contributing to various aspects of the creative
           process, from inception to realization.
         </Text>
       </div>
