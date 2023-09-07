@@ -14,7 +14,7 @@ export default function Works() {
     <section className="container mb-16 grid">
       <div className="grid grid-cols-3 gap-10">
         {works.map((work) => (
-          <article key={work._id} className="">
+          <article key={work._id} className="text-center">
             <Link href={work.slug} className="group">
               <AspectRatio ratio={16 / 9}>
                 <Image
