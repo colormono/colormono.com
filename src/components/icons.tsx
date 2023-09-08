@@ -30,9 +30,9 @@ import {
   User,
   X,
   type Icon as LucideIcon,
-} from "lucide-react"
+} from "lucide-react";
 
-export type Icon = LucideIcon
+export type Icon = LucideIcon;
 
 export const Icons = {
   // Brand
@@ -159,4 +159,4 @@ export const Icons = {
       />
     </svg>
   ),
-}
+};

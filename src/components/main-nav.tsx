@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { NavItem } from "@/types/nav"
-import { cn } from "@/lib/utils"
+import { NavItem } from "@/types/nav";
+import { cn } from "@/lib/utils";
 
 interface MainNavProps {
-  items?: NavItem[]
+  items?: NavItem[];
 }
 
 export function MainNav({ items }: MainNavProps) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <div className="flex">
@@ -29,15 +29,15 @@ export function MainNav({ items }: MainNavProps) {
                     pathname?.startsWith(item.href)
                       ? "text-foreground"
                       : "text-muted-foreground",
-                    item.disabled && "cursor-not-allowed opacity-80"
+                    item.disabled && "cursor-not-allowed opacity-80",
                   )}
                 >
                   {item.title}
                 </Link>
-              )
+              ),
           )}
         </nav>
       ) : null}
     </div>
-  )
+  );
 }

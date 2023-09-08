@@ -1,4 +1,4 @@
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   url: "https://colormono.com",
@@ -26,4 +26,4 @@ export const siteConfig = {
     twitter: "https://twitter.com/colormono",
     docs: "https://colormono.com",
   },
-}
+};

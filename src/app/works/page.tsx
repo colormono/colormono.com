@@ -6,7 +6,9 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export default function Works() {
-  const works = allWorks.sort((a, b) =>
+  const publishedWorks = allWorks.filter((work) => work.published);
+
+  const works = publishedWorks.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date)),
   );
 

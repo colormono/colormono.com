@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import p5 from 'p5';
+import React, { Component } from "react";
+import p5 from "p5";
 
 // To-do:
 // - [√] Initial sketch
@@ -18,7 +18,7 @@ class Sketch extends Component {
   }
 
   componentDidMount() {
-    const p5 = require('p5');
+    const p5 = require("p5");
 
     this.sketch = new p5((p) => {
       p.points = [];
@@ -29,10 +29,17 @@ class Sketch extends Component {
       p.align = { x: 0, y: 0 };
 
       p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight * 0.6).parent(this.renderRef.current);
+        p.createCanvas(p.windowWidth, p.windowHeight * 0.6).parent(
+          this.renderRef.current,
+        );
         p.setContainerSize(p.windowWidth, p.windowHeight * 0.6);
-        p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
-        p.background('gray');
+        p.alignCenter(
+          p.containerWidth,
+          p.containerHeight,
+          p.windowWidth,
+          p.windowHeight * 0.6,
+        );
+        p.background("gray");
         p.strokeWeight(0);
         p.ellipseMode(p.CORNER);
         p.frameRate(0.5); // pacefully
@@ -42,7 +49,12 @@ class Sketch extends Component {
       p.windowResized = () => {
         p.resizeCanvas(p.windowWidth, p.windowHeight * 0.6);
         p.setContainerSize(p.windowWidth, p.windowHeight * 0.6);
-        p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
+        p.alignCenter(
+          p.containerWidth,
+          p.containerHeight,
+          p.windowWidth,
+          p.windowHeight * 0.6,
+        );
       };
 
       p.setContainerSize = (w, h) => {
@@ -56,22 +68,30 @@ class Sketch extends Component {
       };
 
       p.draw = () => {
-        p.fill('white');
+        p.fill("white");
         p.rect(0, 0, p.width, p.height);
 
         p.push(); // Start a new drawing state
         p.translate(p.align.x, p.align.y);
 
         // Initialize
-        p.points = p.subdivide(0, 0, p.containerWidth, p.containerHeight, p.tileWidth, p.tileHeight, p.tilePadding);
+        p.points = p.subdivide(
+          0,
+          0,
+          p.containerWidth,
+          p.containerHeight,
+          p.tileWidth,
+          p.tileHeight,
+          p.tilePadding,
+        );
 
-        console.log('Points', p.points);
+        console.log("Points", p.points);
 
         // Draw grid
         p.points.forEach((item) => {
-          p.fill('black');
+          p.fill("black");
           p.tileFloor(item.x, item.y, item.w, item.h, item.padding);
-          p.fill('white');
+          p.fill("white");
           p.tilePoint(item.x, item.y, item.w, item.h);
         });
 
@@ -83,12 +103,26 @@ class Sketch extends Component {
         p.align.y = (outherHeight - innerHeight) / 2;
       };
 
-      p.subdivide = (x, y, containerWidth, containerHeight, tileWidth, tileHeight, padding) => {
+      p.subdivide = (
+        x,
+        y,
+        containerWidth,
+        containerHeight,
+        tileWidth,
+        tileHeight,
+        padding,
+      ) => {
         const newPoints = [];
 
         for (var j = 0; j < containerWidth; j += tileWidth) {
           for (var k = 0; k < containerHeight; k += tileHeight) {
-            newPoints.push({ x: x + j, y: y + k, w: tileWidth, h: tileHeight, padding: padding });
+            newPoints.push({
+              x: x + j,
+              y: y + k,
+              w: tileWidth,
+              h: tileHeight,
+              padding: padding,
+            });
           }
         }
 
@@ -104,7 +138,17 @@ class Sketch extends Component {
           if (p.random(1) > 0.5) {
             // p.fill('blue');
             // p.tileFloor(item.x, item.y, item.w, item.h, item.padding);
-            newPoints.push(...p.subdivide(item.x, item.y, item.w, item.h, item.w / 2, item.h / 2, item.padding));
+            newPoints.push(
+              ...p.subdivide(
+                item.x,
+                item.y,
+                item.w,
+                item.h,
+                item.w / 2,
+                item.h / 2,
+                item.padding,
+              ),
+            );
           } else {
             newPoints.push(item);
           }

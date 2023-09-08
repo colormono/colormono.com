@@ -1,7 +1,7 @@
 import {
   IBM_Plex_Mono as FontMono,
   IBM_Plex_Sans as FontSans,
-} from "next/font/google"
+} from "next/font/google";
 
 export const fontSans = FontSans({
   // variable: "--font-sans",
@@ -9,11 +9,11 @@ export const fontSans = FontSans({
   style: ["normal"],
   subsets: ["latin"],
   display: "swap",
-})
+});
 
 export const fontMono = FontMono({
   // variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
-})
+});

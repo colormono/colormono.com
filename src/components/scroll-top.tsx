@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-import { Icons } from "./icons"
-import { Button } from "./ui/button"
+import { Icons } from "./icons";
+import { Button } from "./ui/button";
 
 export const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
     if (window.scrollY > window.innerHeight * 2) {
-      setIsVisible(true)
+      setIsVisible(true);
     } else {
-      setIsVisible(false)
+      setIsVisible(false);
     }
-  }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
 
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <Button
@@ -40,10 +40,10 @@ export const ScrollToTop = () => {
       onClick={scrollToTop}
       className={cn(
         "fixed right-6 cursor-pointer transition-all",
-        isVisible ? "bottom-8 opacity-100" : "bottom-0 opacity-0"
+        isVisible ? "bottom-8 opacity-100" : "bottom-0 opacity-0",
       )}
     >
       <Icons.chevronUp className="h-6 w-6" />
     </Button>
-  )
-}
+  );
+};

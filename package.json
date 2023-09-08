@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "preview": "next build && next start",
-    "format:write": "prettier --write \"**/*.{css,js,json,jsx,ts,tsx}\"",
-    "format": "prettier \"**/*.{css,js,json,jsx,ts,tsx}\"",
+    "format:write": "prettier --write \"src/**/*.{css,js,json,jsx,ts,tsx}\"",
+    "format": "prettier \"src/**/*.{css,js,json,jsx,ts,tsx}\"",
     "start": "next start",
     "lint": "next lint"
   },
@@ -29,6 +29,7 @@
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toast": "^1.1.4",
+    "@react-three/drei": "^9.83.3",
     "@react-three/fiber": "^8.13.5",
     "@vercel/analytics": "^1.0.1",
     "class-variance-authority": "^0.6.1",

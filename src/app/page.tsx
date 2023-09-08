@@ -8,7 +8,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { ScrollDown } from "@/components/scroll-down";
 import { Text } from "@/components/ui/text";
 import { cn } from "@/lib/utils";
-import SectionHero from "./section-hero";
+import SectionHero from "@/components/pages/home/hero";
 
 export default function Home() {
   const featuredWorks = allWorks.filter((work) => work.featured);
@@ -21,46 +21,12 @@ export default function Home() {
   const latestPosts = posts.slice(0, 3);
 
   return (
-    <div className="container grid items-center gap-6">
-      <section className="relative">
-        <div className="relative z-20 flex aspect-video flex-col items-center justify-center">
-          <div className="mb-24 w-full xl:mb-40">
-            <Text variant="h1" className="relative inline-block">
-              Hello, World
-              <span className="absolute -right-8 bottom-0 animate-pulse">
-                <span className="inline-block h-1 w-5 bg-foreground" />
-              </span>
-            </Text>
-
-            <Text variant="lead">
-              I&apos;m{" "}
-              <Link
-                href="/about"
-                className="font-semibold hover:underline hover:underline-offset-4"
-              >
-                Mariano Rivas
-              </Link>
-              , a new-media artist and software developer.{" "}
-              <br className="hidden sm:inline" />I work at{" "}
-              <Link
-                href="https://truenorth.co"
-                className="font-semibold hover:underline hover:underline-offset-4"
-              >
-                TrueNorth
-              </Link>{" "}
-              as Lead Front-end Engineer. Thanks to having creative coding
-              skills, I have the privilege of contributing to various aspects of
-              the creative process, from inception to realization.
-            </Text>
-          </div>
-        </div>
-        <SectionHero className="absolute inset-0" />
-      </section>
-
+    <div className="container grid gap-10">
+      <SectionHero />
       <ScrollDown />
 
-      <div className="mt-10 grid gap-5">
-        <div className="flex items-center justify-between">
+      <section>
+        <div className="mb-5 flex items-center justify-between">
           <h2 className="uppercase text-muted-foreground">Selected Works</h2>
 
           <Link
@@ -73,7 +39,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid gap-10 xl:gap-16">
+        <div className="grid gap-10 xl:gap-20">
           {works.map((work) => (
             <article key={work._id} className="">
               <Link href={work.slug} className="group relative">
@@ -103,11 +69,12 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </div>
+      </section>
 
-      <Link href="/posts" className="relative -mx-10 p-10">
+      <section className="relative -mx-10 p-10">
         <div className="absolute inset-0 z-20 flex items-center justify-center bg-background/80 backdrop-blur-md transition-colors">
-          <span
+          <Link
+            href="/posts"
             className={cn(
               buttonVariants({ variant: "default", size: "xl" }),
               "rounded-full",
@@ -115,8 +82,9 @@ export default function Home() {
           >
             LAB
             <ArrowRight className="-mr-2 ml-2 h-4 w-4" />
-          </span>
+          </Link>
         </div>
+
         <div className="z-10 grid h-60 grid-cols-3 gap-10 overflow-hidden">
           {latestPosts.map((item) => (
             <div key={item._id} className="relative overflow-hidden">
@@ -131,7 +99,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </Link>
+      </section>
     </div>
   );
 }

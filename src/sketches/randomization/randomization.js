@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import p5 from 'p5';
+import React, { Component } from "react";
+import p5 from "p5";
 
 // To-do:
 // - [√] Initial sketch
@@ -17,14 +17,14 @@ class Sketch extends Component {
   }
 
   componentDidMount() {
-    const p5 = require('p5');
+    const p5 = require("p5");
 
     this.sketch = new p5((p) => {
       p.cellSize = 90;
       p.cellPadding = 10;
       p.containerWidth, p.containerHeight;
       p.align = { x: 0, y: 0 };
-      p.bg = '#000000';
+      p.bg = "#000000";
 
       p.setup = () => {
         p.createCanvas(600, 600).parent(this.renderRef.current);
@@ -64,9 +64,9 @@ class Sketch extends Component {
           for (var y = 0; y < p.containerHeight; y += p.cellSize) {
             // flipping a coin (pick a color)
             if (p.random(1, 10) > 5) {
-              p.fill('white');
+              p.fill("white");
             } else {
-              p.fill('blue');
+              p.fill("blue");
             }
 
             // throwing dice (pick a shape)
@@ -99,11 +99,21 @@ class Sketch extends Component {
       };
 
       p.letterM = (x, y) => {
-        p.rect(x + p.cellPadding, y + p.cellPadding, p.cellSize - p.cellPadding * 2, p.cellSize - p.cellPadding * 2);
+        p.rect(
+          x + p.cellPadding,
+          y + p.cellPadding,
+          p.cellSize - p.cellPadding * 2,
+          p.cellSize - p.cellPadding * 2,
+        );
       };
 
       p.letterO = (x, y) => {
-        p.ellipse(x + p.cellPadding, y + p.cellPadding, p.cellSize - p.cellPadding * 2, p.cellSize - p.cellPadding * 2);
+        p.ellipse(
+          x + p.cellPadding,
+          y + p.cellPadding,
+          p.cellSize - p.cellPadding * 2,
+          p.cellSize - p.cellPadding * 2,
+        );
       };
 
       p.letterN = (x, y) => {
@@ -113,16 +123,26 @@ class Sketch extends Component {
           x + p.cellPadding,
           y + p.cellSize - p.cellPadding * 2,
           x + p.cellSize - p.cellPadding * 2,
-          y + p.cellSize - p.cellPadding * 2
+          y + p.cellSize - p.cellPadding * 2,
         );
       };
 
       p.letterOo = (x, y) => {
         p.push();
-        p.ellipse(x + p.cellPadding, y + p.cellPadding, p.cellSize - p.cellPadding * 2, p.cellSize - p.cellPadding * 2);
+        p.ellipse(
+          x + p.cellPadding,
+          y + p.cellPadding,
+          p.cellSize - p.cellPadding * 2,
+          p.cellSize - p.cellPadding * 2,
+        );
         p.fill(p.bg);
         p.ellipseMode(p.CENTER);
-        p.ellipse(x + p.cellSize / 2, y + p.cellSize / 2, p.cellSize * 0.33, p.cellSize * 0.33);
+        p.ellipse(
+          x + p.cellSize / 2,
+          y + p.cellSize / 2,
+          p.cellSize * 0.33,
+          p.cellSize * 0.33,
+        );
         p.pop();
       };
     });

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import p5 from 'p5';
+import React, { Component } from "react";
+import p5 from "p5";
 
 // To-do:
 // - [√] Initial sketch
@@ -21,7 +21,7 @@ class Sketch extends Component {
   }
 
   componentDidMount() {
-    const p5 = require('p5');
+    const p5 = require("p5");
 
     this.sketch = new p5((p) => {
       p.points = [];
@@ -32,10 +32,17 @@ class Sketch extends Component {
       p.align = { x: 0, y: 0 };
 
       p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight * 0.6).parent(this.renderRef.current);
+        p.createCanvas(p.windowWidth, p.windowHeight * 0.6).parent(
+          this.renderRef.current,
+        );
         p.setContainerSize(p.windowWidth * 0.5, p.windowHeight * 0.5 * 0.6);
-        p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
-        p.background('gray');
+        p.alignCenter(
+          p.containerWidth,
+          p.containerHeight,
+          p.windowWidth,
+          p.windowHeight * 0.6,
+        );
+        p.background("gray");
         p.strokeWeight(0);
         p.ellipseMode(p.CORNER);
         p.frameRate(0.5); // pacefully
@@ -45,7 +52,12 @@ class Sketch extends Component {
       p.windowResized = () => {
         p.resizeCanvas(p.windowWidth, p.windowHeight * 0.6);
         p.setContainerSize(p.windowWidth * 0.5, p.windowHeight * 0.5 * 0.6);
-        p.alignCenter(p.containerWidth, p.containerHeight, p.windowWidth, p.windowHeight * 0.6);
+        p.alignCenter(
+          p.containerWidth,
+          p.containerHeight,
+          p.windowWidth,
+          p.windowHeight * 0.6,
+        );
       };
 
       p.setContainerSize = (w, h) => {
@@ -59,14 +71,22 @@ class Sketch extends Component {
       };
 
       p.draw = () => {
-        p.fill('white');
+        p.fill("white");
         p.rect(0, 0, p.width, p.height);
 
         p.push(); // Start a new drawing state
         p.translate(p.align.x, p.align.y);
 
         // Initialize
-        p.points = p.subdivide(0, 0, p.containerWidth, p.containerHeight, p.tileWidth, p.tileHeight, p.tilePadding);
+        p.points = p.subdivide(
+          0,
+          0,
+          p.containerWidth,
+          p.containerHeight,
+          p.tileWidth,
+          p.tileHeight,
+          p.tilePadding,
+        );
 
         p.randomlySubdivideGridPoints();
         p.randomlySubdivideGridPoints();
@@ -81,9 +101,9 @@ class Sketch extends Component {
           // Random shape
           // flipping a coin (pick a color)
           if (p.random(0, 10) > 5) {
-            p.fill('black');
+            p.fill("black");
           } else {
-            p.fill('blue');
+            p.fill("blue");
           }
 
           // throwing dice (pick a shape)
@@ -114,12 +134,26 @@ class Sketch extends Component {
         p.align.y = (outherHeight - innerHeight) / 2;
       };
 
-      p.subdivide = (x, y, containerWidth, containerHeight, tileWidth, tileHeight, padding) => {
+      p.subdivide = (
+        x,
+        y,
+        containerWidth,
+        containerHeight,
+        tileWidth,
+        tileHeight,
+        padding,
+      ) => {
         const newPoints = [];
 
         for (var j = 0; j < containerWidth; j += tileWidth) {
           for (var k = 0; k < containerHeight; k += tileHeight) {
-            newPoints.push({ x: x + j, y: y + k, w: tileWidth, h: tileHeight, padding: padding });
+            newPoints.push({
+              x: x + j,
+              y: y + k,
+              w: tileWidth,
+              h: tileHeight,
+              padding: padding,
+            });
           }
         }
 
@@ -135,7 +169,17 @@ class Sketch extends Component {
           if (p.random(1) > 0.5) {
             // p.fill('blue');
             // p.tileFloor(item.x, item.y, item.w, item.h, item.padding);
-            newPoints.push(...p.subdivide(item.x, item.y, item.w, item.h, item.w / 2, item.h / 2, item.padding));
+            newPoints.push(
+              ...p.subdivide(
+                item.x,
+                item.y,
+                item.w,
+                item.h,
+                item.w / 2,
+                item.h / 2,
+                item.padding,
+              ),
+            );
           } else {
             newPoints.push(item);
           }
@@ -168,14 +212,14 @@ class Sketch extends Component {
           x + padding,
           y + h - padding * 2,
           x + w - padding * 2,
-          y + h - padding * 2
+          y + h - padding * 2,
         );
       };
 
       p.letterOo = (x, y, w, h, padding) => {
         p.push();
         p.ellipse(x + padding, y + padding, w - padding * 2, h - padding * 2);
-        p.fill('white');
+        p.fill("white");
         p.ellipseMode(p.CENTER);
         p.ellipse(x + w / 2, y + h / 2, w * 0.33, h * 0.33);
         p.pop();

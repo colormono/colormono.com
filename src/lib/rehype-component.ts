@@ -1,19 +1,19 @@
-import fs from "fs"
-import path from "path"
-import { UnistNode, UnistTree } from "@/types/unist"
-import { u } from "unist-builder"
-import { visit } from "unist-util-visit"
+import fs from "fs";
+import path from "path";
+import { UnistNode, UnistTree } from "@/types/unist";
+import { u } from "unist-builder";
+import { visit } from "unist-util-visit";
 
 export function rehypeComponent() {
   return async (tree: UnistTree) => {
     // @ts-ignore next-line
     visit(tree, (node: UnistNode) => {
-      const { value: src } = getNodeAttributeByName(node, "src") || {}
+      const { value: src } = getNodeAttributeByName(node, "src") || {};
 
       if (node.name === "ComponentExample") {
-        const source = getComponentSourceFileContent(node)
+        const source = getComponentSourceFileContent(node);
         if (!source) {
-          return
+          return;
         }
 
         // Replace the Example component with a pre element.
@@ -37,13 +37,13 @@ export function rehypeComponent() {
                 ],
               }),
             ],
-          })
-        )
+          }),
+        );
 
         const extractClassname = getNodeAttributeByName(
           node,
-          "extractClassname"
-        )
+          "extractClassname",
+        );
         if (
           extractClassname &&
           typeof extractClassname.value !== "undefined" &&
@@ -52,15 +52,15 @@ export function rehypeComponent() {
           // Extract className from string
           // TODO: Use @swc/core and a visitor to extract this.
           // For now, a simple regex should do.
-          const values = source.match(/className="(.*)"/)
-          const className = values ? values[1] : ""
+          const values = source.match(/className="(.*)"/);
+          const className = values ? values[1] : "";
 
           // Add the className as a jsx prop so we can pass it to the copy button.
           node.attributes?.push({
             name: "extractedClassNames",
             type: "mdxJsxAttribute",
             value: className,
-          })
+          });
 
           // Add a pre element with the className only.
           node.children?.push(
@@ -81,15 +81,15 @@ export function rehypeComponent() {
                   ],
                 }),
               ],
-            })
-          )
+            }),
+          );
         }
       }
 
       if (node.name === "ComponentSource") {
-        const source = getComponentSourceFileContent(node)
+        const source = getComponentSourceFileContent(node);
         if (!source) {
-          return
+          return;
         }
 
         // Replace the Source component with a pre element.
@@ -113,27 +113,27 @@ export function rehypeComponent() {
                 ],
               }),
             ],
-          })
-        )
+          }),
+        );
       }
-    })
-  }
+    });
+  };
 }
 
 function getNodeAttributeByName(node: UnistNode, name: string) {
-  return node.attributes?.find((attribute) => attribute.name === name)
+  return node.attributes?.find((attribute) => attribute.name === name);
 }
 
 function getComponentSourceFileContent(node: UnistNode) {
-  const src = getNodeAttributeByName(node, "src")?.value as string
+  const src = getNodeAttributeByName(node, "src")?.value as string;
 
   if (!src) {
-    return null
+    return null;
   }
 
   // Read the source file.
-  const filePath = path.join(process.cwd(), src)
-  const source = fs.readFileSync(filePath, "utf8")
+  const filePath = path.join(process.cwd(), src);
+  const source = fs.readFileSync(filePath, "utf8");
 
-  return source
+  return source;
 }

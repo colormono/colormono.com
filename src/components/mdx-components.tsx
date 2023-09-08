@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import { MealPlanner } from "@/sketches/meal-planner"
-import { useMDXComponent } from "next-contentlayer/hooks"
-import { NpmCommands } from "@/types/unist"
+import * as React from "react";
+import Image from "next/image";
+import { MealPlanner } from "@/sketches/meal-planner";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import { NpmCommands } from "@/types/unist";
 
-import { fontMono } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
+import { fontMono } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Callout } from "@/components/callout"
-import { CodeBlockWrapper } from "@/components/code-block-wrapper"
-import { ComponentExample } from "@/components/component-example"
-import { ComponentSource } from "@/components/component-source"
-import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button"
+} from "@/components/ui/accordion";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Callout } from "@/components/callout";
+import { CodeBlockWrapper } from "@/components/code-block-wrapper";
+import { ComponentExample } from "@/components/component-example";
+import { ComponentSource } from "@/components/component-source";
+import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button";
 
 const components = {
   Accordion,
@@ -34,7 +34,7 @@ const components = {
     <h1
       className={cn(
         "font-heading mt-2 scroll-m-20 text-4xl font-bold",
-        className
+        className,
       )}
       {...props}
     />
@@ -43,7 +43,7 @@ const components = {
     <h2
       className={cn(
         "font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0",
-        className
+        className,
       )}
       {...props}
     />
@@ -52,7 +52,7 @@ const components = {
     <h3
       className={cn(
         "font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -61,7 +61,7 @@ const components = {
     <h4
       className={cn(
         "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -70,7 +70,7 @@ const components = {
     <h5
       className={cn(
         "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -79,7 +79,7 @@ const components = {
     <h6
       className={cn(
         "mt-8 scroll-m-20 text-base font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -137,7 +137,7 @@ const components = {
     <th
       className={cn(
         "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        className,
       )}
       {...props}
     />
@@ -146,7 +146,7 @@ const components = {
     <td
       className={cn(
         "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        className,
       )}
       {...props}
     />
@@ -162,18 +162,18 @@ const components = {
     __event__,
     ...props
   }: React.HTMLAttributes<HTMLPreElement> & {
-    __rawString__?: string
-    __withMeta__?: boolean
-    __src__?: string
+    __rawString__?: string;
+    __withMeta__?: boolean;
+    __src__?: string;
     //@ts-ignore next-line
-    __event__?: Event["name"]
+    __event__?: Event["name"];
   } & NpmCommands) => {
     return (
       <>
         <pre
           className={cn(
             "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border py-4 data-[theme=dark]:bg-background data-[theme=light]:bg-white",
-            className
+            className,
           )}
           {...props}
         />
@@ -196,14 +196,14 @@ const components = {
           />
         )}
       </>
-    )
+    );
   },
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
         "relative rounded bg-muted px-[0.3rem] py-[0.2rem] text-sm",
         fontMono.className,
-        className
+        className,
       )}
       {...props}
     />
@@ -225,19 +225,19 @@ const components = {
   // ...examples,
   // Sketches
   MealPlanner,
-}
+};
 
 interface MdxProps {
-  code: string
+  code: string;
 }
 
 export function Mdx({ code }: MdxProps) {
-  const Component = useMDXComponent(code)
+  const Component = useMDXComponent(code);
 
   return (
     <div className="mdx">
       {/* @ts-ignore next-line */}
       <Component components={components} />
     </div>
-  )
+  );
 }

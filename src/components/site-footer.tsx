@@ -1,24 +1,16 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import { siteConfig } from "@/config/site"
-import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/config/site";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Icons } from "@/components/icons"
+} from "@/components/ui/dropdown-menu";
+import { Icons } from "@/components/icons";
 
-import { ThemeToggle } from "./theme-toggle"
+import { ThemeToggle } from "./theme-toggle";
 
 export function SiteFooter() {
   return (
@@ -61,7 +53,13 @@ export function SiteFooter() {
               <Link href="/design-system">Design System</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link href="/awesome">Awesome</Link>
+              <Link href="/dashboard">Dashboard</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/playground">Playground</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/awesome">Awesome Links</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link
@@ -78,5 +76,5 @@ export function SiteFooter() {
         <ThemeToggle />
       </div>
     </footer>
-  )
+  );
 }

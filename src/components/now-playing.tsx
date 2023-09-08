@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import Image from "next/image"
+import Image from "next/image";
 // import { useEffect } from "react"
 // import fetcher from "@utils/fetcher"
 // import { animate } from "motion"
-import useSWR from "swr"
+import useSWR from "swr";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-import { Button } from "./ui/button"
+import { Button } from "./ui/button";
 
 type NowPlayingSong = {
-  album: string
-  albumImageUrl: string
-  artist: string
-  isPlaying: boolean
-  songUrl: string
-  title: string
-}
+  album: string;
+  albumImageUrl: string;
+  artist: string;
+  isPlaying: boolean;
+  songUrl: string;
+  title: string;
+};
 
 async function fetcher<JSON = any>(
   input: RequestInfo,
-  init?: RequestInit
+  init?: RequestInit,
 ): Promise<JSON> {
-  const res = await fetch(input, init)
-  return res.json()
+  const res = await fetch(input, init);
+  return res.json();
 }
 
 // function AnimatedBars() {
@@ -97,13 +97,13 @@ async function fetcher<JSON = any>(
 // }
 
 export default function NowPlaying() {
-  const { data } = useSWR<NowPlayingSong>("/api/now-playing", fetcher)
+  const { data } = useSWR<NowPlayingSong>("/api/now-playing", fetcher);
 
   return (
     <article
       className={cn(
         "mb-10 grid border p-5",
-        !data?.songUrl && "bg-gradient-to-b from-neutral-600/25"
+        !data?.songUrl && "bg-gradient-to-b from-neutral-600/25",
       )}
     >
       {data?.songUrl ? (
@@ -137,5 +137,5 @@ export default function NowPlaying() {
 
       {/* <Button className="mt-4">Read study case</Button> */}
     </article>
-  )
+  );
 }
