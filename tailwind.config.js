@@ -1,13 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: [
-    "./src/pages/**/*.{ts,tsx}",
-    "./src/content/**/*.{md,mdx}",
-    "./src/components/**/*.{ts,tsx}",
-    "./src/sketches/**/*.{ts,tsx}",
-    "./src/app/**/*.{ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx,md,mdx}"],
   theme: {
     container: {
       center: true,
@@ -60,6 +54,9 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
@@ -77,4 +74,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

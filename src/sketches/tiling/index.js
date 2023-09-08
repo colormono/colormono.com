@@ -1,2 +1,2 @@
-export * from './tiling';
-export { default } from './tiling';
+export * from "./tiling";
+export { default } from "./tiling";

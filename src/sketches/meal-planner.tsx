@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react";
 
-import { cn } from "@/lib/utils"
-import { useMediaQuery } from "@/hooks/use-media-query"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,34 +13,34 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/dropdown-menu";
+import { Label } from "@/components/ui/label";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { Switch } from "@/components/ui/switch"
+} from "@/components/ui/popover";
+import { Switch } from "@/components/ui/switch";
 
-type MealName = "breakfast" | "mid-morning" | "lunch" | "snack" | "dinner"
+type MealName = "breakfast" | "mid-morning" | "lunch" | "snack" | "dinner";
 
 type MealType = {
-  name: string
-  description: string
-}
+  name: string;
+  description: string;
+};
 
 type DailyPlanType = {
-  name: MealName
-  meals: MealType[]
-}
+  name: MealName;
+  meals: MealType[];
+};
 
 type MealPlannerType = {
-  weekday: number
-  day: string
-  activities: string[]
-  todos: string[]
-  plan: DailyPlanType[]
-}
+  weekday: number;
+  day: string;
+  activities: string[];
+  todos: string[];
+  plan: DailyPlanType[];
+};
 
 const weekday = [
   "Today is Sunday, relax.",
@@ -50,24 +50,24 @@ const weekday = [
   "Today is Thursday, almost there!",
   "Today is Happy, Friday!",
   "Today is Saturday, yay!",
-]
+];
 
 function getCurrentMeal(hour: number): MealName {
   if (hour >= 4 && hour < 10) {
-    return "breakfast"
+    return "breakfast";
   } else if (hour >= 10 && hour < 12) {
-    return "mid-morning"
+    return "mid-morning";
   } else if (hour >= 12 && hour < 15) {
-    return "lunch"
+    return "lunch";
   } else if (hour >= 15 && hour < 20) {
-    return "snack"
+    return "snack";
   } else {
-    return "dinner"
+    return "dinner";
   }
 }
 
 const snacksCole =
-  "Botellita de agua o Juguito, Galletitas o Alfajor, Barra de cereal o Fruta."
+  "Botellita de agua o Juguito, Galletitas o Alfajor, Barra de cereal o Fruta.";
 
 const mealPlan: MealPlannerType[] = [
   {
@@ -483,32 +483,32 @@ const mealPlan: MealPlannerType[] = [
       },
     ],
   },
-]
+];
 
 export function MealPlanner({ ...props }) {
-  const isMobile = useMediaQuery("(max-width: 1024px)")
+  const isMobile = useMediaQuery("(max-width: 1024px)");
 
-  const [gridMode, setGridMode] = useState(true)
-  const [position, setPosition] = useState("primero")
+  const [gridMode, setGridMode] = useState(true);
+  const [position, setPosition] = useState("primero");
 
-  const today = useMemo(() => new Date(), [])
+  const today = useMemo(() => new Date(), []);
   const currentMeal = useMemo(() => {
-    const hour = today.getHours()
-    return getCurrentMeal(hour)
-  }, [today])
+    const hour = today.getHours();
+    return getCurrentMeal(hour);
+  }, [today]);
 
-  const rowStyles = "grid gap-1"
+  const rowStyles = "grid gap-1";
   const cellStyles =
-    "col-span-2 bg-muted px-2 py-2 flex flex-wrap gap-1 items-baseline content-start"
+    "col-span-2 bg-muted px-2 py-2 flex flex-wrap gap-1 items-baseline content-start";
   const tagStyles =
-    "inline-block rounded bg-background px-1 text-sm cursor-pointer"
-  const coleStyles = "border border-muted-foreground"
+    "inline-block rounded bg-background px-1 text-sm cursor-pointer";
+  const coleStyles = "border border-muted-foreground";
 
-  const [hideOnMobile, setHideOnMobile] = useState(false)
+  const [hideOnMobile, setHideOnMobile] = useState(false);
 
   useEffect(() => {
-    setHideOnMobile(isMobile)
-  }, [isMobile])
+    setHideOnMobile(isMobile);
+  }, [isMobile]);
 
   return (
     <section
@@ -650,7 +650,7 @@ export function MealPlanner({ ...props }) {
               rowStyles,
               gridMode && !hideOnMobile && "grid-cols-12",
               today.getDay() === plan.weekday &&
-                "border-y border-dashed border-muted-foreground/50"
+                "border-y border-dashed border-muted-foreground/50",
             )}
             key={plan.day}
           >
@@ -675,13 +675,13 @@ export function MealPlanner({ ...props }) {
                   cellStyles,
                   today.getDay() === plan.weekday &&
                     currentMeal === m.name &&
-                    "border-l-4 border-primary"
+                    "border-l-4 border-primary",
                 )}
               >
                 <span
                   className={cn(
                     "mr-2 text-xs uppercase text-muted-foreground",
-                    gridMode && !hideOnMobile && "hidden"
+                    gridMode && !hideOnMobile && "hidden",
                   )}
                 >
                   {m.name}
@@ -697,7 +697,7 @@ export function MealPlanner({ ...props }) {
                             mealIndex > 0 &&
                             mealIndex < 3 &&
                             index === 0 &&
-                            coleStyles
+                            coleStyles,
                         )}
                       >
                         {meal.name}
@@ -747,5 +747,5 @@ export function MealPlanner({ ...props }) {
         </div>
       </footer>
     </section>
-  )
+  );
 }

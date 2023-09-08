@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const textVariants = cva("transition-colors last:mb-0 first:mt-0", {
   variants: {
@@ -19,7 +19,7 @@ const textVariants = cva("transition-colors last:mb-0 first:mt-0", {
   defaultVariants: {
     variant: "body",
   },
-})
+});
 
 export interface TextProps
   extends React.HTMLAttributes<HTMLParagraphElement & HTMLHeadingElement>,
@@ -27,7 +27,7 @@ export interface TextProps
 
 function Text({ className, variant, ...props }: TextProps) {
   // To-do: add semantic heading support h1, h2, h3, etc.
-  return <p className={cn(textVariants({ variant }), className)} {...props} />
+  return <p className={cn(textVariants({ variant }), className)} {...props} />;
 }
 
-export { Text, textVariants }
+export { Text, textVariants };

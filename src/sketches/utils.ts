@@ -4,5 +4,5 @@
  * @returns item at random index
  */
 export function randomPick(arr: any[]) {
-  return arr[Math.floor(Math.random() * arr.length)]
+  return arr[Math.floor(Math.random() * arr.length)];
 }
