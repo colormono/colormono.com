@@ -1,7 +1,8 @@
+// @ts-nocheck
 import { Text } from "@/components/ui/text";
 import React, { useEffect, useState, useRef } from "react";
 
-const LocationDisplay = ({ city, removeClock }) => {
+const LocationDisplay = ({ city, removeClock, index }) => {
   const startTime = new Date(Date.now()).toLocaleTimeString("en-US", {
     timeZone: city.fields.timezone,
   });
@@ -48,9 +49,9 @@ const LocationDisplay = ({ city, removeClock }) => {
   };
 
   return (
-    <div>
+    <div className="@container">
       <div className="flex items-end gap-3">
-        <p className="text-2xl">{city.fields.asciiname}</p>
+        <p className="text-2xl @lg:text-4xl">{city.fields.asciiname}</p>
         <span className="flex-1 text-muted-foreground">
           {timezoneAbbreviation}
         </span>
@@ -64,8 +65,11 @@ const LocationDisplay = ({ city, removeClock }) => {
           {hours}
           <span>:</span>
           {minutes}
-          <span>:</span>
-          {seconds} {timeOfDay}
+          <span className={`${index > 0 && "hidden"}`}>
+            <span>:</span>
+            {seconds}
+          </span>
+          {timeOfDay}
         </p>
       )}
     </div>

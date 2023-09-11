@@ -2,10 +2,10 @@ import { siteConfig } from "@/config/site";
 import { Icons } from "@/components/icons";
 import { ThemeToggle } from "./theme-toggle";
 
-export function SiteFooter() {
+export function AppFooter() {
   return (
-    <footer className="py-12 xl:py-24">
-      <div className="container flex flex-col items-center justify-between gap-10 md:flex-row">
+    <footer className="p-10">
+      <div className="flex flex-col items-center justify-between gap-10 md:flex-row">
         <Icons.logo className="hidden h-3 text-muted-foreground md:inline-block" />
 
         <p className="grow text-center text-sm leading-loose text-muted-foreground md:text-left">
