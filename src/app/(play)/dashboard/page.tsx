@@ -4,7 +4,7 @@ import WidgetClocks from "./_components/widget-clocks";
 
 export default async function Page() {
   return (
-    <section className="container mx-auto grid">
+    <section className="grid">
       <div className="grid gap-20 md:grid-cols-3">
         <WidgetClocks />
 

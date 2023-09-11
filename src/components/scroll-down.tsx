@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 import { Icons } from "./icons";
-import { Button } from "./ui/button";
 
 export const ScrollDown = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,14 +27,13 @@ export const ScrollDown = () => {
   }, []);
 
   return (
-    <Button
-      variant="ghost"
+    <button
       className={cn(
-        "fixed right-6 cursor-pointer transition-all",
-        isVisible ? "bottom-8 opacity-100" : "bottom-0 opacity-0",
+        "fixed right-10 z-50 flex h-12 w-8 cursor-pointer justify-center rounded-full border-2 border-foreground transition-all",
+        isVisible ? "bottom-10 opacity-100" : "-bottom-20 opacity-0",
       )}
     >
-      <Icons.chevronDown className="h-6 w-6" />
-    </Button>
+      <span className="mt-3 block h-3 w-3 animate-bounce rounded-full bg-foreground" />
+    </button>
   );
 };

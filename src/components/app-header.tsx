@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { MainNav } from "@/components/main-nav";
 import { ThemeToggle } from "@/components/theme-toggle-button";
-import { MainNavDropdown } from "@/components/main-nav-dropdown";
+import { MainNavDropdown } from "./main-nav-dropdown";
 
-export function SiteHeader() {
+export function AppHeader() {
   return (
-    <header className="sticky inset-x-0 top-0 z-50 my-0 w-full bg-background/80 backdrop-blur-md transition-colors md:my-10">
-      <div className="container flex h-16 items-center space-x-10 sm:justify-between md:h-20 md:space-x-20">
+    <header className="sticky inset-x-0 top-0 z-50 my-0 w-full bg-background/80 backdrop-blur-md transition-colors">
+      <div className="flex h-16 items-center space-x-10 px-10 sm:justify-between md:h-20 md:space-x-20">
         <Link
           href="/"
           className="flex items-center space-x-2 md:justify-center "

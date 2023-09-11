@@ -38,12 +38,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen", fontSans.className)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="relative flex min-h-screen flex-col">
-            <SiteHeader />
-            <div className="flex-1 justify-center">{children}</div>
-            <SiteFooter />
-            <TailwindIndicator />
-          </div>
+          <div className="relative flex min-h-screen flex-col">{children}</div>
+          <TailwindIndicator />
           <ScrollToTop />
         </ThemeProvider>
         {/* <Analytics /> */}

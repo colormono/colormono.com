@@ -12,7 +12,7 @@ import { Text } from "@/components/ui/text";
 export default function SectionHero() {
   return (
     <section className="relative flex aspect-video items-center">
-      <div className="relative z-30 mb-32">
+      <div className="relative z-30 mb-16">
         <Text
           variant="h1"
           className="relative inline-block"

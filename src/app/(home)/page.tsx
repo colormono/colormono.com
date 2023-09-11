@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { ScrollDown } from "@/components/scroll-down";
-import { Text } from "@/components/ui/text";
 import { cn } from "@/lib/utils";
 import SectionHero from "@/components/pages/home/hero";
 

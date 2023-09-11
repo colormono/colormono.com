@@ -17,15 +17,15 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 
-import { CodeViewer } from "./components/code-viewer";
-import { MaxLengthSelector } from "./components/maxlength-selector";
-import { ModelSelector } from "./components/model-selector";
-import { PresetActions } from "./components/preset-actions";
-import { PresetSave } from "./components/preset-save";
-import { PresetSelector } from "./components/preset-selector";
-import { PresetShare } from "./components/preset-share";
-import { TemperatureSelector } from "./components/temperature-selector";
-import { TopPSelector } from "./components/top-p-selector";
+import { CodeViewer } from "./_components/code-viewer";
+import { MaxLengthSelector } from "./_components/maxlength-selector";
+import { ModelSelector } from "./_components/model-selector";
+import { PresetActions } from "./_components/preset-actions";
+import { PresetSave } from "./_components/preset-save";
+import { PresetSelector } from "./_components/preset-selector";
+import { PresetShare } from "./_components/preset-share";
+import { TemperatureSelector } from "./_components/temperature-selector";
+import { TopPSelector } from "./_components/top-p-selector";
 import Drawing from "./d3/drawing-dice";
 import { download, saveSvg } from "./d3/utils";
 import { models, types } from "./data/models";
@@ -78,7 +78,7 @@ export default function PlaygroundPage() {
         </div>
         <Separator /> */}
 
-        <div className="container h-full py-6">
+        <div className="h-full py-6">
           <div className="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
             <div className="hidden flex-col space-y-4 sm:flex md:order-2">
               {/* <ModelSelector types={types} models={models} /> */}

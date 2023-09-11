@@ -15,9 +15,9 @@ export function MainNav({ items }: MainNavProps) {
   const pathname = usePathname();
 
   return (
-    <div className="flex">
+    <>
       {items?.length ? (
-        <nav className="flex gap-4">
+        <nav className="flex gap-5">
           {items?.map(
             (item, index) =>
               item.href && (
@@ -25,7 +25,7 @@ export function MainNav({ items }: MainNavProps) {
                   key={index}
                   href={item.href}
                   className={cn(
-                    "flex items-center text-sm uppercase",
+                    "flex items-center text-sm font-semibold uppercase",
                     pathname?.startsWith(item.href)
                       ? "text-foreground"
                       : "text-muted-foreground",
@@ -38,6 +38,6 @@ export function MainNav({ items }: MainNavProps) {
           )}
         </nav>
       ) : null}
-    </div>
+    </>
   );
 }

@@ -8,16 +8,16 @@ export const siteConfig = {
   ogImage: "https://www.colormono.com/static/banner.jpg",
   mainNav: [
     {
+      title: "About Me",
+      href: "/about",
+    },
+    {
       title: "Works",
       href: "/works",
     },
     {
       title: "Lab",
       href: "/posts",
-    },
-    {
-      title: "About",
-      href: "/about",
     },
   ],
   links: {

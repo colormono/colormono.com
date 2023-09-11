@@ -16,11 +16,11 @@ import {
 } from "@/components/ui/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Callout } from "@/components/callout";
-import { CodeBlockWrapper } from "@/components/code-block-wrapper";
-import { ComponentExample } from "@/components/component-example";
-import { ComponentSource } from "@/components/component-source";
-import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button";
+import { Callout } from "@/components/ui/callout";
+import { CodeBlockWrapper } from "@/components/ui/code-block-wrapper";
+import { ComponentExample } from "@/components/ui/component-example";
+import { ComponentSource } from "@/components/ui/component-source";
+import { CopyButton, CopyNpmCommandButton } from "@/components/ui/copy-button";
 
 const components = {
   Accordion,
