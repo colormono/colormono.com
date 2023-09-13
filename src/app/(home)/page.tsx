@@ -30,7 +30,10 @@ export default function Home() {
 
           <Link
             href="/works"
-            className={buttonVariants({ variant: "secondary" })}
+            className={cn(
+              buttonVariants({ variant: "secondary" }),
+              "rounded-full pl-6",
+            )}
             aria-label="Works page"
           >
             WORKS
