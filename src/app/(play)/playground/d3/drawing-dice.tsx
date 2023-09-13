@@ -4,7 +4,7 @@ import * as d3 from "d3";
 
 import { polygon } from "./utils";
 
-const Drawing = ({ dataset }) => {
+const Drawing = ({ dataset, inputCols, inputRows }) => {
   const data = dataset;
   const ref = useRef();
 
@@ -44,8 +44,8 @@ const Drawing = ({ dataset }) => {
       .attr("stroke", "rgba(156, 163, 175, 1)")
       .attr("stroke-width", 1);
 
-    const cols = 10;
-    const rows = 5;
+    const cols = inputCols || 10;
+    const rows = inputRows || 5;
 
     const cellSize = {
       width: 100,
