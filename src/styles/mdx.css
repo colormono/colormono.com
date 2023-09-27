@@ -65,3 +65,11 @@
 [data-rehype-pretty-code-title] + pre {
   @apply mt-2;
 }
+
+figure {
+  @apply relative my-12;
+}
+
+figcaption {
+  @apply py-2 text-sm text-muted-foreground;
+}
