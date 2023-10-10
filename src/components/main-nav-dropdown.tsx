@@ -13,9 +13,10 @@ export function MainNavDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="rounded-full">
-          MORE
-          <Icons.chevronDown className="ml-2 w-4" />
+        <Button variant="ghost" size="sm" className="px-1.5">
+          <div className="flex h-6 w-6 items-center justify-center">
+            <Icons.ellipsis className="w-5" />
+          </div>
         </Button>
       </DropdownMenuTrigger>
 

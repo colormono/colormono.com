@@ -19,12 +19,13 @@ export function SiteHeader() {
           <span className="sr-only">{siteConfig.name}</span>
         </Link>
 
-        <div className="flex flex-1 gap-2">
+        <div className="flex flex-1 gap-4">
           <MainNav items={siteConfig.mainNav} />
-          <MainNavDropdown />
         </div>
 
         <nav className="flex items-center space-x-2">
+          <MainNavDropdown />
+
           <Button variant="ghost" size="sm" className="px-1.5" asChild>
             <Link
               href={siteConfig.links.instagram}

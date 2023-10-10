@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { allPosts, allWorks } from "contentlayer/generated";
@@ -8,6 +9,10 @@ import { buttonVariants } from "@/components/ui/button";
 import { ScrollDown } from "@/components/scroll-down";
 import { cn } from "@/lib/utils";
 import SectionHero from "@/components/pages/home/hero";
+
+export const metadata: Metadata = {
+  title: "Personal Portfolio",
+};
 
 export default function Home() {
   const featuredWorks = allWorks.filter((work) => work.featured);
@@ -41,18 +46,21 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid gap-10 xl:gap-20">
-          {works.map((work) => (
-            <article key={work._id} className="">
+        <div className="grid gap-10 lg:grid-cols-2 xl:gap-20">
+          {works.map((work, index) => (
+            <article
+              key={work._id}
+              className={index % 3 === 0 ? "col-span-2" : "col-span-1"}
+            >
               <Link href={work.slug} className="group relative">
-                <figure className="relative aspect-video">
+                <figure className="relative aspect-video overflow-hidden rounded-xl transition-opacity duration-300 group-hover:opacity-60">
                   <Image
                     src={work.thumbnail || "/static/work/thumb-default.jpg"}
                     fill={true}
                     priority={true}
                     alt={work.title}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
-                    className="bg-muted object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                    className="bg-muted object-cover"
                   />
                 </figure>
                 <h3 className="mt-4 font-semibold uppercase">{work.title}</h3>
@@ -63,11 +71,11 @@ export default function Home() {
                   {format(parseISO(work.date), "yyyy")}
                 </time>
               </Link>
-              {/* {work.description && (
-                <p className="mt-1 max-w-sm text-muted-foreground">
+              {work.description && (
+                <p className="mt-1 max-w-md text-muted-foreground">
                   {work.description}
                 </p>
-              )} */}
+              )}
             </article>
           ))}
         </div>
@@ -78,7 +86,7 @@ export default function Home() {
           <Link
             href="/posts"
             className={cn(
-              buttonVariants({ variant: "default", size: "xl" }),
+              buttonVariants({ variant: "outline", size: "xl" }),
               "rounded-full",
             )}
           >
@@ -89,7 +97,7 @@ export default function Home() {
 
         <div className="z-10 grid h-60 grid-cols-3 gap-10 overflow-hidden">
           {latestPosts.map((item) => (
-            <div key={item._id} className="relative overflow-hidden">
+            <div key={item._id} className="relative overflow-hidden rounded-xl">
               <Image
                 src={item.thumbnail || "/static/work/thumb-default.jpg"}
                 alt={item.title}
