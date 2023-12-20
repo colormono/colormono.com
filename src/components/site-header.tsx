@@ -6,6 +6,7 @@ import { Icons } from "@/components/icons";
 import { MainNav } from "@/components/main-nav";
 import { ThemeToggle } from "@/components/theme-toggle-button";
 import { MainNavDropdown } from "@/components/main-nav-dropdown";
+import LocaleSwitcher from "./locale-switcher";
 
 export function SiteHeader() {
   return (
@@ -24,6 +25,8 @@ export function SiteHeader() {
         </div>
 
         <nav className="flex items-center space-x-2">
+          <LocaleSwitcher />
+
           <Button variant="ghost" size="sm" className="px-1.5" asChild>
             <Link
               href={siteConfig.links.instagram}

@@ -1,5 +1,9 @@
 {
-  "Homepage": {
+  "Metadata": {
+    "title": "COLORMONO – Creative Developer",
+    "description": "Buenos Aires based multimedia artist and software developer."
+  },
+  "HomePage": {
     "title": "Personal Portfolio",
     "hero": {
       "title": "Hello, World",
@@ -8,5 +12,9 @@
   },
   "NotFoundPage": {
     "title": "Page not found"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, es {Español} en {English} other {Unknown}}"
   }
 }

@@ -14,7 +14,7 @@ import { getTranslations } from "next-intl/server";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({ params: { locale } }) {
-  const t = await getTranslations({ locale, namespace: "Homepage" });
+  const t = await getTranslations({ locale, namespace: "HomePage" });
 
   return {
     title: t("title"),
@@ -24,7 +24,7 @@ export async function generateMetadata({ params: { locale } }) {
 export default function Home({ params: { locale } }) {
   unstable_setRequestLocale(locale);
 
-  const t = useTranslations("Homepage");
+  const t = useTranslations("HomePage");
 
   const selectedWorks = allWorks
     .filter((work) => work.featured)
@@ -59,6 +59,7 @@ export default function Home({ params: { locale } }) {
           ),
         })}
       />
+
       <ScrollDown />
 
       <section className="my-20">
