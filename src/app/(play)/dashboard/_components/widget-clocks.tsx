@@ -6,6 +6,8 @@ import React, { useState, useEffect } from "react";
 import LocationDisplay from "./LocationDisplay";
 import PlaceInput from "./PlaceInput";
 import { Text } from "@/components/ui/text";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 function lsTest() {
   var test = "test";
@@ -58,9 +60,12 @@ export default function WidgetClocks() {
 
   return (
     <aside>
-      <Text variant="overline">Team Clock</Text>
-      <PlaceInput addClock={addClock} />
-      <div className="mt-10 flex flex-col gap-10">
+      <div className="flex justify-between">
+        <Text variant="overline">Team Clock</Text>
+        <PlaceInput addClock={addClock} />
+      </div>
+
+      <div className="mb-16 flex flex-col gap-10">
         {clocks &&
           clocks.map((city, index) => (
             <LocationDisplay
@@ -71,6 +76,10 @@ export default function WidgetClocks() {
             />
           ))}
       </div>
+
+      <Link href="https://timezonewizard.com/" rel="noreferrer" asChild>
+        <Button size="lg">Setup a Meeting</Button>
+      </Link>
     </aside>
   );
 }

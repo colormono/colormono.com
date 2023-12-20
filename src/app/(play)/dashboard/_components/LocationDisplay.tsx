@@ -1,5 +1,4 @@
-// @ts-nocheck
-import { Text } from "@/components/ui/text";
+import { XCircleIcon } from "lucide-react";
 import React, { useEffect, useState, useRef } from "react";
 
 const LocationDisplay = ({ city, removeClock, index }) => {
@@ -49,16 +48,14 @@ const LocationDisplay = ({ city, removeClock, index }) => {
   };
 
   return (
-    <div className="@container">
+    <div className="group relative @container">
       <div className="flex items-end gap-3">
         <p className="text-2xl @lg:text-4xl">{city.fields.asciiname}</p>
         <span className="flex-1 text-muted-foreground">
           {timezoneAbbreviation}
         </span>
-        <button name={city.fields.geonameid} onClick={closeHandler}>
-          Close
-        </button>
       </div>
+
       {view === "digital" && (
         <p className="text-4xl">
           {/* {hours} <span>:</span> {minutes} <span>:</span> {seconds} {timeOfDay} */}
@@ -72,6 +69,14 @@ const LocationDisplay = ({ city, removeClock, index }) => {
           {timeOfDay}
         </p>
       )}
+
+      <button
+        name={city.fields.geonameid}
+        onClick={closeHandler}
+        className="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 transition-opacity hover:text-red-500 hover:!opacity-100 group-hover:opacity-25"
+      >
+        <XCircleIcon className="h-8 w-8" />
+      </button>
     </div>
   );
 };
