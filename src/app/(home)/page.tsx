@@ -6,6 +6,7 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { ArrowRight } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
+import { Text } from "@/components/ui/text";
 import { ScrollDown } from "@/components/scroll-down";
 import { cn } from "@/lib/utils";
 import SectionHero from "@/components/pages/home/hero";
@@ -25,13 +26,15 @@ export default function Home() {
   const latestPosts = posts.slice(0, 3);
 
   return (
-    <div className="container grid gap-10">
+    <main className="container">
       <SectionHero />
       <ScrollDown />
 
-      <section>
-        <div className="mb-5 flex items-center justify-between">
-          <h2 className="uppercase text-muted-foreground">Selected Works</h2>
+      <section className="my-20">
+        <nav className="mb-5 flex items-center justify-between">
+          <div>
+            <Text variant="overline">Selected Works</Text>
+          </div>
 
           <Link
             href="/works"
@@ -44,7 +47,7 @@ export default function Home() {
             WORKS
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
-        </div>
+        </nav>
 
         <div className="grid gap-10 lg:grid-cols-2 xl:gap-20">
           {works.map((work, index) => (
@@ -63,7 +66,7 @@ export default function Home() {
                     className="bg-muted object-cover"
                   />
                 </figure>
-                <h3 className="mt-4 font-semibold uppercase">{work.title}</h3>
+                <h3 className="mt-8 font-semibold uppercase">{work.title}</h3>
                 <time
                   dateTime={work.date}
                   className="mb-2 block text-xs text-muted-foreground"
@@ -72,7 +75,7 @@ export default function Home() {
                 </time>
               </Link>
               {work.description && (
-                <p className="mt-1 max-w-md text-muted-foreground">
+                <p className="mt-4 max-w-md text-muted-foreground">
                   {work.description}
                 </p>
               )}
@@ -81,12 +84,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative -mx-10 p-10">
+      <section className="relative -mx-10 mt-20 p-10">
         <div className="absolute inset-0 z-20 flex items-center justify-center bg-background/80 backdrop-blur-md transition-colors">
           <Link
             href="/posts"
             className={cn(
-              buttonVariants({ variant: "outline", size: "xl" }),
+              buttonVariants({ variant: "default", size: "xl" }),
               "rounded-full",
             )}
           >
@@ -110,6 +113,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-    </div>
+    </main>
   );
 }

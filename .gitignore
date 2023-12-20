@@ -39,5 +39,5 @@ next-env.d.ts
 
 # contentlayer
 .contentlayer
-src/content/_private/
+content/_private/
 

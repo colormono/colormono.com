@@ -4,17 +4,29 @@ import * as d3 from "d3";
 
 import { polygon } from "./utils";
 
-const Drawing = ({ dataset, inputCols, inputRows }) => {
+export interface DrawingProps {
+  width: number;
+  height: number;
+  cols: number;
+  rows: number;
+  dataset: any;
+}
+
+const Drawing = ({
+  width = 640,
+  height = 480,
+  cols = 8,
+  rows = 4,
+  dataset,
+}: DrawingProps) => {
   const data = dataset;
   const ref = useRef();
 
   useEffect(() => {
-    // select DOM element to place the draw
-    const svg = d3.select(ref.current);
     // const width = ref.current.getBoundingClientRect().width
     // const height = ref.current.getBoundingClientRect().height
-    const width = 640;
-    const height = 480;
+    // select DOM element to place the draw
+    const svg = d3.select(ref.current);
 
     // clean everything
     svg.selectAll("*").remove();
@@ -43,9 +55,6 @@ const Drawing = ({ dataset, inputCols, inputRows }) => {
       .attr("fill", "black")
       .attr("stroke", "rgba(156, 163, 175, 1)")
       .attr("stroke-width", 1);
-
-    const cols = inputCols || 10;
-    const rows = inputRows || 5;
 
     const cellSize = {
       width: 100,
@@ -92,7 +101,7 @@ const Drawing = ({ dataset, inputCols, inputRows }) => {
     }
   }, [data]);
 
-  return <svg viewBox="0 0 640 480" ref={ref} />;
+  return <svg viewBox={`0 0 ${width} ${height}`} ref={ref} />;
 };
 
 export default Drawing;

@@ -10,15 +10,15 @@ import {
 } from "@/components/ui/hover-card";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
+import { useDrawStore } from "../store";
 
-interface TemperatureSelectorProps {
-  defaultValue: SliderProps["defaultValue"];
+interface ColsSliderProps {
+  defaultValue?: SliderProps["defaultValue"];
 }
 
-export function TemperatureSelector({
-  defaultValue,
-}: TemperatureSelectorProps) {
-  const [value, setValue] = React.useState(defaultValue);
+export function ColsSlider({ defaultValue }: ColsSliderProps) {
+  const cols = useDrawStore((state) => state.cols);
+  const setCols = useDrawStore((state) => state.updateCols);
 
   return (
     <div className="grid gap-2 pt-2">
@@ -26,7 +26,7 @@ export function TemperatureSelector({
         <div className="flex items-center justify-between">
           <HoverCard openDelay={200}>
             <HoverCardTrigger asChild>
-              <Label htmlFor="cols">Columns</Label>
+              <Label htmlFor="cols">Columns:</Label>
             </HoverCardTrigger>
             <HoverCardContent
               align="start"
@@ -39,7 +39,7 @@ export function TemperatureSelector({
             </HoverCardContent>
           </HoverCard>
           <span className="w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border">
-            {value}
+            {cols}
           </span>
         </div>
         <Slider
@@ -47,8 +47,8 @@ export function TemperatureSelector({
           min={1}
           max={12}
           step={1}
-          defaultValue={value}
-          onValueChange={setValue}
+          defaultValue={[cols]}
+          onValueChange={(value) => setCols(value[0])}
           className="[&_[role=slider]]:h-4 [&_[role=slider]]:w-4"
           aria-label="Columns"
         />
