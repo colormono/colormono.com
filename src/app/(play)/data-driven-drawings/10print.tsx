@@ -1,7 +1,7 @@
-import { useRef } from 'react';
-import { useControls, button, folder } from 'leva';
-import { exportSvg, setPaperSize, array, randInt } from '../../utils';
-import { PageFolder } from '../../utils/gui';
+import { useRef } from "react";
+import { useControls, button, folder } from "leva";
+import { exportSvg, setPaperSize, array, randInt } from "../../utils";
+import { PageFolder } from "../../utils/gui";
 
 type DrawingProps = {
   paper: number[];
@@ -69,7 +69,7 @@ export function Index() {
   const ref = useRef();
 
   const gui = useControls({
-    Page: folder({ ...PageFolder, filename: '10Print' }),
+    Page: folder({ ...PageFolder, filename: "10Print" }),
     Drawing: folder({
       cellSize: {
         value: 40,
@@ -77,7 +77,7 @@ export function Index() {
         max: 60,
         step: 1,
       },
-      lineColor: { value: '#0000FF' },
+      lineColor: { value: "#0000FF" },
       rotation: {
         value: [1, 4],
         min: 1,
@@ -85,7 +85,7 @@ export function Index() {
         step: 1,
       },
     }),
-    'Export SVG': button((get) => exportSvg(ref.current, get('Page.filename'))),
+    "Export SVG": button((get) => exportSvg(ref.current, get("Page.filename"))),
   });
 
   return (
@@ -95,9 +95,9 @@ export function Index() {
           <Drawing input={gui} />
         </figure>
       </div>
-      <div className="prose mx-auto py-16 hidden">
+      <div className="prose mx-auto hidden py-16">
         <pre>
-          <code>{JSON.stringify(gui, null, '  ')}</code>
+          <code>{JSON.stringify(gui, null, "  ")}</code>
         </pre>
       </div>
     </>
