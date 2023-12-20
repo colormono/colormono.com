@@ -24,8 +24,6 @@ export function SiteHeader() {
         </div>
 
         <nav className="flex items-center space-x-2">
-          <MainNavDropdown />
-
           <Button variant="ghost" size="sm" className="px-1.5" asChild>
             <Link
               href={siteConfig.links.instagram}
@@ -47,6 +45,7 @@ export function SiteHeader() {
           </Button>
 
           <ThemeToggle />
+          <MainNavDropdown />
         </nav>
       </div>
     </header>

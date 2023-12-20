@@ -8,8 +8,8 @@ async function generateSitemap() {
   const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
 
   const pages = await globby([
+    "content/**/*.mdx",
     "src/pages/**/*{.js,.tsx,.mdx}",
-    "src/content/**/*.mdx",
     "!src/pages/_*{.js,.tsx}",
     "!src/pages/api",
   ]);

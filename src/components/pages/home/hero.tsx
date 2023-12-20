@@ -11,8 +11,8 @@ import { Text } from "@/components/ui/text";
 
 export default function SectionHero() {
   return (
-    <section className="relative flex aspect-video items-center">
-      <div className="relative z-30 mb-16">
+    <section className="relative flex aspect-video items-center overflow-hidden rounded-lg bg-muted shadow dark:border dark:border-muted dark:bg-background">
+      <div className="relative z-30 mb-12 ml-24">
         <Text
           variant="h1"
           className="relative inline-block"
@@ -39,11 +39,11 @@ export default function SectionHero() {
           </Link>{" "}
           as Lead Front-end Engineer. Thanks to having creative coding skills, I
           have the privilege of contributing to various aspects of the creative
-          process, from inception to realization.
+          process, from concept to implementation.
         </Text>
       </div>
 
-      <div className="absolute inset-0 z-20 bg-gradient-radial from-transparent to-background" />
+      <div className="absolute inset-0 z-20 bg-gradient-radial from-transparent to-muted dark:to-transparent" />
 
       <div className="absolute inset-0 z-10">
         <Canvas camera={{ position: [0, 0, 1] }}>
@@ -58,29 +58,32 @@ function Stars(props) {
   const ref = useRef();
   const { theme } = useTheme();
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(5000), { radius: 1.5 }),
+    random.inSphere(new Float32Array(5000), { radius: 0.5 }),
   );
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10;
     ref.current.rotation.y -= delta / 15;
   });
+
   return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points
-        ref={ref}
-        positions={sphere}
-        stride={3}
-        frustumCulled={false}
-        {...props}
-      >
-        <PointMaterial
-          transparent
-          color={theme === "light" ? "#0000FF" : "#fff"}
-          size={0.005}
-          sizeAttenuation={true}
-          depthWrite={false}
-        />
-      </Points>
+    <group position={[0.66, 0.1, 0.5]}>
+      <group rotation={[0, 0, -Math.PI / 4]}>
+        <Points
+          ref={ref}
+          positions={sphere}
+          stride={3}
+          frustumCulled={false}
+          {...props}
+        >
+          <PointMaterial
+            transparent
+            color={theme === "light" ? "#000" : "#fff"}
+            size={0.005}
+            sizeAttenuation={true}
+            depthWrite={false}
+          />
+        </Points>
+      </group>
     </group>
   );
 }
