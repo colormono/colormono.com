@@ -1,0 +1,12 @@
+{
+  "Homepage": {
+    "title": "Personal Portfolio",
+    "hero": {
+      "title": "Hello, World",
+      "message": "I'm <about>Mariano Rivas</about>, a new-media artist and software developer. I work at <work>TrueNorth</work> as Lead Front-end Engineer. Thanks to having creative coding skills, I have the privilege of contributing to various aspects of the creative process, from concept to implementation."
+    }
+  },
+  "NotFoundPage": {
+    "title": "Page not found"
+  }
+}

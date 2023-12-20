@@ -1,0 +1,12 @@
+{
+  "Homepage": {
+    "title": "Portfolio Personal",
+    "hero": {
+      "title": "Hello, World",
+      "message": "Soy <about>Mariano Rivas</about>, un artista multimedial y desarrollador de software. Trabajo en <work>TrueNorth</work> como Lead Front-end Engineer. Gracias a mis habilidades, tengo el privilegio de contribuir en diversos aspectos del proceso creativo, desde el concepto hasta la implementación."
+    }
+  },
+  "NotFoundPage": {
+    "title": "Página no encontrada"
+  }
+}

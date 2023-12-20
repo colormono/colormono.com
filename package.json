@@ -43,6 +43,7 @@
     "lucide-react": "^0.241.0",
     "next": "13.4.9",
     "next-contentlayer": "^0.3.2",
+    "next-intl": "^3.3.2",
     "next-themes": "^0.2.1",
     "p5": "^1.7.0",
     "p5.js-svg": "^1.5.1",

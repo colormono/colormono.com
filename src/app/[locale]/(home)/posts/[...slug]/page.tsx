@@ -6,7 +6,7 @@ import "@/styles/mdx.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "@/config";
 // import { getTableOfContents } from "@/lib/toc"
 import { absoluteUrl, cn } from "@/lib/utils";
 import { Mdx } from "@/components/mdx-components";

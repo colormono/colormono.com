@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { allPosts, allWorks } from "contentlayer/generated";
@@ -10,24 +9,56 @@ import { Text } from "@/components/ui/text";
 import { ScrollDown } from "@/components/scroll-down";
 import { cn } from "@/lib/utils";
 import SectionHero from "@/components/pages/home/hero";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { unstable_setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Personal Portfolio",
-};
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: "Homepage" });
 
-export default function Home() {
-  const featuredWorks = allWorks.filter((work) => work.featured);
-  const works = featuredWorks.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  );
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  );
-  const latestPosts = posts.slice(0, 3);
+  return {
+    title: t("title"),
+  };
+}
+
+export default function Home({ params: { locale } }) {
+  unstable_setRequestLocale(locale);
+
+  const t = useTranslations("Homepage");
+
+  const selectedWorks = allWorks
+    .filter((work) => work.featured)
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+
+  const latestPosts = allPosts
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+    .slice(0, 3);
 
   return (
     <main className="container">
-      <SectionHero />
+      <SectionHero
+        title={t("hero.title")}
+        message={t.rich("hero.message", {
+          about: (chunks) => (
+            <Link
+              href="/about"
+              className="font-semibold hover:underline hover:underline-offset-4"
+            >
+              {chunks}
+            </Link>
+          ),
+          work: (chunks) => (
+            <a
+              href="https://truenorth.co"
+              className="font-semibold hover:underline hover:underline-offset-4"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {chunks}
+            </a>
+          ),
+        })}
+      />
       <ScrollDown />
 
       <section className="my-20">
@@ -50,7 +81,7 @@ export default function Home() {
         </nav>
 
         <div className="grid gap-10 lg:grid-cols-2 xl:gap-20">
-          {works.map((work, index) => (
+          {selectedWorks.map((work, index) => (
             <article
               key={work._id}
               className={index % 3 === 0 ? "col-span-2" : "col-span-1"}

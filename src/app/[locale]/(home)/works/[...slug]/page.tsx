@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "@/config";
 // import { getTableOfContents } from "@/lib/toc"
 import { absoluteUrl, cn } from "@/lib/utils";
 import { AspectRatio } from "@/components/ui/aspect-ratio";

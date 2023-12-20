@@ -1,3 +1,5 @@
+import { Pathnames } from "next-intl/navigation";
+
 export const siteConfig = {
   url: "https://colormono.com",
   name: "COLORMONO",
@@ -29,3 +31,21 @@ export const siteConfig = {
 };
 
 export type SiteConfig = typeof siteConfig;
+
+/**
+ * Config for next-intl
+ */
+export const locales = ["en", "es"] as const;
+
+export const pathnames = {
+  "/": "/",
+  "/pathnames": {
+    en: "/pathnames",
+    es: "/pfadnamen",
+  },
+} satisfies Pathnames<typeof locales>;
+
+// Use the default: `always`
+export const localePrefix = undefined;
+
+export type AppPathnames = keyof typeof pathnames;

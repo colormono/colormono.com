@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "@/config";
 import { Icons } from "@/components/icons";
 import { MainNavDropdown } from "./main-nav-dropdown";
 
