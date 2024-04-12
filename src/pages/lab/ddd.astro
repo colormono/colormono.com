@@ -1,0 +1,46 @@
+---
+import Layout from '@layouts/default.astro';
+import {getCollection} from 'astro:content';
+import {compareDesc} from 'date-fns';
+
+const posts = (await getCollection('lab')).sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)));
+const publicPosts = posts.filter((post) => post.data.draft !== true);
+---
+
+<Layout title="COLORMONO'S LAB" description="Mariano Rivas's experiments.">
+  <section class="container">
+    <p>Generate a mock of a possible layout...</p>
+
+    <figure class="mt-16 aspect-video rounded-lg bg-muted p-4">
+      <div class="grid grid-cols-5 gap-4">
+        <div class="cell bg-foreground">1</div>
+        <div class="cell aspect-video bg-indigo-600">2</div>
+        <div class="cell bg-foreground">3</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">5</div>
+        <div class="cell bg-foreground">5</div>
+        <div class="cell bg-foreground">1</div>
+        <div class="cell aspect-video bg-indigo-600">2</div>
+        <div class="cell bg-foreground">3</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">1</div>
+        <div class="cell bg-foreground">3</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">5</div>
+        <div class="cell aspect-video bg-indigo-600">2</div>
+        <div class="cell bg-foreground">1</div>
+        <div class="cell bg-foreground">3</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">5</div>
+      </div>
+    </figure>
+  </section>
+</Layout>
+
+<style>
+  .cell {
+    text-align: center;
+    border-radius: calc(var(--radius) - 2px);
+  }
+</style>

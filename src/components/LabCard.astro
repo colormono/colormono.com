@@ -1,0 +1,34 @@
+---
+import Label from './ui/label.astro';
+
+const {item, sameHeight} = Astro.props;
+---
+
+<article class="card mb-12">
+  <a href={`/lab/${item.slug}/`} class="group relative">
+    <figure class="overflow-hidden rounded-lg">
+      <img
+        src={item.data.thumbnail || '/static/not-found.png'}
+        alt={item.data.title}
+        class={`${sameHeight ? 'aspect-video' : ''} w-full object-cover group-hover:opacity-70 transition-opacity duration-300`}
+      />
+    </figure>
+    <div class="mt-3">
+      <h3 class="font-semibold">{item.data.title}</h3>
+      {item.data.description && <p class="text-sm text-muted-foreground">{item.data.description}</p>}
+      {
+        process.env.NODE_ENV === 'development' && item.data.draft ? (
+          <div class="mt-3">
+            <Label>Draft</Label>
+          </div>
+        ) : null
+      }
+    </div>
+  </a>
+</article>
+
+<style>
+  .card {
+    -webkit-column-break-inside: avoid;
+  }
+</style>

@@ -1,0 +1,140 @@
+---
+
+---
+
+<div class="flex flex-row space-x-1 rounded-full border bg-background p-0.5">
+  <button id="lightThemeBtn" class="theme-btn">
+    <spam class="sr-only">Light</spam>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path
+        d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path
+        d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
+    </svg>
+  </button>
+
+  <button id="systemThemeBtn" class="theme-btn">
+    <span class="sr-only">System</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line
+        x1="12"
+        x2="12"
+        y1="17"
+        y2="21"></line>
+    </svg>
+  </button>
+
+  <button id="darkThemeBtn" class="theme-btn">
+    <span class="sr-only">Dark</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
+  </button>
+</div>
+
+<script is:inline>
+  try {
+    const lightThemeBtn = document.getElementById('lightThemeBtn');
+    const darkThemeBtn = document.getElementById('darkThemeBtn');
+    const systemThemeBtn = document.getElementById('systemThemeBtn');
+
+    if (!(lightThemeBtn && darkThemeBtn && systemThemeBtn)) {
+      throw new Error('Theme buttons not found');
+    }
+
+    function setTheme(theme) {
+      if (theme === 'light') {
+        lightThemeBtn && lightThemeBtn.classList.add('active');
+        darkThemeBtn && darkThemeBtn.classList.remove('active');
+        systemThemeBtn && systemThemeBtn.classList.remove('active');
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else if (theme === 'dark') {
+        lightThemeBtn && lightThemeBtn.classList.remove('active');
+        darkThemeBtn && darkThemeBtn.classList.add('active');
+        systemThemeBtn && systemThemeBtn.classList.remove('active');
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        lightThemeBtn && lightThemeBtn.classList.remove('active');
+        darkThemeBtn && darkThemeBtn.classList.remove('active');
+        systemThemeBtn && systemThemeBtn.classList.add('active');
+        localStorage.removeItem('theme');
+
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+    }
+
+    // Handle clicks
+    lightThemeBtn.addEventListener('click', () => setTheme('light'));
+    darkThemeBtn.addEventListener('click', () => setTheme('dark'));
+    systemThemeBtn.addEventListener('click', () => setTheme('system'));
+
+    // On load
+    const storedTheme = localStorage.getItem('theme');
+    storedTheme ? setTheme(storedTheme) : setTheme('system');
+  } catch (error) {
+    console.error(error);
+  }
+</script>
+
+<style>
+  .theme-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .theme-btn:hover {
+    background-color: hsl(var(--muted));
+  }
+
+  .theme-btn.active {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+
+  .theme-btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+</style>

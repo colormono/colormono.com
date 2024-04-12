@@ -1,20 +1,19 @@
 module.exports = {
-  bracketSpacing: true,
+  arrowParens: 'always',
+  bracketSpacing: false,
+  bracketSameLine: false,
+  printWidth: 120,
   semi: true,
-  trailingComma: "all",
-  printWidth: 80,
+  singleQuote: true,
   tabWidth: 2,
-  importOrder: [
-    "^(next/(.*)$)|^(next$)", // Imports by "next"
-    "<THIRD_PARTY_MODULES>",
-    "next-seo.config",
-    "^components/(.*)$",
-    "^utils/(.*)$",
-    "^assets/(.*)$",
-    "^@fontsource/(.*)$",
-    "^[./]", // Other imports
+  trailingComma: 'all',
+  overrides: [
+    {
+      files: '**/*.astro',
+      options: {
+        parser: 'astro',
+      },
+    },
   ],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
-  plugins: [require("prettier-plugin-tailwindcss")],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
 };

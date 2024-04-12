@@ -1,0 +1,18 @@
+---
+import Layout from '@layouts/default.astro';
+import LabCard from '@components/LabCard.astro';
+import {getCollection} from 'astro:content';
+import {compareDesc} from 'date-fns';
+
+const allPosts = (await getCollection('lab')).sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)));
+const publicPosts = allPosts.filter((post) => post.data.draft !== true);
+const posts = process.env.NODE_ENV === 'development' ? allPosts : publicPosts;
+---
+
+<Layout title="COLORMONO'S LAB" description="Mariano Rivas's experiments.">
+  <section class="container">
+    <div class="gap-10 md:columns-2 lg:columns-3 xl:columns-4">
+      {posts.map((post) => <LabCard item={post} />)}
+    </div>
+  </section>
+</Layout>

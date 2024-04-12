@@ -1,0 +1,57 @@
+---
+import ThemePicker from './ThemePicker.astro';
+
+const today = new Date();
+---
+
+<footer class="bg-muted py-10">
+  <section class="container text-sm text-muted-foreground">
+    <div class="flex flex-col items-center justify-between gap-10 md:flex-row">
+      <p class="leading-[0]">
+        <a href="https://colormono.com">
+          <svg viewBox="0 0 44 10" fill="currentColor" stroke="none" class="hidden h-5 md:inline-block">
+            <rect y="0" x="0" height="10" width="10"></rect>
+            <circle cx="17" cy="5" r="5"></circle>
+            <path d="M 33.990061,10 33.995261,9.99477 24,0 v 9.999966 z"></path>
+            <path
+              d="M 38.980059,9.6432493e-6 A 5,5 0 0 0 34,4.9997043 5,5 0 0 0 38.999694,9.9999159 5,5 0 0 0 43.999906,4.9997043 5,5 0 0 0 38.999694,9.6432493e-6 a 5,5 0 0 0 -0.01964,0 z M 38.999699,2.8194757 A 2.1802361,2.1802361 0 0 1 41.18044,4.9997043 2.1802361,2.1802361 0 0 1 38.999694,7.1799331 2.1802361,2.1802361 0 0 1 36.819466,4.9997043 2.1802361,2.1802361 0 0 1 38.999694,2.8194757 Z"
+            ></path>
+          </svg>
+        </a>
+      </p>
+
+      <p class="flex grow items-center">
+        <a href="/rss.xml" class="inline-flex flex-row items-center space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-rss"
+            ><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"
+            ></circle></svg
+          >
+          <span class="ml-2">Subscribe to the RSS Feed</span>
+        </a>
+      </p>
+
+      <ThemePicker />
+    </div>
+
+    <p class="my-10 text-center leading-loose md:text-left">
+      Built by{' '}
+      <a href="https://colormono.com" target="_blank" class="font-medium underline underline-offset-4">Colormono</a>,
+      source code on{' '}
+      <a
+        href="https://github.com/colormono/colormono.com"
+        target="_blank"
+        class="font-medium underline underline-offset-4">GitHub</a
+      >. Last update, {today.getFullYear()}.
+    </p>
+  </section>
+</footer>

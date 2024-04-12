@@ -1,0 +1,31 @@
+---
+import Head from '@components/Head.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import {getLangFromUrl} from '@/i18n/utils';
+import {SITE_TITLE, SITE_DESCRIPTION} from '@/config';
+
+const lang = getLangFromUrl(Astro.url);
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const {title, description}: Props = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+    <Head title={title || SITE_TITLE} description={description || SITE_DESCRIPTION} />
+  </head>
+  <body class="flex min-h-screen w-full max-w-full flex-col">
+    <Header />
+    <main class="relative flex flex-1 flex-col pb-40">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

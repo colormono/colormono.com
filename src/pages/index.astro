@@ -1,0 +1,49 @@
+---
+import HomeHero from '@components/HomeHero.astro';
+import WorkCard from '@components/WorkCard.astro';
+import LatestPosts from '@components/LatestPosts.astro';
+import Layout from '@layouts/default.astro';
+import {getCollection} from 'astro:content';
+import {compareDesc} from 'date-fns';
+
+const title = 'Mariano Rivas';
+const description = "Mariano Rivas's personal portfolio. A new-media artist and software developer.";
+
+const works = (await getCollection('works')).sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)));
+const featuredWorks = works.filter((work) => work.data.isFeatured);
+---
+
+<Layout title={title} description={description}>
+  <HomeHero title="Hello, World!">
+    I'm <a href="/about">Mariano Rivas</a>, a new-media artist and software developer. I work at <a
+      href="https://truenorth.co">TrueNorth</a
+    > as Lead Front-end Engineer. Thanks to having creative coding skills, I have the privilege of contributing to various
+    aspects of the creative process, from concept to implementation.
+  </HomeHero>
+
+  <section class="container mt-20">
+    <h6 class="text-xs uppercase tracking-wider text-muted-foreground">Selected Works</h6>
+
+    <div class="my-5 grid gap-10 lg:grid-cols-1 xl:gap-20">
+      {
+        featuredWorks.map((item, index) => (
+          // <div class={index % 3 === 0 ? "col-span-2" : "col-span-1"}>
+          <div>
+            <WorkCard item={item} />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex items-center gap-8">
+      <hr class="grow border-dotted" />
+      <a
+        href="/works"
+        class="block rounded-full bg-muted px-6 py-3 text-center text-sm font-semibold"
+        aria-label="Works page">ALL WORKS &rarr;</a
+      >
+    </div>
+  </section>
+
+  <LatestPosts />
+</Layout>

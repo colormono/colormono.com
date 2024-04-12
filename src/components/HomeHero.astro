@@ -1,0 +1,29 @@
+---
+const {title} = Astro.props;
+---
+
+<section id="home-hero" class="md:container">
+  <div
+    class="relative flex items-center overflow-hidden border-y border-border bg-muted dark:border-muted dark:bg-background md:rounded-lg md:border md:shadow lg:aspect-video"
+  >
+    <div class="relative z-30 mx-8 mb-8 mt-16 md:mx-36 xl:w-3/5">
+      <h1 class="relative mb-8 inline-block max-w-4xl text-7xl tracking-tight 2xl:text-8xl">
+        {title}
+      </h1>
+      <h2 class="mb-8 max-w-3xl text-2xl leading-normal">
+        <slot />
+      </h2>
+    </div>
+    <div class="bg-gradient-radial absolute inset-0 z-20 from-transparent to-muted dark:to-transparent"></div>
+  </div>
+</section>
+
+<style is:inline>
+  #home-hero {
+    a {
+      font-weight: 600;
+      text-decoration-line: underline;
+      text-underline-offset: 4px;
+    }
+  }
+</style>

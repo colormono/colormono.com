@@ -1,0 +1,23 @@
+---
+import Layout from '@layouts/default.astro';
+import Article from '@components/Article.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const {title, description}: Props = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <div class="container gap-32 pb-8 md:flex">
+    <Article class="mx-auto">
+      <slot />
+    </Article>
+
+    <!-- <div class="min-h-40 w-full flex-1 self-stretch overflow-hidden rounded-xl bg-muted">
+      Cool generative background
+    </div> -->
+  </div>
+</Layout>

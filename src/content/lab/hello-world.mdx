@@ -1,0 +1,324 @@
+---
+title: 'Hello World'
+description: 'Playground note'
+date: 'Jan 10 2024'
+thumbnail: 'https://res.cloudinary.com/dktzvzksl/image/upload/v1710537190/lab/u4yxjfxk44xrkhhv2n9u.jpg'
+heroImage: 'https://res.cloudinary.com/dktzvzksl/image/upload/v1669346293/branding/stills/tiling-thumb_rupld8.png'
+tags:
+  - Guide
+seo:
+  image:
+    src: '/static/lab/thumb-default.jpg'
+    alt: A person standing at the window
+draft: true
+---
+
+This is a test of Astro with MDX.
+
+## Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into your Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.
+
+### Router
+
+Just use the normal markdown syntax for links.
+
+<a href="/about">About</a>
+
+### Tailwind
+
+You can use Tailwind CSS classes in your MDX content.
+
+<p>
+  <span class="text-orange-500">Orange 500</span>,<span class="text-indigo-500">Indigo 500</span>
+</p>
+
+### Embed an Astro component
+
+```astro
+import HeaderLink from '../../components/HeaderLink.astro';
+
+<HeaderLink href="#" onclick="alert('clicked!')">Embedded component in MDX</HeaderLink>
+```
+
+import HeaderLink from '../../components/HeaderLink.astro';
+
+<HeaderLink href="#" onclick="alert('clicked!')">
+  This is an embedded component in MDX. Click me!
+</HeaderLink>
+
+### Embed a React component
+
+Read [using components in mdx](https://docs.astro.build/en/guides/markdown-content/#using-components-in-mdx) docs for more information.
+
+```javascript
+attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
+  if (defaultTheme.endsWith(':only')) {
+    return;
+  }
+  document.documentElement.classList.toggle('dark');
+  localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+});
+```
+
+## More Links
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+- **Note:** [Client Directives](https://docs.astro.build/en/reference/directives-reference/#client-directives) are still required to create interactive components. Otherwise, all components in your MDX will render as static HTML (no JavaScript) by default.
+
+### Draw me a sheep
+
+GPT Prompt: `Be creative and "draw me a sheep" using SVG`.
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  {/* <!-- Body --> */}
+  <circle cx="150" cy="100" r="60" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+  {/* <!-- Head --> */}
+  <circle cx="210" cy="100" r="30" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+  {/* <!-- Eyes --> */}
+  <circle cx="200" cy="90" r="5" fill="#000"/>
+  <circle cx="220" cy="90" r="5" fill="#000"/>
+  {/* <!-- Nose --> */}
+  <circle cx="210" cy="110" r="3" fill="#000"/>
+  {/* <!-- Ears --> */}
+  <polygon points="180,70 200,50 220,70" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+  <polygon points="240,80 260,60 280,80" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+  {/* <!-- Legs --> */}
+  <line x1="130" y1="130" x2="130" y2="180" stroke="#000" stroke-width="4"/>
+  <line x1="170" y1="130" x2="170" y2="180" stroke="#000" stroke-width="4"/>
+  <line x1="190" y1="130" x2="190" y2="180" stroke="#000" stroke-width="4"/>
+  <line x1="230" y1="130" x2="230" y2="180" stroke="#000" stroke-width="4"/>
+  {/* <!-- Tail --> */}
+  <path d="M80,100 Q60,100 70,120 Q80,140 100,130 Q120,120 110,100 Q100,80 80,100 Z" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+</svg>
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <!-- Body -->
+  <circle cx="150" cy="100" r="60" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+  <!-- Head -->
+  <circle cx="210" cy="100" r="30" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+  <!-- Eyes -->
+  <circle cx="200" cy="90" r="5" fill="#000"/>
+  <circle cx="220" cy="90" r="5" fill="#000"/>
+  <!-- Nose -->
+  <circle cx="210" cy="110" r="3" fill="#000"/>
+  <!-- Ears -->
+  <polygon points="180,70 200,50 220,70" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+  <polygon points="240,80 260,60 280,80" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+  <!-- Legs -->
+  <line x1="130" y1="130" x2="130" y2="180" stroke="#000" stroke-width="4"/>
+  <line x1="170" y1="130" x2="170" y2="180" stroke="#000" stroke-width="4"/>
+  <line x1="190" y1="130" x2="190" y2="180" stroke="#000" stroke-width="4"/>
+  <line x1="230" y1="130" x2="230" y2="180" stroke="#000" stroke-width="4"/>
+  <!-- Tail -->
+  <path d="M80,100 Q60,100 70,120 Q80,140 100,130 Q120,120 110,100 Q100,80 80,100 Z" fill="#f8f8f8" stroke="#000" stroke-width="2"/>
+</svg>
+```
+
+---
+
+## Headings
+
+The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+
+# H1
+
+## H2
+
+### H3
+
+#### H4
+
+##### H5
+
+###### H6
+
+## Paragraph
+
+Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
+
+Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
+
+## Images
+
+#### Syntax
+
+```markdown
+![Alt text](./full/or/relative/path/of/image)
+```
+
+## Blockquotes
+
+The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
+
+### Blockquote without attribution
+
+#### Syntax
+
+```markdown
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
+> **Note** that you can use _Markdown syntax_ within a blockquote.
+```
+
+#### Output
+
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
+> **Note** that you can use _Markdown syntax_ within a blockquote.
+
+### Blockquote with attribution
+
+#### Syntax
+
+```markdown
+> Don't communicate by sharing memory, share memory by communicating.<br />
+> — <cite>Rob Pike[^1]</cite>
+```
+
+#### Output
+
+> Don't communicate by sharing memory, share memory by communicating.<br />
+> — <cite>Rob Pike[^1]</cite>
+
+[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
+
+## Tables
+
+#### Syntax
+
+```markdown
+| Italics   | Bold     | Code   |
+| --------- | -------- | ------ |
+| _italics_ | **bold** | `code` |
+```
+
+#### Output
+
+| Italics   | Bold     | Code   |
+| --------- | -------- | ------ |
+| _italics_ | **bold** | `code` |
+
+## Code Blocks
+
+#### Syntax
+
+we can use 3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntac, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash
+
+````markdown
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Example HTML5 Document</title>
+  </head>
+  <body>
+    <p>Test</p>
+  </body>
+</html>
+```
+````
+
+Output
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Example HTML5 Document</title>
+  </head>
+  <body>
+    <p>Test</p>
+  </body>
+</html>
+```
+
+## List Types
+
+### Ordered List
+
+#### Syntax
+
+```markdown
+1. First item
+2. Second item
+3. Third item
+```
+
+#### Output
+
+1. First item
+2. Second item
+3. Third item
+
+### Unordered List
+
+#### Syntax
+
+```markdown
+- List item
+- Another item
+- And another item
+```
+
+#### Output
+
+- List item
+- Another item
+- And another item
+
+### Nested list
+
+#### Syntax
+
+```markdown
+- Fruit
+  - Apple
+  - Orange
+  - Banana
+- Dairy
+  - Milk
+  - Cheese
+```
+
+#### Output
+
+- Fruit
+  - Apple
+  - Orange
+  - Banana
+- Dairy
+  - Milk
+  - Cheese
+
+## Other Elements — abbr, sub, sup, kbd, mark
+
+#### Syntax
+
+```markdown
+<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
+
+H<sub>2</sub>O
+
+X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+
+Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
+
+Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+```
+
+#### Output
+
+<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
+
+H<sub>2</sub>O
+
+X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+
+Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
+
+Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.

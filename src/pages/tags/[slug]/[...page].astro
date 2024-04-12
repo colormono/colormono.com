@@ -1,0 +1,50 @@
+---
+import type {GetStaticPathsOptions, Page} from 'astro';
+import {type CollectionEntry, getCollection} from 'astro:content';
+import Layout from '@layouts/default.astro';
+// import Pagination from '@components/Pagination.astro';
+import PostPreview from '@components/PostPreview.astro';
+//import Subscribe from '@components/Subscribe.astro';
+// import siteConfig from '@data/site-config';
+import {sortItemsByDateDesc, getAllTags, getPostsByTag} from '@/utils';
+import LabCard from '@components/LabCard.astro';
+
+export async function getStaticPaths({paginate}: GetStaticPathsOptions) {
+  const posts = (await getCollection('lab')).sort(sortItemsByDateDesc);
+  const tags = getAllTags(posts);
+
+  return tags.flatMap((tag) => {
+    const filteredPosts = getPostsByTag(posts, tag.slug);
+    return paginate(filteredPosts, {
+      params: {slug: tag.slug},
+      // pageSize: siteConfig.postsPerPage || 4
+      pageSize: 4,
+    });
+  });
+}
+
+type Props = {page: Page<CollectionEntry<'lab'>>};
+
+const {page} = Astro.props;
+const publicPosts = page.data;
+const params = Astro.params;
+const allPosts = await getCollection('lab');
+const allTags = getAllTags(allPosts);
+const currentTag = allTags.find((tag) => {
+  return tag.slug === params.slug;
+});
+---
+
+<Layout
+  title={`Posts Tagged ${currentTag?.name}`}
+  description={`Explore a curated collection of posts under ${currentTag?.name}`}
+>
+  <section class="container">
+    <h1 class="mb-12 font-serif text-2xl italic leading-tight sm:mb-16 sm:text-4xl">
+      Posts Tagged "{currentTag?.name}"
+    </h1>
+    <div class="columns-2 gap-10 md:columns-3 xl:columns-4">
+      {publicPosts.map((post) => <LabCard item={post} />)}
+    </div>
+  </section>
+</Layout>

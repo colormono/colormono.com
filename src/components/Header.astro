@@ -1,0 +1,93 @@
+---
+import {SITE_TITLE} from '@/config';
+
+import {getLangFromUrl, useTranslations, useTranslatedPath} from '../i18n/utils';
+import {Astronav, MenuItems, MenuIcon, OpenIcon, CloseIcon} from 'astro-navbar';
+
+import HeaderLink from './HeaderLink.astro';
+import LanguagePicker from './LanguagePicker.astro';
+// import ThemePicker from "./ThemePicker.astro";
+import Logo from './icons/colormono.astro';
+import Instagram from './icons/instagram.astro';
+import Github from './icons/github.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<header class="sticky inset-x-0 top-0 z-50 w-full bg-background/80 backdrop-blur-md transition-colors md:my-10">
+  <Astronav>
+    <div class="container flex flex-col justify-between md:flex-row md:items-center md:space-x-16">
+      <div class="flex h-16 items-center justify-between">
+        <a href={translatePath('/')}>
+          <span class="sr-only">{SITE_TITLE}</span>
+          <Logo />
+        </a>
+
+        <div class="block md:hidden">
+          <MenuIcon>
+            <OpenIcon>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-menu"
+                ><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line
+                  x1="4"
+                  x2="20"
+                  y1="18"
+                  y2="18"></line></svg
+              >
+            </OpenIcon>
+            <CloseIcon>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+              >
+            </CloseIcon>
+          </MenuIcon>
+        </div>
+      </div>
+
+      <MenuItems class="hidden flex-1 space-y-8 pb-8 pt-4 md:flex md:space-y-0 md:py-0">
+        <ul class="flex flex-1 flex-col gap-4 md:flex-row md:gap-6">
+          <HeaderLink href={translatePath('/about')}>{t('nav.about')}</HeaderLink>
+          <HeaderLink href={translatePath('/works')}>{t('nav.works')}</HeaderLink>
+          <HeaderLink href={'/lab'}>{t('nav.lab')}</HeaderLink>
+        </ul>
+
+        <nav class="flex items-center space-x-4">
+          <a href="https://instagram.com/colormono" target="_blank">
+            <span class="sr-only">Follow Colormono on Instagram</span>
+            <Instagram />
+          </a>
+
+          <a href="https://github.com/colormono/colormono.com" target="_blank">
+            <span class="sr-only">Go to Colormono's GitHub repo</span>
+            <Github />
+          </a>
+
+          <div class="ml-8">
+            <LanguagePicker />
+            <!-- <ThemePicker /> -->
+          </div>
+        </nav>
+      </MenuItems>
+    </div>
+  </Astronav>
+</header>

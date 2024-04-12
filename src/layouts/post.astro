@@ -1,0 +1,71 @@
+---
+import type {CollectionEntry} from 'astro:content';
+import Layout from '@layouts/default.astro';
+import FormattedDate from '@components/FormattedDate.astro';
+import Article from '@components/Article.astro';
+import {slugify} from '@utils';
+import {format} from 'date-fns';
+import LatestPosts from '@components/LatestPosts.astro';
+
+type Props = CollectionEntry<'lab'>['data'];
+
+const {title, description, date, updatedDate, heroImage, tags} = Astro.props;
+---
+
+<Layout {...Astro.props} title={title} description={description}>
+  <main class="container">
+    {
+      heroImage && (
+        <div class="hero-image">
+          <img src={heroImage} alt="" loading="eager" decoding="async" class="w-full" />
+        </div>
+      )
+    }
+
+    <Article class="mx-auto">
+      <h1 class="my-10">{title}</h1>
+
+      <slot />
+
+      <div>
+        <hr />
+        <div class="date">
+          <time class="mb-2 block text-muted-foreground">
+            {format(date, 'yyyy')}
+          </time>
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+      </div>
+
+      {
+        tags?.length > 0 ? (
+          <>
+            <hr />
+            <h3>Tags</h3>
+            <div class="flex flex-row flex-wrap">
+              {tags.map((tag) => (
+                <a
+                  href={`/tags/${slugify(tag)}/`}
+                  class="mr-2 rounded-full bg-muted px-2 py-1 text-xs text-muted-foreground"
+                >
+                  {tag}
+                </a>
+              ))}
+            </div>
+          </>
+        ) : null
+      }
+    </Article>
+
+    <hr />
+  </main>
+
+  <!-- to-do: related lab/works by tag  -->
+  <LatestPosts />
+</Layout>

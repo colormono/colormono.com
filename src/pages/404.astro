@@ -1,0 +1,23 @@
+---
+import HomeHero from '@components/HomeHero.astro';
+import Layout from '@layouts/default.astro';
+
+const title = 'Ups! 404';
+const description = 'Page not found';
+---
+
+<Layout title={title} description={description}>
+  <HomeHero title={title}>
+    <div class="flex items-center space-x-4">
+      <div>
+        <img src="/static/avatar.jpg" alt="Colormono" class="h-10 rounded-full" />
+      </div>
+
+      <div class="flex-1 rounded-full bg-muted-foreground/15 px-6 py-1">Sorry, I' messed up.</div>
+    </div>
+
+    <div class="mt-10">
+      <a class="btn btn-primary" href="/">&larr; Go back home</a>
+    </div>
+  </HomeHero>
+</Layout>

@@ -1,56 +1,78 @@
-# colormono.com
+# Colormono Portfolio
 
-My portfolio has transformed over the years - from a static HTML site, to WordPress, to Jekyll, and finally to Next.js/React/MDX. My personal slice of the internet provides a platform for my note and to showcase my work.
+![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
 
-This is a [Next.js 13](https://nextjs.org/) project with Radix UI and Tailwind CSS.
+Features:
 
-## Features
+- ✅ Dark and light color mode
+- ✅ Hero section with bio
+- ✅ Portfolio collection
+- ✅ Pagination support
+- ✅ Post tags support
+- ✅ Subscription form
+- ✅ View transitions
+- ✅ Tailwind CSS
+- ✅ Mobile-first responsive layout
+- ✅ [Navbar with burger button](https://github.com/surjithctly/astro-navbar)
+- ✅ SEO-friendly with canonical URLs and OpenGraph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
 
-- [Next.js 13](https://nextjs.org) App Directory
-- Radix UI Primitives
-- [Tailwind CSS](https://tailwindcss.org)
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with [`next-themes`](https://github.com/pacocoursey/next-themes)
-- Tailwind CSS class sorting, merging and linting.
-- [MDX](https://github.com/mdx-js/mdx) and [ContentLayer](https://www.contentlayer.dev/).
+## 🚀 Project Structure
 
-## Getting Started
+Inside of your Astro project, you'll see the following folders and files:
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```text
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tailwind.config.mjs
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-Create a `.env.local` file similar to [`.env.example`](https://github.com/colormono/colormono.com/blob/master/.env.example).
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Any static assets, like images, can be placed in the `public/` directory.
 
-## Learn More
+## 🧞 Commands
 
-To learn more about Next.js, take a look at the following resources:
+All commands are run from the root of the project, from a terminal:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Use it as a template
 
-### Aknowledgments
+```sh
+npm create astro@latest -- --template colormono/colormono.com
 
-The initial commit was forked from [leerob.io](https://github.com/leerob/leerob.io).
-Thanks [Lee Robinson](https://leerob.io), you rocks!
+# ...I started here
+npm create astro@latest -- --template chrismwilliams/astro-cactus
+# and then... visited: https://github.com/JustGoodUI/dante-astro-theme
+```
 
-The photo-stream was forked from [Photo-stream](https://github.com/maxvoltar/photo-stream).
-Thanks [Tim Van Damme](https://twitter.com/maxvoltar)!
+## Want to learn more about Astro.js?
+
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
 ## License
 
-Licensed under the [MIT license](https://github.com/colormono/colormono.com/blob/main/LICENSE.md).
+Licensed under the [GPL-3.0](https://github.com/JustGoodUI/dante-astro-theme/blob/main/LICENSE) license.

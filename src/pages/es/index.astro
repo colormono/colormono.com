@@ -1,0 +1,54 @@
+---
+import WorkCard from '@components/WorkCard.astro';
+import Layout from '@layouts/default.astro';
+import {getCollection} from 'astro:content';
+import {compareDesc} from 'date-fns';
+import {getRelativeLocaleUrl} from 'astro:i18n';
+import HomeHero from '@components/HomeHero.astro';
+import LatestPosts from '@components/LatestPosts.astro';
+
+const title = 'Mariano Rivas';
+const description = "Mariano Rivas's personal portfolio. A new-media artist and software developer.";
+
+const works = (await getCollection('works')).sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)));
+const featuredWorks = works.filter((work) => work.data.isFeatured);
+
+// defaultLocale is "es"
+const aboutURL = getRelativeLocaleUrl('es', 'about');
+---
+
+<Layout title={title} description={description}>
+  <HomeHero title="Hola, Mundo!">
+    Soy <a href={aboutURL}>Mariano Rivas</a>, un artista de nuevos medios y desarrollador de software. Trabajo en <a
+      href="https://truenorth.co"
+      target="_blank">TrueNorth</a
+    > como Lead Front-end Engineer. Gracias a mis habilidades en programación creativa, tengo el privilegio de contribuir
+    en diversos aspectos del proceso creativo, desde el concepto hasta la implementación.
+  </HomeHero>
+
+  <section class="container mt-20">
+    <h6 class="text-xs uppercase tracking-wider text-muted-foreground">Selected Works</h6>
+
+    <div class="my-5 grid gap-10 lg:grid-cols-1 xl:gap-20">
+      {
+        featuredWorks.map((item, index) => (
+          // <div class={index % 3 === 0 ? "col-span-2" : "col-span-1"}>
+          <div>
+            <WorkCard item={item} />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex items-center gap-8">
+      <hr class="grow border-dotted" />
+      <a
+        href="/works"
+        class="block rounded-full bg-muted px-6 py-3 text-center text-sm font-semibold"
+        aria-label="Works page">ALL WORKS &rarr;</a
+      >
+    </div>
+  </section>
+
+  <LatestPosts />
+</Layout>

@@ -1,0 +1,107 @@
+---
+import Layout from '@layouts/default.astro';
+
+const title = 'Test';
+const description = 'Test description';
+
+const colormonoTech: Array<{title: string; desc: string; href: string}> = [
+  {
+    title: 'Astro',
+    desc: 'Build fast websites, faster.',
+    href: 'https://astro.build',
+  },
+  {
+    title: 'Tailwind CSS',
+    desc: 'Rapidly build modern websites without ever leaving your HTML.',
+    href: 'https://tailwindcss.com',
+  },
+  {
+    title: 'Markdown',
+    desc: 'Simple and easy-to-use markup language.',
+    href: 'https://www.markdownguide.org/',
+  },
+  {
+    title: 'MDX',
+    desc: 'Markdown for the component era.',
+    href: 'https://mdxjs.com/',
+  },
+  {
+    title: 'Satori',
+    desc: 'Generating png Open Graph images for blog posts.',
+    href: 'https://github.com/vercel/satori',
+  },
+  {
+    title: 'Pagefind',
+    desc: 'A fully static search library.',
+    href: 'https://pagefind.app/',
+  },
+  {
+    title: 'Astro Icon',
+    desc: 'An easy to use Icon component for Astro.',
+    href: 'https://github.com/natemoo-re/astro-icon#readme',
+  },
+  {
+    title: 'Expressive Code',
+    desc: 'Highly customisable source code & syntax highlighter',
+    href: 'https://expressive-code.com/',
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <div>Hello there</div>
+
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sara-shirt-example.jpg" class="not-filtered" />
+
+  <div class="filtered">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sara-shirt-example.jpg" />
+  </div>
+
+  <section class="mt-16">
+    <h2 class="title mb-4 text-xl">Technologies</h2>
+    <dl class="space-y-4">
+      {
+        colormonoTech.map(({href, title, desc}) => (
+          <div class="flex flex-col gap-2 md:flex-row">
+            <dt>
+              <span class="flex">
+                <a href={href} target="_blank" rel="noopener noreferrer" class="cactus-link">
+                  {title}
+                </a>
+                :
+              </span>
+            </dt>
+            <dd>{desc}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+</Layout>
+
+<style>
+  .filtered {
+    background: #0000ff;
+  }
+
+  .filtered img {
+    mix-blend-mode: screen;
+    -webkit-filter: grayscale(100%) contrast(200%);
+    filter: grayscale(100%) contrast(200%);
+    opacity: 0.6;
+  }
+
+  .filtered,
+  .not-filtered {
+    float: left;
+    max-width: 50%;
+    border: 10px solid white;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  * {
+    box-sizing: border-box;
+  }
+</style>
