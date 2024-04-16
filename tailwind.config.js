@@ -47,13 +47,18 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      aspectRatio: {
+        a4: '216 / 279',
+        poster: '9 / 16',
+        '4/3': '4 / 3',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       keyframes: {
         'accordion-down': {

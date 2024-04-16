@@ -24,7 +24,7 @@ const {item} = Astro.props;
       ) : null
     }
 
-    <h3 class="font-semibold uppercase">{item.data.title}</h3>
+    <h3 class="font-semibold">{item.data.title}</h3>
     <time class="mb-2 block text-xs text-muted-foreground">
       {format(item.data.date, 'yyyy')}
     </time>

@@ -4,13 +4,13 @@ import Label from './ui/label.astro';
 const {item, sameHeight} = Astro.props;
 ---
 
-<article class="card mb-12">
+<article class=`${Astro.props.class}`>
   <a href={`/lab/${item.slug}/`} class="group relative">
     <figure class="overflow-hidden rounded-lg">
       <img
         src={item.data.thumbnail || '/static/not-found.png'}
         alt={item.data.title}
-        class={`${sameHeight ? 'aspect-video' : ''} w-full object-cover group-hover:opacity-70 transition-opacity duration-300`}
+        class={`${sameHeight ? 'aspect-a4' : ''} w-full object-cover group-hover:opacity-70 transition-opacity duration-300`}
       />
     </figure>
     <div class="mt-3">
@@ -26,9 +26,3 @@ const {item, sameHeight} = Astro.props;
     </div>
   </a>
 </article>
-
-<style>
-  .card {
-    -webkit-column-break-inside: avoid;
-  }
-</style>
