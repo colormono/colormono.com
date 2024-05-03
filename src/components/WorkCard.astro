@@ -1,39 +1,41 @@
 ---
+import {Image} from 'astro:assets';
 import {format} from 'date-fns';
 import Label from './ui/label.astro';
 
 const {item} = Astro.props;
 ---
 
-<article class="grid gap-8 lg:grid-cols-2 lg:gap-16">
-  <a href={`/works/${item.slug}/`} class="group relative">
-    <figure class="relative aspect-video overflow-hidden rounded-xl">
-      <img
+<article class="grid gap-8 lg:grid-cols-3 lg:gap-16">
+  <a href={`/works/${item.slug}/`} class="group relative lg:col-span-2">
+    <figure class="relative aspect-video overflow-hidden rounded-lg">
+      <Image
         src={item.data.thumbnail || '/static/work/thumb-default.jpg'}
         alt={item.data.title}
-        class="w-full object-cover transition-opacity duration-300 group-hover:opacity-80"
+        class="w-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
     </figure>
   </a>
+
   <div class="lg:mb-8 lg:self-end">
     {
       process.env.NODE_ENV === 'development' && item.data.draft ? (
         <div class="mb-8">
-          <Label>Draft</Label>
+          <Label>Ongoing</Label>
         </div>
       ) : null
     }
 
-    <h3 class="font-semibold">{item.data.title}</h3>
-    <time class="mb-2 block text-xs text-muted-foreground">
+    <h3 class="text-4xl">{item.data.title}</h3>
+    <time class="my-2 block text-sm">
       {format(item.data.date, 'yyyy')}
     </time>
-    {item.data.description && <p class="mt-4 max-w-md text-muted-foreground">{item.data.description}</p>}
+    {item.data.description && <p class="mt-4 max-w-md lg:mt-8">{item.data.description}</p>}
 
-    <div class="mt-8">
+    <div class="mt-8 lg:mt-16">
       <a
         href={`/works/${item.slug}/`}
-        class="rounded-full bg-muted px-4 py-2 text-center text-sm font-semibold"
+        class="rounded-full bg-foreground px-4 py-2 text-center text-sm font-semibold text-background"
         aria-label="Works page">VIEW &rarr;</a
       >
     </div>

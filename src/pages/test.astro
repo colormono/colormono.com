@@ -1,5 +1,6 @@
 ---
 import Layout from '@layouts/default.astro';
+import Slider from '@components/Slider.astro';
 
 const title = 'Test';
 const description = 'Test description';
@@ -50,6 +51,8 @@ const colormonoTech: Array<{title: string; desc: string; href: string}> = [
 
 <Layout title={title} description={description}>
   <div>Hello there</div>
+
+  <Slider />
 
   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sara-shirt-example.jpg" class="not-filtered" />
 
@@ -105,3 +108,10 @@ const colormonoTech: Array<{title: string; desc: string; href: string}> = [
     box-sizing: border-box;
   }
 </style>
+
+<script>
+  const doc = document.documentElement;
+  doc.getAttribute('data-theme') === 'dark'
+    ? doc.setAttribute('data-theme', 'light')
+    : doc.setAttribute('data-theme', 'dark');
+</script>

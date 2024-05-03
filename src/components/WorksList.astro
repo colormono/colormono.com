@@ -1,0 +1,64 @@
+---
+import {getCollection} from 'astro:content';
+import {compareDesc} from 'date-fns';
+
+import {format} from 'date-fns';
+import Label from './ui/label.astro';
+
+const allItems = (await getCollection('works')).sort((a, b) =>
+  compareDesc(new Date(a.data.date), new Date(b.data.date)),
+);
+const publicItems = allItems.filter((post) => post.data.draft !== true);
+const items = process.env.NODE_ENV === 'development' ? allItems : publicItems;
+// const items = process.env.NODE_ENV === 'development' ? allItems.slice(0, 6) : publicItems.slice(0, 6);
+// items.map((item) => console.log("🚀 ~ item:", item.id))
+---
+
+<section class="bg-foreground py-20 text-background dark:bg-background dark:text-foreground">
+  <div class="container">
+    <h2 class="mb-12 text-xl uppercase">Works</h2>
+  </div>
+
+  <ul>
+    {
+      items.map((item) => (
+        <li>
+          <a
+            href={`/works/${item.slug}/`}
+            class="group block border-b border-border/30 transition-colors hover:bg-primary dark:border-border"
+          >
+            <div class="container relative flex h-20 items-center gap-4">
+              <div class="flex flex-1 items-center gap-4">
+                <h3 class="text-3xl">{item.data.title}</h3>
+                {process.env.NODE_ENV === 'development' && item.data.draft ? (
+                  <span class="rounded-full bg-primary px-3 py-1 text-center text-xs text-white group-hover:bg-black ">
+                    Ongoing
+                  </span>
+                ) : null}
+              </div>
+              <figure class="pointer-events-none h-16 overflow-hidden rounded-md opacity-0 transition-opacity duration-300 group-hover:flex md:group-hover:opacity-100">
+                <img
+                  src={item.data.thumbnail || '/static/not-found.png'}
+                  alt={item.data.title}
+                  class={`h-full w-full object-cover`}
+                />
+              </figure>
+              <time class="text-sm">{format(item.data.date, 'yyyy')}</time>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <!-- <div class="flex items-center">
+    <hr class="grow border-border" />
+    <a
+      href="/lab"
+      class="m-4 block rounded-full border border-border px-6 py-3 text-center text-sm font-semibold lg:m-20"
+      aria-label="Lab page"
+    >
+      WORKS &rarr;
+    </a>
+  </div> -->
+</section>

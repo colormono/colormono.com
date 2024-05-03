@@ -13,9 +13,9 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '');
   href={href}
   class:list={[
     className,
-    'flex items-center text-sm font-semibold uppercase',
-    {'text-foreground': isActive},
-    {'text-muted-foreground': !isActive},
+    'flex items-center',
+    {'text-underline text-foreground': isActive},
+    {'text-foreground': !isActive},
   ]}
   {...props}
 >

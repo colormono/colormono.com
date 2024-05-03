@@ -1,28 +1,29 @@
 ---
+import {format} from 'date-fns';
 import Label from './ui/label.astro';
 
 const {item, sameHeight} = Astro.props;
 ---
 
 <article class=`${Astro.props.class}`>
-  <a href={`/lab/${item.slug}/`} class="group relative">
-    <figure class="overflow-hidden rounded-lg">
+  <a
+    href={`/lab/${item.slug}/`}
+    class="group relative flex flex-col items-center gap-4 rounded-lg bg-white px-4 py-6 dark:bg-black"
+  >
+    <h3>{item.data.title}</h3>
+    <figure class="overflow-hidden rounded-md">
       <img
         src={item.data.thumbnail || '/static/not-found.png'}
         alt={item.data.title}
-        class={`${sameHeight ? 'aspect-a4' : ''} w-full object-cover group-hover:opacity-70 transition-opacity duration-300`}
+        class={`${sameHeight ? 'aspect-square' : ''} w-full h-full object-cover transition-transform group-hover:scale-105 duration-300`}
       />
     </figure>
-    <div class="mt-3">
-      <h3 class="font-semibold">{item.data.title}</h3>
-      {item.data.description && <p class="text-sm text-muted-foreground">{item.data.description}</p>}
-      {
-        process.env.NODE_ENV === 'development' && item.data.draft ? (
-          <div class="mt-3">
-            <Label>Draft</Label>
-          </div>
-        ) : null
-      }
+    <div class="text-center text-base text-muted-foreground">
+      {item.data.description && <p class="mx-4 text-center">{item.data.description}</p>}
+      <time class="mt-3 block text-sm">
+        {format(item.data.date, 'yyyy')}
+      </time>
     </div>
+    {process.env.NODE_ENV === 'development' && item.data.draft ? <Label>Ongoing</Label> : null}
   </a>
 </article>

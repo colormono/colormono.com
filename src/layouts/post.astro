@@ -6,6 +6,7 @@ import Article from '@components/Article.astro';
 import {slugify} from '@utils';
 import {format} from 'date-fns';
 import LatestPosts from '@components/LatestPosts.astro';
+import WorksList from '@components/WorksList.astro';
 
 type Props = CollectionEntry<'lab'>['data'];
 
@@ -13,59 +14,65 @@ const {title, description, date, updatedDate, heroImage, tags} = Astro.props;
 ---
 
 <Layout {...Astro.props} title={title} description={description}>
-  <main class="container">
+  <article class="m-4 lg:m-20 lg:mt-0">
     {
       heroImage && (
-        <div class="hero-image">
-          <img src={heroImage} alt="" loading="eager" decoding="async" class="w-full" />
-        </div>
+        <figure class="mx-auto aspect-video max-h-[75vh] overflow-hidden rounded-lg bg-neutral-200 dark:bg-black">
+          <img
+            src={heroImage}
+            alt=""
+            loading="eager"
+            decoding="async"
+            class="h-full w-full object-contain transition-opacity duration-300 group-hover:opacity-70"
+          />
+        </figure>
       )
     }
 
-    <Article class="mx-auto">
-      <h1 class="my-10">{title}</h1>
+    <section class="container">
+      <header class="flex flex-col gap-2 py-10 text-center">
+        <h1 class="text-5xl">{title}</h1>
+        <time class="my-4 block text-muted-foreground">
+          {format(date, 'yyyy')}
+        </time>
+      </header>
 
-      <slot />
+      <Article class="mx-auto">
+        <slot />
 
-      <div>
-        <hr />
-        <div class="date">
-          <time class="mb-2 block text-muted-foreground">
-            {format(date, 'yyyy')}
-          </time>
-          {
-            updatedDate && (
-              <div class="last-updated-on">
+        {
+          updatedDate && (
+            <div>
+              <hr />
+              <div class="date">
                 Last updated on <FormattedDate date={updatedDate} />
               </div>
-            )
-          }
-        </div>
-      </div>
+            </div>
+          )
+        }
+      </Article>
 
       {
         tags?.length > 0 ? (
-          <>
-            <hr />
-            <h3>Tags</h3>
-            <div class="flex flex-row flex-wrap">
+          <footer class="container">
+            <h2 class="mb-12 text-xl uppercase">Related</h2>
+            <div class="flex flex-row flex-wrap gap-3">
               {tags.map((tag) => (
                 <a
                   href={`/tags/${slugify(tag)}/`}
-                  class="mr-2 rounded-full bg-muted px-2 py-1 text-xs text-muted-foreground"
+                  class="rounded-full border border-border px-5 py-1.5 transition-colors hover:bg-border"
                 >
                   {tag}
                 </a>
               ))}
             </div>
-          </>
+          </footer>
         ) : null
       }
-    </Article>
+    </section>
+  </article>
 
-    <hr />
-  </main>
+  <WorksList />
 
-  <!-- to-do: related lab/works by tag  -->
   <LatestPosts />
 </Layout>

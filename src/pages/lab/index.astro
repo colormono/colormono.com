@@ -17,7 +17,7 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
 ---
 
 <Layout title="COLORMONO'S LAB" description="Mariano Rivas's experiments.">
-  <section class="container">
+  <section class="lg:px-12 lg:py-6">
     <!-- <div class="mb-8 grid grid-cols-4 items-end gap-10">
       <div class="col-span-1">Search</div>
       <div class="col-span-2 flex flex-wrap gap-2">
@@ -47,11 +47,11 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
   import MiniMasonry from 'minimasonry';
 
   const masonry = new MiniMasonry({
-    baseWidth: 256,
+    baseWidth: 288,
     container: '.posts',
     surroundingGutter: false,
-    gutter: 40,
-    ultimateGutter: 40,
+    gutter: 24,
+    ultimateGutter: 24,
   });
 
   var imgs = document.images,

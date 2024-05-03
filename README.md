@@ -14,6 +14,7 @@ Features:
 - ✅ Tailwind CSS
 - ✅ Mobile-first responsive layout
 - ✅ [Navbar with burger button](https://github.com/surjithctly/astro-navbar)
+- ✅ [Image Optimization](https://unpic.pics/)
 - ✅ SEO-friendly with canonical URLs and OpenGraph data
 - ✅ Sitemap support
 - ✅ RSS Feed support

@@ -1,7 +1,7 @@
 ---
 title: 'Hello World'
 description: 'Playground note'
-date: 'Jan 10 2024'
+date: 'Oct 22 1983'
 thumbnail: 'https://res.cloudinary.com/dktzvzksl/image/upload/v1710537190/lab/u4yxjfxk44xrkhhv2n9u.jpg'
 heroImage: 'https://res.cloudinary.com/dktzvzksl/image/upload/v1669346293/branding/stills/tiling-thumb_rupld8.png'
 tags:
@@ -12,6 +12,8 @@ seo:
     alt: A person standing at the window
 draft: true
 ---
+
+import Cols from '@components/ui/Cols.astro';
 
 This is a test of Astro with MDX.
 
@@ -144,6 +146,29 @@ Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptio
 Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
 
 ## Images
+
+![Alt text](/static/banner.jpg)
+
+#### Syntax
+
+```markdown
+![Alt text](./full/or/relative/path/of/image)
+```
+
+## Image gallery
+
+![Alt text](/static/banner.jpg)
+
+<Cols>
+  <image src="/static/banner.jpg" alt="Alt text" />
+  <image src="/static/banner.jpg" alt="Alt text" />
+</Cols>
+
+<Cols num="3">
+  <image src="/static/banner.jpg" alt="Alt text" />
+  <image src="/static/banner.jpg" alt="Alt text" />
+  <image src="/static/banner.jpg" alt="Alt text" />
+</Cols>
 
 #### Syntax
 

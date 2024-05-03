@@ -21,11 +21,13 @@ const {title, description}: Props = Astro.props;
   <head>
     <Head title={title || SITE_TITLE} description={description || SITE_DESCRIPTION} />
   </head>
-  <body class="flex min-h-screen w-full max-w-full flex-col">
-    <Header />
-    <main class="relative flex flex-1 flex-col pb-40">
-      <slot />
-    </main>
-    <Footer />
+  <body class="bg-background text-lg">
+    <div class="flex min-h-screen w-full max-w-full flex-col">
+      <Header />
+      <main class="relative flex flex-1 flex-col">
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>

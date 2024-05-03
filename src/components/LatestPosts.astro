@@ -1,31 +1,39 @@
 ---
 import LabCard from '@components/LabCard.astro';
+import 'keen-slider/keen-slider.min.css';
 import {getCollection} from 'astro:content';
 import {compareDesc} from 'date-fns';
 
 const allPosts = (await getCollection('lab')).sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)));
 const publicPosts = allPosts.filter((post) => post.data.draft !== true);
-const latestPosts = process.env.NODE_ENV === 'development' ? allPosts.slice(0, 3) : publicPosts.slice(0, 3);
+const latestPosts = process.env.NODE_ENV === 'development' ? allPosts : publicPosts;
+// const latestPosts = process.env.NODE_ENV === 'development' ? allPosts.slice(0, 6) : publicPosts.slice(0, 6);
 // latestPosts.map((item) => console.log("🚀 ~ item:", item.id))
 ---
 
 {
   latestPosts?.length > 0 && (
-    <section class="container mt-20">
-      <h6 class="text-xs uppercase tracking-wider text-muted-foreground">Lab's latest</h6>
-
-      <div class="my-5 grid gap-10 lg:grid-cols-3 xl:gap-20">
-        {latestPosts.map((item) => (
-          <LabCard item={item} sameHeight />
-        ))}
+    <section class="py-20">
+      <div class="container">
+        <h2 class="mb-12 text-xl uppercase">From the Lab</h2>
       </div>
 
-      <div class="flex items-center gap-8">
-        <hr class="grow border-dotted" />
+      <div class="relative">
+        <div id="my-keen-slider" class="keen-slider">
+          {latestPosts.map((item) => (
+            <LabCard class="keen-slider__slide" item={item} sameHeight />
+          ))}
+        </div>
+        <div class="absolute left-0 top-0 block h-full w-20 border-l-8 border-background bg-gradient-to-r from-background to-transparent" />
+        <div class="absolute right-0 top-0 block h-full w-20 border-r-8 border-background bg-gradient-to-l from-background to-transparent" />
+      </div>
+
+      <div class="flex items-center">
+        <hr class="grow border-border" />
         <a
           href="/lab"
-          class="block rounded-full bg-muted px-6 py-3 text-center text-sm font-semibold"
-          aria-label="Works page"
+          class="m-4 block rounded-full border border-border px-6 py-3 text-center text-sm font-semibold lg:mx-20"
+          aria-label="Lab page"
         >
           VISIT LAB &rarr;
         </a>
@@ -33,3 +41,35 @@ const latestPosts = process.env.NODE_ENV === 'development' ? allPosts.slice(0, 3
     </section>
   )
 }
+
+<script>
+  import KeenSlider from 'keen-slider';
+
+  // @see https://keen-slider.io/docs
+  // @see https://keen-slider.io/examples
+
+  const animation = {duration: 40000, easing: (t) => t};
+
+  const slider = new KeenSlider('#my-keen-slider', {
+    renderMode: 'performance',
+    loop: true,
+    drag: true,
+    breakpoints: {
+      '(min-width: 640px)': {slides: {perView: 2, spacing: 24}},
+      '(min-width: 768px)': {slides: {perView: 3, spacing: 16}},
+      '(min-width: 1024px)': {slides: {perView: 4, spacing: 16}},
+      '(min-width: 1280px)': {slides: {perView: 5, spacing: 16}},
+      '(min-width: 1536px)': {slides: {perView: 6, spacing: 16}},
+    },
+    slides: {perView: 1, spacing: 24},
+    created(s) {
+      s.moveToIdx(5, true, animation);
+    },
+    updated(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation);
+    },
+    animationEnded(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation);
+    },
+  });
+</script>

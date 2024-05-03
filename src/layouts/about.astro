@@ -1,6 +1,8 @@
 ---
 import Layout from '@layouts/default.astro';
 import Article from '@components/Article.astro';
+import {Image} from 'astro:assets';
+import avatar from '../../public/static/avatar.jpg';
 
 export interface Props {
   title: string;
@@ -11,12 +13,20 @@ const {title, description}: Props = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <div class="container gap-32 pb-8 md:flex">
-    <Article class="mx-auto">
+  <div class="container gap-32 pb-8">
+    <div class="text-center">
+      <Image src={avatar} alt="Colormono" class="mx-auto rounded-full" />
+      <h1 class="mt-8 text-5xl tracking-tighter">Mariano N. Rivas</h1>
+      <h2 class="mt-4 text-2xl leading-normal">
+        <abbr title="also known as">AKA</abbr> Mono, Colormono
+      </h2>
+    </div>
+
+    <Article class="mx-auto mt-12">
       <slot />
     </Article>
 
-    <!-- <div class="min-h-40 w-full flex-1 self-stretch overflow-hidden rounded-xl bg-muted">
+    <!-- <div class="min-h-40 w-full flex-1 self-stretch overflow-hidden rounded-lg bg-muted">
       Cool generative background
     </div> -->
   </div>

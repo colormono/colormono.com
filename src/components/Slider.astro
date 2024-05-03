@@ -1,0 +1,46 @@
+---
+import 'keen-slider/keen-slider.min.css';
+---
+
+<div id="my-keen-slider" class="keen-slider">
+  <div class="keen-slider__slide number-slide1">
+    <div class="flex h-16 w-full bg-muted-foreground">COLORMONO</div>
+  </div>
+  <div class="keen-slider__slide number-slide2">
+    <div class="flex h-16 w-full bg-muted-foreground">COLORMONO</div>
+  </div>
+  <div class="keen-slider__slide number-slide2">
+    <div class="flex h-16 w-full bg-muted-foreground">COLORMONO</div>
+  </div>
+  <div class="keen-slider__slide number-slide2">
+    <div class="flex h-16 w-full bg-muted-foreground">COLORMONO</div>
+  </div>
+</div>
+
+<script>
+  import KeenSlider from 'keen-slider';
+
+  // @see https://keen-slider.io/docs
+  // @see https://keen-slider.io/examples
+
+  const animation = {duration: 30000, easing: (t) => t};
+
+  const slider = new KeenSlider('#my-keen-slider', {
+    loop: true,
+    renderMode: 'performance',
+    drag: false,
+    slides: {
+      perView: 2,
+      spacing: 15,
+    },
+    created(s) {
+      s.moveToIdx(5, true, animation);
+    },
+    updated(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation);
+    },
+    animationEnded(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation);
+    },
+  });
+</script>

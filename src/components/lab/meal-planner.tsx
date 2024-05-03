@@ -484,7 +484,7 @@ export default function MealPlanner({...props}) {
   const rowStyles = 'grid gap-1';
   const cellStyles = 'col-span-2 bg-muted px-2 py-2 flex flex-wrap gap-1 items-baseline content-start';
   const tagStyles = 'inline-block rounded bg-background px-1 text-sm cursor-pointer';
-  const coleStyles = 'border border-muted-foreground';
+  const coleStyles = 'border border-border';
 
   const [hideOnMobile, setHideOnMobile] = useState(false);
 
@@ -493,7 +493,7 @@ export default function MealPlanner({...props}) {
   // }, [isMobile]);
 
   return (
-    <section className="my-6 grid rounded-lg border p-6 lg:-mx-24 lg:my-20 xl:-mx-60" {...props}>
+    <section className="my-6 grid rounded-md border p-6 lg:-mx-24 lg:my-20 xl:-mx-60" {...props}>
       <header className="mb-5 grid grid-cols-12 items-center gap-y-2">
         <div className="col-span-12 lg:col-span-2">
           <span className="text-xl font-bold">Meal Planner</span>
@@ -605,7 +605,7 @@ export default function MealPlanner({...props}) {
             className={cn(
               rowStyles,
               gridMode && !hideOnMobile && 'grid-cols-12',
-              today.getDay() === plan.weekday && 'border-y border-dashed border-muted-foreground/50',
+              today.getDay() === plan.weekday && 'border-y border-dashed border-border',
             )}
             key={plan.day}
           >
