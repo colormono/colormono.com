@@ -9,7 +9,7 @@ const {item} = Astro.props;
 <article class="grid gap-8 lg:grid-cols-3 lg:gap-16">
   <a href={`/works/${item.slug}/`} class="group relative lg:col-span-2">
     <figure class="relative aspect-video overflow-hidden rounded-lg">
-      <Image
+      <img
         src={item.data.thumbnail || '/static/work/thumb-default.jpg'}
         alt={item.data.title}
         class="w-full object-cover transition-transform duration-300 group-hover:scale-105"

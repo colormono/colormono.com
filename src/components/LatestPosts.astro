@@ -48,7 +48,7 @@ const latestPosts = process.env.NODE_ENV === 'development' ? allPosts : publicPo
   // @see https://keen-slider.io/docs
   // @see https://keen-slider.io/examples
 
-  const animation = {duration: 40000, easing: (t) => t};
+  const animation = {duration: 40000, easing: (t: any) => t};
 
   const slider = new KeenSlider('#my-keen-slider', {
     renderMode: 'performance',

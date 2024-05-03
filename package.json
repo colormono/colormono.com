@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check --minimumSeverity=error && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "npx prettier --write **/*.astro ."
@@ -23,7 +23,7 @@
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
-    "@unpic/astro": "^0.0.46",
+    "@unpic/astro": "^0.0.44",
     "astro": "^4.0.7",
     "astro-navbar": "^2.3.1",
     "class-variance-authority": "^0.7.0",
