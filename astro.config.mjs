@@ -31,5 +31,6 @@ export default defineConfig({
   redirects: {
     '/old': '/new',
     '/blog/[...slug]': '/lab/[...slug]',
+    '/cursos/inpr': 'https://colormono.notion.site/INPR-4e1b25ec0e304d219158553b8ca53480',
   },
 });
