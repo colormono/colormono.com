@@ -1,0 +1,53 @@
+---
+import Layout from '@layouts/default.astro';
+import LabCard from '@components/LabCard.astro';
+import {getCollection} from 'astro:content';
+import {compareDesc} from 'date-fns';
+
+const allPosts = (await getCollection('lab')).sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)));
+const publicPosts = allPosts.filter((post) => post.data.draft !== true);
+const posts = process.env.NODE_ENV === 'development' ? allPosts : publicPosts;
+---
+
+<Layout title="COLORMONO'S LAB" description="Mariano Rivas's experiments.">
+  <section class="lg:px-12 lg:py-6">
+    <div class="posts relative w-full">
+      {posts.map((post) => <LabCard item={post} class="absolute" />)}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  //@ts-ignore
+  import MiniMasonry from 'minimasonry';
+
+  const masonry = new MiniMasonry({
+    baseWidth: 288,
+    container: '.posts',
+    surroundingGutter: false,
+    gutter: 24,
+    ultimateGutter: 24,
+  });
+
+  var imgs = document.images,
+    len = imgs.length,
+    counter = 0;
+
+  [].forEach.call(imgs, function (img) {
+    //@ts-ignore
+    if (img.complete) {
+      incrementCounter();
+    } else {
+      //@ts-ignore
+      img.addEventListener('load', incrementCounter, false);
+    }
+  });
+
+  function incrementCounter() {
+    counter++;
+    if (counter === len) {
+      // console.log('All images loaded!');
+      masonry.layout();
+    }
+  }
+</script>

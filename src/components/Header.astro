@@ -68,7 +68,7 @@ const translatePath = useTranslatedPath(lang);
         <ul class="flex flex-1 flex-col gap-4 md:flex-row md:gap-6">
           <HeaderLink href={translatePath('/about')}>{t('nav.about')}</HeaderLink>
           <HeaderLink href={translatePath('/works')}>{t('nav.works')}</HeaderLink>
-          <HeaderLink href={'/lab'}>{t('nav.lab')}</HeaderLink>
+          <HeaderLink href={translatePath('/lab')}>{t('nav.lab')}</HeaderLink>
         </ul>
 
         <nav class="flex items-center space-x-4">
