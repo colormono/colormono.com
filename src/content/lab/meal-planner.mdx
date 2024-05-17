@@ -7,34 +7,55 @@ date: 2023-07-29
 
 import MealPlanner from '../../components/lab/meal-planner';
 
-Prueba de concepto para una aplicación para planificar comidas semanalmente.
-Opciones para modificar el menú con drag and drop, agregar/borrar nuevos elementos
-y almacenarlos localmente. Listo para imprimir y pegar en la heladera.
+In our daily lives, meal planning can be a daunting task. Between the demands of work, family, and other activities, finding the time and energy to plan, shop for, and prepare healthy meals can seem impossible.
 
-<MealPlanner client:load />
+This is a proof of concept for an application that not only helps me easily organize my weekly meals but also offers recipes and automatically generates shopping lists.
 
-## Consideraciones
+{/* En nuestro día a día, la planificación de las comidas puede ser una tarea desalentadora. Entre las demandas del trabajo, la familia y otras actividades, encontrar el tiempo y la energía para planificar, comprar y preparar comidas saludables puede parecer imposible. */}
+{/* Esta es una prueba de concepto para una aplicación que no solo me ayude a organizar mis comidas semanales con facilidad, sino que también me ofrezca recetas y genere listas de compras automáticamente. */}
 
-- Elegir Frutas y verduras de estación _(mejor precio y sabor)_.
-- La viandas se preparan la noche anterior _(concatenar las comidas)_.
+<MealPlanner className="my-6 lg:-mx-24 lg:my-20 xl:-mx-60" client:load />
 
-### To-do
+Choosing seasonal fruits and vegetables not only guarantees better prices and taste but also contributes to a more nutritious and varied diet. Preparing meals the night before allows you to efficiently link your meals together, ensuring you always have healthy options at hand. Meal planning not only helps maintain a balanced diet but also significantly reduces the stress of deciding what to eat each day. Ultimately, meal prep is an effective strategy to improve your overall well-being, as it saves time and money, promotes healthy eating habits, and reduces the anxiety related to daily meal preparation.
 
-- [] Print planner
-- [] Drag and drop meals
-- [] Save meals in local storage
-- [] Add new meals
-- [] Remove meals
-- [] Add a "shopping list" with the ingredients (example)
+{/* Elegir frutas y verduras de estación no solo garantiza un mejor precio y sabor, sino que también contribuye a una dieta más nutritiva y variada. Preparar las viandas la noche anterior permite concatenar las comidas de manera eficiente, asegurando que siempre tengas opciones saludables a mano. La planificación de las comidas no solo ayuda a mantener una alimentación más balanceada, sino que también reduce significativamente el estrés de tener que decidir qué comer cada día. En definitiva, el meal prep se presenta como una estrategia efectiva para mejorar tu bienestar general, ya que ahorra tiempo y dinero, fomenta hábitos alimenticios saludables y disminuye la ansiedad relacionada con la alimentación diaria. */}
 
-## Aprendiendo
+## Goals
 
-- **Cocina:** [Paulina Cocina](https://www.youtube.com/paulinacocina), [Gato Dumas Online](https://www.gatodumasonline.com.ar)
-- **Panes:** [Gluten Morgen Tv](https://www.youtube.com/@GlutenMorgenTv), [Ciabatta](https://www.youtube.com/watch?v=yPRrMWc8UGM)
-- **Pastas:** [El Pastificio de Nicola](https://www.youtube.com/@ElPastificiodeNicola)
-- **Parrilla:** [Locos x el asado](https://www.youtube.com/@LocosXelAsadoOficial)
-- **Dieta:** _Disclamer: I'm not a Nutritionist, I just love eating._ [Keto](https://www.retocleanketo.com/vegetales-ideales-para-la-dieta-keto)
+- **Time-saving:** Facilitate the planning and preparation of meals for the entire week.
+- **Promotion of healthy eating:** Offer balanced recipes and portion control.
+- **Reduction of food waste:** Optimize the use of ingredients to minimize waste.
+- **Customization:** Adapt to the dietary needs and preferences of the family.
+- **User-friendly design:** Create an easy-to-use and accessible interface.
 
-## Fotos
+## Inspiration
 
-I enjoy cooking for them.
+- **🧑‍🍳 Cuisine:** [Paulina Cocina](https://www.youtube.com/paulinacocina), [Gato Dumas Online](https://www.gatodumasonline.com.ar)
+- **🇦🇷 Parrilla:** [Locos x el asado](https://www.youtube.com/@LocosXelAsadoOficial), [@salvalacocina](https://www.instagram.com/salvalacocina)
+- **🍝 Pasta:** [El Pastificio de Nicola](https://www.youtube.com/@ElPastificiodeNicola)
+- **🥖 Bread:** [Gluten Morgen Tv](https://www.youtube.com/@GlutenMorgenTv), [Ciabatta](https://www.youtube.com/watch?v=yPRrMWc8UGM)
+- **🍷 Diet:** Keep calm &amp; and cook on
+- **🍿 Anyone can cook:** [Ratatouille](https://www.imdb.com/title/tt0382932/)
+
+## Gallery
+
+I enjoy cooking for them. 🙂
+
+![Friends and Family](https://res.cloudinary.com/dktzvzksl/image/upload/v1715883097/lab/mealplanner-photos_wx69cd.jpg)
+
+## Devlog
+
+- [x] Create a new [React](https://react.dev/) app
+- [x] Make a calendar layout using [TailwindCSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/)
+- [x] Add a list of activities for each day: ⚽️, 😎, 🔥, 🏓...
+- [x] Add a list of to-do items for each day ✅
+- [x] Highlight the ongoing meal 📍
+- [x] Create a database file with my personal collection of recipes 🍽️
+- [ ] Ability to [Drag & Drop](https://react-dnd.github.io/react-dnd) recipes between meals and bench 🎛️
+- [ ] Store user preferences in local storage 💾
+- [ ] Allow users to Create New Recipes 🧑‍🍳
+- [ ] Allow users to Remove Recipes 🐮
+- [ ] Allow users to Share the planner 🧑‍🧑‍🧒‍🧒
+- [ ] Plan for a "shopping list" feature 🛒
+- [ ] Add AI assistance for weekly plan and recipe creation 🤖
+- [x] Don't add a Print button 🌎

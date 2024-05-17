@@ -3,10 +3,10 @@ import {Image} from 'astro:assets';
 import {format} from 'date-fns';
 import Label from './ui/label.astro';
 
-const {item} = Astro.props;
+const {item, class: className} = Astro.props;
 ---
 
-<article class="grid gap-8 lg:grid-cols-3 lg:gap-16">
+<article class:list={['grid gap-8 lg:grid-cols-3 lg:gap-16', className]}>
   <a href={`/works/${item.slug}/`} class="group relative lg:col-span-2">
     <figure class="relative aspect-video overflow-hidden rounded-lg">
       <img

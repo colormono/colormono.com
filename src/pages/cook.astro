@@ -1,0 +1,18 @@
+---
+import MealPlanner from '@components/lab/meal-planner';
+import Head from '@components/Head.astro';
+
+const title = 'Mariano Rivas | Meal Planner';
+const description = 'A simple meal planner to help you organize your meals and generate a shopping list.';
+---
+
+<html lang="en">
+  <head>
+    <Head title={title} description={description} />
+  </head>
+  <body class="bg-background">
+    <div class="flex min-h-screen w-full max-w-full flex-col p-8">
+      <MealPlanner className="flex-grow" client:load />
+    </div>
+  </body>
+</html>
