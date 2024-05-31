@@ -14,7 +14,7 @@ import {Label} from '@/components/ui/label';
 import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover';
 import {Switch} from '@/components/ui/switch';
 import {recipes, type RecipeType} from './recipes';
-import {mealPlan, type MealName, type MealPlannerType} from './plan';
+import {mealPlan as mealPlanDb, type MealName, type MealPlannerType} from './plan';
 
 function getCurrentMeal(hour: number): MealName {
   if (hour >= 4 && hour < 10) {
@@ -28,6 +28,22 @@ function getCurrentMeal(hour: number): MealName {
   } else {
     return 'dinner';
   }
+}
+
+function reorderWeekdays(weekdays: MealPlannerType[], currentDay: number): MealPlannerType[] {
+  // Ensure the currentDay is within the range 0-7
+  if (currentDay < 0 || currentDay > 7) {
+    throw new Error('Current day must be between 0 and 7');
+  }
+  // Find the index of the current day in the weekdays array
+  const currentIndex = weekdays.findIndex((day) => day.weekday === currentDay);
+  // If current day is not found in the array, throw an error
+  if (currentIndex === -1) {
+    throw new Error('Current day not found in the weekdays list');
+  }
+  // Slice the array into two parts: from the current day to the end, and from the start to the current day
+  const reorderedWeekdays = weekdays.slice(currentIndex).concat(weekdays.slice(0, currentIndex));
+  return reorderedWeekdays;
 }
 
 function getRecipesInUse(mealPlan: MealPlannerType[]): RecipeType['id'][] {
@@ -58,7 +74,7 @@ const Recipe = ({recipe}: {recipe: RecipeType}) => {
       <PopoverTrigger asChild>
         <span
           className={cn(
-            'inline-block cursor-pointer rounded border bg-background px-1 text-sm',
+            'inline-block cursor-pointer whitespace-nowrap rounded border bg-white px-1 text-sm dark:bg-black',
             // plan.weekday > 0 && plan.weekday <= 5 && mealIndex > 0 && mealIndex < 3 && index === 0 && coleStyles,
           )}
         >
@@ -75,8 +91,10 @@ const Recipe = ({recipe}: {recipe: RecipeType}) => {
 
 export default function MealPlanner({className = '', ...props}) {
   const [isMobile, setIsMobile] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [position, setPosition] = useState('primero');
   const [bench, setBench] = useState<RecipeType['id'][]>([]);
+  const [mealPlan, setMealPlan] = useState<MealPlannerType[]>(mealPlanDb);
 
   const today = useMemo(() => new Date(), []);
   const currentMeal = useMemo(() => {
@@ -93,24 +111,37 @@ export default function MealPlanner({className = '', ...props}) {
     const recipesInUse = getRecipesInUse(mealPlan);
     const otherRecipes = recipes.filter((r) => !recipesInUse.includes(r.id)).map((r) => r.id);
     setBench(otherRecipes);
+
+    const currentDay = today.getDay();
+    const reordered = reorderWeekdays(mealPlan, currentDay);
+    setMealPlan(reordered);
+
+    setLoading(false);
   }, []);
+
+  if (loading)
+    return (
+      <div className="flex min-h-screen w-full items-center justify-center bg-white text-sm font-semibold tracking-wider text-muted dark:bg-black">
+        LOADING
+      </div>
+    );
 
   return (
     <div className={cn('@container', className, isMobile && '!mx-auto w-80')} {...props}>
-      <section className="@lg:p-6 flex min-h-screen flex-col bg-white p-4 text-base dark:bg-black">
-        <header className="@lg:grid-cols-12 mb-5 grid items-center gap-y-2">
-          <div className="@lg:col-span-2 flex items-center">
+      <section className="@4xl:p-6 flex min-h-screen flex-col bg-white p-4 text-base dark:bg-black">
+        <header className="@5xl:grid-cols-12 mb-5 grid items-center gap-y-2">
+          <div className="@4xl:col-span-2 flex items-center">
             <span className="mr-2 text-2xl font-bold">🍽️</span>
             <span className="text-xl font-bold">Meal Planner</span>
           </div>
 
-          <div className="@lg:col-span-6 flex items-center">
-            <span className="text-balance text-muted-foreground">
+          <div className="@4xl:col-span-6 flex items-center">
+            <span className="text-balance text-lg text-muted-foreground">
               {weekday[today.getDay()]} Enjoy your {currentMeal}.
             </span>
           </div>
 
-          <div className="@lg:col-span-4 @lg:order-last order-first hidden justify-end gap-5 lg:flex">
+          <div className="@4xl:col-span-4 @4xl:order-last order-first hidden justify-end gap-5 xl:flex">
             <div className="flex items-center space-x-4">
               {/* <Label htmlFor="grud-mode">🗓️</Label> */}
               <Switch id="grud-mode" checked={isMobile} onCheckedChange={(prevState) => setIsMobile(!isMobile)} />
@@ -118,7 +149,7 @@ export default function MealPlanner({className = '', ...props}) {
           </div>
         </header>
 
-        <aside className="@lg:grid hidden grid-cols-12 gap-x-1">
+        <aside className="@5xl:grid hidden grid-cols-12 gap-x-1">
           <div className="col-span-2" />
           <div className="col-span-2 py-5">
             <div className="text-xs uppercase text-muted-foreground">Breakfast</div>
@@ -137,14 +168,14 @@ export default function MealPlanner({className = '', ...props}) {
           </div>
         </aside>
 
-        <main className="@container @lg:gap-y-1 grid flex-1 gap-y-8">
+        <main className="@container @4xl:gap-y-1 grid flex-1 gap-y-8">
           {mealPlan.map((plan) => (
             <div
               key={plan.day}
               className={cn(
                 rowStyles,
-                '@lg:grid-cols-12',
-                today.getDay() === plan.weekday && 'border-y border-dashed border-primary',
+                '@4xl:grid-cols-12',
+                today.getDay() === plan.weekday && '@4xl:border-y border-dashed border-primary',
               )}
             >
               {/* Day */}
@@ -162,9 +193,9 @@ export default function MealPlanner({className = '', ...props}) {
                 {/* Daily To-do list */}
                 <div className="group">
                   {plan.tasks.length > 0 ? (
-                    <ul className="@lg:text-xs mx-0 mb-1 mt-3 list-none p-0 text-sm text-muted-foreground">
+                    <ul className="@4xl:text-xs mx-0 mb-1 mt-3 list-none p-0 text-base text-muted-foreground">
                       {plan.tasks.map((i) => (
-                        <li key={i} className="ml-0 flex items-center p-0">
+                        <li key={i} className="ml-0 flex items-center py-0.5">
                           <span className="mr-2 leading-none">
                             <input type="checkbox" className="accent-primary" />
                           </span>{' '}
@@ -192,11 +223,11 @@ export default function MealPlanner({className = '', ...props}) {
                     cellStyles,
                     today.getDay() === plan.weekday &&
                       currentMeal === m.name &&
-                      '@lg:border-r-4 border-l-4 border-primary',
+                      '@4xl:border-r-4 border-l-4 border-primary',
                   )}
                 >
                   {/* List View: Meal name */}
-                  <span className="@lg:hidden mb-0.5 w-full text-xs uppercase text-muted-foreground">{m.name}</span>
+                  <span className="@4xl:hidden mb-0.5 w-full text-xs uppercase text-muted-foreground">{m.name}</span>
 
                   {/* Recipes */}
                   {m.recipes.map((recipe) => {
