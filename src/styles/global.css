@@ -78,4 +78,14 @@
     text-decoration-line: underline;
     text-underline-offset: 4px;
   }
+
+  .prose ul.contains-task-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .prose ul.contains-task-list input {
+    @apply accent-primary;
+    margin-right: 0.5rem;
+  }
 }

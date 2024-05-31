@@ -2,17 +2,21 @@
 import MealPlanner from '@components/lab/meal-planner';
 import Head from '@components/Head.astro';
 
-const title = 'Mariano Rivas | Meal Planner';
+const title = 'Meal Planner';
 const description = 'A simple meal planner to help you organize your meals and generate a shopping list.';
 ---
 
 <html lang="en">
   <head>
-    <Head title={title} description={description} />
+    <Head title={title} description={description} favicon />
+    <link rel="apple-touch-icon" sizes="180x180" href="/cook-favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/cook-favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/cook-favicons/favicon-16x16.png" />
+    <link rel="manifest" href="/cook-favicons/site.webmanifest" />
   </head>
   <body class="bg-background">
-    <div class="flex min-h-screen w-full max-w-full flex-col p-8">
-      <MealPlanner className="flex-grow" client:load />
+    <div class="flex w-full max-w-full flex-col">
+      <MealPlanner client:load />
     </div>
   </body>
 </html>
