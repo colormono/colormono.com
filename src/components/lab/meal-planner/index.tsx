@@ -232,7 +232,7 @@ export default function MealPlanner({className = '', ...props}) {
                                 id={`person-${i}`}
                                 name={`person-${i}`}
                                 type="checkbox"
-                                className="h-4 w-4 rounded border-border text-primary focus:ring-muted"
+                                className="h-5 w-5 rounded border-border text-primary focus:ring-muted"
                               />
                             </div>
                             <div className="min-w-0 flex-1 text-sm leading-6">

@@ -83,7 +83,7 @@ export const mealPlan: MealPlannerType[] = [
     weekday: 3,
     day: 'Wednesday',
     activities: ['🏫', '🎾', '⚽️'],
-    tasks: ['Ir a la fiambrería', 'Ir a la dietética'],
+    tasks: ['Pedido fiambrería', 'Pedido dietética'],
     meals: [
       {
         name: 'breakfast',
