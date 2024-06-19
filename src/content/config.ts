@@ -12,6 +12,20 @@ const seoSchema = z.object({
   pageType: z.enum(['website', 'article']).default('website'),
 });
 
+const keywords = [
+  'Generative',
+  'Write',
+  'App',
+  'Web',
+  'Mobile',
+  'Art',
+  'Design',
+  'Interactive',
+  'Electronics',
+  'Hardware',
+  'Plotter',
+];
+
 const lab = defineCollection({
   type: 'content',
   schema: z.object({
@@ -21,7 +35,7 @@ const lab = defineCollection({
     updatedDate: z.coerce.date().optional(),
     heroImage: z.string().optional(),
     thumbnail: z.string().optional(), // size random
-    tags: z.array(z.string()).default([]),
+    tags: z.array(z.enum(['', ...keywords])).default([]),
     seo: seoSchema.optional(),
     draft: z.boolean().optional(),
   }),
@@ -36,7 +50,7 @@ const worksSchema = z.object({
   thumbnail: z.string().optional(), // size 1200x630
   isFeatured: z.boolean().optional(),
   seo: seoSchema.optional(),
-  tags: z.array(z.string()).default([]),
+  tags: z.array(z.enum(['', ...keywords])).default([]),
   lang: z.string().optional(), // To-do: use this instead of a different folder?
   draft: z.boolean().optional(),
 });

@@ -1,6 +1,7 @@
 ---
 import {format} from 'date-fns';
 import Label from './ui/label.astro';
+import {slugify} from '@utils';
 
 const {item, sameHeight} = Astro.props;
 ---
@@ -18,12 +19,31 @@ const {item, sameHeight} = Astro.props;
         class={`${sameHeight ? 'aspect-square' : ''} w-full h-full object-cover transition-transform group-hover:scale-105 duration-300`}
       />
     </figure>
+
     <div class="text-center text-base text-muted-foreground">
       {item.data.description && <p class="mx-4 text-center">{item.data.description}</p>}
       <time class="mt-3 block text-sm">
         {format(item.data.date, 'yyyy')}
       </time>
     </div>
-    {process.env.NODE_ENV === 'development' && item.data.draft ? <Label>Ongoing</Label> : null}
+    {
+      process.env.NODE_ENV === 'development' && item.data.draft ? (
+        <div class="mt-4 flex flex-wrap gap-2">
+          <Label variant="primary">Ongoing</Label>
+        </div>
+      ) : null
+    }
   </a>
+
+  {
+    item.data.tags && item.data.tags.length > 0 && (
+      <div class="mt-4 flex flex-wrap gap-2">
+        {item.data.tags.map((tag: string) => (
+          <a href={`/tags/${slugify(tag)}`} class="opacity-40 transition-opacity hover:opacity-100">
+            <Label key={tag}>{tag}</Label>
+          </a>
+        ))}
+      </div>
+    )
+  }
 </article>

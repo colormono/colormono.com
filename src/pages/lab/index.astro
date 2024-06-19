@@ -1,78 +1,14 @@
 ---
-import Layout from '@layouts/default.astro';
+import Layout from '@layouts/lab.astro';
 import LabCard from '@components/LabCard.astro';
 import {getCollection} from 'astro:content';
 import {compareDesc} from 'date-fns';
-import {getAllTags, getPostsByTag} from '@/utils';
 
 const allPosts = (await getCollection('lab')).sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)));
 const publicPosts = allPosts.filter((post) => post.data.draft !== true);
 const posts = process.env.NODE_ENV === 'development' ? allPosts : publicPosts;
-
-const tags = getAllTags(posts).sort((tagA, tagB) => {
-  const postCountTagA = getPostsByTag(posts, tagA.slug).length;
-  const postCountTagB = getPostsByTag(posts, tagB.slug).length;
-  return postCountTagB - postCountTagA;
-});
 ---
 
 <Layout title="COLORMONO'S LAB" description="Mariano Rivas's experiments.">
-  <section class="lg:px-12 lg:py-6">
-    <!-- <div class="mb-8 grid grid-cols-4 items-end gap-10">
-      <div class="col-span-1">Search</div>
-      <div class="col-span-2 flex flex-wrap gap-2">
-        <strong class="text-xs">Tags</strong>
-        {
-          tags.map((tag) => {
-            const postCount = getPostsByTag(posts, tag.slug).length;
-            return (
-              <a class="link flex items-baseline text-xs" href={`/tags/${tag.slug}`}>
-                {tag.name}
-                <span class="text-xs">({postCount})</span>
-              </a>
-            );
-          })
-        }
-      </div>
-      <div class="col-span-1 flex justify-end">Grid/List</div>
-    </div> -->
-    <div class="posts relative w-full">
-      {posts.map((post) => <LabCard item={post} class="absolute" />)}
-    </div>
-  </section>
+  {posts.map((post) => <LabCard item={post} class="absolute" />)}
 </Layout>
-
-<script>
-  //@ts-ignore
-  import MiniMasonry from 'minimasonry';
-
-  const masonry = new MiniMasonry({
-    baseWidth: 288,
-    container: '.posts',
-    surroundingGutter: false,
-    gutter: 24,
-    ultimateGutter: 24,
-  });
-
-  var imgs = document.images,
-    len = imgs.length,
-    counter = 0;
-
-  [].forEach.call(imgs, function (img) {
-    //@ts-ignore
-    if (img.complete) {
-      incrementCounter();
-    } else {
-      //@ts-ignore
-      img.addEventListener('load', incrementCounter, false);
-    }
-  });
-
-  function incrementCounter() {
-    counter++;
-    if (counter === len) {
-      // console.log('All images loaded!');
-      masonry.layout();
-    }
-  }
-</script>

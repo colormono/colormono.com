@@ -1,0 +1,184 @@
+---
+title: Pen Plotter Drawing
+description: plotter, generative
+date: 2024-05-21
+tags:
+  - Plotter
+  - Generative
+---
+
+# 30 Days of Pen Plotter Dawing
+
+In this 30-day challenge, I will explore the world of pen plotting, creating generative art, and experimenting with different techniques and styles. I will document my progress, share my learnings, and showcase the plots I create along the way.
+
+## Day 01: Don't break the chain
+
+![Day 01](https://res.cloudinary.com/dktzvzksl/image/upload/v1716346140/lab/pen-plotter/01-dontbreakthechain_woytws.jpg)
+
+Today, I began my 30-day pen plotter journey. For Day 1, I created a simple "breaking the chain" calendar. I coded the layout in Processing, exported it as an SVG, aligned the page, and plotted it from Inkscape on an AxiDraw.
+
+- [Processing](https://processing.org)
+- [AxiDraw Docs](https://wiki.evilmadscientist.com/Axidraw_Software_Installation)
+- [AxiDraw Software installation](https://wiki.evilmadscientist.com/Axidraw_Software_Installation) (Inkscape extension)
+- [AxiDraw User Guide](https://wiki.evilmadscientist.com/AxiDraw_User_Guide) (Unboxing, Inkscape extension setup)
+- Inkscape [Download](https://inkscape.org/release/inkscape-1.2.1/mac-os-x/dmg-arm64/dl/)
+- Inkscape [Extensions](https://inkscape.org/gallery/%3Dextension/?page=1&)
+
+## Day 02: Basic shapes
+
+![Day 02](https://res.cloudinary.com/dktzvzksl/image/upload/v1716384798/lab/pen-plotter/day-02-notes_r17dd6.jpg)
+
+On the second day, I plotted a series of [basic shapes](https://github.com/colormono/creative-coding-101/tree/main/30-days-plotting/day_02_basicShapes) using Processing. I noticed that using P3D mode to draw the shapes resulted in a meshed plot, so I switched to the default renderer (P2D). The plotter executed the design with precision in the center of the page, but with a shiver at the bottom.
+
+- [Processing SVG Export](https://processing.org/reference/libraries/svg/index.html)
+
+## Day 03: Shades and textures
+
+On day 3, I experimented with creating a shading scale using hatching, lines, and stippling. The resulting plot showcased various textures, but I noticed that some lines were repeated and overlapped, indicating that the output was not optimized for plotting. Next time, I'll focus on optimizing the code to avoid these overlaps and achieve cleaner results.
+
+- [An Introduction to Pen Plotting](https://mrmrs.cc/writing/pen-plotting-intro/)
+- [AxiDraw Plot Optimization Test](https://www.youtube.com/watch?v=hg8efT4-6o8)
+
+## Day 04: Layout and composition
+
+On day 4, I decided to plot a sketch on an A4 page, incorporating the stipples I experimented with yesterday. To enhance the efficiency of the plotting process, I optimized the SVG files using the powerful [`vpype`](https://github.com/abey79/vpype) tool. This optimization significantly reduced the plotting time and distance traveled by the pen, while also removing hidden lines using the [occult](https://github.com/LoicGoulefert/occult) plugin.
+
+```bash
+vpype read input.svg occult -i write input-occult.svg
+```
+
+```bash
+vpype read input-occult.svg linemerge --tolerance 0.1mm linesort reloop linesimplify write output.svg
+```
+
+- [vpype](https://github.com/abey79/vpype) - The Swiss-Army-knife command-line tool for plotter vector graphics
+- vpype plugin [occult](https://github.com/LoicGoulefert/occult)
+
+## Day 05: Grid of line shapes
+
+## Day 06: Turtletoy
+
+Today is Saturday, and I decided to explore a platform to create a generative plot, I found [Turtletoy](https://turtletoy.net). I experimented with a simple grid of lines, adjusting the parameters to create different patterns. The platform offers a wide range of possibilities for generative art, and I look forward to exploring more complex designs in the future.
+
+- [Turtletoy](https://turtletoy.net)
+- [Turtletoy Grid sketch](https://turtletoy.net/turtle/1c6cff421a#gridSize=11,subdivisionX=0,subdivisionY=11,move=51)
+
+## Day 07: Digits texture
+
+Today I plotted a texture of digits using Processing. I started from a sketch I coded for a University project, but made some edits manually to create a more interesting composition. This idea of variations of a single element is inspired by the work of LeWitt.
+
+- [Incomplete Open cubes, Sol LeWitt](https://www.metmuseum.org/art/collection/search/691091)
+- [Processing sketch](#)
+
+## Day 08: L-System Penrose
+
+I generated a Penrose tiling using an L-System from Inkscape.When I tried plotting the output, even thought the asstet was optimized, there were tons of overlapping lines. I stopped the plotting to save ink and researched how this could be solved. Fortunately, vpype has a plugin for this.
+
+```bash
+vpype read input.svg deduplicate write output.svg
+```
+
+- [L-systems in inkscape](https://thebrickinthesky.wordpress.com/2013/03/17/l-systems-and-penrose-p3-in-inkscape/)
+- vpype plugin [deduplicate](https://github.com/LoicGoulefert/deduplicate)
+
+## Day 09: I broke the chain
+
+It was a busy day, and I didn't have time to plot anything. I broke the chain, but I'll continue tomorrow. I'll pay it later with an alternative checkmark.
+
+## Day 10: Freepik
+
+Today, I plotted a design inspired by a vector I found on Freepik. What seemed like a straightforward plot turned out to be more complex. First, I cleaned the SVG to remove hidden shapes and adjusted the document size to crop the area correctly. Then, I applied deduplication to eliminate overlapping lines. Finally, I created an A4 document for plotting. Despite the initial challenges, I'm happy with the result.
+
+```bash
+vpype read input.svg occult -i write output-occult.svg
+vpype read output-occult.svg deduplicate write output-deduplicate.svg
+vpype read output-deduplicate.svg linemerge --tolerance 0.1mm linesort reloop linesimplify write output-optimized.svg
+```
+
+- [Freepik Vector](https://www.freepik.com/free-vector/retro-futuristic-3d-mesh-element_135748363.htm#query=line%20figures&position=48&from_view=keyword&track=ais_user&uuid=79c234e9-2fd1-4a3e-b427-74e0bcf2d496)
+
+## Day 11: Grid of dices
+
+Today, I plotted a grid of dices using Processing. It consist of a regular grid with squared cells, where containing a dice face. The grid also supports gutters and margins. At this point, `vpype` is essential in the process.
+
+## Day 12 to 14: Don't close the notebook (To-do WIP)
+
+## Day 15: Typography test
+
+- https://turtletoy.net/turtle/0f84fd3ae4
+- https://gitlab.com/oskay/svg-fonts
+
+## Day 16: Muertos
+
+Busy day. I plotted some "dia de los muertos" skulls, and let my kids painte them using markers. We watched the movie Coco thousands of times. I'll share the results later.
+
+- https://www.freepik.com/free-vector/hand-drawn-flat-dia-de-muertos-skulls-collection_18393913.htm#fromView=search&page=1&position=19&uuid=5a4967a8-2c58-47d3-b61f-afb3ef7b644c
+
+## Day 16: white Ink on black paper test
+
+Today I cutted a circular mask for an artowrok using a cutting plotter. I reused the cropped shape for Today’s plotter.
+What I learn?
+
+- https://www.freepik.com/free-vector/space-doodle_10837997.htm#fromView=search&page=2&position=3&uuid=f423ecc3-e006-4065-96dd-4408f99f5657
+
+## Day 17: Hatch fill
+
+How to add a hatch fill to text and shapes in Inkscape with the Axidraw extension for drawing, foiling, or engraving with your digital diecutter or plotter.
+
+- [Drawing a smiley face](https://wiki.evilmadscientist.com/Drawing_a_smiley_face,_part_3)
+- [Axidraw extensions](https://wiki.evilmadscientist.com/Axidraw_Software_Installation)
+- [Line Fill Text and Shapes in Inkscape](https://www.youtube.com/watch?v=wYzMujtnkfM)
+
+---
+
+## Day 19 and 20: ?
+
+---
+
+## Day 21: Plot a 16 segment font test using hatching for filling
+
+- https://turtletoy.net/turtle/180b4864f0
+
+## Day 22: Irregular Grid
+
+- ***
+
+## Day 23: El Diego
+
+- https://mitxela.com/plotterfun/
+
+## Day 24: Doughnut
+
+- @illus0r [SVG File](https://plotterfiles.com/@illus0r/files/4ed01668-e749-4e2a-b1af-3accabd80977)
+- Generated with [ObservableHQ](https://observablehq.com/@illus0r/sdf-to-svg-particle-traces-noise-nontransparent-optimised)
+
+## Day 25: Simple Moiré pattern
+
+- @msurguy [SVG File](https://plotterfiles.com/@msurguy/files/7a43d977-c8e0-4705-9e69-ba6e9d96d769)
+
+---
+
+## Day 24: 10 Print
+
+- https://10print.org/
+- https://editor.p5js.org/colormono/sketches/CjqwunBiN
+
+## Day 17: Hatched
+
+Library and vpype plug-in to convert images to plotter-friendly, hatched patterns.
+
+`vpype hatched --levels 64 128 192 -s 0.5 -p 4 logo.png layout a4 write logo.svg`
+
+- [vpype hatched plugin](https://github.com/plottertools/hatched)
+- https://wiki.evilmadscientist.com/Drawing_a_smiley_face,_part_3
+
+---
+
+## Referents
+
+- [Vera Molnár](http://www.veramolnar.com/)
+- [Sol LeWitt](https://en.wikipedia.org/wiki/Sol_LeWitt)
+- [Matt DesLauriers](https://www.mattdesl.com/)
+- [Michael Fogleman](https://www.michaelfogleman.com/)
+- [Rev Dan Catt's](https://revdancatt.com/)
+- [Anders Hoff](https://img.inconvergent.net/plot/)

@@ -1,7 +1,7 @@
 ---
 import type {GetStaticPathsOptions, Page} from 'astro';
 import {type CollectionEntry, getCollection} from 'astro:content';
-import Layout from '@layouts/default.astro';
+import Layout from '@layouts/lab.astro';
 // import Pagination from '@components/Pagination.astro';
 import PostPreview from '@components/PostPreview.astro';
 //import Subscribe from '@components/Subscribe.astro';
@@ -39,12 +39,11 @@ const currentTag = allTags.find((tag) => {
   title={`Posts Tagged ${currentTag?.name}`}
   description={`Explore a curated collection of posts under ${currentTag?.name}`}
 >
-  <section class="container">
-    <h1 class="mb-12 font-serif text-2xl italic leading-tight sm:mb-16 sm:text-4xl">
+  <div slot="after-header">
+    <h1 class="mb-12 hidden font-serif text-2xl italic leading-tight sm:mb-16 sm:text-4xl">
       Posts Tagged "{currentTag?.name}"
     </h1>
-    <div class="columns-2 gap-10 md:columns-3 xl:columns-4">
-      {publicPosts.map((post) => <LabCard item={post} />)}
-    </div>
-  </section>
+  </div>
+
+  {publicPosts.map((post) => <LabCard item={post} class="absolute" />)}
 </Layout>

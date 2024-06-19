@@ -10,7 +10,13 @@ const publicWorks = process.env.NODE_ENV === 'development' ? works : works.filte
 
 <Layout title="COLORMONO'S WORKS" description="Mariano Rivas's artworks.">
   <section class="container lg:py-20">
-    <div class="grid gap-10 lg:grid-cols-1 lg:gap-20">
+    <div class="mb-12 flex justify-end">
+      <div class="text-base">
+        <strong>Layout</strong> List, Grid, Masonry, Carousel, etc.
+      </div>
+    </div>
+
+    <div class="relative grid gap-10 lg:grid-cols-1 lg:gap-20">
       {publicWorks.map((item) => <WorkCard item={item} />)}
     </div>
   </section>
