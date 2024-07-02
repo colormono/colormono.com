@@ -2,9 +2,13 @@
 import {getCollection} from 'astro:content';
 import Layout from '@layouts/lab.astro';
 // import Subscribe from '@components/Subscribe.astro';
-import {sortItemsByDateDesc, getAllTags, getPostsByTag} from '@/utils';
+import {getAllTags, getPostsByTag} from '@/utils';
+import {compareDesc} from 'date-fns';
 
-const posts = (await getCollection('lab')).sort(sortItemsByDateDesc);
+const allPosts = (await getCollection('lab')).sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)));
+const publicPosts = allPosts.filter((post) => post.data.draft !== true);
+const posts = process.env.NODE_ENV === 'development' ? allPosts : publicPosts;
+
 const tags = getAllTags(posts).sort((tagA, tagB) => {
   const postCountTagA = getPostsByTag(posts, tagA.slug).length;
   const postCountTagB = getPostsByTag(posts, tagB.slug).length;

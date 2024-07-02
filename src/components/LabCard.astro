@@ -26,18 +26,12 @@ const {item, sameHeight} = Astro.props;
         {format(item.data.date, 'yyyy')}
       </time>
     </div>
-    {
-      process.env.NODE_ENV === 'development' && item.data.draft ? (
-        <div class="mt-4 flex flex-wrap gap-2">
-          <Label variant="primary">Ongoing</Label>
-        </div>
-      ) : null
-    }
   </a>
 
   {
     item.data.tags && item.data.tags.length > 0 && (
       <div class="mt-4 flex flex-wrap gap-2">
+        {process.env.NODE_ENV === 'development' && item.data.draft ? <Label variant="primary">DRAFT</Label> : null}
         {item.data.tags.map((tag: string) => (
           <a href={`/tags/${slugify(tag)}`} class="opacity-40 transition-opacity hover:opacity-100">
             <Label key={tag}>{tag}</Label>
