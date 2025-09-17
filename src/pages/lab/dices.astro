@@ -1,12 +1,9 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Skill Dice — 9×6 Micro Tasks</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="flex min-h-screen items-center justify-center bg-slate-50 p-6 text-slate-900">
+---
+import Layout from '@layouts/default.astro';
+---
+
+<Layout title="COLORMONO'S LAB" description="Mariano Rivas's experiments.">
+  <div class="flex flex-grow items-center justify-center p-6 text-slate-900">
     <div class="w-full max-w-3xl rounded-2xl bg-white p-6 shadow-lg">
       <header class="mb-4 flex items-center justify-between">
         <h1 class="text-2xl font-semibold">Skill Dice — 9 × 6 Micro Tasks</h1>
@@ -186,183 +183,183 @@
         Tip: Press <strong>Space</strong> to roll both. Quick tasks = consistency wins.
       </footer>
     </div>
+  </div>
+</Layout>
 
-    <script>
-      const categories = [
-        'Cooking & Food',
-        'Gardening & Nature',
-        'Sports & Movement',
-        'Tech & Coding',
-        'Design & Visuals',
-        'Storytelling & Writing',
-        'Music & Rhythm',
-        'Everyday Objects',
-        'Social & People',
-      ];
+<script>
+  const categories = [
+    'Cooking & Food',
+    'Gardening & Nature',
+    'Sports & Movement',
+    'Tech & Coding',
+    'Design & Visuals',
+    'Storytelling & Writing',
+    'Music & Rhythm',
+    'Everyday Objects',
+    'Social & People',
+  ];
 
-      const tasks = [
-        // Cooking
-        [
-          'Try cooking a dish with one new spice.',
-          'Replicate a restaurant dish at home.',
-          'Learn and practice one knife-cut technique.',
-          'Cook with only what’s already in your fridge.',
-          'Read a short article about food science (e.g., emulsions).',
-          'Write notes on what you’d improve in your last meal.',
-        ],
-        // Gardening
-        [
-          'Spend 10 minutes checking your plants’ soil and leaves.',
-          'Research care tips for one herb you own or want.',
-          'Try propagating a cutting in water.',
-          'Observe sunlight patterns in your space during the day.',
-          'Repot or tidy one plant.',
-          'Sketch or map where new plants could go.',
-        ],
-        // Sports
-        [
-          'Practice a new mobility or stretching routine for 10 minutes.',
-          'Focus on form: repeat one exercise slowly and correctly.',
-          'Watch a short pro match and note one technique to copy.',
-          'Try a high-intensity 5-minute mini-workout.',
-          'Record yourself doing an exercise and review posture.',
-          'Play a short game, focusing only on footwork or precision.',
-        ],
-        // Tech
-        [
-          'Build a tiny feature (button, query, or function) from scratch.',
-          'Refactor 10 lines of old code for clarity.',
-          'Write pseudocode before coding a solution.',
-          'Solve one algorithm or coding challenge.',
-          'Read docs for a library/framework you use.',
-          'Debug a small piece of code step by step.',
-        ],
-        // Design
-        [
-          'Sketch a quick layout for a random app idea.',
-          'Redesign a screen or feature you use daily.',
-          'Try a new color palette and apply it to a mockup.',
-          'Copy a famous logo in under 5 minutes (to learn proportions).',
-          'Explore one new Figma/Photoshop/Sketch tool.',
-          'Collect 3 design inspirations and note why you like them.',
-        ],
-        // Writing
-        [
-          'Write a 200-word scene with a clear beginning, middle, and end.',
-          'Rewrite a paragraph of your own work for clarity.',
-          'Summarize today’s news in one short paragraph.',
-          'Practice writing dialogue with 2 characters.',
-          'Outline a story idea in bullet points.',
-          'Write a descriptive passage focusing only on senses (smell, sound, etc.).',
-        ],
-        // Music
-        [
-          'Practice clapping or tapping a rhythm for 3 minutes.',
-          'Learn one chord or scale on an instrument.',
-          'Record yourself humming and play it back.',
-          'Break down a song you like: intro, verse, chorus.',
-          'Try making percussion using only household objects.',
-          'Spend 10 minutes with a metronome at different tempos.',
-        ],
-        // Objects
-        [
-          'Pick one object and write down 3 possible improvements.',
-          'Clean/organize one tool or space around it.',
-          'Sketch a redesign for better usability.',
-          'Research its material or origin.',
-          'Use it in a new or unconventional way safely.',
-          'Share it with someone and ask how they’d improve it.',
-        ],
-        // Social
-        [
-          'Send a thoughtful message to a friend.',
-          'Give one genuine compliment today.',
-          'Start a short conversation with someone new.',
-          'Ask a curious question in your next chat.',
-          'Listen without interrupting for 2 minutes straight.',
-          'Practice telling a personal story in 1 minute.',
-        ],
-      ];
+  const tasks = [
+    // Cooking
+    [
+      'Try cooking a dish with one new spice.',
+      'Replicate a restaurant dish at home.',
+      'Learn and practice one knife-cut technique.',
+      'Cook with only what’s already in your fridge.',
+      'Read a short article about food science (e.g., emulsions).',
+      'Write notes on what you’d improve in your last meal.',
+    ],
+    // Gardening
+    [
+      'Spend 10 minutes checking your plants’ soil and leaves.',
+      'Research care tips for one herb you own or want.',
+      'Try propagating a cutting in water.',
+      'Observe sunlight patterns in your space during the day.',
+      'Repot or tidy one plant.',
+      'Sketch or map where new plants could go.',
+    ],
+    // Sports
+    [
+      'Practice a new mobility or stretching routine for 10 minutes.',
+      'Focus on form: repeat one exercise slowly and correctly.',
+      'Watch a short pro match and note one technique to copy.',
+      'Try a high-intensity 5-minute mini-workout.',
+      'Record yourself doing an exercise and review posture.',
+      'Play a short game, focusing only on footwork or precision.',
+    ],
+    // Tech
+    [
+      'Build a tiny feature (button, query, or function) from scratch.',
+      'Refactor 10 lines of old code for clarity.',
+      'Write pseudocode before coding a solution.',
+      'Solve one algorithm or coding challenge.',
+      'Read docs for a library/framework you use.',
+      'Debug a small piece of code step by step.',
+    ],
+    // Design
+    [
+      'Sketch a quick layout for a random app idea.',
+      'Redesign a screen or feature you use daily.',
+      'Try a new color palette and apply it to a mockup.',
+      'Copy a famous logo in under 5 minutes (to learn proportions).',
+      'Explore one new Figma/Photoshop/Sketch tool.',
+      'Collect 3 design inspirations and note why you like them.',
+    ],
+    // Writing
+    [
+      'Write a 200-word scene with a clear beginning, middle, and end.',
+      'Rewrite a paragraph of your own work for clarity.',
+      'Summarize today’s news in one short paragraph.',
+      'Practice writing dialogue with 2 characters.',
+      'Outline a story idea in bullet points.',
+      'Write a descriptive passage focusing only on senses (smell, sound, etc.).',
+    ],
+    // Music
+    [
+      'Practice clapping or tapping a rhythm for 3 minutes.',
+      'Learn one chord or scale on an instrument.',
+      'Record yourself humming and play it back.',
+      'Break down a song you like: intro, verse, chorus.',
+      'Try making percussion using only household objects.',
+      'Spend 10 minutes with a metronome at different tempos.',
+    ],
+    // Objects
+    [
+      'Pick one object and write down 3 possible improvements.',
+      'Clean/organize one tool or space around it.',
+      'Sketch a redesign for better usability.',
+      'Research its material or origin.',
+      'Use it in a new or unconventional way safely.',
+      'Share it with someone and ask how they’d improve it.',
+    ],
+    // Social
+    [
+      'Send a thoughtful message to a friend.',
+      'Give one genuine compliment today.',
+      'Start a short conversation with someone new.',
+      'Ask a curious question in your next chat.',
+      'Listen without interrupting for 2 minutes straight.',
+      'Practice telling a personal story in 1 minute.',
+    ],
+  ];
 
-      const categoryEl = document.getElementById('category');
-      const taskEl = document.getElementById('task');
-      const noteEl = document.getElementById('note');
+  const categoryEl = document.getElementById('category');
+  const taskEl = document.getElementById('task');
+  const noteEl = document.getElementById('note');
 
-      function rollInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
+  function rollInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
-      function rollBoth() {
-        const c = rollInt(1, 9);
-        const t = rollInt(1, 6);
-        showResult(c, t);
-        flash(c, t);
-      }
+  function rollBoth() {
+    const c = rollInt(1, 9);
+    const t = rollInt(1, 6);
+    showResult(c, t);
+    flash(c, t);
+  }
 
-      function rollCategory() {
-        const c = rollInt(1, 9);
-        categoryEl.textContent = `${c}. ${categories[c - 1]}`;
-        taskEl.textContent = '—';
-        noteEl.textContent = 'Roll the task die (1-6) to get a specific action.';
-      }
+  function rollCategory() {
+    const c = rollInt(1, 9);
+    categoryEl.textContent = `${c}. ${categories[c - 1]}`;
+    taskEl.textContent = '—';
+    noteEl.textContent = 'Roll the task die (1-6) to get a specific action.';
+  }
 
-      function rollTask() {
-        const t = rollInt(1, 6);
-        taskEl.textContent = `${t} — (choose a category first or use Random Pair)`;
-        noteEl.textContent = '';
-      }
+  function rollTask() {
+    const t = rollInt(1, 6);
+    taskEl.textContent = `${t} — (choose a category first or use Random Pair)`;
+    noteEl.textContent = '';
+  }
 
-      function randomPair() {
-        const c = rollInt(1, 9);
-        const t = rollInt(1, 6);
-        showResult(c, t);
-      }
+  function randomPair() {
+    const c = rollInt(1, 9);
+    const t = rollInt(1, 6);
+    showResult(c, t);
+  }
 
-      function showResult(catIndex, taskIndex) {
-        categoryEl.textContent = `${catIndex}. ${categories[catIndex - 1]}`;
-        taskEl.textContent = `${taskIndex}. ${tasks[catIndex - 1][taskIndex - 1]}`;
-        noteEl.textContent = `Estimated time: ~10 minutes or less.`;
-      }
+  function showResult(catIndex, taskIndex) {
+    categoryEl.textContent = `${catIndex}. ${categories[catIndex - 1]}`;
+    taskEl.textContent = `${taskIndex}. ${tasks[catIndex - 1][taskIndex - 1]}`;
+    noteEl.textContent = `Estimated time: ~10 minutes or less.`;
+  }
 
-      function flash(c, t) {
-        // tiny visual cue
-        const oldBg = document.querySelector('.bg-white');
-        // no-op, simple animation could be added
-      }
+  function flash(c, t) {
+    // tiny visual cue
+    const oldBg = document.querySelector('.bg-white');
+    // no-op, simple animation could be added
+  }
 
-      document.getElementById('rollBoth').addEventListener('click', rollBoth);
-      document.getElementById('rollCategory').addEventListener('click', rollCategory);
-      document.getElementById('rollTask').addEventListener('click', rollTask);
-      document.getElementById('randomize').addEventListener('click', randomPair);
+  document.getElementById('rollBoth').addEventListener('click', rollBoth);
+  document.getElementById('rollCategory').addEventListener('click', rollCategory);
+  document.getElementById('rollTask').addEventListener('click', rollTask);
+  document.getElementById('randomize').addEventListener('click', randomPair);
 
-      document.getElementById('copyBtn').addEventListener('click', async () => {
-        const text = `${categoryEl.textContent} — ${taskEl.textContent}`;
-        await navigator.clipboard.writeText(text).catch(() => {});
-        alert('Copied: ' + text);
-      });
+  document.getElementById('copyBtn').addEventListener('click', async () => {
+    const text = `${categoryEl.textContent} — ${taskEl.textContent}`;
+    await navigator.clipboard.writeText(text).catch(() => {});
+    alert('Copied: ' + text);
+  });
 
-      // Full table
-      const tableModal = document.getElementById('tableModal');
-      document.getElementById('showAll').addEventListener('click', () => {
-        tableModal.classList.remove('hidden');
-        tableModal.classList.add('flex');
-      });
-      document.getElementById('closeTable').addEventListener('click', () => {
-        tableModal.classList.add('hidden');
-        tableModal.classList.remove('flex');
-      });
+  // Full table
+  const tableModal = document.getElementById('tableModal');
+  document.getElementById('showAll').addEventListener('click', () => {
+    tableModal.classList.remove('hidden');
+    tableModal.classList.add('flex');
+  });
+  document.getElementById('closeTable').addEventListener('click', () => {
+    tableModal.classList.add('hidden');
+    tableModal.classList.remove('flex');
+  });
 
-      // Space to roll
-      document.addEventListener('keydown', (e) => {
-        if (e.code === 'Space') {
-          e.preventDefault();
-          rollBoth();
-        }
-      });
+  // Space to roll
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+      e.preventDefault();
+      rollBoth();
+    }
+  });
 
-      // initial example
-      categoryEl.textContent = 'Roll to start';
-      taskEl.textContent = 'Roll to start';
-    </script>
-  </body>
-</html>
+  // initial example
+  categoryEl.textContent = 'Roll to start';
+  taskEl.textContent = 'Roll to start';
+</script>
