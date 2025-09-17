@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Skill Dice — 9×6 Micro Tasks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex min-h-screen items-center justify-center bg-slate-50 p-6 text-slate-900">
+    <div class="w-full max-w-3xl rounded-2xl bg-white p-6 shadow-lg">
+      <header class="mb-4 flex items-center justify-between">
+        <h1 class="text-2xl font-semibold">Skill Dice — 9 × 6 Micro Tasks</h1>
+        <div class="text-sm text-slate-500">Quick daily actions to level up your interests</div>
+      </header>
+
+      <main>
+        <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="col-span-2">
+            <div class="rounded-lg border border-slate-100 bg-gradient-to-br from-white to-slate-50 p-4">
+              <div class="flex items-center gap-4">
+                <div>
+                  <div class="text-xs text-slate-500">Category (9-sided)</div>
+                  <div id="category" class="mt-1 text-lg font-medium">—</div>
+                </div>
+                <div class="flex-1">
+                  <div class="text-xs text-slate-500">Task (6 options)</div>
+                  <div id="task" class="mt-1 text-lg font-medium">—</div>
+                </div>
+              </div>
+
+              <p id="note" class="mt-3 text-sm text-slate-600"></p>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <div class="grid grid-cols-2 gap-2">
+              <button id="rollBoth" class="rounded-lg bg-blue-600 px-3 py-2 font-medium text-white hover:bg-blue-700"
+                >Roll Both</button
+              >
+              <button id="rollCategory" class="rounded-lg bg-slate-200 px-3 py-2 hover:bg-slate-300"
+                >Roll Category</button
+              >
+              <button id="rollTask" class="rounded-lg bg-slate-200 px-3 py-2 hover:bg-slate-300">Roll Task</button>
+              <button id="randomize" class="rounded-lg bg-amber-200 px-3 py-2 hover:bg-amber-300">Random Pair</button>
+            </div>
+
+            <button id="copyBtn" class="rounded-lg bg-green-600 px-3 py-2 text-white hover:bg-green-700"
+              >Copy to clipboard</button
+            >
+            <button id="showAll" class="rounded-lg bg-violet-600 px-3 py-2 text-white hover:bg-violet-700"
+              >Open full table</button
+            >
+          </div>
+        </div>
+
+        <section class="mt-4">
+          <details class="rounded-lg border border-slate-100 bg-slate-50 p-3">
+            <summary class="cursor-pointer font-medium">How it works</summary>
+            <div class="mt-2 text-sm text-slate-600">
+              Roll the 9-sided category (simulated) and the 6-sided option to receive a short, action-driven micro-task
+              tied to that subject. Tasks are designed to take ~10 minutes or less and focus on skill improvement.
+            </div>
+          </details>
+        </section>
+
+        <section id="tableModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 p-6">
+          <div class="max-h-[80vh] w-full max-w-4xl overflow-auto rounded-lg bg-white p-4 shadow-xl">
+            <div class="mb-3 flex items-center justify-between">
+              <h3 class="text-lg font-medium">Full Task Table — 9 Categories × 6 Tasks</h3>
+              <button id="closeTable" class="text-sm text-slate-500 hover:text-slate-800">Close</button>
+            </div>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <div>
+                <h4 class="font-semibold">1. Cooking & Food</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Try cooking a dish with one new spice.</li>
+                  <li>Replicate a restaurant dish at home.</li>
+                  <li>Learn and practice one knife-cut technique.</li>
+                  <li>Cook with only what’s already in your fridge.</li>
+                  <li>Read a short article about food science (e.g., emulsions).</li>
+                  <li>Write notes on what you’d improve in your last meal.</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4 class="font-semibold">2. Gardening & Nature</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Spend 10 minutes checking your plants’ soil and leaves.</li>
+                  <li>Research care tips for one herb you own or want.</li>
+                  <li>Try propagating a cutting in water.</li>
+                  <li>Observe sunlight patterns in your space during the day.</li>
+                  <li>Repot or tidy one plant.</li>
+                  <li>Sketch or map where new plants could go.</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4 class="font-semibold">3. Sports & Movement</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Practice a new mobility or stretching routine for 10 minutes.</li>
+                  <li>Focus on form: repeat one exercise slowly and correctly.</li>
+                  <li>Watch a short pro match and note one technique to copy.</li>
+                  <li>Try a high-intensity 5-minute mini-workout.</li>
+                  <li>Record yourself doing an exercise and review posture.</li>
+                  <li>Play a short game, focusing only on footwork or precision.</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4 class="font-semibold">4. Tech & Coding</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Build a tiny feature (button, query, or function) from scratch.</li>
+                  <li>Refactor 10 lines of old code for clarity.</li>
+                  <li>Write pseudocode before coding a solution.</li>
+                  <li>Solve one algorithm or coding challenge.</li>
+                  <li>Read docs for a library/framework you use.</li>
+                  <li>Debug a small piece of code step by step.</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4 class="font-semibold">5. Design & Visuals</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Sketch a quick layout for a random app idea.</li>
+                  <li>Redesign a screen or feature you use daily.</li>
+                  <li>Try a new color palette and apply it to a mockup.</li>
+                  <li>Copy a famous logo in under 5 minutes (to learn proportions).</li>
+                  <li>Explore one new Figma/Photoshop/Sketch tool.</li>
+                  <li>Collect 3 design inspirations and note why you like them.</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4 class="font-semibold">6. Storytelling & Writing</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Write a 200-word scene with a clear beginning, middle, and end.</li>
+                  <li>Rewrite a paragraph of your own work for clarity.</li>
+                  <li>Summarize today’s news in one short paragraph.</li>
+                  <li>Practice writing dialogue with 2 characters.</li>
+                  <li>Outline a story idea in bullet points.</li>
+                  <li>Write a descriptive passage focusing only on senses (smell, sound, etc.).</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4 class="font-semibold">7. Music & Rhythm</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Practice clapping or tapping a rhythm for 3 minutes.</li>
+                  <li>Learn one chord or scale on an instrument.</li>
+                  <li>Record yourself humming and play it back.</li>
+                  <li>Break down a song you like: intro, verse, chorus.</li>
+                  <li>Try making percussion using only household objects.</li>
+                  <li>Spend 10 minutes with a metronome at different tempos.</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4 class="font-semibold">8. Everyday Objects</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Pick one object and write down 3 possible improvements.</li>
+                  <li>Clean/organize one tool or space around it.</li>
+                  <li>Sketch a redesign for better usability.</li>
+                  <li>Research its material or origin.</li>
+                  <li>Use it in a new or unconventional way safely.</li>
+                  <li>Share it with someone and ask how they’d improve it.</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4 class="font-semibold">9. Social & People</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Send a thoughtful message to a friend.</li>
+                  <li>Give one genuine compliment today.</li>
+                  <li>Start a short conversation with someone new.</li>
+                  <li>Ask a curious question in your next chat.</li>
+                  <li>Listen without interrupting for 2 minutes straight.</li>
+                  <li>Practice telling a personal story in 1 minute.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="mt-4 text-sm text-slate-500">
+        Tip: Press <strong>Space</strong> to roll both. Quick tasks = consistency wins.
+      </footer>
+    </div>
+
+    <script>
+      const categories = [
+        'Cooking & Food',
+        'Gardening & Nature',
+        'Sports & Movement',
+        'Tech & Coding',
+        'Design & Visuals',
+        'Storytelling & Writing',
+        'Music & Rhythm',
+        'Everyday Objects',
+        'Social & People',
+      ];
+
+      const tasks = [
+        // Cooking
+        [
+          'Try cooking a dish with one new spice.',
+          'Replicate a restaurant dish at home.',
+          'Learn and practice one knife-cut technique.',
+          'Cook with only what’s already in your fridge.',
+          'Read a short article about food science (e.g., emulsions).',
+          'Write notes on what you’d improve in your last meal.',
+        ],
+        // Gardening
+        [
+          'Spend 10 minutes checking your plants’ soil and leaves.',
+          'Research care tips for one herb you own or want.',
+          'Try propagating a cutting in water.',
+          'Observe sunlight patterns in your space during the day.',
+          'Repot or tidy one plant.',
+          'Sketch or map where new plants could go.',
+        ],
+        // Sports
+        [
+          'Practice a new mobility or stretching routine for 10 minutes.',
+          'Focus on form: repeat one exercise slowly and correctly.',
+          'Watch a short pro match and note one technique to copy.',
+          'Try a high-intensity 5-minute mini-workout.',
+          'Record yourself doing an exercise and review posture.',
+          'Play a short game, focusing only on footwork or precision.',
+        ],
+        // Tech
+        [
+          'Build a tiny feature (button, query, or function) from scratch.',
+          'Refactor 10 lines of old code for clarity.',
+          'Write pseudocode before coding a solution.',
+          'Solve one algorithm or coding challenge.',
+          'Read docs for a library/framework you use.',
+          'Debug a small piece of code step by step.',
+        ],
+        // Design
+        [
+          'Sketch a quick layout for a random app idea.',
+          'Redesign a screen or feature you use daily.',
+          'Try a new color palette and apply it to a mockup.',
+          'Copy a famous logo in under 5 minutes (to learn proportions).',
+          'Explore one new Figma/Photoshop/Sketch tool.',
+          'Collect 3 design inspirations and note why you like them.',
+        ],
+        // Writing
+        [
+          'Write a 200-word scene with a clear beginning, middle, and end.',
+          'Rewrite a paragraph of your own work for clarity.',
+          'Summarize today’s news in one short paragraph.',
+          'Practice writing dialogue with 2 characters.',
+          'Outline a story idea in bullet points.',
+          'Write a descriptive passage focusing only on senses (smell, sound, etc.).',
+        ],
+        // Music
+        [
+          'Practice clapping or tapping a rhythm for 3 minutes.',
+          'Learn one chord or scale on an instrument.',
+          'Record yourself humming and play it back.',
+          'Break down a song you like: intro, verse, chorus.',
+          'Try making percussion using only household objects.',
+          'Spend 10 minutes with a metronome at different tempos.',
+        ],
+        // Objects
+        [
+          'Pick one object and write down 3 possible improvements.',
+          'Clean/organize one tool or space around it.',
+          'Sketch a redesign for better usability.',
+          'Research its material or origin.',
+          'Use it in a new or unconventional way safely.',
+          'Share it with someone and ask how they’d improve it.',
+        ],
+        // Social
+        [
+          'Send a thoughtful message to a friend.',
+          'Give one genuine compliment today.',
+          'Start a short conversation with someone new.',
+          'Ask a curious question in your next chat.',
+          'Listen without interrupting for 2 minutes straight.',
+          'Practice telling a personal story in 1 minute.',
+        ],
+      ];
+
+      const categoryEl = document.getElementById('category');
+      const taskEl = document.getElementById('task');
+      const noteEl = document.getElementById('note');
+
+      function rollInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function rollBoth() {
+        const c = rollInt(1, 9);
+        const t = rollInt(1, 6);
+        showResult(c, t);
+        flash(c, t);
+      }
+
+      function rollCategory() {
+        const c = rollInt(1, 9);
+        categoryEl.textContent = `${c}. ${categories[c - 1]}`;
+        taskEl.textContent = '—';
+        noteEl.textContent = 'Roll the task die (1-6) to get a specific action.';
+      }
+
+      function rollTask() {
+        const t = rollInt(1, 6);
+        taskEl.textContent = `${t} — (choose a category first or use Random Pair)`;
+        noteEl.textContent = '';
+      }
+
+      function randomPair() {
+        const c = rollInt(1, 9);
+        const t = rollInt(1, 6);
+        showResult(c, t);
+      }
+
+      function showResult(catIndex, taskIndex) {
+        categoryEl.textContent = `${catIndex}. ${categories[catIndex - 1]}`;
+        taskEl.textContent = `${taskIndex}. ${tasks[catIndex - 1][taskIndex - 1]}`;
+        noteEl.textContent = `Estimated time: ~10 minutes or less.`;
+      }
+
+      function flash(c, t) {
+        // tiny visual cue
+        const oldBg = document.querySelector('.bg-white');
+        // no-op, simple animation could be added
+      }
+
+      document.getElementById('rollBoth').addEventListener('click', rollBoth);
+      document.getElementById('rollCategory').addEventListener('click', rollCategory);
+      document.getElementById('rollTask').addEventListener('click', rollTask);
+      document.getElementById('randomize').addEventListener('click', randomPair);
+
+      document.getElementById('copyBtn').addEventListener('click', async () => {
+        const text = `${categoryEl.textContent} — ${taskEl.textContent}`;
+        await navigator.clipboard.writeText(text).catch(() => {});
+        alert('Copied: ' + text);
+      });
+
+      // Full table
+      const tableModal = document.getElementById('tableModal');
+      document.getElementById('showAll').addEventListener('click', () => {
+        tableModal.classList.remove('hidden');
+        tableModal.classList.add('flex');
+      });
+      document.getElementById('closeTable').addEventListener('click', () => {
+        tableModal.classList.add('hidden');
+        tableModal.classList.remove('flex');
+      });
+
+      // Space to roll
+      document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          rollBoth();
+        }
+      });
+
+      // initial example
+      categoryEl.textContent = 'Roll to start';
+      taskEl.textContent = 'Roll to start';
+    </script>
+  </body>
+</html>
