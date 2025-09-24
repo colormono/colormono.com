@@ -3,10 +3,10 @@ import Layout from '@layouts/default.astro';
 ---
 
 <Layout title="COLORMONO'S LAB" description="Mariano Rivas's experiments.">
-  <div class="flex flex-grow items-center justify-center p-6 text-slate-900">
+  <div class="flex flex-grow items-center justify-center p-6 text-slate-900 shadow-xl">
     <div class="w-full max-w-3xl rounded-2xl bg-white p-6 shadow-lg">
       <header class="mb-4 flex items-center justify-between">
-        <h1 class="text-2xl font-semibold">Skill Dice — 9 × 6 Micro Tasks</h1>
+        <h1 class="text-2xl font-semibold">Skill Dice — 10 × 6 Micro Tasks</h1>
         <div class="text-sm text-slate-500">Quick daily actions to level up your interests</div>
       </header>
 
@@ -16,7 +16,7 @@ import Layout from '@layouts/default.astro';
             <div class="rounded-lg border border-slate-100 bg-gradient-to-br from-white to-slate-50 p-4">
               <div class="flex items-center gap-4">
                 <div>
-                  <div class="text-xs text-slate-500">Category (9-sided)</div>
+                  <div class="text-xs text-slate-500">Category (10-sided)</div>
                   <div id="category" class="mt-1 text-lg font-medium">—</div>
                 </div>
                 <div class="flex-1">
@@ -30,10 +30,10 @@ import Layout from '@layouts/default.astro';
           </div>
 
           <div class="flex flex-col gap-3">
-            <div class="grid grid-cols-2 gap-2">
-              <button id="rollBoth" class="rounded-lg bg-blue-600 px-3 py-2 font-medium text-white hover:bg-blue-700"
-                >Roll Both</button
-              >
+            <button id="rollBoth" class="rounded-lg bg-blue-600 px-3 py-2 font-medium text-white hover:bg-blue-700"
+              >Roll Both</button
+            >
+            <!-- <div class="grid grid-cols-2 gap-2">
               <button id="rollCategory" class="rounded-lg bg-slate-200 px-3 py-2 hover:bg-slate-300"
                 >Roll Category</button
               >
@@ -43,7 +43,7 @@ import Layout from '@layouts/default.astro';
 
             <button id="copyBtn" class="rounded-lg bg-green-600 px-3 py-2 text-white hover:bg-green-700"
               >Copy to clipboard</button
-            >
+            > -->
             <button id="showAll" class="rounded-lg bg-violet-600 px-3 py-2 text-white hover:bg-violet-700"
               >Open full table</button
             >
@@ -54,19 +54,31 @@ import Layout from '@layouts/default.astro';
           <details class="rounded-lg border border-slate-100 bg-slate-50 p-3">
             <summary class="cursor-pointer font-medium">How it works</summary>
             <div class="mt-2 text-sm text-slate-600">
-              Roll the 9-sided category (simulated) and the 6-sided option to receive a short, action-driven micro-task
+              Roll the 10-sided category (simulated) and the 6-sided option to receive a short, action-driven micro-task
               tied to that subject. Tasks are designed to take ~10 minutes or less and focus on skill improvement.
             </div>
           </details>
         </section>
 
-        <section id="tableModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 p-6">
+        <section id="tableModal" class="fixed inset-0 z-[51] hidden items-center justify-center bg-black/40 p-6">
           <div class="max-h-[80vh] w-full max-w-4xl overflow-auto rounded-lg bg-white p-4 shadow-xl">
             <div class="mb-3 flex items-center justify-between">
-              <h3 class="text-lg font-medium">Full Task Table — 9 Categories × 6 Tasks</h3>
+              <h3 class="text-lg font-medium">Full Task Table — 10 Categories × 6 Tasks</h3>
               <button id="closeTable" class="text-sm text-slate-500 hover:text-slate-800">Close</button>
             </div>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <div>
+                <h4 class="font-semibold">0. Football</h4>
+                <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
+                  <li>Practice juggling the ball for 5 minutes.</li>
+                  <li>Do a short dribbling drill in a small space.</li>
+                  <li>Watch a pro clip and try to copy one move.</li>
+                  <li>Pass the ball against a wall 20 times.</li>
+                  <li>Do a sprint + recovery drill for 5 minutes.</li>
+                  <li>Visualize and write down one play or tactic.</li>
+                </ol>
+              </div>
+
               <div>
                 <h4 class="font-semibold">1. Cooking & Food</h4>
                 <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
@@ -128,14 +140,14 @@ import Layout from '@layouts/default.astro';
               </div>
 
               <div>
-                <h4 class="font-semibold">6. Storytelling & Writing</h4>
+                <h4 class="font-semibold">6. Plotting</h4>
                 <ol class="ml-5 mt-2 list-decimal space-y-1 text-sm text-slate-700">
-                  <li>Write a 200-word scene with a clear beginning, middle, and end.</li>
-                  <li>Rewrite a paragraph of your own work for clarity.</li>
-                  <li>Summarize today’s news in one short paragraph.</li>
-                  <li>Practice writing dialogue with 2 characters.</li>
-                  <li>Outline a story idea in bullet points.</li>
-                  <li>Write a descriptive passage focusing only on senses (smell, sound, etc.).</li>
+                  <li>Test a new pen or tool with your AxiDraw.</li>
+                  <li>Plot a simple geometric pattern from SVG.</li>
+                  <li>Experiment with hatch fills or shading techniques.</li>
+                  <li>Create a layered design for the Scan&Cut.</li>
+                  <li>Modify line thickness and see the output difference.</li>
+                  <li>Combine hand-drawn sketches with plotter output.</li>
                 </ol>
               </div>
 
@@ -188,18 +200,28 @@ import Layout from '@layouts/default.astro';
 
 <script>
   const categories = [
+    'Futbol (Soccer)',
     'Cooking & Food',
     'Gardening & Nature',
     'Sports & Movement',
     'Tech & Coding',
     'Design & Visuals',
-    'Storytelling & Writing',
+    'Plotter Drawing',
     'Music & Rhythm',
     'Everyday Objects',
     'Social & People',
   ];
 
   const tasks = [
+    // Futbol
+    [
+      'Practice juggling the ball for 5 minutes.',
+      'Do a short dribbling drill in a small space.',
+      'Watch a pro clip and try to copy one move.',
+      'Pass the ball against a wall 20 times.',
+      'Do a sprint + recovery drill for 5 minutes.',
+      'Visualize and write down one play or tactic.',
+    ],
     // Cooking
     [
       'Try cooking a dish with one new spice.',
@@ -245,16 +267,16 @@ import Layout from '@layouts/default.astro';
       'Explore one new Figma/Photoshop/Sketch tool.',
       'Collect 3 design inspirations and note why you like them.',
     ],
-    // Writing
+    // Plotter drawing
     [
-      'Write a 200-word scene with a clear beginning, middle, and end.',
-      'Rewrite a paragraph of your own work for clarity.',
-      'Summarize today’s news in one short paragraph.',
-      'Practice writing dialogue with 2 characters.',
-      'Outline a story idea in bullet points.',
-      'Write a descriptive passage focusing only on senses (smell, sound, etc.).',
+      'Test a new pen or tool with your AxiDraw.',
+      'Plot a simple geometric pattern from SVG.',
+      'Experiment with hatch fills or shading techniques.',
+      'Create a layered design for the Scan&Cut.',
+      'Modify line thickness and see the output difference.',
+      'Combine hand-drawn sketches with plotter output.',
     ],
-    // Music
+    // Music & Rhythm
     [
       'Practice clapping or tapping a rhythm for 3 minutes.',
       'Learn one chord or scale on an instrument.',
@@ -292,14 +314,14 @@ import Layout from '@layouts/default.astro';
   }
 
   function rollBoth() {
-    const c = rollInt(1, 9);
+    const c = rollInt(0, 9);
     const t = rollInt(1, 6);
     showResult(c, t);
     flash(c, t);
   }
 
   function rollCategory() {
-    const c = rollInt(1, 9);
+    const c = rollInt(0, 9);
     categoryEl.textContent = `${c}. ${categories[c - 1]}`;
     taskEl.textContent = '—';
     noteEl.textContent = 'Roll the task die (1-6) to get a specific action.';
@@ -312,7 +334,7 @@ import Layout from '@layouts/default.astro';
   }
 
   function randomPair() {
-    const c = rollInt(1, 9);
+    const c = rollInt(0, 9);
     const t = rollInt(1, 6);
     showResult(c, t);
   }
