@@ -60,7 +60,7 @@ import Layout from '@layouts/default.astro';
           </details>
         </section>
 
-        <section id="tableModal" class="fixed inset-0 z-[51] hidden items-center justify-center bg-black/40 p-6">
+        <section id="tableModal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/40 p-6">
           <div class="max-h-[80vh] w-full max-w-4xl overflow-auto rounded-lg bg-white p-4 shadow-xl">
             <div class="mb-3 flex items-center justify-between">
               <h3 class="text-lg font-medium">Full Task Table — 10 Categories × 6 Tasks</h3>
@@ -352,15 +352,15 @@ import Layout from '@layouts/default.astro';
   }
 
   document.getElementById('rollBoth').addEventListener('click', rollBoth);
-  document.getElementById('rollCategory').addEventListener('click', rollCategory);
-  document.getElementById('rollTask').addEventListener('click', rollTask);
-  document.getElementById('randomize').addEventListener('click', randomPair);
+  // document.getElementById('rollCategory').addEventListener('click', rollCategory);
+  // document.getElementById('rollTask').addEventListener('click', rollTask);
+  // document.getElementById('randomize').addEventListener('click', randomPair);
 
-  document.getElementById('copyBtn').addEventListener('click', async () => {
-    const text = `${categoryEl.textContent} — ${taskEl.textContent}`;
-    await navigator.clipboard.writeText(text).catch(() => {});
-    alert('Copied: ' + text);
-  });
+  // document.getElementById('copyBtn').addEventListener('click', async () => {
+  //   const text = `${categoryEl.textContent} — ${taskEl.textContent}`;
+  //   await navigator.clipboard.writeText(text).catch(() => {});
+  //   alert('Copied: ' + text);
+  // });
 
   // Full table
   const tableModal = document.getElementById('tableModal');
