@@ -263,4 +263,10 @@ export const recipes: RecipeType[] = [
     name: 'Crépes',
     description: 'De jamón y queso, de espinaca, de dulce de leche y todo tipo de creativas combinaciones.',
   },
+  {
+    id: 'pan-queso',
+    name: 'Pan de queso (Espcial Ramón)',
+    description:
+      '500 gr fécula mandioca\n1 pisca de sal\n150 ml agua\n150 ml leche\n150 ml aceite girasol\n4 huevos medianos\n250 gr queso pategras o barra tibo\n100 gr queso sardo rallado\n\nHervir liq y mezclar con la fécula\nRallar el queso\nDejar bajar la temperatura\nAgregar los huevos y el queso\nAmasar y hacer bolitas',
+  },
 ];

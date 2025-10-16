@@ -1,5 +1,5 @@
 import {useEffect, useMemo, useState} from 'react';
-import {cn} from '@/utils';
+import {cn} from '@/components/utils';
 import {Button} from '@/components/ui/button';
 import {
   DropdownMenu,

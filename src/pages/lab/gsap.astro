@@ -1,0 +1,88 @@
+---
+import Layout from '@layouts/default.astro';
+import {getCollection} from 'astro:content';
+import {compareDesc} from 'date-fns';
+
+const posts = (await getCollection('lab')).sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)));
+const publicPosts = posts.filter((post) => post.data.draft !== true);
+---
+
+<Layout title="COLORMONO'S LAB" description="Mariano Rivas's experiments.">
+  <section class="container">
+    <p>Generate a mock of a possible layout...</p>
+
+    <figure class="mt-16 aspect-video rounded-lg bg-muted p-4">
+      <div class="grid grid-cols-5 gap-4">
+        <div class="cell bg-foreground">1</div>
+        <div class="cell bg-foreground">3</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">5</div>
+        <div class="cell bg-foreground">5</div>
+        <div class="cell bg-foreground">1</div>
+        <div class="cell aspect-video bg-indigo-600">2</div>
+        <div class="cell bg-foreground">3</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">1</div>
+        <div class="cell bg-foreground">3</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">5</div>
+        <div class="cell aspect-video bg-indigo-600">2</div>
+        <div class="cell bg-foreground">1</div>
+        <div class="cell bg-foreground">3</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">4</div>
+        <div class="cell bg-foreground">5</div>
+      </div>
+    </figure>
+  </section>
+
+  <div class="relative">
+    <div class="box">2</div>
+  </div>
+</Layout>
+
+<style>
+  .cell {
+    text-align: center;
+    border-radius: calc(var(--radius) - 2px);
+    height: 400px;
+  }
+
+  .box {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: calc(var(--radius) - 2px);
+  }
+</style>
+
+<script>
+  import {gsap} from 'gsap';
+  import {ScrollTrigger} from 'gsap/ScrollTrigger';
+
+  console.log('using GSAP: ', gsap.version);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to('.box', {
+    rotation: 360,
+    x: '100px',
+    xPercent: -100,
+    // special properties
+    duration: 1, // how long the animation lasts
+    // repeat: -1, // -1 means infinite repeat
+    // repeat: 2, // the number of repeats - this will play 3 times
+    // yoyo: true, // this will alternate back and forth on each repeat. Like a yoyo
+    ease: 'none',
+    // ease: 'elastic.out(1, 0.3)', // elastic easing
+    scrollTrigger: {
+      trigger: '.box', // the element that triggers the animation
+      // start: 'top 80%', // when the top of the box reaches 80% of the viewport height
+      // end: 'bottom 20%', // when the bottom of the box reaches 20% of the viewport height
+      // scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scroll position
+      markers: true, // show markers for debugging
+      toggleActions: 'play none none reverse', // play on enter, do nothing on leave, reverse on re-enter
+    },
+  });
+</script>

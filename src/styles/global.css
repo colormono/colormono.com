@@ -4,6 +4,10 @@
 
 @layer base {
   :root {
+    --color-brand: #1c19b5;
+    --color-brand-foreground: hsl(0 0% 93%);
+    --color-brand-background: hsl(0 0% 7%);
+
     --background: 0 0% 93%;
     --foreground: 0 0% 7%;
 
@@ -16,7 +20,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
 
-    --primary: 240 100% 50%;
+    //--primary: #1c19b5;
+    --primary: 241 76% 40%;
     --primary-foreground: 210 20% 98%;
 
     --secondary: 220 14.3% 95.9%;
@@ -57,21 +62,114 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@layer reset {
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
+
+  /* Prevent font size inflation */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* Remove default margin in favour of better control in authored CSS */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  [role='list'] {
+    list-style: none;
+  }
+
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* Set shorter line heights on headings and interactive elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  /* Balance text wrapping on headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+  }
+
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-inline-width: 100%;
+    display: block;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  /* Make sure textareas without a rows attribute are not tiny */
+  textarea:not([rows]) {
+    min-height: 10em;
+  }
+
+  /* Anything that has been anchored to should have extra scroll margin */
+  :target {
+    scroll-margin-block: 5ex;
+  }
+}
+
+@layer base {
   body {
     @apply bg-background font-sans text-foreground antialiased transition-colors;
   }
+
   h1,
   h2,
   h3 {
     font-family: 'IBM Plex Sans', sans-serif;
-  }
-
-  .hidden {
-    display: none;
   }
 
   .text-underline {
@@ -88,4 +186,42 @@
     @apply accent-primary;
     margin-right: 0.5rem;
   }
+
+  .wrapper {
+    max-width: 1130px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+
+    &[data-width='narrow'] {
+      max-width: 780px;
+    }
+    &[data-width='wide'] {
+      max-width: 1330px;
+    }
+    &[data-width='full'] {
+      max-width: 100%;
+    }
+  }
+}
+
+@layer utilities {
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .wrapper-wide {
+    /* inline-size: min(80ch, 90%); */
+    inline-size: 90%;
+    margin-inline: auto;
+  }
+}
+
+.font-clamp {
+  font-size: clamp(1rem, 2.5vw, 2rem);
 }

@@ -1,11 +1,12 @@
 ---
+import {SITE_DESCRIPTION, SITE_TITLE} from '@/config';
+import {getLangFromUrl} from '@/i18n/utils';
+import Footer from '@components/Footer.astro';
 import Head from '@components/Head.astro';
 import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
 import '@fontsource/ibm-plex-sans/400.css';
 import '@fontsource/ibm-plex-sans/600.css';
-import {getLangFromUrl} from '@/i18n/utils';
-import {SITE_TITLE, SITE_DESCRIPTION} from '@/config';
+import '@styles/global.css';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -20,14 +21,15 @@ const {title, description}: Props = Astro.props;
 <html lang={lang}>
   <head>
     <Head title={title || SITE_TITLE} description={description || SITE_DESCRIPTION} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body class="bg-background text-lg">
-    <div class="flex min-h-screen w-full max-w-full flex-col">
+  <body>
+    <div class="flex min-h-screen w-full max-w-full flex-col text-lg">
       <Header />
-      <main class="relative flex flex-1 flex-col">
+      <main class="relative z-10 flex flex-1 flex-col bg-background">
         <slot />
       </main>
-      <Footer />
     </div>
+    <Footer />
   </body>
 </html>

@@ -2,7 +2,7 @@
 
 ---
 
-<div class="flex flex-row space-x-1 rounded-full border bg-background p-0.5">
+<div class="theme-btns">
   <button id="lightThemeBtn" class="theme-btn">
     <spam class="sr-only">Light</spam>
     <svg
@@ -112,12 +112,24 @@
 </script>
 
 <style>
+  .theme-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border-radius: 9999px;
+    padding: 0.25rem;
+    background-color: var(--color-brand-background);
+    width: fit-content;
+    justify-self: flex-end;
+  }
+
   .theme-btn {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background-color: var(--color-background);
+    color: var(--color-brand-foreground);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,12 +137,12 @@
   }
 
   .theme-btn:hover {
-    background-color: hsl(var(--muted));
+    background-color: var(--color-brand);
   }
 
   .theme-btn.active {
-    background-color: hsl(var(--foreground));
-    color: hsl(var(--background));
+    background-color: var(--color-brand);
+    color: var(--color-brand-foreground);
   }
 
   .theme-btn svg {

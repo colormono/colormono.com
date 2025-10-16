@@ -1,0 +1,169 @@
+---
+import ThemePicker from './ThemePicker.astro';
+import {SITE_TITLE} from '@/config';
+import {getLangFromUrl, useTranslations, useTranslatedPath} from '../i18n/utils';
+import Logo from './icons/colormono.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const today = new Date();
+---
+
+<footer>
+  <section class="wrapper-wide">
+    <div class="grid gap-16 md:grid-cols-6">
+      <a href={translatePath('/')} class="max-w-60 opacity-60">
+        <span class="sr-only">{SITE_TITLE}</span>
+        <!-- <Logo /> -->
+        <svg viewBox="0 0 44 10" fill="currentColor" stroke="none">
+          <rect y="0" x="0" height="10" width="10"></rect>
+          <circle cx="17" cy="5" r="5"></circle>
+          <path d="M 33.990061,10 33.995261,9.99477 24,0 v 9.999966 z"></path>
+          <path
+            d="M 38.980059,9.6432493e-6 A 5,5 0 0 0 34,4.9997043 5,5 0 0 0 38.999694,9.9999159 5,5 0 0 0 43.999906,4.9997043 5,5 0 0 0 38.999694,9.6432493e-6 a 5,5 0 0 0 -0.01964,0 z M 38.999699,2.8194757 A 2.1802361,2.1802361 0 0 1 41.18044,4.9997043 2.1802361,2.1802361 0 0 1 38.999694,7.1799331 2.1802361,2.1802361 0 0 1 36.819466,4.9997043 2.1802361,2.1802361 0 0 1 38.999694,2.8194757 Z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="wrapper-wide">
+    <div class="grid gap-16 md:grid-cols-6">
+      <div class="md:col-span-3">
+        <h3>Say Hello</h3>
+        <p>Mariano Rivas</p>
+        <p>hello@colormono.com</p>
+        <p>Buenos Aires, Argentina</p>
+        <p id="buenosAiresTime"></p>
+      </div>
+
+      <div>
+        <h3>Menu</h3>
+        <ul>
+          <li><a href={translatePath('/works')}>{t('nav.works')}</a></li>
+          <li><a href={translatePath('/lab')}>{t('nav.lab')}</a></li>
+          <li><a href={translatePath('/about')}>{t('nav.about')}</a></li>
+          <li><a href={translatePath('/contact')}>{t('nav.contact')}</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Social</h3>
+        <ul>
+          <li>
+            <a href="https://linkedin.com/in/colormono" target="_blank"
+              ><span class="sr-only">Follow Colormono on</span>LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://instagram.com/colormono" target="_blank"
+              ><span class="sr-only">Follow Colormono on</span>Instagram</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/colormono" target="_blank"
+              ><span class="sr-only">Follow Colormono on</span>Github</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="hidden md:block">
+        <h3>Scan</h3>
+        <p>
+          <img src="/static/qr-code.svg" alt="QR Code" />
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper-wide">
+    <div class="grid items-center gap-16 md:grid-cols-6">
+      <div class="md:col-span-4">
+        <p class="text-base opacity-60">
+          Built by{' '}
+          <a href="https://colormono.com" target="_blank" class="font-medium underline underline-offset-4">Colormono</a
+          >, source code on{' '}
+          <a
+            href="https://github.com/colormono/colormono.com"
+            target="_blank"
+            class="font-medium underline underline-offset-4">GitHub</a
+          >. Last update, {today.getFullYear()}.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-base opacity-60">
+          <a href="/rss.xml" class="inline-flex flex-row items-center space-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-rss"
+              ><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"
+              ></circle></svg
+            >
+            <span class="ml-2">RSS Feed</span>
+          </a>
+        </p>
+      </div>
+
+      <ThemePicker />
+    </div>
+  </section>
+
+  <script is:inline>
+    function updateBuenosAiresTime() {
+      const now = new Date();
+
+      // Argentina is UTC-3
+      const buenosAiresTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000 - 3 * 60 * 60000);
+      const formatter = new Intl.DateTimeFormat('es-AR', {
+        hour: 'numeric',
+        minute: 'numeric',
+        timeZone: 'America/Argentina/Buenos_Aires',
+      });
+      document.getElementById('buenosAiresTime').textContent = '(GMT-3) ' + formatter.format(now);
+    }
+
+    updateBuenosAiresTime();
+    setInterval(updateBuenosAiresTime, 60000); // Update every minute
+  </script>
+
+  <style>
+    footer {
+      z-index: 1;
+      background-color: var(--color-brand);
+      padding-block: 2em;
+      color: var(--color-brand-foreground);
+      font-size: clamp(1.5rem, 2vw, 2.6rem);
+      line-height: 1.6;
+    }
+    section {
+      padding-block: 2em;
+    }
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 2em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (width > 720px) {
+      footer {
+        position: sticky;
+        bottom: 0;
+      }
+    }
+  </style>
+</footer>

@@ -10,14 +10,16 @@ export const languages = {
 export const ui = {
   en: {
     'nav.home': 'Home',
-    'nav.about': 'About Me',
-    'nav.works': 'Works',
+    'nav.about': 'About',
+    'nav.works': 'Work',
     'nav.lab': 'Lab',
+    'nav.contact': 'Contact',
   },
   es: {
     'nav.home': 'Inicio',
     'nav.about': 'Acerca',
     'nav.works': 'Obra',
     'nav.lab': 'Lab',
+    'nav.contact': 'Contacto',
   },
 } as const;

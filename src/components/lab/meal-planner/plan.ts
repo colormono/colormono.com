@@ -71,7 +71,7 @@ export const mealPlan: MealPlannerType[] = [
       },
       {
         name: 'snack',
-        recipes: ['fruta', 'frutos-secos', 'hummus'],
+        recipes: ['tostado', 'fruta', 'frutos-secos', 'hummus'],
       },
       {
         name: 'dinner',
@@ -99,7 +99,7 @@ export const mealPlan: MealPlannerType[] = [
       },
       {
         name: 'snack',
-        recipes: ['fruta', 'frutos-secos', 'tostado'],
+        recipes: ['rollito', 'fruta', 'frutos-secos'],
       },
       {
         name: 'dinner',
@@ -127,7 +127,7 @@ export const mealPlan: MealPlannerType[] = [
       },
       {
         name: 'snack',
-        recipes: ['fruta', 'frutos-secos', 'rollito'],
+        recipes: ['fruta', 'frutos-secos', 'pan-queso'],
       },
       {
         name: 'dinner',
