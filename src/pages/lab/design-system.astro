@@ -1067,7 +1067,7 @@
               <div style="margin: 1rem 0;">
                 <div style="margin: 0.5rem 0;">
                   <span class="color-name">Mobile</span><br />
-                  <span class="color-value">< 768px</span>
+                  <span class="color-value">&lt; 768px</span>
                 </div>
                 <div style="margin: 0.5rem 0;">
                   <span class="color-name">Tablet</span><br />
@@ -1079,7 +1079,7 @@
                 </div>
                 <div style="margin: 0.5rem 0;">
                   <span class="color-name">Large Desktop</span><br />
-                  <span class="color-value">> 1440px</span>
+                  <span class="color-value">&gt; 1440px</span>
                 </div>
               </div>
             </div>
@@ -1139,7 +1139,7 @@
 
         let current = '';
         sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 100;
+          const sectionTop = (section as HTMLElement).offsetTop - 100;
           const sectionHeight = section.clientHeight;
           if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
             current = section.getAttribute('id');
@@ -1147,9 +1147,11 @@
         });
 
         navLinks.forEach((link) => {
-          link.style.color = 'var(--text-secondary)';
-          if (link.getAttribute('href') === `#${current}`) {
-            link.style.color = 'var(--primary-600)';
+          if (link instanceof HTMLElement) {
+            link.style.color = 'var(--text-secondary)';
+            if (link.getAttribute('href') === `#${current}`) {
+              link.style.color = 'var(--primary-600)';
+            }
           }
         });
       });
