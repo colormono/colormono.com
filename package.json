@@ -59,5 +59,8 @@
     "tailwindcss": "^3.4.0",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.3.3"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
   }
 }
