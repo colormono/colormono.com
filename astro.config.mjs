@@ -1,8 +1,9 @@
-import {defineConfig} from 'astro/config';
+import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 // import {imageService} from '@unpic/astro/service';
+import vercel from '@astrojs/vercel';
 
 import react from '@astrojs/react';
 
@@ -18,6 +19,11 @@ export default defineConfig({
     }),
     react(),
   ],
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   image: {
     // service: imageService(),
   },
