@@ -162,6 +162,12 @@
 }
 
 @layer base {
+  /* Disable transitions on page load to prevent dark mode flicker */
+  .no-transitions,
+  .no-transitions * {
+    transition: none !important;
+  }
+
   body {
     @apply bg-background font-sans text-foreground antialiased transition-colors;
   }
