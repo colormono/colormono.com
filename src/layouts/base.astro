@@ -1,6 +1,7 @@
 ---
 import {SITE_DESCRIPTION, SITE_TITLE} from '@/config';
 import {getLangFromUrl} from '@/i18n/utils';
+import Analytics from '@vercel/analytics/astro';
 import Footer from '@components/Footer.astro';
 import Head from '@components/Head.astro';
 import Header from '@components/Header.astro';
@@ -22,6 +23,7 @@ const {title, description}: Props = Astro.props;
   <head>
     <Head title={title || SITE_TITLE} description={description || SITE_DESCRIPTION} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <Analytics />
   </head>
   <body>
     <div class="flex min-h-screen w-full max-w-full flex-col text-lg">

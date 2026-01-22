@@ -1,0 +1,230 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "lab",
+      "path": "[[workspace]]/src/content/lab",
+      "contentTypes": ["lab"],
+      "previewPath": "lab"
+    },
+    {
+      "title": "works",
+      "path": "[[workspace]]/src/content/works",
+      "contentTypes": ["works"]
+    },
+    {
+      "title": "obras",
+      "path": "[[workspace]]/src/content/obras",
+      "contentTypes": ["obras"]
+    },
+    {
+      "title": "pages",
+      "path": "[[workspace]]/src/pages"
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "lab",
+      "previewPath": "'lab'",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": true
+        },
+        {
+          "name": "updatedDate",
+          "type": "datetime",
+          "default": "{{now}}"
+        },
+        {
+          "name": "heroImage",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "name": "thumbnail",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "tags",
+          "type": "tags",
+          "default": []
+        },
+        {
+          "name": "seo",
+          "type": "fields",
+          "fields": [
+            {
+              "name": "image",
+              "type": "image"
+            },
+            {
+              "name": "pageType",
+              "type": "choice",
+              "choices": ["website", "article"],
+              "default": "website"
+            }
+          ]
+        },
+        {
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "works",
+      "previewPath": "'works'",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": true
+        },
+        {
+          "name": "updatedDate",
+          "type": "datetime",
+          "default": "{{now}}"
+        },
+        {
+          "name": "heroImage",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "name": "thumbnail",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "isFeatured",
+          "type": "boolean"
+        },
+        {
+          "name": "seo",
+          "type": "fields",
+          "fields": [
+            {
+              "name": "image",
+              "type": "image"
+            },
+            {
+              "name": "pageType",
+              "type": "choice",
+              "choices": ["website", "article"],
+              "default": "website"
+            }
+          ]
+        },
+        {
+          "name": "tags",
+          "type": "tags",
+          "default": []
+        },
+        {
+          "name": "lang",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "draft",
+          "type": "draft"
+        }
+      ]
+    },
+    {
+      "name": "obras",
+      "previewPath": "'obras'",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": true
+        },
+        {
+          "name": "updatedDate",
+          "type": "datetime",
+          "default": "{{now}}"
+        },
+        {
+          "name": "heroImage",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "name": "thumbnail",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "isFeatured",
+          "type": "boolean"
+        },
+        {
+          "name": "seo",
+          "type": "fields",
+          "fields": [
+            {
+              "name": "title",
+              "type": "string",
+              "single": true
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "single": true
+            },
+            {
+              "name": "image",
+              "type": "image"
+            },
+            {
+              "name": "pageType",
+              "type": "choice",
+              "choices": ["website", "article"],
+              "default": "website"
+            }
+          ]
+        },
+        {
+          "name": "tags",
+          "type": "tags",
+          "default": []
+        },
+        {
+          "name": "lang",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "draft",
+          "type": "draft"
+        }
+      ]
+    }
+  ]
+}
