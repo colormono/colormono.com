@@ -29,10 +29,15 @@ const {title, description}: Props = Astro.props;
 
         if (theme === 'dark' || (!theme && prefersDark)) {
           document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
         }
 
         // Disable transitions on page load to prevent flickering
         document.documentElement.classList.add('no-transitions');
+
+        // Force immediate style computation
+        document.documentElement.offsetHeight;
       })();
     </script>
     <Head title={title || SITE_TITLE} description={description || SITE_DESCRIPTION} />
@@ -48,10 +53,21 @@ const {title, description}: Props = Astro.props;
     </div>
     <Footer />
     <script is:inline>
-      // Re-enable transitions after page has loaded
-      window.addEventListener('DOMContentLoaded', () => {
-        document.documentElement.classList.remove('no-transitions');
-      });
+      // Re-enable transitions after page has fully rendered
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', enableTransitions);
+      } else {
+        enableTransitions();
+      }
+
+      function enableTransitions() {
+        // Use double RAF to ensure paint has occurred
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            document.documentElement.classList.remove('no-transitions');
+          });
+        });
+      }
     </script>
   </body>
 </html>

@@ -12,6 +12,8 @@ const {item, class: className} = Astro.props;
       <img
         src={item.data.thumbnail || '/static/work/thumb-default.jpg'}
         alt={item.data.title}
+        loading="eager"
+        decoding="async"
         class="w-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
     </figure>

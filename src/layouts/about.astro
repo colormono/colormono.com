@@ -15,7 +15,7 @@ const {title, description}: Props = Astro.props;
 <Layout title={title} description={description}>
   <div class="container gap-32 pb-8">
     <div class="text-center">
-      <Image src={avatar} alt="Colormono" class="mx-auto rounded-full" />
+      <Image src={avatar} alt="Colormono" class="mx-auto rounded-full" loading="eager" />
       <h1 class="mt-8 text-5xl tracking-tighter">Mariano N. Rivas</h1>
       <h2 class="mt-4 text-2xl leading-normal">
         <abbr title="also known as">AKA</abbr> Colormono, Mono
