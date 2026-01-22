@@ -23,6 +23,15 @@ const {title, description}: Props = Astro.props;
   <head>
     <Head title={title || SITE_TITLE} description={description || SITE_DESCRIPTION} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <script is:inline>
+      // Prevent flash of unstyled content by applying theme before page renders
+      (function () {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <Analytics />
   </head>
   <body>

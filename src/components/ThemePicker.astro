@@ -1,10 +1,10 @@
 ---
-
+// src/components/ThemePicker.astro
 ---
 
 <div class="theme-btns">
   <button id="lightThemeBtn" class="theme-btn">
-    <spam class="sr-only">Light</spam>
+    <span class="sr-only">Light</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -62,53 +62,48 @@
 </div>
 
 <script is:inline>
-  try {
+  (function () {
     const lightThemeBtn = document.getElementById('lightThemeBtn');
     const darkThemeBtn = document.getElementById('darkThemeBtn');
     const systemThemeBtn = document.getElementById('systemThemeBtn');
 
     if (!(lightThemeBtn && darkThemeBtn && systemThemeBtn)) {
-      throw new Error('Theme buttons not found');
+      console.error('Theme buttons not found');
+      return;
     }
 
-    function setTheme(theme) {
+    function updateButtonStates(theme) {
+      lightThemeBtn.classList.toggle('active', theme === 'light');
+      darkThemeBtn.classList.toggle('active', theme === 'dark');
+      systemThemeBtn.classList.toggle('active', theme === 'system');
+    }
+
+    function applyTheme(theme) {
       if (theme === 'light') {
-        lightThemeBtn && lightThemeBtn.classList.add('active');
-        darkThemeBtn && darkThemeBtn.classList.remove('active');
-        systemThemeBtn && systemThemeBtn.classList.remove('active');
         document.documentElement.classList.remove('dark');
         localStorage.setItem('theme', 'light');
+        updateButtonStates('light');
       } else if (theme === 'dark') {
-        lightThemeBtn && lightThemeBtn.classList.remove('active');
-        darkThemeBtn && darkThemeBtn.classList.add('active');
-        systemThemeBtn && systemThemeBtn.classList.remove('active');
         document.documentElement.classList.add('dark');
         localStorage.setItem('theme', 'dark');
+        updateButtonStates('dark');
       } else {
-        lightThemeBtn && lightThemeBtn.classList.remove('active');
-        darkThemeBtn && darkThemeBtn.classList.remove('active');
-        systemThemeBtn && systemThemeBtn.classList.add('active');
         localStorage.removeItem('theme');
-
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', isDark);
+        updateButtonStates('system');
       }
     }
 
-    // Handle clicks
-    lightThemeBtn.addEventListener('click', () => setTheme('light'));
-    darkThemeBtn.addEventListener('click', () => setTheme('dark'));
-    systemThemeBtn.addEventListener('click', () => setTheme('system'));
+    // Handle button clicks
+    lightThemeBtn.addEventListener('click', () => applyTheme('light'));
+    darkThemeBtn.addEventListener('click', () => applyTheme('dark'));
+    systemThemeBtn.addEventListener('click', () => applyTheme('system'));
 
-    // On load
+    // Initialize button states based on current theme
     const storedTheme = localStorage.getItem('theme');
-    storedTheme ? setTheme(storedTheme) : setTheme('system');
-  } catch (error) {
-    console.error(error);
-  }
+    updateButtonStates(storedTheme || 'system');
+  })();
 </script>
 
 <style>
