@@ -61,7 +61,7 @@ const {title, description, date, updatedDate, heroImage, tags} = Astro.props;
               {tags.map((tag) => (
                 <a
                   href={`/tags/${slugify(tag)}/`}
-                  class="rounded-full border border-border px-5 py-1.5 transition-colors hover:bg-border"
+                  class="rounded-full border border-border px-5 py-1.5  hover:bg-border"
                 >
                   {tag}
                 </a>
